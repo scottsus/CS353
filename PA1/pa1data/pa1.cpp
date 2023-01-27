@@ -21,22 +21,15 @@ public:
 
 vector<int> BFS(int, vector<vector<Edge>>);
 vector<int> dijkstra(int, vector<vector<Edge>>);
-vector<vector<Edge>> init_graph(string);
-vector<vector<Edge>> init_type1_graph(vector<vector<char>>);
-vector<vector<Edge>> init_type2_graph(vector<vector<char>>);
+vector<vector<char>> init_char_graph(string);
+vector<vector<Edge>> init_edge_graph(vector<vector<char>>);
 int check_type(vector<vector<char>>);
 bool check_row(vector<char>);
 int normalize(int, int);
+vector<vector<char>> edge_to_char(vector<int>, vector<vector<char>>);
 void log(vector<vector<char>>);
 void log(vector<vector<Edge>>);
 void log(vector<int>);
-
-// High Level Overview
-// 1. Parse the maze
-// 2. Check if it's Type I or Type II
-// 3. Convert into graph
-// 4. Run BFS or Dijkstra
-// 5. Output
 
 int rows, cols;
 int start_row, start_col;
@@ -59,26 +52,32 @@ int main(int argc, char *argv[])
         start_row = stoi(argv[1]), start_col = stoi(argv[2]);
     }
 
-    int start_node = start_row * rows + start_col;
-    vector<vector<Edge>> graph = init_graph(argv[argc - 1]);
-    cout << "Typee: " << type << endl;
-    // log(graph);
+    vector<vector<char>> char_graph = init_char_graph(argv[argc - 1]);
+    vector<vector<Edge>> edge_graph = init_edge_graph(char_graph);
+    int start_node = start_row * cols + start_col;
+
+    // log(char_graph);
+    // log(edge_graph);
+
+    // cout << "char_r: " << char_rows << ", char_c: " << char_cols << endl;
+    // cout << "rows: " << rows << ", cols: " << cols << endl;
+    // cout << "start: " << start_node << endl;
 
     vector<int> distances;
     if (type == 1)
-        distances = BFS(start_node, graph);
+        distances = BFS(start_node, edge_graph);
     else // type == 2
-        distances = dijkstra(start_node, graph);
+        distances = dijkstra(start_node, edge_graph);
 
-    log(distances);
-    // Convert back to char_matrix
-    // Log char_matrix
+    // log(distances);
+
+    vector<vector<char>> output_graph = edge_to_char(distances, char_graph);
+    log(output_graph);
 
     return 0;
 }
 
 // Breadth First Search
-// Modifies the original graph
 vector<int> BFS(int start_node, vector<vector<Edge>> graph)
 {
     int num_nodes = rows * cols;
@@ -101,6 +100,7 @@ vector<int> BFS(int start_node, vector<vector<Edge>> graph)
             for (Edge edge : neighbors)
             {
                 int neighbor = edge.to;
+
                 if (visited[neighbor])
                     continue;
                 distances[neighbor] = level;
@@ -110,15 +110,13 @@ vector<int> BFS(int start_node, vector<vector<Edge>> graph)
         }
         level++;
     }
-    cout << endl;
     return distances;
 }
 
 // Dijkstra's Algorithm
-// Modifies the original graph
 vector<int> dijkstra(int start_node, vector<vector<Edge>> graph)
 {
-    const int INF = 1e9;
+    const int INF = INT32_MAX;
     int num_nodes = rows * cols;
 
     vector<int> distances(num_nodes, INF);
@@ -135,11 +133,11 @@ vector<int> dijkstra(int start_node, vector<vector<Edge>> graph)
     distances[start_node] = 0;
     pq.push(Edge(start_node, start_node, 0));
 
-    int itr = 0;
+    int iters = 0;
     while (!pq.empty())
     {
         Edge edge = pq.top();
-        int from = edge.from, pred = edge.to, dist = edge.dist;
+        int from = edge.from;
         pq.pop();
 
         // if this node has been relaxed before
@@ -147,8 +145,6 @@ vector<int> dijkstra(int start_node, vector<vector<Edge>> graph)
         if (visited[from])
             continue;
         visited[from] = true;
-
-        cout << "itr " << itr++ << ": add node " << from << ", distance " << dist << ", predecessor " << pred << endl;
 
         vector<Edge> neighbors = graph.at(from);
         for (const Edge &edge : neighbors)
@@ -158,26 +154,29 @@ vector<int> dijkstra(int start_node, vector<vector<Edge>> graph)
             {
                 distances[to] = distances[from] + dist;
                 pq.push(Edge(to, from, distances[to]));
-                // in this case, the Edge.to will store the info
-                // about the predecessor instead of the destination node
             }
         }
+        iters++;
+        if (iters > 1000)
+            return distances;
     }
     return distances;
 }
 
-vector<vector<Edge>> init_graph(string filename)
+// Initializes the char graph from the txt file
+vector<vector<char>> init_char_graph(string filename)
 {
     // Parse the file to see if it's alright
     ifstream file(filename);
     if (!file.is_open())
     {
         cout << "Unable to open file" << endl;
-        return vector<vector<Edge>>{};
+        return vector<vector<char>>{};
     }
 
     vector<vector<char>> char_graph{};
 
+    // Input
     string line;
     while (getline(file, line))
     {
@@ -186,76 +185,72 @@ vector<vector<Edge>> init_graph(string filename)
             char_line.push_back(line[i]);
         char_graph.push_back(char_line);
     }
+    file.close();
 
+    // Global variables
     char_rows = char_graph.size(), char_cols = char_graph.at(0).size();
     rows = (char_graph.size() - 1) / 2, cols = (char_graph.at(0).size() - 1) / 2;
 
-    vector<vector<Edge>> graph;
+    return char_graph;
+}
+
+// Initializes the edge graph from the char graph
+vector<vector<Edge>> init_edge_graph(vector<vector<char>> char_graph)
+{
     type = check_type(char_graph);
     if (type == 0)
         return vector<vector<Edge>>{};
-    else if (type == 1)
-        graph = init_type1_graph(char_graph);
-    else
-        graph = init_type1_graph(char_graph);
 
-    return graph;
-}
-
-vector<vector<Edge>> init_type1_graph(vector<vector<char>> input_graph)
-{
-    cout << "Initializing..." << endl;
-    vector<vector<Edge>> output_graph(rows * cols);
-    for (uint i = 1; i < input_graph.size() - 1; i += 2)
+    vector<vector<Edge>> edge_graph(rows * cols);
+    for (uint i = 1; i < char_graph.size() - 1; i += 2)
     {
-        vector<char> row = input_graph.at(i);
+        vector<char> row = char_graph.at(i);
         for (uint j = 1; j < row.size() - 1; j += 2)
         {
             int curr_node = normalize(i * char_cols + j, i);
-            cout << "curr: " << curr_node << endl;
 
             int top_node = normalize((i - 2) * char_cols + j, i - 2);
             if (i - 1 > 0)
             {
-                char path = input_graph.at(i - 1).at(j);
+                char path = char_graph.at(i - 1).at(j);
                 if (isdigit(path))
-                    output_graph.at(curr_node).push_back(Edge(curr_node, top_node, atoi(&path)));
+                    edge_graph.at(curr_node).push_back(Edge(curr_node, top_node, atoi(&path)));
                 else if (path == ' ')
-                    output_graph.at(curr_node).push_back(Edge(curr_node, top_node, 0));
+                    edge_graph.at(curr_node).push_back(Edge(curr_node, top_node, 0));
             }
 
             int btm_node = normalize((i + 2) * char_cols + j, i + 2);
             if ((int)i + 1 < char_rows - 1)
             {
-                char path = input_graph.at(i + 1).at(j);
+                char path = char_graph.at(i + 1).at(j);
                 if (isdigit(path))
-                    output_graph.at(curr_node).push_back(Edge(curr_node, btm_node, atoi(&path)));
+                    edge_graph.at(curr_node).push_back(Edge(curr_node, btm_node, atoi(&path)));
                 else if (path == ' ')
-                    output_graph.at(curr_node).push_back(Edge(curr_node, btm_node, 0));
+                    edge_graph.at(curr_node).push_back(Edge(curr_node, btm_node, 0));
             }
 
             int left_node = normalize(i * char_cols + (j - 2), i);
             if (j - 1 > 0)
             {
-                char path = input_graph.at(i).at(j - 1);
+                char path = char_graph.at(i).at(j - 1);
                 if (isdigit(path))
-                    output_graph.at(curr_node).push_back(Edge(curr_node, left_node, atoi(&path)));
+                    edge_graph.at(curr_node).push_back(Edge(curr_node, left_node, atoi(&path)));
                 else if (path == ' ')
-                    output_graph.at(curr_node).push_back(Edge(curr_node, left_node, 0));
+                    edge_graph.at(curr_node).push_back(Edge(curr_node, left_node, 0));
             }
 
             int right_node = normalize(i * char_cols + (j + 2), i);
             if ((int)j + 1 < char_cols - 1)
             {
-                char path = input_graph.at(i).at(j + 1);
+                char path = char_graph.at(i).at(j + 1);
                 if (isdigit(path))
-                    output_graph.at(curr_node).push_back(Edge(curr_node, right_node, atoi(&path)));
-                else if (input_graph.at(i).at(j + 1) == ' ')
-                    output_graph.at(curr_node).push_back(Edge(curr_node, right_node, 0));
+                    edge_graph.at(curr_node).push_back(Edge(curr_node, right_node, atoi(&path)));
+                else if (path == ' ')
+                    edge_graph.at(curr_node).push_back(Edge(curr_node, right_node, 0));
             }
         }
     }
-    return output_graph;
+    return edge_graph;
 }
 
 // Convert input matrix indices into 0-based indices
@@ -268,7 +263,6 @@ int normalize(int skewed_index, int row)
 // whether it is Type I or Type II
 int check_type(vector<vector<char>> graph)
 {
-    cout << "Checking the input matrix..." << endl;
     int type = 1;
 
     // Check top and bottom rows
@@ -289,7 +283,6 @@ int check_type(vector<vector<char>> graph)
             char space = graph.at(i).at(j);
             if (isdigit(space))
                 type = 2;
-            cout << space << " ";
 
             // Check + | + | + pattern on boundary cols
             if (level % 2 == 0)
@@ -304,7 +297,6 @@ int check_type(vector<vector<char>> graph)
             }
         }
         level++;
-        cout << endl;
     }
     return type;
 }
@@ -322,19 +314,33 @@ bool check_row(vector<char> row)
     return true;
 }
 
-// Console out the char graph for debugging
+// Convert Adjacency List back to txt format
+vector<vector<char>> edge_to_char(vector<int> distances, vector<vector<char>> graph)
+{
+    int curr_node = 0;
+    for (uint i = 1; i < graph.size() - 1; i += 2)
+    {
+        vector<char> &row = graph.at(i);
+        for (uint j = 1; j < row.size() - 1; j += 2)
+        {
+            if (row.at(j) == ' ')
+                row[j] = (distances.at(curr_node++) % 10) + '0';
+        }
+    }
+    return graph;
+}
+
+// Console out the char graph
 void log(vector<vector<char>> graph)
 {
-    cout << "Rows: " << char_rows << ", Cols: " << char_cols << endl;
     for (int i = 0; i < char_rows; i++)
     {
         for (int j = 0; j < char_cols; j++)
         {
-            cout << graph.at(i).at(j) << " ";
+            cout << graph.at(i).at(j);
         }
         cout << endl;
     }
-    cout << endl;
 }
 
 // Console out Adjacency List for debgugging
@@ -359,6 +365,7 @@ void log(vector<vector<Edge>> graph)
     cout << endl;
 }
 
+// Console out distances vector for debugging
 void log(vector<int> distances)
 {
     cout << "Distances:" << endl;

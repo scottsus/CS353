@@ -1,6 +1,7 @@
 #!/bin/tcsh -f
 
-set datadir=pa1data
+set datadir=$cwd
+echo $datadir
 
 source $datadir/pa1-setup.csh
 

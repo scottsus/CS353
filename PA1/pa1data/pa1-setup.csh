@@ -1,6 +1,6 @@
 #!/bin/tcsh -f
 
-set datadir=pa1data
+set datadir=$cwd
 
                 set p0="0 0"
                 set p1="1 1"
