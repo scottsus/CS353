@@ -25,12 +25,12 @@ echo "(B) Type-II Maze ..."
                 ./pa1 $p16 $datadir/f41 > f41.out
                 ./pa1 $p17 $datadir/f42 > f42.out
                 ./pa1 $p18 $datadir/f43 > f43.out
-                # ./pa1 $p19 $datadir/f44 > f44.out
-                # ./pa1 $p20 $datadir/f45 > f45.out
-                # ./pa1 $p21 $datadir/f46 > f46.out
-                # ./pa1 $p22 $datadir/f47 > f47.out
-                # ./pa1 $p23 $datadir/f48 > f48.out
-                # ./pa1 $p24 $datadir/f49 > f49.out
+                ./pa1 $p19 $datadir/f44 > f44.out
+                ./pa1 $p20 $datadir/f45 > f45.out
+                ./pa1 $p21 $datadir/f46 > f46.out
+                ./pa1 $p22 $datadir/f47 > f47.out
+                ./pa1 $p23 $datadir/f48 > f48.out
+                ./pa1 $p24 $datadir/f49 > f49.out
                 foreach f (25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43)# 44 45 46 47 48 49)
                     echo "===> $datadir/sol/f$f"
                     diff $datadir/sol/f$f.out f$f.out
