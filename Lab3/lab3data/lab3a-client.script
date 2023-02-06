@@ -1,19 +1,20 @@
-Script started on 2023-02-05 15:28:17-08:00 [TERM="xterm-256color" TTY="/dev/pts/5" COLUMNS="120" LINES="30"]
-[1m[38;5;118m[7m%[27m[1m[38;5;118m[0m[38;5;118m                                                                                                                        ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab3/lab3data]1;..Lab3/lab3data[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab3/lab3data[00m on [38;5;81mmaster[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[32m.[39m[32m.[39m[90m/echo-server 12345[39m[18D[4m[32m.[4m[32m/[24m[39m[39m[4m.[39m[4m/[39m[4me[24m[4me[39m[4mc[24m[4mc[39m[4mh[24m[4mh[39m[4mo[24m[4mo[39m[4m-[24m[4m-[39m[4mc[24m[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [11D[4mc[4ml[24m[4ml[4mi[24m[4mi[4me[24m[4me[4mn[24m[12D[24m[32m.[24m[32m/[24m[32me[24m[32mc[24m[32mh[24m[32mo[24m[32m-[24m[32mc[24m[32ml[24m[32mi[24m[32me[24m[32mn[32mt[39m 12345[?1l>[?2004l
-]2;./echo-client 12345]1;./echo-clientecho-client at 127.0.0.1:45098 is connected to server at 127.0.0.1:12345
+Script started on Sun 05 Feb 2023 03:54:23 PM PST
+]0;ssusanto@CS350: ~/CS353/Lab3/lab3data[01;32mssusanto@CS350[00m:[01;34m~/CS353/Lab3/lab3data[00m$ ./echo-client 12345
+echo-client at 127.0.0.1:40124 is connected to server at 127.0.0.1:12345
 Enter a string to send to the echo server: Hello World!
-13 bytes sent from 127.0.0.1:45098
+13 bytes sent from 127.0.0.1:40124
 13 bytes received, see next line for data...
 Hello World!
-[1m[7m%[27m[1m[0m                                                                                                                        ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab3/lab3data]1;..Lab3/lab3data[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab3/lab3data[00m on [38;5;81mmaster[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[32m.[39m[32m.[39m[90m/echo-client 12345[39m[18D[4m[32m.[4m[32m/[24m[39m[24m[32m.[24m[32m/[32me[32mc[32mh[32mo[32m-[32mc[32ml[32mi[32me[32mn[32mt[39m[39m [39m1[39m2[39m3[39m4[39m5[?1l>[?2004l
-]2;./echo-client 12345]1;./echo-clientecho-client at 127.0.0.1:45100 is connected to server at 127.0.0.1:12345
-Enter a string to send to the echo server: Good-bye for now.
-18 bytes sent from 127.0.0.1:45100
+]0;ssusanto@CS350: ~/CS353/Lab3/lab3data[01;32mssusanto@CS350[00m:[01;34m~/CS353/Lab3/lab3data[00m$ ./client[K[K[K[K[K[Kecho-client 12345
+echo-client at 127.0.0.1:40126 is connected to server at 127.0.0.1:12345
+Enter a string to send to the echo server: Good-bye for ow  now.
+18 bytes sent from 127.0.0.1:40126
 18 bytes received, see next line for data...
 Good-bye for now.
-[1m[7m%[27m[1m[0m                                                                                                                        ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab3/lab3data]1;..Lab3/lab3data[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab3/lab3data[00m on [38;5;81mmaster[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[32m.[39m[32m.[39m[90m/echo-client 12345[39m[18D[4m[32m.[4m[32m/[24m[39m[24m[32m.[24m[32m/[32me[32mc[32mh[32mo[32m-[32mc[32ml[32mi[32me[32mn[32mt[39m[39m [39m1[39m2[39m3[39m4[39m5\ [?1l>[?2004l
-]2;./echo-client 12345]1;./echo-clientecho-client at 127.0.0.1:45102 is connected to server at 127.0.0.1:12345
+]0;ssusanto@CS350: ~/CS353/Lab3/lab3data[01;32mssusanto@CS350[00m:[01;34m~/CS353/Lab3/lab3data[00m$ ./echo-client 12345exit[Kmake echo-serverexit[K./echo-client 12345[K./echo-client 12345
+echo-client at 127.0.0.1:40128 is connected to server at 127.0.0.1:12345
 Enter a string to send to the echo server: 
-[1m[7m%[27m[1m[0m                                                                                                                        ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab3/lab3data]1;..Lab3/lab3data[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab3/lab3data[00m on [38;5;81mmaster[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[4me[24m[4me[24m[90mb[39m[24m[32me[32mx[39m[90mit[39m[1m[31me[1m[31mx[1m[31mi[0m[39m[0m[32me[0m[32mx[0m[32mi[32mt[39m[?1l>[?2004l
-]2;exit]1;exit
-Script done on 2023-02-05 15:29:16-08:00 [COMMAND_EXIT_CODE="0"]
+]0;ssusanto@CS350: ~/CS353/Lab3/lab3data[01;32mssusanto@CS350[00m:[01;34m~/CS353/Lab3/lab3data[00m$ exit
+exit
+
+Script done on Sun 05 Feb 2023 03:55:08 PM PST

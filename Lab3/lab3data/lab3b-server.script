@@ -1,21 +1,20 @@
-Script started on 2023-02-05 15:38:03-08:00 [TERM="xterm-256color" TTY="/dev/pts/6" COLUMNS="125" LINES="39"]
-[1m[38;5;118m[7m%[27m[1m[38;5;118m[0m[38;5;118m                                                                                                                             ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab3/lab3data]1;..Lab3/lab3data[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab3/lab3data[00m on [38;5;81mmaster[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[32mg[39m[32mg[39m[90mdb echo-server[39m[14D[32mg[32md[39m[32mg[32md[32mb[39m[39m [39m[4me[39m[4mc[39m[4mh[39m[4mo[39m[4m-[39m[4ms[39m[4me[39m[4mr[39m[4mv[39m[4me[39m[4mr[24m[?1l>[?2004l
-]2;gdb echo-server]1;gdb[35;1m[35;1mGNU gdb [m[35;1m(Ubuntu 9.2-0ubuntu1~20.04.1) [m[35;1m9.2[m[35;1m
-[m[mCopyright (C) 2020 Free Software Foundation, Inc.
+Script started on Sun 05 Feb 2023 03:57:23 PM PST
+]0;ssusanto@CS350: ~/CS353/Lab3/lab3data[01;32mssusanto@CS350[00m:[01;34m~/CS353/Lab3/lab3data[00m$ gdb echo-server
+GNU gdb (Ubuntu 7.11.1-0ubuntu1~16.5) 7.11.1
+Copyright (C) 2016 Free Software Foundation, Inc.
 License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 This is free software: you are free to change and redistribute it.
-There is NO WARRANTY, to the extent permitted by law.
-Type "show copying" and "show warranty" for details.
-This GDB was configured as "x86_64-linux-gnu".
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "i686-linux-gnu".
 Type "show configuration" for configuration details.
 For bug reporting instructions, please see:
 <http://www.gnu.org/software/gdb/bugs/>.
 Find the GDB manual and other documentation resources online at:
-    <http://www.gnu.org/software/gdb/documentation/>.
-
+<http://www.gnu.org/software/gdb/documentation/>.
 For help, type "help".
 Type "apropos word" to search for commands related to "word"...
-Reading symbols from [32mecho-server[m...
+Reading symbols from echo-server...done.
 (gdb) list 76
 71	    if (gnDebug) {
 72	        cerr << "[DBG-SVR] " << dec << bytes_received << " bytes received from " << get_ip_and_port_for_server(newsockfd, 0) << " (data displayed in next line, <TAB>-indented):\n\t";
@@ -28,13 +27,13 @@ Reading symbols from [32mecho-server[m...
 79	            }
 80	            cerr << endl;
 (gdb) break 76
-Breakpoint 1 at [34m0x295b[m: file [32mecho-server.cpp[m, line 76.
+Breakpoint 1 at 0x80494f4: file echo-server.cpp, line 76.
 (gdb) break main
-Breakpoint 2 at [34m0x2aac[m: file [32mecho-server.cpp[m, line 90.
-(gdb) run ./echo-server 12345
-Starting program: /home/ssusanto/CS353/Lab3/lab3data/echo-server ./echo-server 12345
+Breakpoint 2 at 0x804967a: file echo-server.cpp, line 90.
+(gdb) run 12345
+Starting program: /home/ssusanto/CS353/Lab3/lab3data/echo-server 12345
 
-Breakpoint 2, [33mmain[m ([36margc[m=1, [36margv[m=0x280) at [32mecho-server.cpp[m:90
+Breakpoint 2, main (argc=2, argv=0xbfffefd4) at echo-server.cpp:90
 90	{
 (gdb) list
 85	    shutdown(newsockfd, SHUT_RDWR);
@@ -48,18 +47,93 @@ Breakpoint 2, [33mmain[m ([36margc[m=1, [36margv[m=0x280) at [32mecho-ser
 93	    if (listen_socket_fd != (-1)) {
 94	        if (gnDebug) {
 (gdb) print argc
-$1 = 1
+$1 = 2
 (gdb) print argv[0]
-Cannot access memory at address 0x280
-(gdb) print[K[K[K[K[KQuit
-(gdb) Quit
-Undefined command: "Quit".  Try "help".
-(gdb) Quit
+$2 = 0xbffff1cb "/home/ssusanto/CS353/Lab3/lab3data/echo-server"
+(gdb) print argv[1]
+$3 = 0xbffff1fa "12345"
+(gdb) cont
+Continuing.
+[DBG-SVR]	argv[0]: '/home/ssusanto/CS353/Lab3/lab3data/echo-server'
+[DBG-SVR]	argv[1]: '12345'
+[SERVER]	listening at 127.0.0.1:12345
+[DBG-SVR] 7 bytes received from 127.0.0.1:40130 (data displayed in next line, <TAB>-indented):
+	Hello!
+
+Breakpoint 1, talk_to_client (newsockfd=4) at echo-server.cpp:76
+76	            cerr << "\t";
+(gdb) l
+71	    if (gnDebug) {
+72	        cerr << "[DBG-SVR] " << dec << bytes_received << " bytes received from " << get_ip_and_port_for_server(newsockfd, 0) << " (data displayed in next line, <TAB>-indented):\n\t";
+73	        write(2, buf, bytes_received);
+74	        if (!(bytes_received > 0 && buf[bytes_received-1] == '\n')) cerr << endl;
+75	        if (bytes_received > 0) {
+76	            cerr << "\t";
+77	            for (int i=0; i < bytes_received; i++) {
+78	                cerr << "0x" << setfill('0') << setw(2) << hex << (int)buf[i] << " ";
+79	            }
+80	            cerr << endl;
+(gdb) p bytes_recevied[K[K[K[Kived
+$4 = 7
+(gdb) p buf[0]
+$5 = 72 'H'
+(gdb) p buf[1]
+$6 = 101 'e'
+(gdb) p buf[2]
+$7 = 108 'l'
+(gdb) p buf[3]
+$8 = 108 'l'
+(gdb) p buf[4]
+$9 = 111 'o'
+(gdb) p buf[5]
+$10 = 33 '!'
+(gdb) p buf[6]
+$11 = 10 '\n'
+(gdb) p buf[7]
+$12 = -7 '\371'
+(gdb) p buf[8]
+$13 = -8 '\370'
+(gdb) p buf[9]
+$14 = -9 '\367'
+(gdb) c
+Continuing.
+	0x48 0x65 0x6c 0x6c 0x6f 0x21 0x0a 
+[DBG-SVR] 5 bytes received from 127.0.0.1:40132 (data displayed in next line, <TAB>-indented):
+	Bye.
+
+Breakpoint 1, talk_to_client (newsockfd=4) at echo-server.cpp:76
+76	            cerr << "\t";
+(gdb) p bytes_received
+$15 = 5
+(gdb) p buf[0]
+$16 = 66 'B'
+(gdb) p buf[0][1P]1]
+$17 = 121 'y'
+(gdb) p buf[1][1P]2]
+$18 = 101 'e'
+(gdb) p buf[2][1P]3]
+$19 = 46 '.'
+(gdb) p buf[3][1P]4]
+$20 = 10 '\n'
+(gdb) p buf[4][1P]5]
+$21 = -5 '\373'
+(gdb) p buf[5][1P]6]
+$22 = -6 '\372'
+(gdb) p buf[6][1P]7]
+$23 = -7 '\371'
+(gdb) c
+Continuing.
+	0x42 0x79 0x65 0x2e 0x0a 
+^C
+Program received signal SIGINT, Interrupt.
+0xb7fd9cf5 in __kernel_vsyscall ()
 (gdb) quit
 A debugging session is active.
 
-	Inferior 1 [process 14651] will be killed.
+	Inferior 1 [process 3845] will be killed.
 
 Quit anyway? (y or n) y
-[1m[7m%[27m[1m[0m                                                                                                                             ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab3/lab3data]1;..Lab3/lab3data[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab3/lab3data[00m on [38;5;81mmaster[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31mc[0m[39m[0m[32mc[32md[39m[90m CS353/Lab3/lab3data[39m[20D[39m [39m[4m.[24m[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [18D[90m./Lab3[39m[4m.[39m[4m.[24m[39m [39m [39m [39m [39m [?1l>[?2004l
-]2;cd ..]1;cd[1m[7m%[27m[1m[0m                                                                                                                        
+]0;ssusanto@CS350: ~/CS353/Lab3/lab3data[01;32mssusanto@CS350[00m:[01;34m~/CS353/Lab3/lab3data[00m$ exit
+exit
+
+Script done on Sun 05 Feb 2023 04:03:02 PM PST
