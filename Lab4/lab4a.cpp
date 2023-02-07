@@ -25,8 +25,7 @@ using namespace std;
 #include "my_socket.h"
 #include "my_readwrite.h"
 
-static int listen_socket_fd = (-1); /* there is nothing wrong with using a global variable */
-static int gnDebug = 1;             /* change it to 0 if you don't want debugging messages */
+static int gnDebug = 1; /* change it to 0 if you don't want debugging messages */
 
 static int get_file_size(string path)
 {
@@ -49,36 +48,29 @@ static void write_headers(int sockfd, int file_size)
     better_write_header(sockfd, h3.c_str(), h3.length());
     better_write_header(sockfd, h4.c_str(), h4.length());
     better_write_header(sockfd, h5.c_str(), h5.length());
+
+    cout << '\t' + h1 << '\t' + h2 << '\t' + h3 << '\t' + h4 << '\t' + h5 << endl;
 }
 
 static void write_body(int sockfd, int fd)
 {
-    int total_bytes_read = 0, bytes_read = 0;
+    int bytes_read = 0;
     char line[4096];
     while ((bytes_read = read(fd, line, 4096)))
-    {
-        string line_str = string(line);
-        cout << bytes_read << " bytes read from file" << endl;
-        better_write(sockfd, line_str.c_str(), bytes_read);
-        total_bytes_read += bytes_read;
-    }
-    cout << "Total bytes sent: " << total_bytes_read << endl;
+        better_write(sockfd, string(line).c_str(), bytes_read);
 }
 
 static void respond_to_http_client(int newsockfd)
 {
+    int header_count = 0;
     while (true)
     {
         string line;
         int bytes_received = read_a_line(newsockfd, line);
 
-        if (gnDebug)
-        {
-            cerr << "[DBG-SVR] " << dec << bytes_received << " bytes received from " << get_ip_and_port_for_server(newsockfd, 0) << " (data displayed in next line, <TAB>-indented):\n\t";
-            better_write(2, line.c_str(), bytes_received);
-            if (!(bytes_received > 0 && line[bytes_received - 1] == '\n'))
-                cerr << endl;
-        }
+        if (gnDebug && header_count == 0)
+            cerr << "[DBG-SVR] " << dec << bytes_received << " bytes received from " << get_ip_and_port_for_server(newsockfd, 0) << endl;
+        header_count = (header_count + 1) % 5;
 
         stringstream stream(line);
         string req_type, filepath, version;
@@ -90,7 +82,7 @@ static void respond_to_http_client(int newsockfd)
             return;
         }
 
-        cout << "Request: " << req_type << ", Filepath: " << filepath << ", Version : " << version << endl;
+        // cout << "Request: " << req_type << ", Filepath: " << filepath << ", Version : " << version << endl;
 
         filepath = "lab4data" + filepath;
         int file_size = get_file_size(filepath);
