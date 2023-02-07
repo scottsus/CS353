@@ -132,7 +132,7 @@ static void respond_to_http_client(int newsockfd)
 
         cout << "Request: " << req_type << ", Filepath: " << filepath << ", Version : " << version << endl;
 
-        filepath = "." + filepath;
+        filepath = "lab4data" + filepath;
         int file_size = get_file_size(filepath);
         if (!file_size)
         {
