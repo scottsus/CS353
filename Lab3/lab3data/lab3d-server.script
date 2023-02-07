@@ -1,0 +1,29 @@
+Script started on 2023-02-06 22:07:53-08:00 [TERM="xterm-256color" TTY="/dev/pts/8" COLUMNS="125" LINES="39"]
+[1m[38;5;118m[7m%[27m[1m[38;5;118m[0m[38;5;118m                                                                                                                             ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab3/lab3data]1;..Lab3/lab3data[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab3/lab3data[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[32m.[39m[32m.[39m[90m/lab3d -c 12345[39m[15D[4m[32m.[4m[32m/[24m[39m[39m[4m.[39m[4m/[39m[4ml[24m[4ml[39m[4ma[24m[4ma[39m[4mb[24m[4mb[39m[4m3[24m[24m[32m.[24m[32m/[24m[32ml[24m[32ma[24m[32mb[24m[32m3[32md[39m[39m [39m1[39m [39m [39m [39m [39m [39m [39m [90m2345[39m[39m2[39m3[39m4[39m5[?1l>[?2004l
+]2;./lab3d 12345]1;./lab3d[DBG-SVR]	argv[0]: './lab3d'
+[DBG-SVR]	argv[1]: '12345'
+[DBG-SVR] 6 bytes received from 127.0.0.1:45522 (data displayed in next line, <TAB>-indented):
+	hello
+	0x68 0x65 0x6c 0x6c 0x6f 0x0a 
+[DBG-SVR] 13 bytes received from 127.0.0.1:45522 (data displayed in next line, <TAB>-indented):
+	how are you?
+	0x68 0x6f 0x77 0x20 0x61 0x72 0x65 0x20 0x79 0x6f 0x75 0x3f 0x0a 
+[DBG-SVR] 4 bytes received from 127.0.0.1:45522 (data displayed in next line, <TAB>-indented):
+	bye
+	0x62 0x79 0x65 0x0a 
+[DBG-SVR] 8 bytes received from 127.0.0.1:45526 (data displayed in next line, <TAB>-indented):
+	testing
+	0x74 0x65 0x73 0x74 0x69 0x6e 0x67 0x0a 
+[DBG-SVR] 2 bytes received from 127.0.0.1:45526 (data displayed in next line, <TAB>-indented):
+	1
+	0x31 0x0a 
+[DBG-SVR] 2 bytes received from 127.0.0.1:45526 (data displayed in next line, <TAB>-indented):
+	2
+	0x32 0x0a 
+[DBG-SVR] 2 bytes received from 127.0.0.1:45526 (data displayed in next line, <TAB>-indented):
+	3
+	0x33 0x0a 
+Encountered a non-ASCII character (0x0c) in read_a_line().  Abort program!
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab3/lab3data]1;..Lab3/lab3data[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab3/lab3data[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31me[0m[39m[1m[31me[0m[39m[90mxit[39m[0m[32me[32mx[39m[1m[31me[1m[31mx[1m[31mi[0m[39m[0m[32me[0m[32mx[0m[32mi[32mt[39m[?1l>[?2004l
+]2;exit]1;exit
+Script done on 2023-02-06 22:08:55-08:00 [COMMAND_EXIT_CODE="255"]
