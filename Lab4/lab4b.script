@@ -1,0 +1,180 @@
+Script started on 2023-02-10 16:58:52-08:00 [TERM="xterm-256color" TTY="/dev/pts/11" COLUMNS="110" LINES="51"]
+[1m[38;5;118m[7m%[27m[1m[38;5;118m[0m[38;5;118m                                                                                                              ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab4]1;~/CS353/Lab4[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab4[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31mu[0m[39m[1m[31mu[0m[39m[90mname -a[39m[1m[31mu[1m[31mn[0m[39m[90mn[90ma[90mm[90me[90m [90m-[90ma[39m[1m[31mu[1m[31mn[1m[31ma[0m[39m[39m [39m [39m [39m [39m [39m [90mme -a[39m[1m[31ma[1m[31me[0m[39m[39m [39m [39m [39m [1m[31ma[0m[39m[0m[39m [90mme -a[39m[0m[32mu[0m[32mn[0m[32ma[32mm[32me[39m[39m [39m-[39ma[?1l>[?2004l
+]2;uname -a]1;unameLinux DESKTOP-KR0Q71I 5.10.16.3-microsoft-standard-WSL2 #1 SMP Fri Apr 2 22:23:49 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux
+[1m[7m%[27m[1m[0m                                                                                                              ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab4]1;~/CS353/Lab4[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab4[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31mc[0m[39m[1m[31mc[1m[31ma[0m[39m[90mt /etc/os-release[39m[17D[0m[32mc[0m[32ma[32mt[39m[39m [39m[4m/[39m[4me[39m[4mt[39m[4mc[39m[4m/[39m[4mo[39m[4ms[39m[4m-[39m[4mr[39m[4me[39m[4ml[39m[4me[39m[4ma[39m[4ms[39m[4me[24m[?1l>[?2004l
+]2;cat /etc/os-release]1;catNAME="Ubuntu"
+VERSION="20.04.5 LTS (Focal Fossa)"
+ID=ubuntu
+ID_LIKE=debian
+PRETTY_NAME="Ubuntu 20.04.5 LTS"
+VERSION_ID="20.04"
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+VERSION_CODENAME=focal
+UBUNTU_CODENAME=focal
+[1m[7m%[27m[1m[0m                                                                                                              ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab4]1;~/CS353/Lab4[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab4[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31mm[0m[39m[1m[31mm[1m[31ma[0m[39m[1m[31mm[1m[31ma[1m[31mk[0m[39m[90me[39m[0m[32mm[0m[32ma[0m[32mk[32me[39m [90m&& ./lab4b -c merlot.usc.edu 80 /cs353/images/usctommy.gif x1[39m[61D[39mc[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [60D[90mlean[39m[39ml[39me[39ma[39mn[?1l>[?2004l
+]2;make clean]1;makerm -f *.o lab4a lab4b
+[1m[7m%[27m[1m[0m                                                                                                              ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab4]1;~/CS353/Lab4[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab4[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31mm[0m[39m[1m[31mm[1m[31ma[0m[39m[1m[31mm[1m[31ma[1m[31mk[0m[39m[0m[32mm[0m[32ma[0m[32mk[32me[39m[90m clean[39m[39m [39m[4ml[24m[39m [39m [39m [39m [90mab4b[39m[4ml[39m[4ma[24m[4ma[39m[4mb[24m[4mb[39m[4m4[24m[4m4[39m[4mb[24m[?1l>[?2004l[24ml[24ma[24mb[24m4[24mb
+]2;make lab4b]1;makeg++ -g -Wall -std=c++11 -DLOCALHOST=\"127.0.0.1\" -o lab4b lab4b.cpp my_socket.cpp my_readwrite.cpp
+[1m[7m%[27m[1m[0m                                                                                                              ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab4]1;~/CS353/Lab4[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab4[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[4m[32m/[24m[39m[4m[32m/[24m[39m[90mbin/rm -f x?[39m[12D[39m[4m/[39m[4mb[24m[4m/[4mb[39m[4mi[24m[4m[32m/[4m[32mb[4m[32mi[4m[32mn[24m[39m[39m[4m/[39m[4mb[39m[4mi[24m[24m[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [10D[90mn/rm -f x?[39m[10D[24m[32m/[24m[32mb[24m[32mi[32mn[32m/[32mr[32mm[39m[39m [39m-[39mf[39m [39mx[34m?[39m[?1l>[?2004l
+]2;/bin/rm -f x?]1;/bin/rm[1m[7m%[27m[1m[0m                                                                                                              ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab4]1;~/CS353/Lab4[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab4[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[32m.[39m[32m.[39m[90m/lab4b -c merlot.usc.edu 80 /cs353/images/usctommy.gif x1[39m[57D[4m[32m.[4m[32m/[24m[39m[39m[4m.[39m[4m/[39m[4ml[24m[4ml[39m[4ma[24m[4ma[39m[4mb[24m[4mb[39m[4m4[24m[24m[32m.[24m[32m/[24m[32ml[24m[32ma[24m[32mb[24m[32m4[32mb[39m[39m [39m-[39mc[39m [39mm[39me[39mr[39ml[39mo[39mt[39m.[39mu[39ms[39mc[39m.[39me[39md[39mu[39m [39m8[39m0[39m [39m/[39mc[39ms[39m3[39m5[39m3[39m/[39mi[39mm[39ma[39mg[39me[39ms[39m/[39mu[39ms[39mc[39mt[39mo[39mm[39mm[39my[39m.[39mg[39mi[39mf[39m [39mx[39m1[1C [90m1[39m [39m [90mx1[39m[39m [39m [90m x1[39m [39m [39m [39m [90mf x1[39m [39m [39m [39m [39m [90mif x1[39m [39m [39m [39m [39m [39m [90mgif x1[39m [39m [39m [39m [39m [39m [39m [90m.gif x1[39m [39m [39m [39m [39m [39m [39m [39m [8D[90my.gif x1[39m[8D [39m [39m [39m [39m [39m [39m [39m [39m [9D[90mmy.gif x1[39m[9D [39m [39m [39m [39m [39m [39m [39m [39m [39m [10D[90mmmy.gif x1[39m[10D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [11D[90mommy.gif x1[39m[11D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [12D[90mtommy.gif x1[39m[12D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [13D[90mctommy.gif x1[39m[13D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [14D[90msctommy.gif x1[39m[14D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [15D[90musctommy.gif x1[39m[15D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [16D[90m/usctommy.gif x1[39m[16D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [17D[90ms/usctommy.gif x1[39m[17D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [18D[90mes/usctommy.gif x1[39m[18D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [19D[90mges/usctommy.gif x1[39m[19D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [20D[90mages/usctommy.gif x1[39m[20D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [21D[90mmages/usctommy.gif x1[39m[21D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [22D[90mimages/usctommy.gif x1[39m[22D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [23D[90m/images/usctommy.gif x1[39m[23D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [24D[90m3/images/usctommy.gif x1[39m[24D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [25D[90m53/images/usctommy.gif x1[39m[25D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [26D[90m353/images/usctommy.gif x1[39m[26D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [27D[90ms353/images/usctommy.gif x1[39m[27D[4m/[24m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [28D[90mcs353/images/usctommy.gif x1[39m[28D[4m/[39m[4mi[24m[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [27D[90mndex.html x0[39m[12D[4mi[39m[4mn[24m[24m/[24mi[24mn[39md[39me[39mx[39m.[39mh[39mt[39mm[39ml[39m [39mx[39m0[?1l>[?2004l
+]2;./lab4b -c merlot.usc.edu 80 /index.html x0]1;./lab4b[DBG-SVR]	argv[0]: './lab4b'
+[DBG-SVR]	argv[1]: '-c'
+[DBG-SVR]	argv[2]: 'merlot.usc.edu'
+[DBG-SVR]	argv[3]: '80'
+[DBG-SVR]	argv[4]: '/index.html'
+[DBG-SVR]	argv[5]: 'x0'
+	GET /index.html HTTP/1.1
+	User-Agent: lab4b
+	Accept: */*
+	Host: merlot.usc.edu:80
+	
+
+	HTTP/1.1 200 OK
+	Date: Sat, 11 Feb 2023 00:59:21 GMT
+	Server: Apache
+	Vary: Accept-Encoding
+	X-Frame-Options: SAMEORIGIN
+	X-XSS-Protection: 1; mode=block
+	Content-Length: 190
+	Content-Type: text/html; charset=UTF-8
+[1m[7m%[27m[1m[0m                                                                                                              ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab4]1;~/CS353/Lab4[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab4[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[32m./lab4b[39m -c merlot.usc.edu 80 /index.html [4mx0[24m[4mx[24m[24m [90m0[39m[24m [39m [90mx0[39m[39m [39m [90m x0[39m [39m [39m [39m [90ml x0[39m [39m [39m [39m [39m [90mml x0[39m [39m [39m [39m [39m [39m [90mtml x0[39m [39m [39m [39m [39m [39m [39m [90mhtml x0[39m [39m [39m [39m [39m [39m [39m [39m [8D[90m.html x0[39m[8D [39m [39m [39m [39m [39m [39m [39m [39m [9D[90mx.html x0[39m[9D [39m [39m [39m [39m [39m [39m [39m [39m [39m [10D[90mex.html x0[39m[10D[4m/[4mi[4mn[24m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [11D[90mdex.html x0[39m[11D[4mi[24m[24m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [12D[90mndex.html x0[39m[12D[4m/[24m[24m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [13D[90mindex.html x0[39m[13D[24m/[39mc[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [12D[90ms353/images/usctommy.gif x1[39m[27D[39ms[39m3[39m5[39m3[39m/[39mi[39mm[39ma[39mg[39me[39ms[39m/[39mu[39ms[39mc[39mt[39mo[39mm[39mm[39my[39m.[39mg[39mi[39mf[39m [39mx[39m1[?1l>[?2004l
+]2;./lab4b -c merlot.usc.edu 80 /cs353/images/usctommy.gif x1]1;./lab4b[DBG-SVR]	argv[0]: './lab4b'
+[DBG-SVR]	argv[1]: '-c'
+[DBG-SVR]	argv[2]: 'merlot.usc.edu'
+[DBG-SVR]	argv[3]: '80'
+[DBG-SVR]	argv[4]: '/cs353/images/usctommy.gif'
+[DBG-SVR]	argv[5]: 'x1'
+	GET /cs353/images/usctommy.gif HTTP/1.1
+	User-Agent: lab4b
+	Accept: */*
+	Host: merlot.usc.edu:80
+	
+
+	HTTP/1.1 200 OK
+	Date: Sat, 11 Feb 2023 00:59:33 GMT
+	Server: Apache
+	Last-Modified: Wed, 06 Nov 2002 22:46:44 GMT
+	Accept-Ranges: bytes
+	Content-Length: 1689
+	X-Frame-Options: SAMEORIGIN
+	X-XSS-Protection: 1; mode=block
+	Content-Type: image/gif
+[1m[7m%[27m[1m[0m                                                                                                              ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab4]1;~/CS353/Lab4[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab4[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[32m./lab4b[39m -c merlot.usc.edu 80 /cs353/images/usctommy.gif [4mx1[24m[4mx[24m[24m [90m1[39m[24m [39m [90mx1[39m[39m [39m [90m x1[39m [39m [39m [39m [90mf x1[39m [39m [39m [39m [39m [90mif x1[39m [39m [39m [39m [39m [39m [90mgif x1[39m [39m [39m [39m [39m [39m [39m [90m.gif x1[39m [39m [39m [39m [39m [39m [39m [39m [8D[90my.gif x1[39m[8D [39m [39m [39m [39m [39m [39m [39m [39m [9D[90mmy.gif x1[39m[9D [39m [39m [39m [39m [39m [39m [39m [39m [39m [10D[90mmmy.gif x1[39m[10D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [11D[90mommy.gif x1[39m[11D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [12D[90mtommy.gif x1[39m[12D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [13D[90mctommy.gif x1[39m[13D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [14D[90msctommy.gif x1[39m[14D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [15D[90musctommy.gif x1[39m[15D[39mu[39mp[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [13Dc_map.gif [4mx[24m[24mx2[?1l>[?2004l
+]2;./lab4b -c merlot.usc.edu 80 /cs353/images/upc_map.gif x2]1;./lab4b[DBG-SVR]	argv[0]: './lab4b'
+[DBG-SVR]	argv[1]: '-c'
+[DBG-SVR]	argv[2]: 'merlot.usc.edu'
+[DBG-SVR]	argv[3]: '80'
+[DBG-SVR]	argv[4]: '/cs353/images/upc_map.gif'
+[DBG-SVR]	argv[5]: 'x2'
+	GET /cs353/images/upc_map.gif HTTP/1.1
+	User-Agent: lab4b
+	Accept: */*
+	Host: merlot.usc.edu:80
+	
+
+	HTTP/1.1 200 OK
+	Date: Sat, 11 Feb 2023 00:59:45 GMT
+	Server: Apache
+	Last-Modified: Tue, 26 Jul 2011 04:19:23 GMT
+	Accept-Ranges: bytes
+	Content-Length: 416140
+	X-Frame-Options: SAMEORIGIN
+	X-XSS-Protection: 1; mode=block
+	Content-Type: image/gif
+[1m[7m%[27m[1m[0m                                                                                                              ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab4]1;~/CS353/Lab4[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab4[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[32m./lab4b[39m -c merlot.usc.edu 80 /cs353/images/upc_map.gif [4mx2[24m[4mx[24m[24m [90m2[39m[24m [39m [90mx2[39m[39m [39m [90m x2[39m [39m [39m [39m [90mf x2[39m [39m [39m [39m [39m [90mif x2[39m [39m [39m [39m [39m [39m [90mgif x2[39m [39m [39m [39m [39m [39m [39m [90m.gif x2[39m [39m [39m [39m [39m [39m [39m [39m [8D[90mp.gif x2[39m[8D [39m [39m [39m [39m [39m [39m [39m [39m [9D[90map.gif x2[39m[9D [39m [39m [39m [39m [39m [39m [39m [39m [39m [10D[90mmap.gif x2[39m[10D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [11D[90m_map.gif x2[39m[11D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [12D[90mc_map.gif x2[39m[12D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [13D[90mpc_map.gif x2[39m[13D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [14D[90mupc_map.gif x2[39m[14D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [15D[90m/upc_map.gif x2[39m[15D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [16D[90ms/upc_map.gif x2[39m[16D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [17D[90mes/upc_map.gif x2[39m[17D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [18D[90mges/upc_map.gif x2[39m[18D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [19D[90mages/upc_map.gif x2[39m[19D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [20D[90mmages/upc_map.gif x2[39m[20D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [21D[90mimages/upc_map.gif x2[39m[21D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [22D[90m/images/upc_map.gif x2[39m[22D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [23D[90m3/images/upc_map.gif x2[39m[23D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [24D[90m53/images/upc_map.gif x2[39m[24D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [25D[90m353/images/upc_map.gif x2[39m[25D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [26D[90ms353/images/upc_map.gif x2[39m[26D[4m/[24m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [27D[90mcs353/images/upc_map.gif x2[39m[27D[24m/[39mw[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [26Dilliam/usc/images/upc_map.pdf [4mx[24m[24mx3[?1l>[?2004l
+]2;./lab4b -c merlot.usc.edu 80 /william/usc/images/upc_map.pdf x3]1;./lab4b[DBG-SVR]	argv[0]: './lab4b'
+[DBG-SVR]	argv[1]: '-c'
+[DBG-SVR]	argv[2]: 'merlot.usc.edu'
+[DBG-SVR]	argv[3]: '80'
+[DBG-SVR]	argv[4]: '/william/usc/images/upc_map.pdf'
+[DBG-SVR]	argv[5]: 'x3'
+	GET /william/usc/images/upc_map.pdf HTTP/1.1
+	User-Agent: lab4b
+	Accept: */*
+	Host: merlot.usc.edu:80
+	
+
+	HTTP/1.1 200 OK
+	Date: Sat, 11 Feb 2023 01:00:08 GMT
+	Server: Apache
+	Last-Modified: Mon, 18 Mar 2019 04:52:41 GMT
+	Accept-Ranges: bytes
+	Content-Length: 746248
+	X-Frame-Options: SAMEORIGIN
+	X-XSS-Protection: 1; mode=block
+	Content-Type: application/pdf
+[1m[7m%[27m[1m[0m                                                                                                              ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab4]1;~/CS353/Lab4[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab4[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[32m./lab4b[39m -c merlot.usc.edu 80 /william/usc/images/upc_map.pdf [4mx3[24m[4mx[24m[24m [90m3[39m[24m [39m [90mx3[39m[39m [39m [90m x3[39m [39m [39m [39m [90mf x3[39m [39m [39m [39m [39m [90mdf x3[39m [39m [39m [39m [39m [39m [90mpdf x3[39m [39m [39m [39m [39m [39m [39m [90m.pdf x3[39m [39m [39m [39m [39m [39m [39m [39m [8D[90mp.pdf x3[39m[8D [39m [39m [39m [39m [39m [39m [39m [39m [9D[90map.pdf x3[39m[9D [39m [39m [39m [39m [39m [39m [39m [39m [39m [10D[90mmap.pdf x3[39m[10D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [11D[90m_map.pdf x3[39m[11D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [12D[90mc_map.pdf x3[39m[12D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [13D[90mpc_map.pdf x3[39m[13D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [14D[90mupc_map.pdf x3[39m[14D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [15D[90m/upc_map.pdf x3[39m[15D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [16D[90ms/upc_map.pdf x3[39m[16D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [17D[90mes/upc_map.pdf x3[39m[17D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [18D[90mges/upc_map.pdf x3[39m[18D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [19D[90mages/upc_map.pdf x3[39m[19D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [20D[90mmages/upc_map.pdf x3[39m[20D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [21D[90mimages/upc_map.pdf x3[39m[21D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [22D[90m/images/upc_map.pdf x3[39m[22D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [23D[90mc/images/upc_map.pdf x3[39m[23D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [24D[90msc/images/upc_map.pdf x3[39m[24D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [25D[90musc/images/upc_map.pdf x3[39m[25D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [26D[90m/usc/images/upc_map.pdf x3[39m[26D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [27D[90mm/usc/images/upc_map.pdf x3[39m[27D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [28D[90mam/usc/images/upc_map.pdf x3[39m[28D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [29D[90miam/usc/images/upc_map.pdf x3[39m[29D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [30D[90mliam/usc/images/upc_map.pdf x3[39m[30D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [31D[90mlliam/usc/images/upc_map.pdf x3[39m[31D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [32D[90milliam/usc/images/upc_map.pdf x3[39m[32D[4m/[24m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [33D[90mwilliam/usc/images/upc_map.pdf x3[39m[33D[24m/[39mc[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [32D[90ms353/images/upc_map.gif x2[39m[26D[39ms[39m3[39m5[39m3[39m/[39mi[39mm[39ma[39mg[39me[39ms[39m/[39mv[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [13Diterbi-seal-rev-770x360.p [K[Knng [4mx[24m[24mx4[?1l>[?2004l
+]2;./lab4b -c merlot.usc.edu 80 /cs353/images/viterbi-seal-rev-770x360.png x4]1;./lab4b[DBG-SVR]	argv[0]: './lab4b'
+[DBG-SVR]	argv[1]: '-c'
+[DBG-SVR]	argv[2]: 'merlot.usc.edu'
+[DBG-SVR]	argv[3]: '80'
+[DBG-SVR]	argv[4]: '/cs353/images/viterbi-seal-rev-770x360.png'
+[DBG-SVR]	argv[5]: 'x4'
+	GET /cs353/images/viterbi-seal-rev-770x360.png HTTP/1.1
+	User-Agent: lab4b
+	Accept: */*
+	Host: merlot.usc.edu:80
+	
+
+	HTTP/1.1 200 OK
+	Date: Sat, 11 Feb 2023 01:00:35 GMT
+	Server: Apache
+	Last-Modified: Tue, 02 Oct 2018 03:47:21 GMT
+	Accept-Ranges: bytes
+	Content-Length: 95957
+	X-Frame-Options: SAMEORIGIN
+	X-XSS-Protection: 1; mode=block
+	Content-Type: image/png
+[1m[7m%[27m[1m[0m                                                                                                              ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab4]1;~/CS353/Lab4[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab4[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[32m./lab4b[39m -c merlot.usc.edu 80 /cs353/images/viterbi-seal-rev-770x360.png [4mx4[24m[K[4mx[24m[24m [90m4[39m[24m [39m [90mx4[39m[39m [39m [90m x4[39mn [39m [39m [39m n[90mg x4[39m[K[90mn[90mg[90m [90mx[90m4[39m[A[109C[K[1B[K[A[109C[90mp[90mn[90mg x4[39m[K[A[104C[K[1B[K[A[108C[90m.p[90mn[90mg x4[39m[K[A[103C[K[1B[K[A[107C[90m0.p[90mn[90mg x4[39m[K[A[102C[K[1B[K[A[106C[90m60.p[90mn[90mg x4[39m[K[A[101C[K[1B[K[A[105C[90m360.p[90mn[90mg x4[39m[K[A[100C[K[1B[K[A[104C[90mx360.p[90mn[90mg x4[39m[K[A[99C[K[1B[K[A[103C[90m0x360.p[90mn[90mg x4[39m[K[A[98C[K[1B[K[A[102C[90m70x360.p[90mn[90mg x4[39m[K[A[97C[K[1B[K[A[101C[90m770x360.p[90mn[90mg x4[39m[K[A[96C[K[1B[K[A[100C[90m-770x360.p[90mn[90mg x4[39m[K[A[95C[K[1B[K[A[99C[90mv-770x360.p[90mn[90mg x4[39m[K[A[94C[K[1B[K[A[98C[90mev-770x360.p[90mn[90mg x4[39m[K[A[93C[K[1B[K[A[97C[90mrev-770x360.p[90mn[90mg x4[39m[K[A[92C[K[1B[K[A[96C[90m-rev-770x360.p[90mn[90mg x4[39m[K[A[91C[K[1B[K[A[95C[90ml-rev-770x360.p[90mn[90mg x4[39m[K[A[90C[K[1B[K[A[94C[90mal-rev-770x360.p[90mn[90mg x4[39m[K[A[89C[K[1B[K[A[93C[90meal-rev-770x360.p[90mn[90mg x4[39m[K[A[88C[K[1B[K[A[92C[90mseal-rev-770x360.p[90mn[90mg x4[39m[K[A[87C[K[1B[K[A[91C[90m-seal-rev-770x360.p[90mn[90mg x4[39m[K[A[86C[K[1B[K[A[90C[90mi-seal-rev-770x360.p[90mn[90mg x4[39m[K[A[85C[K[1B[K[A[89C[90mbi-seal-rev-770x360.p[90mn[90mg x4[39m[K[A[84C[K[1B[K[A[88C[90mrbi-seal-rev-770x360.p[90mn[90mg x4[39m[K[A[83C[K[1B[K[A[87C[90merbi-seal-rev-770x360.p[90mn[90mg x4[39m[K[A[82C[K[1B[K[A[86C[90mterbi-seal-rev-770x360.p[90mn[90mg x4[39m[K[A[81C[K[1B[K[A[85C[90miterbi-seal-rev-770x360.p[90mn[90mg x4[39m[K[A[80C[K[1B[K[A[84C[90mviterbi-seal-rev-770x360.p[90mn[90mg x4[39m[K[A[79C[39mu[K[1B[K[A[85C[90mpc_map.gif x2[39m[13D[39ms[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [12D[90mctommy.gif x1[39m[13D[39mc[39m-[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [11Dseal-1597x36- 0.png [4mx[24m[24mx5[?1l>[?2004l[1B]2;./lab4b -c merlot.usc.edu 80 /cs353/images/usc-seal-1597x360.png x5]1;./lab4b[DBG-SVR]	argv[0]: './lab4b'
+[DBG-SVR]	argv[1]: '-c'
+[DBG-SVR]	argv[2]: 'merlot.usc.edu'
+[DBG-SVR]	argv[3]: '80'
+[DBG-SVR]	argv[4]: '/cs353/images/usc-seal-1597x360.png'
+[DBG-SVR]	argv[5]: 'x5'
+	GET /cs353/images/usc-seal-1597x360.png HTTP/1.1
+	User-Agent: lab4b
+	Accept: */*
+	Host: merlot.usc.edu:80
+	
+
+	HTTP/1.1 200 OK
+	Date: Sat, 11 Feb 2023 01:00:56 GMT
+	Server: Apache
+	Last-Modified: Tue, 02 Oct 2018 03:47:21 GMT
+	Accept-Ranges: bytes
+	Content-Length: 250749
+	X-Frame-Options: SAMEORIGIN
+	X-XSS-Protection: 1; mode=block
+	Content-Type: image/png
+[1m[7m%[27m[1m[0m                                                                                                              ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab4]1;~/CS353/Lab4[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab4[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[32m./lab4b[39m -c merlot.usc.edu 80 /cs353/images/usc-seal-1597x360.png [4mx5[24m[4mx[24m[24m [90m5[39m[24m [39m [90mx5[39m[39m [39m [90m x5[39m [39m [39m [39m [90mg x5[39m [39m [39m [39m [39m [90mng x5[39m [39m [39m [39m [39m [39m [90mpng x5[39m [39m [39m [39m [39m [39m [39m [90m.png x5[39m [39m [39m [39m [39m [39m [39m [39m [8D[90m0.png x5[39m[8D [39m [39m [39m [39m [39m [39m [39m [39m [9D[90m60.png x5[39m[9D [39m [39m [39m [39m [39m [39m [39m [39m [39m [10D[90m360.png x5[39m[10D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [11D[90mx360.png x5[39m[11D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [12D[90m7x360.png x5[39m[12D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [13D[90m97x360.png x5[39m[13D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [14D[90m597x360.png x5[39m[14D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [15D[90m1597x360.png x5[39m[15D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [16D[90m-1597x360.png x5[39m[16D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [17D[90ml-1597x360.png x5[39m[17D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [18D[90mal-1597x360.png x5[39m[18D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [19D[90meal-1597x360.png x5[39m[19D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [20D[90mseal-1597x360.png x5[39m[20D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [21D[90m-seal-1597x360.png x5[39m[21D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [22D[90mc-seal-1597x360.png x5[39m[22D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [23D[90msc-seal-1597x360.png x5[39m[23D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [24D[90musc-seal-1597x360.png x5[39m[24D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [25D[90m/usc-seal-1597x360.png x5[39m[25D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [26D[90ms/usc-seal-1597x360.png x5[39m[26D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [27D[90mes/usc-seal-1597x360.png x5[39m[27D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [28D[90mges/usc-seal-1597x360.png x5[39m[28D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [29D[90mages/usc-seal-1597x360.png x5[39m[29D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [30D[90mmages/usc-seal-1597x360.png x5[39m[30D[39mn[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [29Dvalid [4mx[24m[24mx6[?1l>[?2004l
+]2;./lab4b -c merlot.usc.edu 80 /cs353/invalid x6]1;./lab4b[DBG-SVR]	argv[0]: './lab4b'
+[DBG-SVR]	argv[1]: '-c'
+[DBG-SVR]	argv[2]: 'merlot.usc.edu'
+[DBG-SVR]	argv[3]: '80'
+[DBG-SVR]	argv[4]: '/cs353/invalid'
+[DBG-SVR]	argv[5]: 'x6'
+	GET /cs353/invalid HTTP/1.1
+	User-Agent: lab4b
+	Accept: */*
+	Host: merlot.usc.edu:80
+	
+
+	HTTP/1.1 404 Not Found
+	Date: Sat, 11 Feb 2023 01:01:09 GMT
+	Server: Apache
+	Content-Length: 196
+	Content-Type: text/html; charset=iso-8859-1
+[1m[7m%[27m[1m[0m                                                                                                              ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab4]1;~/CS353/Lab4[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab4[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[32ml[39m[32ml[39m[90ms -l x1[39m[32ml[32ms[39m[39m [39m-[39ml[39m [39m[4mx[24m[24mx[34m?[39m[?1l>[?2004l
+]2;ls --color=tty -l x?]1;ls-rw-r--r-- 1 ssusanto ssusanto    190 Feb 10 16:59 x0
+-rw-r--r-- 1 ssusanto ssusanto   1689 Feb 10 16:59 x1
+-rw-r--r-- 1 ssusanto ssusanto 416140 Feb 10 16:59 x2
+-rw-r--r-- 1 ssusanto ssusanto 746248 Feb 10 17:00 x3
+-rw-r--r-- 1 ssusanto ssusanto  95957 Feb 10 17:00 x4
+-rw-r--r-- 1 ssusanto ssusanto 250749 Feb 10 17:01 x5
+-rw-r--r-- 1 ssusanto ssusanto    196 Feb 10 17:01 x6
+[1m[7m%[27m[1m[0m                                                                                                              ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab4]1;~/CS353/Lab4[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab4[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31me[0m[39m[1m[31me[0m[39m[90mxit[39m[0m[32me[32mx[39m[1m[31me[1m[31mx[1m[31mi[0m[39m[90mi[90mt[39m[0m[32me[0m[32mx[0m[32mi[32mt[39m[39m [?1l>[?2004l
+]2;exit]1;exit
+Script done on 2023-02-10 17:01:26-08:00 [COMMAND_EXIT_CODE="0"]

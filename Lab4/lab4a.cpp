@@ -63,52 +63,54 @@ static void write_body(int sockfd, int fd)
 static void respond_to_http_client(int newsockfd)
 {
     int header_count = 0;
-    while (true)
+    string line;
+    int bytes_received = read_a_line(newsockfd, line);
+    if (gnDebug && header_count == 0)
+        cerr << "[DBG-SVR] " << dec << bytes_received << " bytes received from " << get_ip_and_port_for_server(newsockfd, 0) << endl;
+    header_count = (header_count + 1) % 5;
+
+    stringstream stream(line);
+    string req_type, filepath, version;
+    stream >> req_type >> filepath >> version;
+
+    if (req_type != "GET")
     {
-        string line;
-        int bytes_received = read_a_line(newsockfd, line);
-
-        if (gnDebug && header_count == 0)
-            cerr << "[DBG-SVR] " << dec << bytes_received << " bytes received from " << get_ip_and_port_for_server(newsockfd, 0) << endl;
-        header_count = (header_count + 1) % 5;
-
-        stringstream stream(line);
-        string req_type, filepath, version;
-        stream >> req_type >> filepath >> version;
-
-        if (req_type != "GET")
-        {
-            // cout << "Not a GET Request: " << req_type << endl;
-            return;
-        }
-
-        // cout << "Request: " << req_type << ", Filepath: " << filepath << ", Version : " << version << endl;
-
-        filepath = "lab4data" + filepath;
-        int file_size = get_file_size(filepath);
-        if (!file_size)
-        {
-            cout << "Zero file size: " << file_size << endl;
-            return;
-        }
-
-        int fd = open(filepath.c_str(), O_RDONLY);
-        if (!fd)
-        {
-            cout << "Unable to open file: " << filepath << endl;
-            return;
-        }
-
-        string versionx = version.substr(0, version.length() - 1);
-        if (versionx != "HTTP/1.")
-        {
-            cout << "Wrong version: " << version << endl;
-            return;
-        }
-
-        write_headers(newsockfd, file_size);
-        write_body(newsockfd, fd);
+        // cout << "Not a GET Request: " << req_type << endl;
+        return;
     }
+
+    // cout << "Request: " << req_type << ", Filepath: " << filepath << ", Version : " << version << endl;
+
+    filepath = "lab4data" + filepath;
+    int file_size = get_file_size(filepath);
+    if (!file_size)
+    {
+        cout << "Zero file size: " << file_size << endl;
+        return;
+    }
+
+    int fd = open(filepath.c_str(), O_RDONLY);
+    if (!fd)
+    {
+        cout << "Unable to open file: " << filepath << endl;
+        return;
+    }
+
+    string versionx = version.substr(0, version.length() - 1);
+    if (versionx != "HTTP/1.")
+    {
+        cout << "Wrong version: " << version << endl;
+        return;
+    }
+    cout << "WRITING" << endl;
+
+    while (bytes_received > 2)
+    {
+        bytes_received = read_a_line(newsockfd, line);
+    }
+
+    write_headers(newsockfd, file_size);
+    write_body(newsockfd, fd);
 }
 
 int main(int argc, char *argv[])

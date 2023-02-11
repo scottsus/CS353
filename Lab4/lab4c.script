@@ -1,0 +1,138 @@
+Script started on 2023-02-10 18:01:23-08:00 [TERM="xterm-256color" TTY="/dev/pts/3" COLUMNS="110" LINES="51"]
+[1m[38;5;118m[7m%[27m[1m[38;5;118m[0m[38;5;118m                                                                                                              ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab4]1;~/CS353/Lab4[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab4[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[32m.[39m[32m.[39m[90m/lab4b 12345 &[39m[14D[4m[32m.[4m[32m/[24m[39m[24m[32m.[24m[32m/[32ml[32ma[32mb[32m4[32mb[39m[39m [39m1[39m2[39m3[39m4[39m5[39m [39m&[?1l>[?2004l
+]2;./lab4b 12345 &]1;./lab4b[1] 26337
+[1m[7m%[27m[1m[0m                                                                                                              ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab4]1;~/CS353/Lab4[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab4[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31mf[0m[39m[0m[39mfo[33mf[33mo[33mr[39m[90m i in  "$remove"*;do mv "$i" "${i#"$remove"}";done[39m[50D[1m[31mf[1m[31mo[1m[31mr[1m[31me[0m[39m[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [49D[0m[33mf[0m[33mo[0m[33mr[39m[0m[39m [90m i in  "$remove"*;do mv "$i" "${i#"$remove"}";done[39m[50D[1m[31mf[1m[31mo[0m[39m[P[50C [51D[1m[31mf[0m[39m[0m[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [51D[1m[31mf[0m[39m[90mind chromedriver[39m[16D[0m[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [17D[1m[31mt[0m[39m[1m[31mt[0m[39m[90mcsh[39m[0m[32mt[32mc[39m[1m[31mt[1m[31mc[1m[31ms[0m[39m[90ms[90mh[39m[0m[32mt[0m[32mc[0m[32ms[32mh[39m[39m [?1l>[?2004l
+]2;tcsh]1;tcsh[4mDESKTOP-KR0Q71I[24m:[1m~/CS353/Lab4[0m> foreach f (textbooks-2-small.jpg textbooks3[K-3-small.jpg usc-seal-1597x360.png vit erbi-e[Kseal-rev-770x360.png)
+foreach? ./lab4b -c localhost 12345 /$f x
+foreach? diff[K[K[K[Kchmod 600 x
+foreach? diff x ;a[K[Klab4data/$f
+foreach? echo -n 'Make sure "diff" command above did not print anything, then press any key to continue...;[K'
+foreach? set junk=$<
+foreach? end
+	GET /textbooks-2-small.jpg HTTP/1.1
+	User-Agent: lab4b
+	Accept: */*
+	Host: localhost:12345
+	
+
+	HTTP/1.1 200 OK
+	HTTP/1.1 200 OK
+	Server: lab4a
+	Content-Type: application/octet-stream
+	Content-Length: 10525
+	
+
+	Server: lab4a
+	Content-Type: application/octet-stream
+	Content-Length: 10525
+Binary files x and lab4data/textbooks-2-small.jpg differ
+Make sure "diff" command above did not print anything, then press any key to continue...
+	GET /textbooks-3-small.jpg HTTP/1.1
+	User-Agent: lab4b
+	Accept: */*
+	Host: localhost:12345
+	
+
+	HTTP/1.1 200 OK
+	Server: lab4a
+	Content-Type: application/octet-stream
+	Content-Length: 14265
+	
+
+	HTTP/1.1 200 OK
+	Server: lab4a
+	Content-Type: application/octet-stream
+	Content-Length: 14265
+Binary files x and lab4data/textbooks-3-small.jpg differ
+Make sure "diff" command above did not print anything, then press any key to continue...
+	GET /usc-seal-1597x360.png HTTP/1.1
+	User-Agent: lab4b
+	Accept: */*
+	Host: localhost:12345
+	
+
+	HTTP/1.1 200 OK
+	Server: lab4a
+	Content-Type: application/octet-stream
+	Content-Length: 250749
+	
+
+	HTTP/1.1 200 OK
+	Server: lab4a
+	Content-Type: application/octet-stream
+	Content-Length: 250749
+Binary files x and lab4data/usc-seal-1597x360.png differ
+Make sure "diff" command above did not print anything, then press any key to continue...
+	GET /viterbi-seal-rev-770x360.png HTTP/1.1
+	User-Agent: lab4b
+	Accept: */*
+	Host: localhost:12345
+	
+
+	HTTP/1.1 200 OK
+	Server: lab4a
+	Content-Type: application/octet-stream
+	Content-Length: 95957
+	
+
+	HTTP/1.1 200 OK
+	Server: lab4a
+	Content-Type: application/octet-stream
+	Content-Length: 95957
+Binary files x and lab4data/viterbi-seal-rev-770x360.png differ
+Make sure "diff" command above did not print anything, then press any key to continue...
+[4mDESKTOP-KR0Q71I[24m:[1m~/CS353/Lab4[0m> foreach f([K (hamlet.txt random.garbage rfc8540[K[K[K[K7540.txt rfc 793.txt)
+foreach? ./lab4c -c localhost 12345 /$f x
+foreach? chmod 600
+foreach? diff x lab4data/$f
+foreach? echo -n 'Make sure d[K"diff" command above did not print anythign[K[Kng, then press any key to continue...'
+foreach? set junk=$<
+foreach? end
+./lab4c: Command not found.
+chmod: missing operand after ‘600’
+Try 'chmod --help' for more information.
+Binary files x and lab4data/hamlet.txt differ
+Make sure "diff" command above did not print anything, then press any key to continue...
+./lab4c: Command not found.
+chmod: missing operand after ‘600’
+Try 'chmod --help' for more information.
+Binary files x and lab4data/random.garbage differ
+Make sure "diff" command above did not print anything, then press any key to continue...
+./lab4c: Command not found.
+chmod: missing operand after ‘600’
+Try 'chmod --help' for more information.
+Binary files x and lab4data/rfc7540.txt differ
+Make sure "diff" command above did not print anything, then press any key to continue...
+./lab4c: Command not found.
+chmod: missing operand after ‘600’
+Try 'chmod --help' for more information.
+Binary files x and lab4data/rfc793.txt differ
+Make sure "diff" command above did not print anything, then press any key to continue...
+[4mDESKTOP-KR0Q71I[24m:[1m~/CS353/Lab4[0m> for[K[K[Kendset junk=$<[31Gecho -n 'Make sure "diff" command above did not print anything, then press any k ey to continue...'[A[31Gdiff x lab4data/$f[K[110G e[K[A[49G[31Gchmod 600[K[31G./lab4c -c localhost 12345 /$f x[31Gforeach f ( hamlet.txt random.garbage rfc7540.txt rfc793.txt )
+foreach? foreach f ( hamlet.txt random.garbage rfc7540.txt rfc793.txt )[10Gend[Kset junk=$<[10Gecho -n 'Make sure "diff" command above did not print anything, then press any key to continue...'[10Gdiff x lab4data/$f[K[10Gchmod 600[K[10G./lab4c -c localhost 12345 /$f x
+foreach? ./lab4c -c localhost 12345 /$f x[10Gforeach f ( hamlet.txt random.garbage rfc7540.txt rfc793.txt )[10Gend[Kset junk=$<[10Gecho -n 'Make sure "diff" command above did not print anything, then press any key to continue...'[10Gdiff x lab4data/$f[K[10Gchmod 600[K x
+foreach? chmod 600 x[10G./lab4c -c localhost 12345 /$f x[10Gforeach f ( hamlet.txt random.garbage rfc7540.txt rfc793.txt )[10Gend[Kset junk=$<[10Gecho -n 'Make sure "diff" command above did not print anything, then press any key to continue...'[10Gdiff x lab4data/$f[K
+foreach? diff x lab4data/$f[10Gchmod 600 x[K[10G./lab4c -c localhost 12345 /$f x[10Gforeach f ( hamlet.txt random.garbage rfc7540.txt rfc793.txt )[10Gend[Kset junk=$<[10Gecho -n 'Make sure "diff" command above did not print anything, then press any key to continue...'[10Gdiff x lab4data/$f[K[10Gchmod 600[K[10G./lab4c -c localhost 12345 /$f x[10Gforeach f ( hamlet.txt random.garbage rfc7540.txt rfc793.txt )[10Gend[Kset junk=$<[10Gecho -n 'Make sure "diff" command above did not print anything, then press any key to continue...'
+foreach? set jn[Kunk=$<
+foreach? end
+./lab4c: Command not found.
+Binary files x and lab4data/hamlet.txt differ
+Make sure "diff" command above did not print anything, then press any key to continue...
+./lab4c: Command not found.
+Binary files x and lab4data/random.garbage differ
+Make sure "diff" command above did not print anything, then press any key to continue...
+./lab4c: Command not found.
+Binary files x and lab4data/rfc7540.txt differ
+Make sure "diff" command above did not print anything, then press any key to continue...
+./lab4c: Command not found.
+Binary files x and lab4data/rfc793.txt differ
+Make sure "diff" command above did not print anything, then press any key to continue...
+[4mDESKTOP-KR0Q71I[24m:[1m~/CS353/Lab4[0m> fg
+fg: No current job.
+[4mDESKTOP-KR0Q71I[24m:[1m~/CS353/Lab4[0m> exit
+exit
+[1m[7m%[27m[1m[0m                                                                                                              ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab4]1;~/CS353/Lab4[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab4[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31mk[0m[39m[1m[31mk[1m[31mi[0m[39m[1m[31mk[1m[31mi[1m[31ml[0m[39m[0m[32mk[0m[32mi[0m[32ml[32ml[39m[90m %1[39m[39m [39m%[39m1[?1l>[?2004l
+]2;kill %1]1;kill[1m[7m%[27m[1m[0m                                                                                                              ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab4]1;~/CS353/Lab4[1]  + 26337 terminated  ./lab4b 12345
+[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab4[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31me[0m[39m[1m[31me[0m[39m[90mxit[39m[0m[32me[32mx[39m[1m[31me[1m[31mx[1m[31mi[0m[39m[90mi[90mt[39m[0m[32me[0m[32mx[0m[32mi[32mt[39m[39m [?1l>[?2004l
+]2;exit]1;exit
+Script done on 2023-02-10 18:04:47-08:00 [COMMAND_EXIT_CODE="0"]
