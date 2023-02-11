@@ -26,8 +26,8 @@ using namespace std;
 #include "my_socket.h"
 #include "my_readwrite.h"
 
-static int server_socketfd = (-1); /* there is nothing wrong with using a global variable */
-static int gnDebug = 1;            /* change it to 0 if you don't want debugging messages */
+static int server_socketfd = (-1);
+static int gnDebug = 1;
 
 void server(string);
 tuple<int, int> parse_req_headers(int);
@@ -90,7 +90,6 @@ void server(string port_str)
     close(server_socketfd);
 }
 
-// void client(string host, string port, string uri, string filename)
 void client(vector<string> client_args)
 {
     string host = client_args[0], port = client_args[1];
@@ -158,7 +157,7 @@ tuple<int, int> parse_req_headers(int server_socketfd)
 
     if (req_type != "GET")
     {
-        // cout << "Not a GET Request: " << req_type << endl;
+        // cerr << "Not a GET Request: " << req_type << endl;
         return make_tuple(0, 0);
     }
 
@@ -166,21 +165,21 @@ tuple<int, int> parse_req_headers(int server_socketfd)
     int file_size = get_file_size(filepath);
     if (!file_size)
     {
-        cout << "Zero file size: " << file_size << endl;
+        // cerr << "Zero file size: " << file_size << endl;
         return make_tuple(0, 0);
     }
 
     int fd = open(filepath.c_str(), O_RDONLY);
     if (!fd)
     {
-        cout << "Unable to open file: " << filepath << endl;
+        // cerr << "Unable to open file: " << filepath << endl;
         return make_tuple(0, 0);
     }
 
     string versionx = version.substr(0, version.length() - 1);
     if (versionx != "HTTP/1.")
     {
-        cout << "Wrong version: " << version << endl;
+        // cerr << "Wrong version: " << version << endl;
         return make_tuple(0, 0);
     }
 
