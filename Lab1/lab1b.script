@@ -1,0 +1,89 @@
+Script started on 2023-02-11 15:43:57-08:00 [TERM="xterm-256color" TTY="/dev/pts/4" COLUMNS="110" LINES="51"]
+[1m[38;5;118m[7m%[27m[1m[38;5;118m[0m[38;5;118m                                                                                                              ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab1]1;~/CS353/Lab1[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab1[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31mu[0m[39m[1m[31mu[0m[39m[90mname -a[39m[1m[31mu[1m[31mn[0m[39m[90mn[90ma[90mm[90me[90m [90m-[90ma[39m[1m[31mu[1m[31mn[1m[31ma[0m[39m[90mn[90ma[90mm[90me[90m [90m-[90ma[39m[0m[39mu[0m[39mn[0m[39ma[39mm[90mn[90ma[90mm[90me[90m [90m-[90ma[39m[32mu[32mn[32ma[32mm[32me[39m[39m [39m [39m [39m [39m [39m [90m -a[39m[39m [39m-[39ma[?1l>[?2004l
+]2;uname -a]1;unameLinux DESKTOP-KR0Q71I 5.10.16.3-microsoft-standard-WSL2 #1 SMP Fri Apr 2 22:23:49 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux
+[1m[7m%[27m[1m[0m                                                                                                              ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab1]1;~/CS353/Lab1[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab1[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31mc[0m[39m[1m[31mc[1m[31ma[0m[39m[0m[32mc[0m[32ma[32mt[39m[90m xyzzy.log[39m[10D[39m [39m[4m/[24m[39m [39m [39m [39m [39m [39m [39m [39m [8D[90metc/os-release[39m[14D[4m/[39m[4me[24m[4me[39m[4mt[24m[4mt[39m[4mc[39m[4m/[39m[4mo[39m[4ms[39m[4m-[39m[4mr[39m[4me[39m[4ml[39m[4me[39m[4ma[39m[4ms[39m[4me[24m[?1l>[?2004l
+]2;cat /etc/os-release]1;catNAME="Ubuntu"
+VERSION="20.04.5 LTS (Focal Fossa)"
+ID=ubuntu
+ID_LIKE=debian
+PRETTY_NAME="Ubuntu 20.04.5 LTS"
+VERSION_ID="20.04"
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+VERSION_CODENAME=focal
+UBUNTU_CODENAME=focal
+[1m[7m%[27m[1m[0m                                                                                                              ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab1]1;~/CS353/Lab1[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab1[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31mm[0m[39m[1m[31mm[1m[31ma[0m[39m[0m[39mm[0m[39mak[32mm[32ma[32mk[32me[39m[90m clean[39m[39m [39mc[39ml[39me[39ma[39mn[?1l>[?2004l
+]2;make clean]1;makerm -f lab1b *.o
+[1m[7m%[27m[1m[0m                                                                                                              ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab1]1;~/CS353/Lab1[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab1[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31mm[0m[39m[1m[31mm[1m[31ma[0m[39m[0m[39mm[0m[39mak[32mm[32ma[32mk[32me[39m[90m clean[39m[39m [39m[4ml[24m[39m [39m [39m [39m [90mab5d[39m[4ml[39m[4ma[24m[4ma[39m[4mb[24m[4mb[39m[4m1[24m[39m [4m1[4mb[24m[?1l>[?2004l[24ml[24ma[24mb[24m1[24mb
+]2;make lab1b]1;makeg++ -g -Wall -std=c++11 -DLOCALHOST=\"127.0.0.1\" -o lab1b lab1b.cpp
+[1m[7m%[27m[1m[0m                                                                                                              ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab1]1;~/CS353/Lab1[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab1[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[32m.[39m[32m.[39m[90m/lab2a lab2data/graph1.txt[39m[26D[4m[32m.[4m[32m/[24m[39m[39m[4m.[39m[4m/[39m[4ml[24m[4ml[39m[4ma[24m[4ma[39m[4mb[24m[4mb[39m[4m1[24m[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [21D[24m[32m.[24m[32m/[24m[32ml[24m[32ma[24m[32mb[24m[32m1[32mb[39m[?1l>[?2004l
+]2;./lab1b]1;./lab1bHello World!
+[1m[7m%[27m[1m[0m                                                                                                              ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab1]1;~/CS353/Lab1[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab1[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[32mg[39m[32mg[39m[90mit push[39m[32mg[32md[39m[39m [39m [39m [39m [39m [39m [90mb lab5c[39m[32mg[32md[32mb[39m[39m [39m[4ml[24m[4ml[39m[4ma[24m[4ma[39m[4mb[24m[4mb[39m[4m1[24m[39m [4m1[4mb[24m[?1l>[?2004l
+]2;gdb lab1b]1;gdb[35;1m[35;1mGNU gdb [m[35;1m(Ubuntu 9.2-0ubuntu1~20.04.1) [m[35;1m9.2[m[35;1m
+[m[mCopyright (C) 2020 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from [32mlab1b[m...
+(gdb) break main
+Breakpoint 1 at [34m0x11a9[m: file [32mlab1b.cpp[m, line 26.
+(gdb) run
+Starting program: /home/ssusanto/CS353/Lab1/lab1b 
+
+Breakpoint 1, [33mmain[m ([36margc[m=21845, [36margv[m=0x0) at [32mlab1b.cpp[m:26
+26	{
+(gdb) next
+28	    for (int i=1; i < argc; i++) cout << argv[i] << endl;
+(gdb) where
+#0  [33mmain[m ([36margc[m=1, [36margv[m=0x7fffffffde78) at [32mlab1b.cpp[m:28
+(gdb) list
+23	/* nothing to to #include for this program */
+24	
+25	int main(int argc, char *argv[])
+26	{
+27	    /* this is how to iterate through commandline arguments */
+28	    for (int i=1; i < argc; i++) cout << argv[i] << endl;
+29	
+30	    cout << "Hello World!" << endl;
+31	    return 0;
+32	}
+(gdb) next
+30	    cout << "Hello World!" << endl;
+(gdb) next
+Hello World!
+31	    return 0;
+(gdb) cont
+Continuing.
+[Inferior 1 (process 6387) exited normally]
+(gdb) run aa bb cccc
+Starting program: /home/ssusanto/CS353/Lab1/lab1b aa bb cccc
+
+Breakpoint 1, [33mmain[m ([36margc[m=21845, [36margv[m=0x0) at [32mlab1b.cpp[m:26
+26	{
+(gdb) next
+28	    for (int i=1; i < argc; i++) cout << argv[i] << endl;
+(gdb) cont
+Continuing.
+aa
+bb
+cccc
+Hello World!
+[Inferior 1 (process 6391) exited normally]
+(gdb) quit
+[1m[7m%[27m[1m[0m                                                                                                              ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab1]1;~/CS353/Lab1[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab1[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31mm[0m[39m[1m[31mm[1m[31ma[0m[39m[0m[39mm[0m[39mak[32mm[32ma[32mk[32me[39m[90m lab1b[39m[39m [39mc[39m [39m [39m [39m [90mlean[39m[39ml[39me[39ma[39mn[?1l>[?2004l
+]2;make clean]1;makerm -f lab1b *.o
+[1m[7m%[27m[1m[0m                                                                                                              ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab1]1;~/CS353/Lab1[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab1[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31me[0m[39m[1m[31me[0m[39m[90mxit[39m[0m[32me[32mx[39m[1m[31me[1m[31mx[1m[31mi[0m[39m[0m[32me[0m[32mx[0m[32mi[32mt[39m[?1l>[?2004l
+]2;exit]1;exit
+Script done on 2023-02-11 15:44:49-08:00 [COMMAND_EXIT_CODE="0"]
