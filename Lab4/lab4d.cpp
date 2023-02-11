@@ -229,6 +229,33 @@ void write_res_body(int sockfd, int fd)
     }
 }
 
+int read_binary_data_to_file(int client_socketfd, int bytes_expected, string filename)
+{
+    ofstream outfile(filename);
+    if (!outfile.is_open())
+    {
+        cerr << "Unable to write to file: " << filename << endl;
+        return -1;
+    }
+
+    char buf[1024];
+    int bytes_left = bytes_expected;
+    while (bytes_left > 0)
+    {
+        int bytes_to_read = (bytes_left > 1024) ? 1024 : bytes_left;
+        int bytes_read = read(client_socketfd, buf, bytes_to_read);
+        outfile.write(buf, bytes_read);
+
+        if (bytes_read <= 0)
+            return -1;
+
+        bytes_left -= bytes_read;
+    }
+
+    outfile.close();
+    return 0;
+}
+
 void usage()
 {
     cerr << "Please use the following format: lab4b [-c] HOST PORT URI OUTPUTFILE [URI2 OUTPUTFILE2 ...]" << endl;
@@ -285,31 +312,4 @@ tuple<int, vector<string>> choose_mode(int argc, char *argv[])
     }
 
     return make_tuple(-1, vector<string>{});
-}
-
-int read_binary_data_to_file(int client_socketfd, int bytes_expected, string filename)
-{
-    ofstream outfile(filename);
-    if (!outfile.is_open())
-    {
-        cerr << "Unable to write to file: " << filename << endl;
-        return -1;
-    }
-
-    char buf[1024];
-    int bytes_left = bytes_expected;
-    while (bytes_left > 0)
-    {
-        int bytes_to_read = (bytes_left > 1024) ? 1024 : bytes_left;
-        int bytes_read = read(client_socketfd, buf, bytes_to_read);
-        outfile.write(buf, bytes_read);
-
-        if (bytes_read <= 0)
-            return -1;
-
-        bytes_left -= bytes_read;
-    }
-
-    outfile.close();
-    return 0;
 }
