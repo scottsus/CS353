@@ -33,9 +33,8 @@ void server(string);
 tuple<int, int> parse_req_headers(int);
 void write_res_headers(int, int);
 void write_res_body(int, int);
-void respond_to_http_client(int);
 
-void client(string, string, string, string);
+void client(vector<string>);
 int parse_res_headers(int);
 void write_req_headers(int, string, string, string, string);
 int read_binary_data_to_file(int, int, string);
@@ -58,11 +57,7 @@ int main(int argc, char *argv[])
     else if (mode == 0)
     {
         vector<string> client_args = get<1>(mode_tuple);
-        string host_str = client_args[0];
-        string port_str = client_args[1];
-        string uri = client_args[2];
-        string filename = client_args[3];
-        client(host_str, port_str, uri, filename);
+        client(client_args);
     }
 
     return 0;
@@ -78,16 +73,27 @@ void server(string port_str)
     {
         int client_socketfd = my_accept(server_socketfd);
         if (client_socketfd == -1)
-            break;
-        respond_to_http_client(client_socketfd);
+            return;
+
+        while (true)
+        {
+            tuple<int, int> file_details = parse_req_headers(client_socketfd);
+            int fd = get<0>(file_details), file_size = get<1>(file_details);
+            if (fd == 0)
+                break;
+            write_res_headers(client_socketfd, file_size);
+            write_res_body(client_socketfd, fd);
+        }
     }
 
     shutdown(server_socketfd, SHUT_RDWR);
     close(server_socketfd);
 }
 
-void client(string host, string port, string uri, string filename)
+// void client(string host, string port, string uri, string filename)
+void client(vector<string> client_args)
 {
+    string host = client_args[0], port = client_args[1];
     int client_socketfd = create_client_socket_and_connect(host, port);
     if (client_socketfd == -1)
     {
@@ -95,17 +101,13 @@ void client(string host, string port, string uri, string filename)
         exit(-1);
     }
 
-    write_req_headers(client_socketfd, host, port, "GET", uri);
-    int content_len = parse_res_headers(client_socketfd);
-    read_binary_data_to_file(client_socketfd, content_len, filename);
-}
-
-void respond_to_http_client(int server_socketfd)
-{
-    tuple<int, int> file_details = parse_req_headers(server_socketfd);
-    int fd = get<0>(file_details), file_size = get<1>(file_details);
-    write_res_headers(server_socketfd, file_size);
-    write_res_body(server_socketfd, fd);
+    for (int i = 2; i < client_args.size(); i += 2)
+    {
+        string uri = client_args[i], filename = client_args[i + 1];
+        write_req_headers(client_socketfd, host, port, "GET", uri);
+        int content_len = parse_res_headers(client_socketfd);
+        read_binary_data_to_file(client_socketfd, content_len, filename);
+    }
 }
 
 void write_req_headers(int client_socketfd, string host, string port, string req_type, string uri)
@@ -122,7 +124,7 @@ void write_req_headers(int client_socketfd, string host, string port, string req
     better_write_header(client_socketfd, h4.c_str(), h4.length());
     better_write_header(client_socketfd, h5.c_str(), h5.length());
 
-    cout << '\t' + h1 << '\t' + h2 << '\t' + h3 << '\t' + h4 << '\t' + h5 << endl;
+    cout << '\t' + h1 << '\t' + h2 << '\t' + h3 << '\t' + h4 << '\t' + h5;
 }
 
 void write_res_headers(int server_socketfd, int file_size)
@@ -139,7 +141,7 @@ void write_res_headers(int server_socketfd, int file_size)
     better_write_header(server_socketfd, h4.c_str(), h4.length());
     better_write_header(server_socketfd, h5.c_str(), h5.length());
 
-    cout << '\t' + h1 << '\t' + h2 << '\t' + h3 << '\t' + h4 << '\t' + h5 << endl;
+    cout << '\t' + h1 << '\t' + h2 << '\t' + h3 << '\t' + h4 << '\t' + h5;
 }
 
 tuple<int, int> parse_req_headers(int server_socketfd)
@@ -148,16 +150,17 @@ tuple<int, int> parse_req_headers(int server_socketfd)
     int bytes_received = read_a_line(server_socketfd, line);
 
     stringstream stream(line);
+    cout << "\t" + line;
     string req_type, filepath, version;
     stream >> req_type >> filepath >> version;
+
+    // cout << "Request: " << req_type << ", Filepath: " << filepath << ", Version : " << version << endl;
 
     if (req_type != "GET")
     {
         // cout << "Not a GET Request: " << req_type << endl;
         return make_tuple(0, 0);
     }
-
-    // cout << "Request: " << req_type << ", Filepath: " << filepath << ", Version : " << version << endl;
 
     filepath = "lab4data" + filepath;
     int file_size = get_file_size(filepath);
@@ -184,6 +187,7 @@ tuple<int, int> parse_req_headers(int server_socketfd)
     while (bytes_received > 2)
     {
         bytes_received = read_a_line(server_socketfd, line);
+        cout << "\t" + line;
     }
 
     return make_tuple(fd, file_size);
@@ -197,7 +201,10 @@ int parse_res_headers(int client_socketfd)
     {
         int bytes_received = read_a_line(client_socketfd, line);
         if (bytes_received <= 2)
+        {
+            cout << "\r\n";
             break;
+        }
 
         cout << "\t" + line;
         stringstream stream(line);
@@ -225,7 +232,7 @@ void write_res_body(int sockfd, int fd)
 
 void usage()
 {
-    cerr << "Please use the following format: lab4b [-c] HOST PORT URI OUTPUTFILE" << endl;
+    cerr << "Please use the following format: lab4b [-c] HOST PORT URI OUTPUTFILE [URI2 OUTPUTFILE2 ...]" << endl;
     exit(-1);
 }
 
@@ -249,23 +256,32 @@ tuple<int, vector<string>> choose_mode(int argc, char *argv[])
 
     if (is_client)
     {
-        if (argc != 6)
+        if (argc < 6 || argc % 2 != 0)
             usage();
+
         string host_str = argv[2];
         string port_str = argv[3];
-        string uri = argv[4];
-        if (uri[0] != '/')
-            uri = "/" + uri;
-        string filename = argv[5];
-        vector<string> client_args = {host_str, port_str, uri, filename};
+        vector<string> client_args = {host_str, port_str};
+
+        for (int i = 4; i < argc; i += 2)
+        {
+            string uri = argv[i], filename = argv[i + 1];
+            if (uri[0] != '/')
+                uri = "/" + uri;
+            client_args.push_back(uri);
+            client_args.push_back(filename);
+        }
+
         return make_tuple(0, client_args);
     }
     else
     {
         if (argc != 2)
             usage();
+
         string port_str = argv[1];
         vector<string> server_args = {port_str};
+
         return make_tuple(1, server_args);
     }
 

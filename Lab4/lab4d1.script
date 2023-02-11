@@ -1,0 +1,74 @@
+Script started on 2023-02-11 00:38:13-08:00 [TERM="xterm-256color" TTY="/dev/pts/7" COLUMNS="110" LINES="51"]
+[1m[38;5;118m[7m%[27m[1m[38;5;118m[0m[38;5;118m                                                                                                              ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab4]1;~/CS353/Lab4[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab4[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31mu[0m[39m[1m[31mu[0m[39m[90mname -a[39m[1m[31mu[1m[31mn[0m[39m[90mn[90ma[90mm[90me[90m [90m-[90ma[39m[1m[31mu[1m[31mn[1m[31ma[0m[39m[90mn[90ma[90mm[90me[90m [90m-[90ma[39m[1m[31ma[1m[31mm[0m[39m[90mn[90ma[90mm[90me[90m [90m-[90ma[39m[0m[39mu[0m[39mn[0m[39ma[0m[39mm[39me[90mn[90ma[90mm[90me[90m [90m-[90ma[39m[32mu[32mn[32ma[32mm[32me[39m[39m [39m [39m [39m [39m [39m [39m [90m-a[39m[39m-[39ma[?1l>[?2004l
+]2;uname -a]1;unameLinux DESKTOP-KR0Q71I 5.10.16.3-microsoft-standard-WSL2 #1 SMP Fri Apr 2 22:23:49 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux
+[1m[7m%[27m[1m[0m                                                                                                              ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab4]1;~/CS353/Lab4[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab4[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31mc[0m[39m[1m[31mc[1m[31ma[0m[39m[90mt /etc/os-release[39m[17D[0m[32mc[0m[32ma[32mt[39m[39m [39m[4m/[39m[4me[39m[4mt[39m[4mc[39m[4m/[39m[4mo[39m[4ms[39m[4m-[39m[4mr[39m[4me[39m[4ml[39m[4me[39m[4ma[39m[4ms[39m[4me[24m[?1l>[?2004l
+]2;cat /etc/os-release]1;catNAME="Ubuntu"
+VERSION="20.04.5 LTS (Focal Fossa)"
+ID=ubuntu
+ID_LIKE=debian
+PRETTY_NAME="Ubuntu 20.04.5 LTS"
+VERSION_ID="20.04"
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+VERSION_CODENAME=focal
+UBUNTU_CODENAME=focal
+[1m[7m%[27m[1m[0m                                                                                                              ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab4]1;~/CS353/Lab4[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab4[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31mm[0m[39m[1m[31mm[0m[39m[90make lab4d[39m[9D[1m[31mm[1m[31ma[0m[39m[90ma[90mk[90me[90m [90ml[90ma[90mb[90m4[90md[39m[9D[1m[31mm[1m[31ma[1m[31mk[0m[39m[90ma[90mk[90me[90m [90ml[90ma[90mb[90m4[90md[39m[9D[0m[39mm[0m[39ma[0m[39mk[39me[90ma[90mk[90me[90m [90ml[90ma[90mb[90m4[90md[39m[9D[32mm[32ma[32mk[32me[39m[39m [39m [39m [39m [39m [39m [39m [39m [39m [8D[90mlab4d[39m[39mc[39m [39m [39m [39m [90mlean[39m[39ml[39me[39ma[39mn[?1l>[?2004l
+]2;make clean]1;makerm -f *.o lab4a lab4b lab4d x x0 x1 x2 x3 x4 x5 x6
+[1m[7m%[27m[1m[0m                                                                                                              ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab4]1;~/CS353/Lab4[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab4[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31mm[0m[39m[1m[31mm[1m[31ma[0m[39m[90mke clean[39m[8D[1m[31mm[1m[31ma[1m[31mk[0m[39m[90mk[90me[90m [90mc[90ml[90me[90ma[90mn[39m[8D[0m[32mm[0m[32ma[0m[32mk[32me[39m[39m [39m [39m [39m [39m [39m [39m [90m clean[39m[39m [39ma[39m [39m [39m [39m [90mll && make run[39m[14D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [15D[90mclean[39m[39m[4ml[24m[39m [39m [39m [39m [90mab4d[39m[4ml[39m[4ma[24m[4ma[39m[4mb[24m[4mb[39m[4m4[24m[4m4[39m[4md[24m[?1l>[?2004l[24ml[24ma[24mb[24m4[24md
+]2;make lab4d]1;makeg++ -g -Wall -std=c++11 -DLOCALHOST=\"127.0.0.1\" -o lab4d lab4d.cpp my_socket.cpp my_readwrite.cpp
+[01m[Klab4d.cpp:[m[K In function ‘[01m[Kvoid client(std::vector<std::__cxx11::basic_string<char> >)[m[K’:
+[01m[Klab4d.cpp:104:23:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<std::__cxx11::basic_string<char> >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+  104 |     for (int i = 2; [01;35m[Ki < client_args.size()[m[K; i += 2)
+      |                     [01;35m[K~~^~~~~~~~~~~~~~~~~~~~[m[K
+[01m[Klab4d.cpp:[m[K At global scope:
+[01m[Klab4d.cpp:30:12:[m[K [01;35m[Kwarning: [m[K‘[01m[KgnDebug[m[K’ defined but not used [[01;35m[K-Wunused-variable[m[K]
+   30 | static int [01;35m[KgnDebug[m[K = 1;            /* change it to 0 if you don't want debugging messages */
+      |            [01;35m[K^~~~~~~[m[K
+[1m[7m%[27m[1m[0m                                                                                                              ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab4]1;~/CS353/Lab4[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab4[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[32m.[39m[32m.[39m[90m/lab4d -c localhost 12345 upc_map.pdf x2 persistent.html x3 upc_map.[90mg[90mif x4[39m[K[A[36C[4m[32m.[4m[32m/[24m[39m[39m[4m.[39m[4m/[39m[4ml[24m[4ml[39m[4ma[24m[4ma[39m[4mb[24m[4mb[39m[4m4[24m[24m[32m.[24m[32m/[24m[32ml[24m[32ma[24m[32mb[24m[32m4[32md[39m[39m [39m1[K[1B[K[A[50C[90m2345[39m[39m2[39m3[39m4[39m5[?1l>[?2004l[1B]2;./lab4d 12345]1;./lab4d	GET /persistent.html HTTP/1.1
+	User-Agent: Wget/1.20.3 (linux-gnu)
+	Accept: */*
+	Accept-Encoding: identity
+	Host: localhost:12345
+	Connection: Keep-Alive
+	
+	HTTP/1.1 200 OK
+	Server: lab4a
+	Content-Type: application/octet-stream
+	Content-Length: 186
+	
+		GET /upc_map.pdf HTTP/1.1
+	User-Agent: lab4b
+	Accept: */*
+	Host: localhost:12345
+	
+	HTTP/1.1 200 OK
+	Server: lab4a
+	Content-Type: application/octet-stream
+	Content-Length: 746248
+	
+	GET /persistent.html HTTP/1.1
+	User-Agent: lab4b
+	Accept: */*
+	Host: localhost:12345
+	
+	HTTP/1.1 200 OK
+	Server: lab4a
+	Content-Type: application/octet-stream
+	Content-Length: 186
+	
+	GET /upc_map.gif HTTP/1.1
+	User-Agent: lab4b
+	Accept: */*
+	Host: localhost:12345
+	
+	HTTP/1.1 200 OK
+	Server: lab4a
+	Content-Type: application/octet-stream
+	Content-Length: 416140
+	
+^C
+[1m[7m%[27m[1m[0m                                                                                                              ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab4]1;~/CS353/Lab4[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab4[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31me[0m[39m[1m[31me[0m[39m[90mxit[39m[0m[32me[32mx[39m[1m[31me[1m[31mx[1m[31mi[0m[39m[90mi[90mt[39m[0m[32me[0m[32mx[0m[32mi[32mt[39m[39m [?1l>[?2004l
+]2;exit]1;exit
+Script done on 2023-02-11 00:41:26-08:00 [COMMAND_EXIT_CODE="130"]
