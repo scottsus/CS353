@@ -18,26 +18,29 @@ using namespace std;
 
 /* C standard files */
 #include <fcntl.h>
+#include <openssl/md5.h>
 
-/* CUstom files */
+/* Custom files */
 #include "my_socket.h"
 #include "my_readwrite.h"
 #include "my_timestamp.h"
 
 void run_server(string);
 map<string, string> get_config(string);
-tuple<int, int, int> parse_req_headers_and_find_file(int);
-void write_res_headers(int, int, int, int);
-void write_res_body(int, int);
+tuple<int, int, string> parse_req_headers_and_find_file(int);
+void write_res_headers(int, int, int, string);
+void write_res_body(int, string);
 
 void run_client(vector<string>);
 void write_req_headers(int, string, string, string, string);
-int parse_res_headers_and_get_content_len(int, string, string);
+tuple<int, string> parse_res_headers_and_get_content_len(int, string, string);
 int write_data_to_file(int, int, string);
 
 tuple<int, vector<string>> choose_mode(int, char *[]);
 bool contains_complex_chars(string);
 int get_file_size(string);
+string calc_md5(string);
+string hexDump(unsigned char *, unsigned long);
 
 void log(string);
 void log_header(string);
@@ -106,20 +109,23 @@ void run_server(string config_file)
 
         while (true)
         {
-            tuple<int, int, int> file_info = parse_req_headers_and_find_file(client_socketfd);
+            tuple<int, int, string> file_info = parse_req_headers_and_find_file(client_socketfd);
             int status_code = get<0>(file_info);
 
-            // custom STATUS_CODE signifying
-            // we are done with client
-            if (status_code == 0)
+            if (status_code != 200)
+            {
+                cerr << get<2>(file_info) << endl;
                 break;
-
-            int fd = get<1>(file_info), file_size = get<2>(file_info);
+            }
 
             log("RESPONSE: " + client_ip_and_port + ", status=" + to_string(status_code));
 
-            write_res_headers(client_socketfd, status_code, fd, file_size);
-            write_res_body(client_socketfd, fd);
+            int file_size = get<1>(file_info);
+            string file_path = get<2>(file_info);
+            string md5_hash = calc_md5(file_path);
+
+            write_res_headers(client_socketfd, status_code, file_size, md5_hash);
+            write_res_body(client_socketfd, file_path);
         }
 
         log("CLOSE: " + client_ip_and_port);
@@ -166,12 +172,12 @@ map<string, string> get_config(string config_file)
     return config;
 }
 
-tuple<int, int, int> parse_req_headers_and_find_file(int client_socketfd)
+tuple<int, int, string> parse_req_headers_and_find_file(int client_socketfd)
 {
     string line;
     int bytes_received = read_a_line(client_socketfd, line);
     if (bytes_received <= 2)
-        return make_tuple(0, 0, 0);
+        return make_tuple(0, 0, "");
 
     cout << "\t" + line;
 
@@ -179,40 +185,31 @@ tuple<int, int, int> parse_req_headers_and_find_file(int client_socketfd)
     string method, uri, version;
     ss >> method >> uri >> version;
 
+    string err = "";
     if (method != "GET")
     {
-        cerr << "Not a GET request: " << method << endl;
-        return make_tuple(404, 0, 0);
+        err = "Not a GET request: " + method;
     }
 
     if (uri[uri.length() - 1] == '/' || contains_complex_chars(uri))
     {
-        cerr << "Malformed URI: " << uri << endl;
-        return make_tuple(404, 0, 0);
+        err = "Malformed URI: " + uri;
     }
+
     if (uri[0] == '/')
         uri = uri.substr(1);
 
-    string filepath = rootdir + "/" + uri;
-    int file_size = get_file_size(filepath);
+    string file_path = rootdir + "/" + uri;
+    int file_size = get_file_size(file_path);
     if (file_size <= 0)
     {
-        cerr << "File size is zero for " << filepath << endl;
-        return make_tuple(404, 0, 0);
-    }
-
-    int fd = open(filepath.c_str(), O_RDONLY);
-    if (!fd)
-    {
-        cerr << "Unable to open file: " << filepath << endl;
-        return make_tuple(404, 0, 0);
+        err = "File size is zero for " + file_path;
     }
 
     string versionx = version.substr(0, version.length() - 1);
     if (versionx != "HTTP/1.")
     {
-        cerr << "Wrong HTTP version: " << version << endl;
-        return make_tuple(404, 0, 0);
+        err = "Wrong HTTP version: " + version;
     }
 
     while (bytes_received > 2)
@@ -221,13 +218,13 @@ tuple<int, int, int> parse_req_headers_and_find_file(int client_socketfd)
         cout << "\t" + line;
     }
 
-    return make_tuple(200, fd, file_size);
+    if (err != "")
+        return make_tuple(404, 0, err);
+    return make_tuple(200, file_size, file_path);
 }
 
-void write_res_headers(int client_socketfd, int status_code, int fd, int file_size)
+void write_res_headers(int client_socketfd, int status_code, int file_size, string md5_hash)
 {
-    string md5_hash = "md5";
-
     string status = "404 NOT FOUND\r\n";
     if (status_code == 200)
         status = "200 OK\r\n";
@@ -254,9 +251,16 @@ void write_res_headers(int client_socketfd, int status_code, int fd, int file_si
     log_header("");
 }
 
-void write_res_body(int client_socketfd, int fd)
+void write_res_body(int client_socketfd, string file_path)
 {
     const int MEMORY_BUFFER = 1024;
+
+    int fd = open(file_path.c_str(), O_RDONLY);
+    if (!fd)
+    {
+        cerr << "Unable to open file in 'write_res_body'" << endl;
+        return;
+    }
 
     int total_bytes_read = 0, bytes_read = 0;
     char line[MEMORY_BUFFER];
@@ -267,6 +271,7 @@ void write_res_body(int client_socketfd, int fd)
         total_bytes_read += bytes_read;
         // usleep(250000); // sleep for 250ms
     }
+    // cout << "Total bytes sent: " << total_bytes_read << endl;
 }
 
 void run_client(vector<string> client_args)
@@ -287,10 +292,15 @@ void run_client(vector<string> client_args)
         string uri = client_args.at(i), filename = client_args.at(i + 1);
         write_req_headers(client_socketfd, host, port, "GET", uri);
 
-        int content_len = parse_res_headers_and_get_content_len(client_socketfd, client_ip_and_port, uri);
+        tuple<int, string> content_len_err = parse_res_headers_and_get_content_len(client_socketfd, client_ip_and_port, uri);
+        int content_len = get<0>(content_len_err);
+        string err = get<1>(content_len_err);
         if (content_len == 0)
+            err = "No Content-Length in response header when downloading " + uri + " from server at " + client_ip_and_port + ". Program terminated";
+
+        if (err != "")
         {
-            cerr << "No Content-Length in response header when downloading " << uri << " from server at " << client_ip_and_port << ". Program terminated" << endl;
+            cerr << err << endl;
             return;
         }
 
@@ -318,14 +328,15 @@ void write_req_headers(int client_socketfd, string host, string port, string met
     cout << "\t" + h1 << "\t" + h2 << "\t" + h3 << "\t" + h4 << "\t" + h5;
 }
 
-int parse_res_headers_and_get_content_len(int client_socketfd, string client_ip_and_port, string uri)
+tuple<int, string> parse_res_headers_and_get_content_len(int client_socketfd, string client_ip_and_port, string uri)
 {
-    string line;
     int content_len = 0;
+    string err = "";
 
     bool is_first_header = true;
     while (true)
     {
+        string line;
         int bytes_received = read_a_line(client_socketfd, line);
         if (bytes_received <= 2)
         {
@@ -344,14 +355,12 @@ int parse_res_headers_and_get_content_len(int client_socketfd, string client_ip_
             string versionx = version.substr(0, 5);
             if (versionx != "HTTP/")
             {
-                cerr << "Unrecognized response from server at " << client_ip_and_port << ". Program terminated" << endl;
-                return 0;
+                err = "Unrecognized response from server at " + client_ip_and_port + ". Program terminated";
             }
 
             if (stoi(status) != 200)
             {
-                cerr << "Failed to send request for " << uri << " to server at " << client_ip_and_port << endl;
-                return 0;
+                err = "Failed to send request for " + uri + " to server at " + client_ip_and_port;
             }
 
             is_first_header = false;
@@ -363,7 +372,7 @@ int parse_res_headers_and_get_content_len(int client_socketfd, string client_ip_
             ss >> content_len;
     }
 
-    return content_len;
+    return make_tuple(content_len, err);
 }
 
 int write_data_to_file(int client_socketfd, int bytes_expected, string filename)
@@ -408,7 +417,6 @@ tuple<int, vector<string>> choose_mode(int argc, char *argv[])
 
     if (is_client)
     {
-
         if (argc < 6 || argc % 2 != 0)
             usage();
 
@@ -445,12 +453,57 @@ bool contains_complex_chars(string uri)
     return false;
 }
 
-int get_file_size(string filepath)
+int get_file_size(string file_path)
 {
     struct stat stat_buf;
-    if (stat(filepath.c_str(), &stat_buf) != 0)
+    if (stat(file_path.c_str(), &stat_buf) != 0)
         return -1;
     return (int)stat_buf.st_size;
+}
+
+string calc_md5(string file_path)
+{
+    const int MEMORY_BUFFER = 1024;
+
+    int fd = open(file_path.c_str(), O_RDONLY);
+    if (!fd)
+    {
+        cerr << "Unable to open file in 'calc_md5'" << endl;
+        return "";
+    }
+
+    MD5_CTX md5_ctx;
+    MD5_Init(&md5_ctx);
+
+    int total_bytes_read = 0, bytes_read = 0;
+    char line[MEMORY_BUFFER];
+    while ((bytes_read = read(fd, line, MEMORY_BUFFER)))
+    {
+        string line_str = string(line);
+        MD5_Update(&md5_ctx, line, bytes_read);
+        total_bytes_read += bytes_read;
+    }
+
+    unsigned char md5_buf[MD5_DIGEST_LENGTH];
+    MD5_Final(md5_buf, &md5_ctx);
+    return hexDump(md5_buf, sizeof(md5_buf));
+}
+
+string hexDump(unsigned char *buf, unsigned long len)
+{
+    string s;
+    static char hexchar[] = "0123456789abcdef";
+
+    for (unsigned long i = 0; i < len; i++)
+    {
+        unsigned char ch = buf[i];
+        unsigned int hi_nibble = (unsigned int)((ch >> 4) & 0x0f);
+        unsigned int lo_nibble = (unsigned int)(ch & 0x0f);
+
+        s += hexchar[hi_nibble];
+        s += hexchar[lo_nibble];
+    }
+    return s;
 }
 
 void log(string message)
