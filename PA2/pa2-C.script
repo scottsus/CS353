@@ -1,0 +1,20 @@
+Script started on 2023-02-12 00:12:01-08:00 [TERM="screen" TTY="/dev/pts/6" COLUMNS="80" LINES="22"]
+Linux DESKTOP-KR0Q71I 5.10.16.3-microsoft-standard-WSL2 #1 SMP Fri Apr 2 22:23:49 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux
+NAME="Ubuntu"
+VERSION="20.04.5 LTS (Focal Fossa)"
+ID=ubuntu
+ID_LIKE=debian
+PRETTY_NAME="Ubuntu 20.04.5 LTS"
+VERSION_ID="20.04"
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+VERSION_CODENAME=focal
+UBUNTU_CODENAME=focal
+rm -f *.o out.* x y z pa2
+g++ -g -Wall -std=c++11 -DLOCALHOST=\"127.0.0.1\" -o pa2 pa2.cpp my_socket.cpp my_readwrite.cpp my_timestamp.cpp -lcrypto
+[ (1) Running "./pa2 pa2data/pa2-startup-cout.ini" ... ]
+Unable to write to logfile
+
+Script done on 2023-02-12 00:12:03-08:00 [COMMAND_EXIT_CODE="0"]

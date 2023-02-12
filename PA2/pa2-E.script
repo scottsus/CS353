@@ -1,0 +1,60 @@
+Script started on 2023-02-12 00:23:07-08:00 [TERM="screen" TTY="/dev/pts/6" COLUMNS="80" LINES="22"]
+Linux DESKTOP-KR0Q71I 5.10.16.3-microsoft-standard-WSL2 #1 SMP Fri Apr 2 22:23:49 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux
+NAME="Ubuntu"
+VERSION="20.04.5 LTS (Focal Fossa)"
+ID=ubuntu
+ID_LIKE=debian
+PRETTY_NAME="Ubuntu 20.04.5 LTS"
+VERSION_ID="20.04"
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+VERSION_CODENAME=focal
+UBUNTU_CODENAME=focal
+rm -f *.o out.* x y z pa2
+g++ -g -Wall -std=c++11 -DLOCALHOST=\"127.0.0.1\" -o pa2 pa2.cpp my_socket.cpp my_readwrite.cpp my_timestamp.cpp -lcrypto
+/bin/rm: No match.
+[ (1) type <Ctrl+d> to run "pa2 -c merlot.usc.edu 80 index.html out.1 ..." ]
+pa2 client at 172.21.255.138:34764 connected to server at merlot.usc.edu:80
+	GET /index.html HTTP/1.1
+	Host: merlot.usc.edu:80
+	Accept: text/html, */*
+	User-Agent: pa2 (scottsus@usc.edu)
+	
+	HTTP/1.1 200 OK
+	Date: Sun, 12 Feb 2023 08:23:12 GMT
+	Server: Apache
+	Vary: Accept-Encoding
+	X-Frame-Options: SAMEORIGIN
+	X-XSS-Protection: 1; mode=block
+	Content-Length: 190
+	Content-Type: text/html; charset=UTF-8
+
+index.html saved into out.1
+
+	GET /cs353-s21/images/textbooks-3-small.jpg HTTP/1.1
+	Host: merlot.usc.edu:80
+	Accept: text/html, */*
+	User-Agent: pa2 (scottsus@usc.edu)
+	
+	HTTP/1.1 200 OK
+	Date: Sun, 12 Feb 2023 08:23:12 GMT
+	Server: Apache
+	Last-Modified: Tue, 02 Oct 2018 04:10:30 GMT
+	Accept-Ranges: bytes
+	Content-Length: 14265
+	X-Frame-Options: SAMEORIGIN
+	X-XSS-Protection: 1; mode=block
+	Content-Type: image/jpeg
+
+cs353-s21/images/textbooks-3-small.jpg saved into out.2
+
+[ (1) type <Ctrl+d> to run "ls -l out.1 out.2" ]
+-rw-r--r-- 1 ssusanto ssusanto   190 Feb 12 00:23 out.1
+-rw-r--r-- 1 ssusanto ssusanto 14265 Feb 12 00:23 out.2
+[ (1) type <Ctrl+d> to run "openssl md5 out.1 out.2" ]
+MD5(out.1)= 52ff4c071264039a5f8408ae5e7e9ba1
+MD5(out.2)= 0fa2a445f252d4355aa760a54c93825e
+
+Script done on 2023-02-12 00:23:15-08:00 [COMMAND_EXIT_CODE="0"]

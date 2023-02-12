@@ -1,0 +1,34 @@
+Script started on 2023-02-12 00:18:53-08:00 [TERM="screen" TTY="/dev/pts/10" COLUMNS="47" LINES="6"]
+[ (2) type <Ctrl+d> to run "wget -r $url10" ]
+--2023-02-12 00:18:58--  http://127.0.0.1:12345/persistent-2.html
+Connecting to 127.0.0.1:12345... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 156 [application/octet-stream]
+Saving to: ‘127.0.0.1:12345/persistent-2.html’
+
+        127.0.0   0%[      ]       0  --.-KB/s               127.0.0.1:12345 100%[=====>]     156  --.-KB/s    in 0s      
+
+2023-02-12 00:18:58 (12.2 MB/s) - ‘127.0.0.1:12345/persistent-2.html’ saved [156/156]
+
+FINISHED --2023-02-12 00:18:58--
+Total wall clock time: 0.005s
+Downloaded: 1 files, 156 in 0s (12.2 MB/s)
+[ (2) type <Ctrl+d> to run "kill `cat pa2.pid`" ]
+[ (2) type <Ctrl+d> to run "ls -l 127.0.0.1:12345"]
+total 4
+-rw-r--r-- 1 ssusanto ssusanto 156 Feb 12 00:18 persistent-2.html
+[ (2) type <Ctrl+d> to run "openssl md5 $f10"]
+MD5(127.0.0.1:12345/persistent-2.html)= 6b39ad99e589a4e7a4051c9f91bf6a74
+[ (2) type <Ctrl+d> to run "ls -l 127.0.0.1:12345/extra"]
+ls: cannot access '127.0.0.1:12345/extra': No such file or directory
+[ (2) type <Ctrl+d> to run "openssl md5 127.0.0.1:12345/extra/*"]
+openssl: No match.
+[ (2) type <Ctrl+d> to run "lsof -i 4" ]
+COMMAND   PID     USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+node    11735 ssusanto   18u  IPv4 738731      0t0  TCP localhost:42897 (LISTEN)
+node    11735 ssusanto   20u  IPv4 738732      0t0  TCP localhost:42897->localhost:34830 (ESTABLISHED)
+node    11748 ssusanto   18u  IPv4 744699      0t0  TCP localhost:34830->localhost:42897 (ESTABLISHED)
+node    11774 ssusanto   18u  IPv4 744705      0t0  TCP localhost:34832->localhost:42897 (ESTABLISHED)
+node    12079 ssusanto   20u  IPv4 738743      0t0  TCP localhost:42897->localhost:34832 (ESTABLISHED)
+
+Script done on 2023-02-12 00:19:05-08:00 [COMMAND_EXIT_CODE="0"]

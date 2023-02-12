@@ -1,0 +1,62 @@
+Script started on 2023-02-12 00:25:41-08:00 [TERM="screen" TTY="/dev/pts/10" COLUMNS="47" LINES="6"]
+[ (2) type <Ctrl+d> to run "./pa2 -c 127.0.0.1 12345 textbooks-2-small.jpg out.1 textbooks-3-small.jpg out.2 extra/USCHelmet.JPG out.3" ]
+
+
+pa2 client at 127.0.0.1:49794 connected to server at 127.0.0.1:12345
+	GET /textbooks-2-small.jpg HTTP/1.1
+	Host: 127.0.0.1:12345
+	Accept: text/html, */*
+	User-Agent: pa2 (scottsus@usc.edu)
+	
+	HTTP/1.1 200 OK
+	Server: pa2 (scottsus@usc.edu)
+	Content-Type: application/octet-stream
+	Content-Length: 10525
+	Content-MD5: 3f21950127b581aa1d9a264e8d06845b
+
+textbooks-2-small.jpg saved into out.1
+
+	GET /textbooks-3-small.jpg HTTP/1.1
+	Host: 127.0.0.1:12345
+	Accept: text/html, */*
+	User-Agent: pa2 (scottsus@usc.edu)
+	
+	HTTP/1.1 200 OK
+	Server: pa2 (scottsus@usc.edu)
+	Content-Type: application/octet-stream
+	Content-Length: 14265
+	Content-MD5: 0fa2a445f252d4355aa760a54c93825e
+
+textbooks-3-small.jpg saved into out.2
+
+	GET /extra/USCHelmet.JPG HTTP/1.1
+	Host: 127.0.0.1:12345
+	Accept: text/html, */*
+	User-Agent: pa2 (scottsus@usc.edu)
+	
+	HTTP/1.1 200 OK
+	Server: pa2 (scottsus@usc.edu)
+	Content-Type: application/octet-stream
+	Content-Length: 28623
+	Content-MD5: 43a1be149bbd2f24d07d167caf070736
+
+extra/USCHelmet.JPG saved into out.3
+
+[ (2) type <Ctrl+d> to run "kill `cat pa2.pid`" ]
+[ (2) type <Ctrl+d> to run "ls -l out.?"]
+-rw-r--r-- 1 ssusanto ssusanto 10525 Feb 12 00:25 out.1
+-rw-r--r-- 1 ssusanto ssusanto 14265 Feb 12 00:25 out.2
+-rw-r--r-- 1 ssusanto ssusanto 28623 Feb 12 00:25 out.3
+[ (2) type <Ctrl+d> to run "openssl md5 out.?"]
+MD5(out.1)= 8f81cb75cd178792c11e6b9351c4df40
+MD5(out.2)= a52be36e6b68e19062e04f0bc6c35c68
+MD5(out.3)= 194fae6954499b3117d343945010b41a
+[ (2) type <Ctrl+d> to run "lsof -i 4" ]
+COMMAND   PID     USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+node    11735 ssusanto   18u  IPv4 738731      0t0  TCP localhost:42897 (LISTEN)
+node    11735 ssusanto   20u  IPv4 738732      0t0  TCP localhost:42897->localhost:34830 (ESTABLISHED)
+node    11748 ssusanto   18u  IPv4 744699      0t0  TCP localhost:34830->localhost:42897 (ESTABLISHED)
+node    11774 ssusanto   18u  IPv4 744705      0t0  TCP localhost:34832->localhost:42897 (ESTABLISHED)
+node    12079 ssusanto   20u  IPv4 738743      0t0  TCP localhost:42897->localhost:34832 (ESTABLISHED)
+
+Script done on 2023-02-12 00:25:53-08:00 [COMMAND_EXIT_CODE="0"]

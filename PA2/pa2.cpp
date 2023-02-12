@@ -27,7 +27,7 @@ using namespace std;
 
 void run_server(string);
 map<string, string> get_config(string);
-tuple<int, int, string> parse_req_headers_and_find_file(int);
+tuple<int, int, string> parse_req_headers_and_find_file(int, string);
 void write_res_headers(int, int, int, string);
 void write_res_body(int, string);
 
@@ -109,12 +109,14 @@ void run_server(string config_file)
 
         while (true)
         {
-            tuple<int, int, string> file_info = parse_req_headers_and_find_file(client_socketfd);
+            tuple<int, int, string> file_info = parse_req_headers_and_find_file(client_socketfd, client_ip_and_port);
             int status_code = get<0>(file_info);
 
+            string err = get<2>(file_info);
             if (status_code != 200)
             {
-                cerr << get<2>(file_info) << endl;
+                if (err != "")
+                    cerr << err << endl;
                 break;
             }
 
@@ -172,14 +174,12 @@ map<string, string> get_config(string config_file)
     return config;
 }
 
-tuple<int, int, string> parse_req_headers_and_find_file(int client_socketfd)
+tuple<int, int, string> parse_req_headers_and_find_file(int client_socketfd, string client_ip_and_port)
 {
     string line;
     int bytes_received = read_a_line(client_socketfd, line);
     if (bytes_received <= 2)
         return make_tuple(0, 0, "");
-
-    cout << "\t" + line;
 
     stringstream ss(line);
     string method, uri, version;
@@ -199,6 +199,8 @@ tuple<int, int, string> parse_req_headers_and_find_file(int client_socketfd)
     if (uri[0] == '/')
         uri = uri.substr(1);
 
+    log("REQUEST: " + client_ip_and_port + ", uri=/" + uri);
+
     string file_path = rootdir + "/" + uri;
     int file_size = get_file_size(file_path);
     if (file_size <= 0)
@@ -212,10 +214,11 @@ tuple<int, int, string> parse_req_headers_and_find_file(int client_socketfd)
         err = "Wrong HTTP version: " + version;
     }
 
+    log_header(line);
     while (bytes_received > 2)
     {
         bytes_received = read_a_line(client_socketfd, line);
-        cout << "\t" + line;
+        log_header(line);
     }
 
     if (err != "")
@@ -313,6 +316,8 @@ void run_client(vector<string> client_args)
 
 void write_req_headers(int client_socketfd, string host, string port, string method, string uri)
 {
+    if (uri[0] != '/')
+        uri = '/' + uri;
     string h1 = "GET " + uri + " HTTP/1.1\r\n";
     string h2 = "Host: " + host + ":" + port + "\r\n";
     string h3 = "Accept: text/html, */*\r\n";
@@ -510,7 +515,10 @@ void log(string message)
 {
     string log = "[" + get_timestamp_now() + "] " + message + "\n";
     if (logfile.is_open())
+    {
         logfile << log;
+        logfile.flush();
+    }
     else
         cout << log;
 }
@@ -522,7 +530,10 @@ void log_header(string header)
         log = "\r\n";
 
     if (logfile.is_open())
+    {
         logfile << log;
+        logfile.flush();
+    }
     else
         cout << log;
 }

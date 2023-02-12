@@ -1,0 +1,40 @@
+Script started on 2023-02-12 00:10:46-08:00 [TERM="screen" TTY="/dev/pts/6" COLUMNS="80" LINES="22"]
+Linux DESKTOP-KR0Q71I 5.10.16.3-microsoft-standard-WSL2 #1 SMP Fri Apr 2 22:23:49 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux
+NAME="Ubuntu"
+VERSION="20.04.5 LTS (Focal Fossa)"
+ID=ubuntu
+ID_LIKE=debian
+PRETTY_NAME="Ubuntu 20.04.5 LTS"
+VERSION_ID="20.04"
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+VERSION_CODENAME=focal
+UBUNTU_CODENAME=focal
+rm -f *.o out.* x y z pa2
+g++ -g -Wall -std=c++11 -DLOCALHOST=\"127.0.0.1\" -o pa2 pa2.cpp my_socket.cpp my_readwrite.cpp my_timestamp.cpp -lcrypto
+/bin/rm: No match.
+[ (1) Running "./pa2 pa2data/pa2-startup.ini" ... ]
+Terminated
+[ (1) type <Ctrl+d> to run "cat pa2.log" ]
+[Sun Feb 12 2023 00:10:48.320187] START: port=12345, rootdir=pa2data
+[Sun Feb 12 2023 00:11:13.672072] CONNECT: 127.0.0.1:49744
+[Sun Feb 12 2023 00:11:13.672279] REQUEST: 127.0.0.1:49744, uri=/extra/usctommy-2.gif
+	GET /extra/usctommy-2.gif HTTP/1.1
+	User-Agent: Wget/1.20.3 (linux-gnu)
+	Accept: */*
+	Accept-Encoding: identity
+	Host: 127.0.0.1:12345
+	Connection: Keep-Alive
+	
+[Sun Feb 12 2023 00:11:13.672533] RESPONSE: 127.0.0.1:49744, status=200
+	HTTP/1.1 200 OK
+	Server: pa2 (scottsus@usc.edu)
+	Content-Type: application/octet-stream
+	Content-Length: 1433
+	Content-MD5: 27a020415f3afc20eb433f2c931dc52e
+
+[Sun Feb 12 2023 00:11:13.674325] CLOSE: 127.0.0.1:49744
+
+Script done on 2023-02-12 00:11:31-08:00 [COMMAND_EXIT_CODE="0"]
