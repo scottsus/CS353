@@ -31,6 +31,9 @@ void write_res_headers(int, int, int, int);
 void write_res_body(int, int);
 
 void run_client(vector<string>);
+void write_req_headers(int, string, string, string, string);
+int parse_res_headers_and_get_content_len(int, string, string);
+int write_data_to_file(int, int, string);
 
 tuple<int, vector<string>> choose_mode(int, char *[]);
 bool contains_complex_chars(string);
@@ -66,6 +69,16 @@ int main(int argc, char *argv[])
 void run_server(string config_file)
 {
     map<string, string> config = get_config(config_file);
+
+    ofstream pidfile(config["pidfile"]);
+    if (!pidfile.is_open())
+    {
+        cerr << "Unable to open PID file: " << config["pidfile"] << endl;
+        return;
+    }
+    pidfile << (int)getpid() << endl;
+    pidfile.close();
+
     rootdir = config["rootdir"];
     string port = config["port"];
 
@@ -88,7 +101,7 @@ void run_server(string config_file)
             continue;
         }
 
-        string client_ip_and_port = get_ip_and_port_for_client(client_socketfd, 1);
+        string client_ip_and_port = get_ip_and_port_for_client(client_socketfd, 0);
         log("CONNECT: " + client_ip_and_port);
 
         while (true)
@@ -172,11 +185,13 @@ tuple<int, int, int> parse_req_headers_and_find_file(int client_socketfd)
         return make_tuple(404, 0, 0);
     }
 
-    if (uri[0] != '/' || uri[uri.length() - 1] == '/' || contains_complex_chars(uri))
+    if (uri[uri.length() - 1] == '/' || contains_complex_chars(uri))
     {
         cerr << "Malformed URI: " << uri << endl;
         return make_tuple(404, 0, 0);
     }
+    if (uri[0] == '/')
+        uri = uri.substr(1);
 
     string filepath = rootdir + "/" + uri;
     int file_size = get_file_size(filepath);
@@ -211,23 +226,25 @@ tuple<int, int, int> parse_req_headers_and_find_file(int client_socketfd)
 
 void write_res_headers(int client_socketfd, int status_code, int fd, int file_size)
 {
-    string md5_hash = "";
+    string md5_hash = "md5";
 
-    string status = " 404 NOT FOUND\r\n";
+    string status = "404 NOT FOUND\r\n";
     if (status_code == 200)
-        status = " 200 OK\r\n";
+        status = "200 OK\r\n";
 
-    string h1 = "HTTP/1.1" + status;
+    string h1 = "HTTP/1.1 " + status;
     string h2 = "Server: pa2 (scottsus@usc.edu)\r\n";
     string h3 = "Content-Type: application/octet-stream\r\n";
     string h4 = "Content-Length: " + to_string(file_size) + "\r\n";
     string h5 = "Content-MD5: " + md5_hash + "\r\n";
+    string h6 = "\r\n";
 
     better_write_header(client_socketfd, h1.c_str(), h1.length());
     better_write_header(client_socketfd, h2.c_str(), h2.length());
     better_write_header(client_socketfd, h3.c_str(), h3.length());
     better_write_header(client_socketfd, h4.c_str(), h4.length());
     better_write_header(client_socketfd, h5.c_str(), h5.length());
+    better_write_header(client_socketfd, h6.c_str(), h6.length());
 
     log_header(h1);
     log_header(h2);
@@ -246,14 +263,137 @@ void write_res_body(int client_socketfd, int fd)
     while ((bytes_read = read(fd, line, MEMORY_BUFFER)))
     {
         string line_str = string(line);
-        better_write(client_socketfd, line_str.c_str(), sizeof(line));
+        better_write(client_socketfd, line_str.c_str(), bytes_read);
         total_bytes_read += bytes_read;
-        usleep(250000); // sleep for 250ms
+        // usleep(250000); // sleep for 250ms
     }
 }
 
 void run_client(vector<string> client_args)
 {
+    string host = client_args.at(0), port = client_args.at(1);
+    int client_socketfd = create_client_socket_and_connect(host, port);
+    if (client_socketfd == -1)
+    {
+        cerr << "Failed to connect to server at " << host << ":" << port << ". Program terminated" << endl;
+        return;
+    }
+
+    string client_ip_and_port = get_ip_and_port_for_client(client_socketfd, 1);
+    cout << "pa2 client at " << client_ip_and_port << " connected to server at " << host << ":" << port << endl;
+
+    for (uint i = 2; i < client_args.size(); i += 2)
+    {
+        string uri = client_args.at(i), filename = client_args.at(i + 1);
+        write_req_headers(client_socketfd, host, port, "GET", uri);
+
+        int content_len = parse_res_headers_and_get_content_len(client_socketfd, client_ip_and_port, uri);
+        if (content_len == 0)
+        {
+            cerr << "No Content-Length in response header when downloading " << uri << " from server at " << client_ip_and_port << ". Program terminated" << endl;
+            return;
+        }
+
+        int data_written = write_data_to_file(client_socketfd, content_len, filename);
+        if (data_written == 0)
+            cout << uri << " saved into " << filename << endl
+                 << endl;
+    }
+}
+
+void write_req_headers(int client_socketfd, string host, string port, string method, string uri)
+{
+    string h1 = "GET " + uri + " HTTP/1.1\r\n";
+    string h2 = "Host: " + host + ":" + port + "\r\n";
+    string h3 = "Accept: text/html, */*\r\n";
+    string h4 = "User-Agent: pa2 (scottsus@usc.edu)\r\n";
+    string h5 = "\r\n";
+
+    better_write_header(client_socketfd, h1.c_str(), h1.length());
+    better_write_header(client_socketfd, h2.c_str(), h2.length());
+    better_write_header(client_socketfd, h3.c_str(), h3.length());
+    better_write_header(client_socketfd, h4.c_str(), h4.length());
+    better_write_header(client_socketfd, h5.c_str(), h5.length());
+
+    cout << "\t" + h1 << "\t" + h2 << "\t" + h3 << "\t" + h4 << "\t" + h5;
+}
+
+int parse_res_headers_and_get_content_len(int client_socketfd, string client_ip_and_port, string uri)
+{
+    string line;
+    int content_len = 0;
+
+    bool is_first_header = true;
+    while (true)
+    {
+        int bytes_received = read_a_line(client_socketfd, line);
+        if (bytes_received <= 2)
+        {
+            cout << "\r\n";
+            break;
+        }
+
+        cout << "\t" + line;
+        stringstream ss(line);
+
+        if (is_first_header)
+        {
+            string version, status, reason;
+            ss >> version >> status >> reason;
+
+            string versionx = version.substr(0, 5);
+            if (versionx != "HTTP/")
+            {
+                cerr << "Unrecognized response from server at " << client_ip_and_port << ". Program terminated" << endl;
+                return 0;
+            }
+
+            if (stoi(status) != 200)
+            {
+                cerr << "Failed to send request for " << uri << " to server at " << client_ip_and_port << endl;
+                return 0;
+            }
+
+            is_first_header = false;
+        }
+
+        string header_key;
+        ss >> header_key;
+        if (header_key == "Content-Length:")
+            ss >> content_len;
+    }
+
+    return content_len;
+}
+
+int write_data_to_file(int client_socketfd, int bytes_expected, string filename)
+{
+    ofstream outfile(filename);
+    if (!outfile.is_open())
+    {
+        cerr << "Cannot open " << filename << " for writing. Download for " << filename << " is skipped." << endl;
+        return -1;
+    }
+
+    const int BUFFER_SIZE = 1024;
+
+    char buf[BUFFER_SIZE];
+    int bytes_left = bytes_expected;
+    while (bytes_left > 0)
+    {
+        int bytes_to_read = (bytes_left > BUFFER_SIZE) ? BUFFER_SIZE : bytes_left;
+        int bytes_read = read(client_socketfd, buf, bytes_to_read);
+        outfile.write(buf, bytes_read);
+
+        // Indication of error
+        if (bytes_read <= 0)
+            return -1;
+
+        bytes_left -= bytes_read;
+    }
+
+    outfile.close();
+    return 0;
 }
 
 tuple<int, vector<string>> choose_mode(int argc, char *argv[])
