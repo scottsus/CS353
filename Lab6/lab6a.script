@@ -77062,4 +77062,109 @@ Sleep: 0
 [3]	Connection closed with client at 127.0.0.1:38466
 ^C
 [1m[7m%[27m[1m[0m                                                                                                                              ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab6]1;~/CS353/Lab6[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab6[00m on [38;5;81mmaster[38;5;166m ●[38;5;118m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31mc[0m[39m[0m[32mc[32md[39m[90m CS353/Lab6[39m[11D[39m [39m[4m.[24m[39m [39m [39m [39m [39m [39m [39m [39m [39m [9D[90m.[39m[4m.[39m[4m.[24m[?1l>[?2004l
-]2;cd ..]1;cd[1m[7m%[27m[1m[0m                                                                                                                              ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353]1;~/CS353[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353[00m on [38;5;81mmaster[38;5;166m ●[38;5;118m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[32mg[39m[32mg[39m[90mit status[39m[9D[1m[31mg[1m[31mi[0m[39m[90mi[90mt[90m [90ms[90mt[90ma[90mt[90mu[90ms[39m[9D[0m[32mg[0m[32mi[32mt[39m[39m [39m [39m [39m [39m [39m [39m [39m [8D[90m status[39m[39m [39ms[39mt[39ma[39mt[39mu [39m [90mus[39m [39m [39m [90mtus[39m [39m [39m [39m 
+]2;cd ..]1;cd[1m[7m%[27m[1m[0m                                                                                                                              ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353]1;~/CS353[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353[00m on [38;5;81mmaster[38;5;166m ●[38;5;118m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[32mg[39m[32mg[39m[90mit status[39m[9D[1m[31mg[1m[31mi[0m[39m[90mi[90mt[90m [90ms[90mt[90ma[90mt[90mu[90ms[39m[9D[0m[32mg[0m[32mi[32mt[39m[39m [39m [39m [39m [39m [39m [39m [39m [8D[90m status[39m[39m [39ms[39mt[39ma[39mt[39mu [39m [90mus[39m [39m [39m [90mtus[39m [39m [39m [39m [90matus[39m [39m [39m [39m [39m [90mtatus[39m [39m [39m [39m [39m [39m [90mstatus[39m[39ma[39m [39m [39m [39m [39m [90mdd .[39m[39md[39md[39m [39m[4m.[24m[?1l>[?2004l
+]2;git add .]1;git[1m[7m%[27m[1m[0m                                                                                                                              ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353]1;~/CS353[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353[00m on [38;5;81mmaster[38;5;118m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[32mg[39m[32mg[39m[90mit add .[39m[8D[1m[31mg[1m[31mi[0m[39m[90mi[90mt[90m [90ma[90md[90md[90m [90m.[39m[8D[0m[32mg[0m[32mi[32mt[39m[39m [39m [39m [39m [39m [39m [39m [90m add .[39m[39m [39mc[39m [39m [39m [39m [90mommit -m "initial Lab6 commit"[39m[30D[39mo[39mm[39mm[39mi[39mt[39m [39m-[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [22D[90mm "initial Lab6 commit"[39m[23D[39mm[39m [33m"[39m[33m"[33mf[39m[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [19D[90minish MD5 and err collection"[39m[29D[33mf[33mu[39m[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [28D[33mu[33mc[39m[33mc[33mk[39m[33mk[33mi[39m[33mi[33mn[39m[33mn[33mg[39m[33mg[33m [39m[33m [33md[39m[33md[33mo[39m[33mo[33mn[39m[33mn[33me[39m[33me[33m [39m[33m [33mw[39m[33mw[33mi[39m[33mi[33mt[39m[33mt[33mh[39m[33mh[33m [39m[33m [33ml[39m[33ml[33ma[39m[33ma[33mb[39m[33mb[33m6[39m[33m6[33m"[39m[?1l>[?2004l
+]2;git commit -m "fucking done with lab6"]1;git[master 4487487] fucking done with lab6
+ 21 files changed, 78795 insertions(+), 44 deletions(-)
+ create mode 100644 Lab6/lab6b.script
+ create mode 100644 Lab6/lab6c.cpp
+ create mode 100644 Lab6/lab6c10.script
+ create mode 100644 Lab6/lab6c30.script
+ create mode 100644 Lab6/lab6c50.script
+ create mode 100644 Lab6/lab6c70.script
+ create mode 100644 Lab6/lab6c90.script
+ create mode 100755 Lab6/lab6d
+ create mode 100644 Lab6/lab6d.cpp
+ create mode 100644 Lab6/lab6d10.script
+ create mode 100644 Lab6/lab6d30.script
+ create mode 100644 Lab6/lab6d50.script
+ create mode 100644 Lab6/lab6d70.script
+ create mode 100644 Lab6/lab6d90.script
+ create mode 100644 Lab6/x
+ create mode 100644 Lab6/y
+[1m[7m%[27m[1m[0m                                                                                                                              ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353]1;~/CS353[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353[00m on [38;5;81mmaster[00m[38;5;166m λ[00m [K[?1h=[?2004h[32mg[39m[32mg[39m[90mit commit -m "fucking done with lab6"[39m[37D[1m[31mg[1m[31mi[0m[39m[90mi[90mt[90m [90mc[90mo[90mm[90mm[90mi[90mt[90m [90m-[90mm[90m [90m"[90mf[90mu[90mc[90mk[90mi[90mn[90mg[90m [90md[90mo[90mn[90me[90m [90mw[90mi[90mt[90mh[90m [90ml[90ma[90mb[90m6[90m"[39m[37D[0m[32mg[0m[32mi[32mt[39m[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [36D[90m commit -m "fucking done with lab6"[39m[35D[39m [39mp[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [33D[90mush[39m[39mu[39ms[39mh[?1l>[?2004l
+]2;git push]1;gitEnumerating objects: 30, done.
+Counting objects:   3% (1/30)Counting objects:   6% (2/30)Counting objects:  10% (3/30)Counting objects:  13% (4/30)Counting objects:  16% (5/30)Counting objects:  20% (6/30)Counting objects:  23% (7/30)Counting objects:  26% (8/30)Counting objects:  30% (9/30)Counting objects:  33% (10/30)Counting objects:  36% (11/30)Counting objects:  40% (12/30)Counting objects:  43% (13/30)Counting objects:  46% (14/30)Counting objects:  50% (15/30)Counting objects:  53% (16/30)Counting objects:  56% (17/30)Counting objects:  60% (18/30)Counting objects:  63% (19/30)Counting objects:  66% (20/30)Counting objects:  70% (21/30)Counting objects:  73% (22/30)Counting objects:  76% (23/30)Counting objects:  80% (24/30)Counting objects:  83% (25/30)Counting objects:  86% (26/30)Counting objects:  90% (27/30)Counting objects:  93% (28/30)Counting objects:  96% (29/30)Counting objects: 100% (30/30)Counting objects: 100% (30/30), done.
+Delta compression using up to 8 threads
+Compressing objects:   4% (1/23)Compressing objects:   8% (2/23)Compressing objects:  13% (3/23)Compressing objects:  17% (4/23)Compressing objects:  21% (5/23)Compressing objects:  26% (6/23)Compressing objects:  30% (7/23)Compressing objects:  34% (8/23)Compressing objects:  39% (9/23)Compressing objects:  43% (10/23)Compressing objects:  47% (11/23)Compressing objects:  52% (12/23)Compressing objects:  56% (13/23)Compressing objects:  60% (14/23)Compressing objects:  65% (15/23)Compressing objects:  69% (16/23)Compressing objects:  73% (17/23)Compressing objects:  78% (18/23)Compressing objects:  82% (19/23)Compressing objects:  86% (20/23)Compressing objects:  91% (21/23)Compressing objects:  95% (22/23)Compressing objects: 100% (23/23)Compressing objects: 100% (23/23), done.
+Writing objects:   4% (1/23)Writing objects:   8% (2/23)Writing objects:  13% (3/23)Writing objects:  17% (4/23)Writing objects:  21% (5/23)Writing objects:  34% (8/23)Writing objects:  39% (9/23)Writing objects:  60% (14/23)Writing objects:  69% (16/23)Writing objects:  73% (17/23)Writing objects:  78% (18/23)Writing objects:  82% (19/23)Writing objects:  86% (20/23)Writing objects:  91% (21/23)Writing objects:  95% (22/23)Writing objects: 100% (23/23)Writing objects: 100% (23/23), 877.31 KiB | 7.19 MiB/s, done.
+Total 23 (delta 17), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas:   0% (0/17)[Kremote: Resolving deltas:   5% (1/17)[Kremote: Resolving deltas:  11% (2/17)[Kremote: Resolving deltas:  17% (3/17)[Kremote: Resolving deltas:  23% (4/17)[Kremote: Resolving deltas:  29% (5/17)[Kremote: Resolving deltas:  35% (6/17)[Kremote: Resolving deltas:  41% (7/17)[Kremote: Resolving deltas:  47% (8/17)[Kremote: Resolving deltas:  52% (9/17)[Kremote: Resolving deltas:  58% (10/17)[Kremote: Resolving deltas:  64% (11/17)[Kremote: Resolving deltas:  70% (12/17)[Kremote: Resolving deltas:  76% (13/17)[Kremote: Resolving deltas:  82% (14/17)[Kremote: Resolving deltas:  88% (15/17)[Kremote: Resolving deltas:  94% (16/17)[Kremote: Resolving deltas: 100% (17/17)[Kremote: Resolving deltas: 100% (17/17), completed with 5 local objects.[K
+To github.com:susantoscott/CS353.git
+   912822a..4487487  master -> master
+[1m[7m%[27m[1m[0m                                                                                                                              ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353]1;~/CS353[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353[00m on [38;5;81mmaster[38;5;166m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31mc[0m[39m[0m[32mc[32md[39m[90m ..[39m[39m [39m[4mL[24m[39m [90mab6[39m[4mL[39m[4ma[24m[4ma[39m[4mb[24m[4mb[39m[4m6[24m[?1l>[?2004l
+]2;cd Lab6]1;cd[1m[7m%[27m[1m[0m                                                                                                                              ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab6]1;~/CS353/Lab6[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab6[00m on [38;5;81mmaster[38;5;166m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31mt[0m[39m[1m[31mt[1m[31ma[0m[39m[0m[32mt[0m[32ma[32mr[39m[90m xvf lab4data.tar.gz[39m[20D[39m [39m[4mx[24m[24m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [19D[90mxvf lab4data.tar.gz[39m[19D[39m[4mc[24m[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [18D[90mvzf pa2.tar.gz Makefile *.c* *.h README.txt[39m[43D[24mc[39mv[39mz[39mf[39m [39mp[39ma[39m2[39m.[39mt[39ma[39mr[39m.[39mg[39mz[39m [39m[4mM[39m[4ma[39m[4mk[39m[4me[39m[4mf[39m[4mi[39m[4ml[39m[4me[24m[39m [34m*[39m[39m.[39mc[34m*[39m[39m [34m*[39m[39m.[39mh[39m [39mR[39mE[39mA[39mD[39mM[39mE[39m.[39mt[39mx[39mt[1C[1C[P[29C [30D[P[29C [30D[P[29C [30D[P[29C [30D[P[29C [30D[P[29C [30D[P[29C [30D[P[29C [30D[P[29C [30D[P[29C [30D[1C[1C[1C[1C[1C[1C[1C[1C[1C[1C[1C[1C[1C[1C[1C[1C[1C[1C[1C[1C[1C[1C[1C[1C[1C[1C[1C[1C[1C          [1Cl[24m [4mM[4ma[4mk[4me[4mf[4mi[4ml[4me[24m[39m [34m*[39m.[39mc[34m*[39m[39m [34m*[39m.h[18Da[24m [4mM[4ma[4mk[4me[4mf[4mi[4ml[4me[24m[39m [34m*[39m.[39mc[34m*[39m[39m [34m*[39m.h[18Db[24m [4mM[4ma[4mk[4me[4mf[4mi[4ml[4me[24m[39m [34m*[39m.[39mc[34m*[39m[39m [34m*[39m.h[18D6[24m [4mM[4ma[4mk[4me[4mf[4mi[4ml[4me[24m[39m [34m*[39m.[39mc[34m*[39m[39m [34m*[39m.h[18D.[24m [4mM[4ma[4mk[4me[4mf[4mi[4ml[4me[24m[39m [34m*[39m.[39mc[34m*[39m[39m [34m*[39m.h[18Dt[24m [4mM[4ma[4mk[4me[4mf[4mi[4ml[4me[24m[39m [34m*[39m.[39mc[34m*[39m[39m [34m*[39m.h[18Dr[24m [4mM[4ma[4mk[4me[4mf[4mi[4ml[4me[24m[39m [34m*[39m.[39mc[34m*[39m[39m [34m*[39m.h[18D[P[18C [19Da[24m [4mM[4ma[4mk[4me[4mf[4mi[4ml[4me[24m[39m [34m*[39m.[39mc[34m*[39m[39m [34m*[39m.h[18Dr[24m [4mM[4ma[4mk[4me[4mf[4mi[4ml[4me[24m[39m [34m*[39m.[39mc[34m*[39m[39m [34m*[39m.h[18D.[24m [4mM[4ma[4mk[4me[4mf[4mi[4ml[4me[24m[39m [34m*[39m.[39mc[34m*[39m[39m [34m*[39m.h[18Dg[24m [4mM[4ma[4mk[4me[4mf[4mi[4ml[4me[24m[39m [34m*[39m.[39mc[34m*[39m[39m [34m*[39m.h[18Dz[24m [4mM[4ma[4mk[4me[4mf[4mi[4ml[4me[24m[39m [34m*[39m.[39mc[34m*[39m[39m [34m*[39m.h[18D[1C[24m [4mM[4ma[4mk[4me[4mf[4mi[4ml[4me[24m[39m [34m*[39m.[39mc[34m*[39m[39m [34m*[39m.h[18Dl[24m [4mM[4ma[4mk[4me[4mf[4mi[4ml[4me[24m[39m [34m*[39m.[39mc[34m*[39m[39m [34m*[39m.h[18Da[24m [4mM[4ma[4mk[4me[4mf[4mi[4ml[4me[24m[39m [34m*[39m.[39mc[34m*[39m[39m [34m*[39m.h[18Db[24m [4mM[4ma[4mk[4me[4mf[4mi[4ml[4me[24m[39m [34m*[39m.[39mc[34m*[39m[39m [34m*[39m.h[18D6[24m [4mM[4ma[4mk[4me[4mf[4mi[4ml[4me[24m[39m [34m*[39m.[39mc[34m*[39m[39m [34m*[39m.h[18D[34m*[39m[24m [4mM[4ma[4mk[4me[4mf[4mi[4ml[4me[24m[39m [34m*[39m.[39mc[34m*[39m[39m [34m*[39m.h[18D.[24m [4mM[4ma[4mk[4me[4mf[4mi[4ml[4me[24m[39m [34m*[39m.[39mc[34m*[39m[39m [34m*[39m.h[18Ds[24m [4mM[4ma[4mk[4me[4mf[4mi[4ml[4me[24m[39m [34m*[39m.[39mc[34m*[39m[39m [34m*[39m.h[18Dc[24m [4mM[4ma[4mk[4me[4mf[4mi[4ml[4me[24m[39m [34m*[39m.[39mc[34m*[39m[39m [34m*[39m.h[18Dr[24m [4mM[4ma[4mk[4me[4mf[4mi[4ml[4me[24m[39m [34m*[39m.[39mc[34m*[39m[39m [34m*[39m.h[18Di[24m [4mM[4ma[4mk[4me[4mf[4mi[4ml[4me[24m[39m [34m*[39m.[39mc[34m*[39m[39m [34m*[39m.h[18Dp[24m [4mM[4ma[4mk[4me[4mf[4mi[4ml[4me[24m[39m [34m*[39m.[39mc[34m*[39m[39m [34m*[39m.h[18Dt[24m [4mM[4ma[4mk[4me[4mf[4mi[4ml[4me[24m[39m [34m*[39m.[39mc[34m*[39m[39m [34m*[39m.h[18D[?1l>[?2004l
+]2;tar cvzf lab6.tar.gz lab6*.script Makefile *.c* *.h]1;tarlab6a.script
+lab6b.script
+lab6c10.script
+lab6c30.script
+lab6c50.script
+lab6c70.script
+lab6c90.script
+lab6d10.script
+lab6d30.script
+lab6d50.script
+lab6d70.script
+lab6d90.script
+Makefile
+bad-create.cpp
+bad-dyn-create.cpp
+bad-dyn-create2.cpp
+bad-dyn-create3.cpp
+bad-dyn-create4.cpp
+create.cpp
+detach.cpp
+exit-detach.cpp
+fac.cpp
+first-arg.cpp
+first.cpp
+join-dyn.cpp
+join-dyn4.cpp
+join-new.cpp
+join-shared.cpp
+join.cpp
+lab6b.cpp
+lab6c.cpp
+lab6d.cpp
+my_readwrite.cpp
+my_socket.cpp
+my_timestamp.cpp
+my_readwrite.h
+my_socket.h
+my_timestamp.h
+[1m[7m%[27m[1m[0m                                                                                                                              ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab6]1;~/CS353/Lab6[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab6[00m on [38;5;81mmaster[38;5;166m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31mt[0m[39m[1m[31mt[1m[31ma[0m[39m[0m[32mt[0m[32ma[32mr[39m[90m cvzf lab6.tar.gz lab6*.script Makefile *.c* *.h[39m[48D[39m [39mt[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [46D[90mvf pa2.tar.gz[39m[13D[39mv[39mf[39m [39m[4ml[24m[39m [39m [39m [39m [39m [39m [39m [39m [39m [9D[90mab3.tar.gz[39m[10D[4ml[39m[4ma[24m[4ma[39m[4mb[24m[4mb[39m[4m6[24m[39m [39m [39m [39m [39m [39m [39m [4m6[4m.[24m[4m.[4mt[24m[4mt[4ma[24m[4ma[4mr.gz[24m[1m [0m[0m [?1l>[?2004l
+]2;tar tvf lab6.tar.gz]1;tar-rw-r--r-- ssusanto/ssusanto 1052672 2023-02-16 16:05 lab6a.script
+-rw-r--r-- ssusanto/ssusanto   21042 2023-02-16 14:30 lab6b.script
+-rw-r--r-- ssusanto/ssusanto   12479 2023-02-16 14:40 lab6c10.script
+-rw-r--r-- ssusanto/ssusanto   11577 2023-02-16 14:45 lab6c30.script
+-rw-r--r-- ssusanto/ssusanto    7353 2023-02-16 14:46 lab6c50.script
+-rw-r--r-- ssusanto/ssusanto    7688 2023-02-16 14:47 lab6c70.script
+-rw-r--r-- ssusanto/ssusanto    9965 2023-02-16 14:47 lab6c90.script
+-rw-r--r-- ssusanto/ssusanto    8570 2023-02-16 15:59 lab6d10.script
+-rw-r--r-- ssusanto/ssusanto   13056 2023-02-16 16:00 lab6d30.script
+-rw-r--r-- ssusanto/ssusanto    7549 2023-02-16 16:00 lab6d50.script
+-rw-r--r-- ssusanto/ssusanto   10582 2023-02-16 16:01 lab6d70.script
+-rw-r--r-- ssusanto/ssusanto    9326 2023-02-16 16:03 lab6d90.script
+-rw-r--r-- ssusanto/ssusanto    2176 2023-02-16 14:52 Makefile
+-rw-r--r-- ssusanto/ssusanto     476 2022-10-03 17:46 bad-create.cpp
+-rw-r--r-- ssusanto/ssusanto     454 2022-10-03 17:46 bad-dyn-create.cpp
+-rw-r--r-- ssusanto/ssusanto     546 2022-10-03 17:46 bad-dyn-create2.cpp
+-rw-r--r-- ssusanto/ssusanto     571 2022-10-03 17:46 bad-dyn-create3.cpp
+-rw-r--r-- ssusanto/ssusanto     625 2022-10-03 17:46 bad-dyn-create4.cpp
+-rw-r--r-- ssusanto/ssusanto     493 2022-10-03 17:46 create.cpp
+-rw-r--r-- ssusanto/ssusanto     535 2022-10-03 17:46 detach.cpp
+-rw-r--r-- ssusanto/ssusanto     474 2022-10-03 17:46 exit-detach.cpp
+-rw-r--r-- ssusanto/ssusanto     244 2022-10-03 17:46 fac.cpp
+-rw-r--r-- ssusanto/ssusanto     470 2022-10-03 17:46 first-arg.cpp
+-rw-r--r-- ssusanto/ssusanto     415 2022-10-03 17:46 first.cpp
+-rw-r--r-- ssusanto/ssusanto     771 2022-10-03 17:46 join-dyn.cpp
+-rw-r--r-- ssusanto/ssusanto     690 2022-10-03 17:46 join-dyn4.cpp
+-rw-r--r-- ssusanto/ssusanto     757 2022-10-03 17:46 join-new.cpp
+-rw-r--r-- ssusanto/ssusanto     944 2022-10-03 17:46 join-shared.cpp
+-rw-r--r-- ssusanto/ssusanto     539 2022-10-03 17:46 join.cpp
+-rw-r--r-- ssusanto/ssusanto   17278 2023-02-16 14:19 lab6b.cpp
+-rw-r--r-- ssusanto/ssusanto   17403 2023-02-16 14:37 lab6c.cpp
+-rw-r--r-- ssusanto/ssusanto   18397 2023-02-16 15:57 lab6d.cpp
+-rw-r--r-- ssusanto/ssusanto    8234 2023-02-16 13:00 my_readwrite.cpp
+-rw-r--r-- ssusanto/ssusanto   10099 2023-02-16 13:01 my_socket.cpp
+-rw-r--r-- ssusanto/ssusanto    4
