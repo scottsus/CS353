@@ -18,7 +18,7 @@
 /*
  * Author:      Bill Cheng (bill.cheng@usc.edu)
  *
- * @(#)$Id: my_timestamp.h,v 1.1 2022/08/22 06:47:43 william Exp $
+ * @(#)$Id: my_timestamp.h,v 1.1 2023/01/07 07:08:25 william Exp $
  */
 
 #ifndef _MY_TIMESTAMP_H_

@@ -18,7 +18,7 @@
 /*
  * Author:      William Chia-Wei Cheng (bill.cheng@usc.edu)
  *
- * @(#)$Id: my_timestamp.cpp,v 1.1 2022/08/22 06:47:43 william Exp $
+ * @(#)$Id: my_timestamp.cpp,v 1.1 2023/01/07 07:08:25 william Exp $
  */
 
 /* C++ standard include files first */
@@ -45,20 +45,23 @@ string format_timestamp(struct timeval *timestamp)
     strcpy(time_buf, ctime(&timestamp->tv_sec));
     /* time_buf now contains something like "Thu Jan  9 08:37:19 2020\n" */
     /* first, copy the time-of-day, month, date, and a space character */
-    for (int i=0; i < 11; i++) {
+    for (int i = 0; i < 11; i++)
+    {
         timestamp_buf[i] = time_buf[i];
     }
     /* then copy the year */
-    for (int i=11; i < 15; i++) {
-        timestamp_buf[i] = time_buf[i+9];
+    for (int i = 11; i < 15; i++)
+    {
+        timestamp_buf[i] = time_buf[i + 9];
     }
     /* then copy the space character, followed by hour, minute, second */
-    for (int i=15; i < 24; i++) {
-        timestamp_buf[i] = time_buf[i-5];
+    for (int i = 15; i < 24; i++)
+    {
+        timestamp_buf[i] = time_buf[i - 5];
     }
     timestamp_buf[24] = '\0';
 
-    stringstream ss(timestamp_buf, ios::ate|ios::in|ios::out);
+    stringstream ss(timestamp_buf, ios::ate | ios::in | ios::out);
     ss << "." << setfill('0') << setw(6) << ((int)timestamp->tv_usec);
 
     return ss.str();
@@ -72,11 +75,12 @@ string get_timestamp_now()
 }
 
 int timestamp_cmp(struct timeval *t1, struct timeval *t2)
-    /* return negative, 0, or positive value if t1 is less than, equal to, or grader than t2 */
+/* return negative, 0, or positive value if t1 is less than, equal to, or grader than t2 */
 {
     int diff = ((int)(t1->tv_sec)) - ((int)(t2->tv_sec));
 
-    if (diff != 0) {
+    if (diff != 0)
+    {
         return diff;
     }
     return ((int)(t1->tv_usec)) - ((int)(t2->tv_usec));
@@ -103,8 +107,9 @@ void convert_seconds_to_timestamp(double d_seconds, struct timeval *timestamp_re
 {
     int sec = (int)d_seconds;
     double remainder = (d_seconds - ((double)sec));
-    int usec = (int)(remainder*((double)1000000));
-    if (usec < 0) {
+    int usec = (int)(remainder * ((double)1000000));
+    if (usec < 0)
+    {
         usec = 0;
     }
     timestamp_return->tv_sec = sec;
@@ -112,11 +117,10 @@ void convert_seconds_to_timestamp(double d_seconds, struct timeval *timestamp_re
 }
 
 void add_seconds_to_timestamp(struct timeval *older, double d_seconds, struct timeval *newer_return)
-{   
+{
     struct timeval interval, copy_of_older;
     copy_of_older.tv_sec = older->tv_sec;
     copy_of_older.tv_usec = older->tv_usec;
     convert_seconds_to_timestamp(d_seconds, &interval);
     timeradd(&copy_of_older, &interval, newer_return);
-}   
-
+}

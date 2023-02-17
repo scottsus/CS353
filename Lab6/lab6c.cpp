@@ -27,13 +27,13 @@ using namespace std;
 #include "my_readwrite.h"
 #include "my_timestamp.h"
 
-void run_server_with_port(string);
+void run_server_with_port(string, int);
 void run_server_with_config_file(string);
-void serve_client(int, int);
+void serve_client(int, int, int);
 map<string, string> get_config(string);
 tuple<int, int, string> parse_req_headers_and_find_file(int, string);
 void write_res_headers(int, int, int, string);
-void write_res_body(int, string, string, int);
+void write_res_body(int, string, string, int, int);
 
 void run_client(vector<string>);
 void write_req_headers(int, string, string, string, string);
@@ -64,8 +64,8 @@ int main(int argc, char *argv[])
     if (mode == 0)
     {
         vector<string> server_arg = get<1>(mode_tuple);
-        string port = server_arg.at(0);
-        run_server_with_port(port);
+        string port = server_arg.at(0), speed_str = server_arg.at(1);
+        run_server_with_port(port, stoi(speed_str));
     }
     if (mode == 1)
     {
@@ -82,7 +82,7 @@ int main(int argc, char *argv[])
     return 0;
 }
 
-void run_server_with_port(string port)
+void run_server_with_port(string port, int speed)
 {
     int server_socketfd = create_listening_socket(port);
     if (server_socketfd == -1)
@@ -104,7 +104,7 @@ void run_server_with_port(string port)
             continue;
         }
         connection_number++;
-        threads[connection_number] = thread(serve_client, client_socketfd, connection_number);
+        threads[connection_number] = thread(serve_client, client_socketfd, connection_number, speed);
     }
 
     shutdown(server_socketfd, SHUT_RDWR);
@@ -176,7 +176,7 @@ void run_server_with_config_file(string config_file)
     }
 }
 
-void serve_client(int client_socketfd, int connection_number)
+void serve_client(int client_socketfd, int connection_number, int speed)
 {
     string client_ip_and_port = get_ip_and_port_for_client(client_socketfd, 0);
 
@@ -201,7 +201,7 @@ void serve_client(int client_socketfd, int connection_number)
 
         cout << "[" + to_string(connection_number) + "]\tClient connected from " + client_ip_and_port + " and requesting " + file_path << endl;
         write_res_headers(client_socketfd, status_code, file_size, md5_hash);
-        write_res_body(client_socketfd, file_path, client_ip_and_port, connection_number);
+        write_res_body(client_socketfd, file_path, client_ip_and_port, connection_number, speed);
     }
 
     cout << "[" + to_string(connection_number) + "]\tConnection closed with client at " + client_ip_and_port << endl;
@@ -327,7 +327,7 @@ void write_res_headers(int client_socketfd, int status_code, int file_size, stri
     // log_header("");
 }
 
-void write_res_body(int client_socketfd, string file_path, string client_ip_and_port, int connection_number)
+void write_res_body(int client_socketfd, string file_path, string client_ip_and_port, int connection_number, int speed)
 {
     const int MEMORY_BUFFER = 1024;
 
@@ -347,7 +347,7 @@ void write_res_body(int client_socketfd, string file_path, string client_ip_and_
         better_write(client_socketfd, line_str.c_str(), bytes_read);
         total_bytes_read += bytes_read;
         kilobytes_read++;
-        usleep(1000000); // sleep for 1s
+        usleep(1000000 / speed); // sleep for 1s
     }
     // cout << "Total bytes sent: " << total_bytes_read << endl;
 }
@@ -515,7 +515,7 @@ tuple<int, vector<string>> choose_mode(int argc, char *argv[])
     }
     else
     {
-        if (argc != 2)
+        if (argc < 2)
             usage();
 
         with_config_file = false;
@@ -527,7 +527,7 @@ tuple<int, vector<string>> choose_mode(int argc, char *argv[])
         }
 
         if (!with_config_file)
-            return make_tuple(0, vector<string>{server_arg});
+            return make_tuple(0, vector<string>{server_arg, argv[2]});
         return make_tuple(1, vector<string>{server_arg});
     }
 }
