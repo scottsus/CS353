@@ -1,0 +1,36 @@
+Script started on 2023-02-23 16:29:39-08:00 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="85" LINES="51"]
+[1m[38;5;118m[7m%[27m[1m[38;5;118m[0m[38;5;118m                                                                                     ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab7]1;~/CS353/Lab7u[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab7[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31mu[0m[39m[1m[31mu[0m[39m[90mname -a[39m[0m[39m [39m [39m [39m [39m [39m [39m [39m [8D[1m[31mu[0m[39m[1m[31mu[0m[39m[90mname -a[39m[1m[31mu[1m[31mn[0m[39m[90mn[90ma[90mm[90me[90m [90m-[90ma[39m[1m[31mu[1m[31mn[1m[31ma[0m[39m[90mn[90ma[90mm[90me[90m [90m-[90ma[39m[0m[39mu[0m[39mn[0m[39ma[39mm[90mn[90ma[90mm[90me[90m [90m-[90ma[39m[32mu[32mn[32ma[32mm[32me[39m[39m [39m [39m [39m [39m [39m [90m -a[39m[39m [39m-[39ma[?1l>[?2004l
+]2;uname -a]1;unameLinux DESKTOP-KR0Q71I 5.10.16.3-microsoft-standard-WSL2 #1 SMP Fri Apr 2 22:23:49 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux
+[1m[7m%[27m[1m[0m                                                                                     ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab7]1;~/CS353/Lab7[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab7[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31mc[0m[39m[1m[31mc[1m[31ma[0m[39m[0m[32mc[0m[32ma[32mt[39m[90m /etc/os-release[39m[16D[39m [39m[4m/[39m[4me[39m[4mt[39m[4mc[39m[4m/[39m[4mo[39m[4ms[39m[4m-[39m[4mr[39m[4me[39m[4ml[39m[4me[39m[4ma[39m[4ms[39m[4me[24m[?1l>[?2004l
+]2;cat /etc/os-release]1;catNAME="Ubuntu"
+VERSION="20.04.5 LTS (Focal Fossa)"
+ID=ubuntu
+ID_LIKE=debian
+PRETTY_NAME="Ubuntu 20.04.5 LTS"
+VERSION_ID="20.04"
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+VERSION_CODENAME=focal
+UBUNTU_CODENAME=focal
+[1m[7m%[27m[1m[0m                                                                                     ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab7]1;~/CS353/Lab7[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab7[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31mc[0m[39m[0m[32mc[32md[39m[90m Lab7[39m[39m [39m[4ml[24m[39m [39m [39m [90mab6data[39m[4ml[39m[4ma[24m[4ma[39m[4mb[24m[4mb[39m[4m7[24m[39m [39m [39m [39m [4m7[4md[24m[4md[4ma[24m[4ma[4mt[24m[4mt[4ma[24m[?1l>[?2004l
+]2;cd lab7data]1;cd[1m[7m%[27m[1m[0m                                                                                     ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab7/lab7data]1;..Lab7/lab7data[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab7/lab7data[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31mm[0m[39m[1m[31mm[1m[31ma[0m[39m[0m[39mm[0m[39mak[32mm[32ma[32mk[32me[39m[90m clean[39m[39m [39mc[39ml[39me[39ma[39mn[?1l>[?2004l
+]2;make clean]1;makerm -f a.out
+[1m[7m%[27m[1m[0m                                                                                     ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab7/lab7data]1;..Lab7/lab7data[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab7/lab7data[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31mf[0m[39m[1m[31mf[1m[31mo[0m[39m[0m[33mf[0m[33mo[33mr[39m[90m i in  "$remove"*;do mv "$i" "${[90mi[90m#"$remove"}";done[39m[K[A[35C[1m[31mf[1m[31mo[1m[31mr[1m[31me[0m[39m[K[1B[K[A[54C[0m[33mf[0m[33mo[0m[33mr[39m[0m[39m [90m i in  "$remove"*;do mv "$i" "${[90mi[90m#"$remove"}";done[39m[K[A[35C[1m[31mf[1m[31mo[0m[39m[K[1B[K[A[52C[90mr i in  "$remove"*;do mv "$i" "${[90mi[90m#"$remove"}";done[39m[K[A[34C[1m[31mf[0m[39m[K[1B[K[A[51C[1m[31mf[0m[39m[90mg[39m[0m[39m [39m [1m[31mt[0m[39m[1m[31mt[0m[39m[90mar xvf lab7data.tar.gz[39m[22D[0m[32mt[32mc[39m[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [21D[90msh[39m[1m[31mt[1m[31mc[1m[31ms[0m[39m[1m[31ms[1m[31mc[0m[39m[90mh[39m[1m[31mc[1m[31mh[0m[39m[1m[31mc[0m[39m[0m[39m [1m[31ms[0m[39m[0m[39m [90mh[39m[0m[32mt[0m[32mc[0m[32ms[32mh[39m[?1l>[?2004l[1B]2;tcsh]1;tcsh[4mDESKTOP-KR0Q71I[24m:[1m~/CS353/Lab7/lab7data[0m> foreach f (race no-race no-race-atomic)
+foreach? make $f
+foreach? ./a.out
+foreach? end
+g++ -g -Wall -std=c++11 -DLOCALHOST=\"127.0.0.1\" race.cpp -pthread
+486000
+g++ -g -Wall -std=c++11 -DLOCALHOST=\"127.0.0.1\" no-race.cpp -pthread
+500000
+g++ -g -Wall -std=c++11 -DLOCALHOST=\"127.0.0.1\" no-race-atomic.cpp -pthread
+500000
+[4mDESKTOP-KR0Q71I[24m:[1m~/CS353/Lab7/lab7data[0m> make clean
+rm -f a.out
+[4mDESKTOP-KR0Q71I[24m:[1m~/CS353/Lab7/lab7data[0m> exit
+exit
+[1m[7m%[27m[1m[0m                                                                                     ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab7/lab7data]1;..Lab7/lab7data[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab7/lab7data[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31me[0m[39m[1m[31me[0m[39m[90mxit[39m[0m[32me[32mx[39m[1m[31me[1m[31mx[1m[31mi[0m[39m[90mi[90mt[39m[0m[32me[0m[32mx[0m[32mi[32mt[39m[39m [?1l>[?2004l
+]2;exit]1;exit
+Script done on 2023-02-23 16:30:24-08:00 [COMMAND_EXIT_CODE="0"]
