@@ -29,8 +29,8 @@ using namespace std;
 #include "my_readwrite.h"
 #include "my_timestamp.h"
 
-void run_server_with_logfile(string logfile);
-void serve_client(int, int, double);
+void run_server_with_logfile(string port, string logfile);
+void serve_client(int, int);
 map<string, string> get_config(string);
 tuple<int, int, string> parse_req_headers_and_find_file(int, string);
 void write_res_headers(int, int, int, string);
@@ -66,7 +66,7 @@ int main(int argc, char *argv[])
     {
         vector<string> server_args = get<1>(mode_tuple);
         string port = server_args.at(0), logfile = server_args.at(1);
-        run_server_with_logfile(logfile);
+        run_server_with_logfile(port, logfile);
     }
     else
     {
@@ -77,8 +77,10 @@ int main(int argc, char *argv[])
     return 0;
 }
 
-void run_server_with_port(string port, double speed)
+void run_server_with_logfile(string port, string logfile_name)
 {
+    logfile.open(logfile_name);
+
     int server_socketfd = create_listening_socket(port);
     if (server_socketfd == -1)
     {
@@ -99,7 +101,7 @@ void run_server_with_port(string port, double speed)
             continue;
         }
         connection_number++;
-        threads[connection_number] = thread(serve_client, client_socketfd, connection_number, speed);
+        threads[connection_number] = thread(serve_client, client_socketfd, connection_number);
     }
 
     shutdown(server_socketfd, SHUT_RDWR);
@@ -171,8 +173,9 @@ void run_server_with_config_file(string config_file)
     }
 }
 
-void serve_client(int client_socketfd, int connection_number, double speed)
+void serve_client(int client_socketfd, int connection_number)
 {
+    const double SPEED = 1.0;
     string client_ip_and_port = get_ip_and_port_for_client(client_socketfd, 0);
 
     while (true)
@@ -194,12 +197,12 @@ void serve_client(int client_socketfd, int connection_number, double speed)
         string file_path = get<2>(file_info);
         string md5_hash = calc_md5(file_path);
 
-        cout << "[" + to_string(connection_number) + "]\tClient connected from " + client_ip_and_port + " and requesting " + file_path << endl;
+        log("[" + to_string(connection_number) + "]\tClient connected from " + client_ip_and_port + " and requesting " + file_path);
         write_res_headers(client_socketfd, status_code, file_size, md5_hash);
-        write_res_body(client_socketfd, file_path, client_ip_and_port, connection_number, speed);
+        write_res_body(client_socketfd, file_path, client_ip_and_port, connection_number, SPEED);
     }
 
-    cout << "[" + to_string(connection_number) + "]\tConnection closed with client at " + client_ip_and_port << endl;
+    log("[" + to_string(connection_number) + "]\tConnection closed with client at " + client_ip_and_port);
 }
 
 map<string, string> get_config(string config_file)
@@ -341,7 +344,7 @@ void write_res_body(int client_socketfd, string file_path, string client_ip_and_
     char line[MEMORY_BUFFER];
     while ((bytes_read = read(fd, line, MEMORY_BUFFER)))
     {
-        cout << "[" + to_string(connection_number) + "]\tSent " + to_string(kilobytes_read) + " KB to " + client_ip_and_port << endl;
+        log("[" + to_string(connection_number) + "]\tSent " + to_string(kilobytes_read) + " KB to " + client_ip_and_port);
         better_write(client_socketfd, line, bytes_read);
         total_bytes_read += bytes_read;
         kilobytes_read++;
