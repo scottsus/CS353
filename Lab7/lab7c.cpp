@@ -6,8 +6,9 @@
 #include <vector>
 #include <tuple>
 #include <map>
-#include <thread>
 #include <chrono>
+#include <thread>
+#include <mutex>
 
 using namespace std;
 
@@ -28,9 +29,11 @@ using namespace std;
 #include "my_socket.h"
 #include "my_readwrite.h"
 #include "my_timestamp.h"
+#include "my_connection.h"
 
 void run_server_with_logfile(string port, string logfile);
-void serve_client(int, int);
+void handle_console(vector<shared_ptr<Connection>> *);
+void serve_client(shared_ptr<Connection>);
 tuple<int, int, string> parse_req_headers_and_find_file(int, string);
 void write_res_headers(int, int, int, string);
 void write_res_body(int, string, string, int, double);
@@ -45,16 +48,19 @@ bool contains_complex_chars(string);
 int get_file_size(string);
 string calc_md5(string);
 string hexDump(unsigned char *, unsigned long);
+bool has_active_conns(vector<shared_ptr<Connection>>);
 
 void log(string);
 void log_header(string);
 void usage();
 
+int server_socketfd = -1;
 bool with_config_file;
 string rootdir = "";
 ofstream logfile;
 
-const int TOTAL_REQUESTS = 100;
+mutex mut;
+vector<shared_ptr<Connection>> conns{};
 
 int main(int argc, char *argv[])
 {
@@ -80,36 +86,109 @@ void run_server_with_logfile(string port, string logfile_name)
 {
     logfile.open(logfile_name);
 
-    int server_socketfd = create_listening_socket(port);
+    server_socketfd = create_listening_socket(port);
     if (server_socketfd == -1)
     {
         cerr << "Unable to create server socket" << endl;
         return;
     }
+    string server_ip_and_port = get_ip_and_port_for_server(server_socketfd, 1);
+    log("Server " + server_ip_and_port + " started");
 
     rootdir = "lab4data";
-    int connection_number = 0;
-    thread threads[TOTAL_REQUESTS];
+    int conn_number = 1;
+    thread console_thread(handle_console, &conns);
 
     while (true)
     {
+        mut.lock();
+        if (server_socketfd == -1)
+        {
+            shutdown(server_socketfd, SHUT_RDWR);
+            close(server_socketfd);
+        }
+        mut.unlock();
+
         int client_socketfd = my_accept(server_socketfd);
         if (client_socketfd == -1)
-        {
-            cerr << "Unable to connect to client" << endl;
-            continue;
-        }
-        connection_number++;
-        threads[connection_number] = thread(serve_client, client_socketfd, connection_number);
+            break;
+
+        mut.lock();
+        shared_ptr<Connection> conn_ptr = make_shared<Connection>(Connection(conn_number++, client_socketfd, NULL));
+        conn_ptr->set_conn_thread(make_shared<thread>(thread(serve_client, conn_ptr)));
+        conns.push_back(conn_ptr);
+        mut.unlock();
     }
 
-    shutdown(server_socketfd, SHUT_RDWR);
-    close(server_socketfd);
+    console_thread.join();
+    for (shared_ptr<Connection> conn : conns)
+        conn->get_conn_thread()->join();
+
+    log("Server " + server_ip_and_port + " stopped");
 }
 
-void serve_client(int client_socketfd, int connection_number)
+void handle_console(vector<shared_ptr<Connection>> *conns)
 {
+    string line;
+    while (true)
+    {
+        cout << "> ";
+        cin >> line;
+        if (line == "status")
+        {
+            mut.lock();
+            if (has_active_conns(*conns))
+            {
+                cout << "The following connections are active:" << endl;
+
+                for (shared_ptr<Connection> conn : *conns)
+                    if (conn->is_alive())
+                        cout << conn->get_conn_number() << endl;
+            }
+            else
+            {
+                cout << "No active connections" << endl;
+            }
+            mut.unlock();
+        }
+        else if (line == "quit")
+        {
+            mut.lock();
+            if (has_active_conns(*conns))
+            {
+                cout << "Cannot quit, the following connections are active:" << endl;
+
+                for (shared_ptr<Connection> conn : *conns)
+                    if (conn->is_alive())
+                        cout << conn->get_conn_number() << endl;
+                mut.unlock();
+            }
+            else
+            {
+                shutdown(server_socketfd, SHUT_RDWR);
+                close(server_socketfd);
+                server_socketfd = -1;
+                mut.unlock();
+                return;
+            }
+        }
+        else // line == "help"
+        {
+            cout << "Available commands are:" << endl;
+            cout << "\thelp" << endl;
+            cout << "\tstatus" << endl;
+            cout << "\tquit" << endl;
+        }
+    }
+}
+
+void serve_client(shared_ptr<Connection> conn_ptr)
+{
+    mut.lock();
+    mut.unlock();
+
     const double SPEED = 1.0;
+    int client_socketfd = conn_ptr->get_client_socketfd(), conn_number = conn_ptr->get_conn_number();
     string client_ip_and_port = get_ip_and_port_for_client(client_socketfd, 0);
 
     while (true)
@@ -131,12 +210,18 @@ void serve_client(int client_socketfd, int connection_number)
         string file_path = get<2>(file_info);
         string md5_hash = calc_md5(file_path);
 
-        log("[" + to_string(connection_number) + "]\tClient connected from " + client_ip_and_port + " and requesting " + file_path);
+        log("[" + to_string(conn_number) + "]\tClient connected from " + client_ip_and_port + " and requesting " + file_path);
         write_res_headers(client_socketfd, status_code, file_size, md5_hash);
-        write_res_body(client_socketfd, file_path, client_ip_and_port, connection_number, SPEED);
+        write_res_body(client_socketfd, file_path, client_ip_and_port, conn_number, SPEED);
     }
 
-    log("[" + to_string(connection_number) + "]\tConnection closed with client at " + client_ip_and_port);
+    shutdown(client_socketfd, SHUT_RDWR);
+    close(client_socketfd);
+
+    mut.lock();
+    conn_ptr->set_client_socketfd(-1);
+    log("[" + to_string(conn_number) + "]\tConnection closed with client at " + client_ip_and_port);
+    mut.unlock();
 }
 
 tuple<int, int, string> parse_req_headers_and_find_file(int client_socketfd, string client_ip_and_port)
@@ -219,7 +304,7 @@ void write_res_headers(int client_socketfd, int status_code, int file_size, stri
     // log_header("");
 }
 
-void write_res_body(int client_socketfd, string file_path, string client_ip_and_port, int connection_number, double speed)
+void write_res_body(int client_socketfd, string file_path, string client_ip_and_port, int conn_number, double speed)
 {
     const int MEMORY_BUFFER = 1024;
 
@@ -233,12 +318,11 @@ void write_res_body(int client_socketfd, string file_path, string client_ip_and_
     int P = 1, b1 = P;
     struct timeval start, now;
     gettimeofday(&start, NULL);
-
     int total_bytes_read = 0, bytes_read = 0, kilobytes_read = 0;
     char line[MEMORY_BUFFER];
     while ((bytes_read = read(fd, line, MEMORY_BUFFER)))
     {
-        log("[" + to_string(connection_number) + "]\tSent " + to_string(kilobytes_read) + " KB to " + client_ip_and_port);
+        log("[" + to_string(conn_number) + "]\tSent " + to_string(kilobytes_read) + " KB to " + client_ip_and_port);
         better_write(client_socketfd, line, bytes_read);
         total_bytes_read += bytes_read;
         kilobytes_read++;
@@ -499,6 +583,16 @@ string hexDump(unsigned char *buf, unsigned long len)
         s += hexchar[lo_nibble];
     }
     return s;
+}
+
+// Can only be called when lock is held
+bool has_active_conns(vector<shared_ptr<Connection>> conns)
+{
+    for (shared_ptr<Connection> conn : conns)
+        if (conn->is_alive())
+            return true;
+
+    return false;
 }
 
 void log(string message)

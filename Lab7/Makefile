@@ -64,6 +64,9 @@ join-new: join-new.cpp
 lab7b: lab7b.cpp my_socket.cpp my_socket.h my_readwrite.cpp my_readwrite.h my_timestamp.cpp my_timestamp.h
 	g++ ${MYDEFS} -o lab7b lab7b.cpp my_socket.cpp my_readwrite.cpp my_timestamp.cpp -lcrypto -pthread
 
+lab7c: lab7c.cpp my_socket.cpp my_socket.h my_readwrite.cpp my_readwrite.h my_timestamp.cpp my_timestamp.h my_connection.cpp my_connection.h
+	g++ ${MYDEFS} -o lab7c lab7c.cpp my_socket.cpp my_readwrite.cpp my_timestamp.cpp my_connection.cpp -lcrypto -pthread
+
 race: race.cpp
 	g++ ${MYDEFS} race.cpp -pthread
 
