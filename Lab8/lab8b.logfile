@@ -1,0 +1,43 @@
+[Wed Mar  1 2023 16:27:17.852826] Server 127.0.0.1:12345 started
+[Wed Mar  1 2023 16:27:23.609512] [1]	Client connected from 127.0.0.1:55692 and requesting lab4data/textbooks-3-small.jpg
+[Wed Mar  1 2023 16:27:23.609866] [1]	Sent 0 KB to 127.0.0.1:55692
+[Wed Mar  1 2023 16:27:24.610034] [1]	Sent 1 KB to 127.0.0.1:55692
+[Wed Mar  1 2023 16:27:25.609967] [1]	Sent 2 KB to 127.0.0.1:55692
+[Wed Mar  1 2023 16:27:25.726702] [2]	Client connected from 127.0.0.1:55694 and requesting lab4data/textbooks-1-small.jpg
+[Wed Mar  1 2023 16:27:25.726938] [2]	Sent 0 KB to 127.0.0.1:55694
+[Wed Mar  1 2023 16:27:26.609915] [1]	Sent 3 KB to 127.0.0.1:55692
+[Wed Mar  1 2023 16:27:26.726988] [2]	Sent 1 KB to 127.0.0.1:55694
+[Wed Mar  1 2023 16:27:27.609901] [1]	Sent 4 KB to 127.0.0.1:55692
+[Wed Mar  1 2023 16:27:27.726987] [2]	Sent 2 KB to 127.0.0.1:55694
+[Wed Mar  1 2023 16:27:28.609961] [1]	Sent 5 KB to 127.0.0.1:55692
+[Wed Mar  1 2023 16:27:28.726998] [2]	Sent 3 KB to 127.0.0.1:55694
+[Wed Mar  1 2023 16:27:29.609890] [1]	Sent 6 KB to 127.0.0.1:55692
+[Wed Mar  1 2023 16:27:29.727006] [2]	Sent 4 KB to 127.0.0.1:55694
+[Wed Mar  1 2023 16:27:30.609931] [1]	Sent 7 KB to 127.0.0.1:55692
+[Wed Mar  1 2023 16:27:30.727017] [2]	Sent 5 KB to 127.0.0.1:55694
+[Wed Mar  1 2023 16:27:31.609902] [1]	Sent 8 KB to 127.0.0.1:55692
+[Wed Mar  1 2023 16:27:31.727020] [2]	Sent 6 KB to 127.0.0.1:55694
+[Wed Mar  1 2023 16:27:32.609895] [1]	Sent 9 KB to 127.0.0.1:55692
+[Wed Mar  1 2023 16:27:32.726977] [2]	Sent 7 KB to 127.0.0.1:55694
+[Wed Mar  1 2023 16:27:33.609912] [1]	Sent 10 KB to 127.0.0.1:55692
+[Wed Mar  1 2023 16:27:33.727035] [2]	Sent 8 KB to 127.0.0.1:55694
+[Wed Mar  1 2023 16:27:34.609915] [1]	Sent 11 KB to 127.0.0.1:55692
+[Wed Mar  1 2023 16:27:34.726993] [2]	Sent 9 KB to 127.0.0.1:55694
+[Wed Mar  1 2023 16:27:35.609941] [1]	Sent 12 KB to 127.0.0.1:55692
+[Wed Mar  1 2023 16:27:35.726995] [2]	Sent 10 KB to 127.0.0.1:55694
+[Wed Mar  1 2023 16:27:36.609887] [1]	Sent 13 KB to 127.0.0.1:55692
+[Wed Mar  1 2023 16:27:36.726971] [2]	Sent 11 KB to 127.0.0.1:55694
+[Wed Mar  1 2023 16:27:37.609969] [1]	Connection closed with client at 127.0.0.1:55692
+[Wed Mar  1 2023 16:27:37.615608] [1]	Reaper has joined with connection thread
+[Wed Mar  1 2023 16:27:37.726986] [2]	Sent 12 KB to 127.0.0.1:55694
+[Wed Mar  1 2023 16:27:38.727010] [2]	Sent 13 KB to 127.0.0.1:55694
+[Wed Mar  1 2023 16:27:39.726984] [2]	Sent 14 KB to 127.0.0.1:55694
+[Wed Mar  1 2023 16:27:40.727035] [2]	Sent 15 KB to 127.0.0.1:55694
+[Wed Mar  1 2023 16:27:41.727006] [2]	Sent 16 KB to 127.0.0.1:55694
+[Wed Mar  1 2023 16:27:42.727027] [2]	Sent 17 KB to 127.0.0.1:55694
+[Wed Mar  1 2023 16:27:43.726966] [2]	Sent 18 KB to 127.0.0.1:55694
+[Wed Mar  1 2023 16:27:44.727001] [2]	Sent 19 KB to 127.0.0.1:55694
+[Wed Mar  1 2023 16:27:45.726981] [2]	Sent 20 KB to 127.0.0.1:55694
+[Wed Mar  1 2023 16:27:46.727007] [2]	Connection closed with client at 127.0.0.1:55694
+[Wed Mar  1 2023 16:27:46.871280] [2]	Reaper has joined with connection thread
+[Wed Mar  1 2023 16:27:47.122178] Server 127.0.0.1:12345 stopped

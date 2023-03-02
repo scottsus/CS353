@@ -1,0 +1,83 @@
+Script started on 2023-03-01 16:26:05-08:00 [TERM="xterm-256color" TTY="/dev/pts/8" COLUMNS="120" LINES="30"]
+[1m[38;5;118m[7m%[27m[1m[38;5;118m[0m[38;5;118m                                                                                                                        ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab8]1;~/CS353/Lab8[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab8[00m on [38;5;81mmaster[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31mm[0m[39m[0m[39mma[1m[31mm[1m[31ma[1m[31mk[0m[39m[0m[32mm[0m[32ma[0m[32mk[32me[39m[90m lab8b[39m[39m [39mc[39m [39m [39m [39m [90mlean[39m[39ml[39me[39ma[39mn[?1l>[?2004l
+]2;make clean]1;makerm -f a.out lab8a lab8b x y
+[1m[7m%[27m[1m[0m                                                                                                                        ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab8]1;~/CS353/Lab8[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab8[00m on [38;5;81mmaster[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31mm[0m[39m[1m[31mm[1m[31ma[0m[39m[1m[31mm[1m[31ma[1m[31mk[0m[39m[0m[32mm[0m[32ma[0m[32mk[32me[39m[90m clean[39m[39m [39m[4ml[24m[39m [39m [39m [39m [90mab8b[39m[4ml[39m[4ma[24m[4ma[39m[4mb[24m[4mb[39m[4m8[24m[4m8[39m[4mb[24m[?1l>[?2004l[24ml[24ma[24mb[24m8[24mb
+]2;make lab8b]1;makeg++ -g -Wall -std=c++11 -DLOCALHOST=\"127.0.0.1\" -o lab8b lab8b.cpp my_socket.cpp my_readwrite.cpp my_timestamp.cpp my_connection.cpp -lcrypto -pthread
+[1m[7m%[27m[1m[0m                                                                                                                        ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab8]1;~/CS353/Lab8[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab8[00m on [38;5;81mmaster[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[32m.[39m[32m.[39m[90m/lab8b 12345 lab8b.logfile[39m[26D[4m[32m.[4m[32m/[24m[39m[24m[32m.[24m[32m/[32ml[32ma[32mb[32m8[32mb[39m[39m [39m1[39m2[39m3[39m4[39m5[39m [39m[4ml[39m[4ma[39m[4mb[39m[4m8[39m[4mb[39m[4m.[39m[4ml[39m[4mo[39m[4mg[39m[4mf[39m[4mi[39m[4ml[39m[4me[24m[?1l>[?2004l
+]2;./lab8b 12345 lab8b.logfile]1;./lab8b> help
+Available commands are:
+	help
+	status
+	quit
+> status
+No active connections
+> status
+The following connections are active:
+1
+2
+> cloe   se 1
+[1]	 Close connection requested.
+> status
+The following connections are active:
+2
+3
+> close 2
+[2]	 Close connection requested.
+> status
+The following connections are active:
+3
+4
+> quit
+[1m[7m%[27m[1m[0m                                                                                                                        ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab8]1;~/CS353/Lab8[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab8[00m on [38;5;81mmaster[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[32m./lab8b[39m 12345 [4mlab8b.logfile[24m[?1l>[?2004l
+]2;./lab8b 12345 lab8b.logfile]1;./lab8b> status
+The following connections are active:
+1
+2
+> quit
+[1m[7m%[27m[1m[0m                                                                                                                        ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab8]1;~/CS353/Lab8[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab8[00m on [38;5;81mmaster[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31mc[0m[39m[1m[31mc[1m[31ma[0m[39m[0m[32mc[0m[32ma[32mt[39m[90m lab8a.logfile[39m[14D[39m [39m[4ml[24m[4ml[39m[4ma[24m[4ma[39m[4mb[24m[4mb[39m[4m8[24m[4m8[39m[4mb[24m[39m [39m [39m [39m [39m [39m [39m [39m [8D[4mb[4m.[24m[4m.[4ml[24m[4ml[4mo[24m[4mo[4mg[24m[4mg[4mf[24m[4mf[4mi[24m[4mi[4ml[24m[4ml[4me[24m[?1l>[?2004l
+]2;cat lab8b.logfile]1;cat[Wed Mar  1 2023 16:27:17.852826] Server 127.0.0.1:12345 started
+[Wed Mar  1 2023 16:27:23.609512] [1]	Client connected from 127.0.0.1:55692 and requesting lab4data/textbooks-3-small.jpg
+[Wed Mar  1 2023 16:27:23.609866] [1]	Sent 0 KB to 127.0.0.1:55692
+[Wed Mar  1 2023 16:27:24.610034] [1]	Sent 1 KB to 127.0.0.1:55692
+[Wed Mar  1 2023 16:27:25.609967] [1]	Sent 2 KB to 127.0.0.1:55692
+[Wed Mar  1 2023 16:27:25.726702] [2]	Client connected from 127.0.0.1:55694 and requesting lab4data/textbooks-1-small.jpg
+[Wed Mar  1 2023 16:27:25.726938] [2]	Sent 0 KB to 127.0.0.1:55694
+[Wed Mar  1 2023 16:27:26.609915] [1]	Sent 3 KB to 127.0.0.1:55692
+[Wed Mar  1 2023 16:27:26.726988] [2]	Sent 1 KB to 127.0.0.1:55694
+[Wed Mar  1 2023 16:27:27.609901] [1]	Sent 4 KB to 127.0.0.1:55692
+[Wed Mar  1 2023 16:27:27.726987] [2]	Sent 2 KB to 127.0.0.1:55694
+[Wed Mar  1 2023 16:27:28.609961] [1]	Sent 5 KB to 127.0.0.1:55692
+[Wed Mar  1 2023 16:27:28.726998] [2]	Sent 3 KB to 127.0.0.1:55694
+[Wed Mar  1 2023 16:27:29.609890] [1]	Sent 6 KB to 127.0.0.1:55692
+[Wed Mar  1 2023 16:27:29.727006] [2]	Sent 4 KB to 127.0.0.1:55694
+[Wed Mar  1 2023 16:27:30.609931] [1]	Sent 7 KB to 127.0.0.1:55692
+[Wed Mar  1 2023 16:27:30.727017] [2]	Sent 5 KB to 127.0.0.1:55694
+[Wed Mar  1 2023 16:27:31.609902] [1]	Sent 8 KB to 127.0.0.1:55692
+[Wed Mar  1 2023 16:27:31.727020] [2]	Sent 6 KB to 127.0.0.1:55694
+[Wed Mar  1 2023 16:27:32.609895] [1]	Sent 9 KB to 127.0.0.1:55692
+[Wed Mar  1 2023 16:27:32.726977] [2]	Sent 7 KB to 127.0.0.1:55694
+[Wed Mar  1 2023 16:27:33.609912] [1]	Sent 10 KB to 127.0.0.1:55692
+[Wed Mar  1 2023 16:27:33.727035] [2]	Sent 8 KB to 127.0.0.1:55694
+[Wed Mar  1 2023 16:27:34.609915] [1]	Sent 11 KB to 127.0.0.1:55692
+[Wed Mar  1 2023 16:27:34.726993] [2]	Sent 9 KB to 127.0.0.1:55694
+[Wed Mar  1 2023 16:27:35.609941] [1]	Sent 12 KB to 127.0.0.1:55692
+[Wed Mar  1 2023 16:27:35.726995] [2]	Sent 10 KB to 127.0.0.1:55694
+[Wed Mar  1 2023 16:27:36.609887] [1]	Sent 13 KB to 127.0.0.1:55692
+[Wed Mar  1 2023 16:27:36.726971] [2]	Sent 11 KB to 127.0.0.1:55694
+[Wed Mar  1 2023 16:27:37.609969] [1]	Connection closed with client at 127.0.0.1:55692
+[Wed Mar  1 2023 16:27:37.615608] [1]	Reaper has joined with connection thread
+[Wed Mar  1 2023 16:27:37.726986] [2]	Sent 12 KB to 127.0.0.1:55694
+[Wed Mar  1 2023 16:27:38.727010] [2]	Sent 13 KB to 127.0.0.1:55694
+[Wed Mar  1 2023 16:27:39.726984] [2]	Sent 14 KB to 127.0.0.1:55694
+[Wed Mar  1 2023 16:27:40.727035] [2]	Sent 15 KB to 127.0.0.1:55694
+[Wed Mar  1 2023 16:27:41.727006] [2]	Sent 16 KB to 127.0.0.1:55694
+[Wed Mar  1 2023 16:27:42.727027] [2]	Sent 17 KB to 127.0.0.1:55694
+[Wed Mar  1 2023 16:27:43.726966] [2]	Sent 18 KB to 127.0.0.1:55694
+[Wed Mar  1 2023 16:27:44.727001] [2]	Sent 19 KB to 127.0.0.1:55694
+[Wed Mar  1 2023 16:27:45.726981] [2]	Sent 20 KB to 127.0.0.1:55694
+[Wed Mar  1 2023 16:27:46.727007] [2]	Connection closed with client at 127.0.0.1:55694
+[Wed Mar  1 2023 16:27:46.871280] [2]	Reaper has joined with connection thread
+[Wed Mar  1 2023 16:27:47.122178] Server 127.0.0.1:12345 stopped
+[1m[7m%[27m[1m[0m                                                                                                                        ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab8]1;~/CS353/Lab8[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab8[00m on [38;5;81mmaster[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31me[0m[39m[1m[31me[0m[39m[90mxit[39m[0m[32me[32mx[39m[1m[31me[1m[31mx[1m[31mi[0m[39m[90mi[90mt[39m[0m[32me[0m[32mx[0m[32mi[32mt[39m[39m [?1l>[?2004l
+]2;exit]1;exit
+Script done on 2023-03-01 16:27:59-08:00 [COMMAND_EXIT_CODE="0"]
