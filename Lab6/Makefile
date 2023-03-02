@@ -67,20 +67,3 @@ join-shared: join-shared.cpp
 
 join-new: join-new.cpp
 	g++ ${MYDEFS} join-new.cpp -pthread
-
-# Lab 7
-
-race: race.cpp
-	g++ ${MYDEFS} race.cpp -pthread
-
-no-race: no-race.cpp
-	g++ ${MYDEFS} no-race.cpp -pthread
-
-no-race-atomic: no-race-atomic.cpp
-	g++ ${MYDEFS} no-race-atomic.cpp -pthread
-
-# Lab 9
-
-cv: cv.cpp
-	g++ ${MYDEFS} cv.cpp -pthread
-
