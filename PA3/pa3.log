@@ -1,0 +1,54 @@
+[Mon Mar  6 2023 03:34:23.704053] START: port=12345, rootdir=pa2data
+[Mon Mar  6 2023 03:34:25.048590] CONNECT[1]: 127.0.0.1:12345
+[Mon Mar  6 2023 03:34:25.049419] REQUEST[1]: 127.0.0.1:12345, uri=/extra/binomial.pdf
+	[1]	GET /extra/binomial.pdf HTTP/1.1
+	[1]	User-Agent: Wget/1.20.3 (linux-gnu)
+	[1]	Accept: */*
+	[1]	Accept-Encoding: identity
+	[1]	Host: 127.0.0.1:12345
+	[1]	Connection: Keep-Alive
+	[1]	
+[Mon Mar  6 2023 03:34:25.050853] RESPONSE[1]: 127.0.0.1:12345, status=200, P=1, MAXR=10 tokens/s, DIAL=25, rate=2.500 KB/s
+	[1]	HTTP/1.1 200 OK
+	[1]	Server: pa3 (scottsus@usc.edu)
+	[1]	Content-Type: application/octet-stream
+	[1]	Content-Length: 46320
+	[1]	Content-MD5: 4b603e419ef6273add764d24a7176dd8
+	[1]	
+[Mon Mar  6 2023 03:34:43.451613] CLOSE[1]: (done) 127.0.0.1:12345
+[Mon Mar  6 2023 03:34:47.196440] CONNECT[2]: 127.0.0.1:12345
+[Mon Mar  6 2023 03:34:47.196979] REQUEST[2]: 127.0.0.1:12345, uri=/extra/binomial.pdf
+	[2]	GET /extra/binomial.pdf HTTP/1.1
+	[2]	User-Agent: Wget/1.20.3 (linux-gnu)
+	[2]	Accept: */*
+	[2]	Accept-Encoding: identity
+	[2]	Host: 127.0.0.1:12345
+	[2]	Connection: Keep-Alive
+	[2]	
+[Mon Mar  6 2023 03:34:47.197883] RESPONSE[2]: 127.0.0.1:12345, status=200, P=1, MAXR=10 tokens/s, DIAL=25, rate=2.500 KB/s
+	[2]	HTTP/1.1 200 OK
+	[2]	Server: pa3 (scottsus@usc.edu)
+	[2]	Content-Type: application/octet-stream
+	[2]	Content-Length: 46320
+	[2]	Content-MD5: 4b603e419ef6273add764d24a7176dd8
+	[2]	
+[Mon Mar  6 2023 03:34:53.073361] CONNECT[3]: 127.0.0.1:12345
+[Mon Mar  6 2023 03:34:53.073980] REQUEST[3]: 127.0.0.1:12345, uri=/extra/binomial.pdf
+	[3]	GET /extra/binomial.pdf HTTP/1.1
+	[3]	Range: bytes=13312-
+	[3]	User-Agent: Wget/1.20.3 (linux-gnu)
+	[3]	Accept: */*
+	[3]	Accept-Encoding: identity
+	[3]	Host: 127.0.0.1:12345
+	[3]	Connection: Keep-Alive
+	[3]	
+[Mon Mar  6 2023 03:34:53.074764] RESPONSE[3]: 127.0.0.1:12345, status=200, P=1, MAXR=10 tokens/s, DIAL=25, rate=2.500 KB/s
+	[3]	HTTP/1.1 200 OK
+	[3]	Server: pa3 (scottsus@usc.edu)
+	[3]	Content-Type: application/octet-stream
+	[3]	Content-Length: 46320
+	[3]	Content-MD5: 4b603e419ef6273add764d24a7176dd8
+	[3]	
+[Mon Mar  6 2023 03:35:05.598353] CLOSE[2]: (at user's request) 127.0.0.1:12345
+[Mon Mar  6 2023 03:35:11.475334] CLOSE[3]: (done) 127.0.0.1:12345
+[Mon Mar  6 2023 03:35:21.001200] STOP: port=12345
