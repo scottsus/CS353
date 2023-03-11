@@ -2,7 +2,9 @@
  *  Custom Connection Class
  *  Author: Scott Susanto
  */
+#include <iostream>
 
+using namespace std;
 #include "my_connection.h"
 
 Connection::Connection()
@@ -17,6 +19,7 @@ Connection::Connection(int conn_number, int client_socketfd)
     this->conn_number = conn_number;
     this->curr_socketfd = client_socketfd;
     this->orig_socketfd = client_socketfd;
+    this->content_len = 0;
     this->kb_sent = 0;
     this->reason = "";
 }
@@ -53,7 +56,7 @@ int Connection::get_content_len()
 
 string Connection::get_ip_port()
 {
-    return get_ip_and_port_for_client(curr_socketfd, 1);
+    return get_ip_and_port_for_client(orig_socketfd, 1);
 }
 
 string Connection::get_uri()
@@ -127,6 +130,9 @@ int Connection::get_kb_sent()
 string Connection::get_kb_percent_sent()
 {
     double percent_sent = (kb_sent * 1000.0 / content_len) * 100;
+    if (percent_sent >= 100)
+        return "(100%)";
+
     ostringstream oss;
     oss << fixed << setprecision(1) << percent_sent;
     return "(" + oss.str() + "%)";
@@ -182,6 +188,11 @@ void Connection::set_dial(int percent)
 void Connection::incr_kb()
 {
     this->kb_sent = this->kb_sent + 1;
+}
+
+void Connection::reset_kb()
+{
+    this->kb_sent = 0;
 }
 
 void Connection::set_reason(string reason)

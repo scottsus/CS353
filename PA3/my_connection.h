@@ -76,6 +76,7 @@ public:
     void set_dial(int percent);
 
     void incr_kb();
+    void reset_kb();
     void set_reason(string reason);
 };
 
