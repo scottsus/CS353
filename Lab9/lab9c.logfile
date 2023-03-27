@@ -1,5 +1,5 @@
-[Mon Mar 27 2023 06:06:07.657846] Server 127.0.0.1:12345 started
-[Mon Mar 27 2023 06:06:18.542203] REQUEST[1]: 127.0.0.1:12345, uri=/persistent.html
+[Mon Mar 27 2023 06:15:54.277139] Server 127.0.0.1:12345 started
+[Mon Mar 27 2023 06:16:15.911602] REQUEST[1]: 127.0.0.1:12345, uri=/persistent.html
 	[1]	GET /persistent.html HTTP/1.1
 	[1]	User-Agent: Wget/1.20.3 (linux-gnu)
 	[1]	Accept: */*
@@ -7,33 +7,54 @@
 	[1]	Host: 127.0.0.1:12345
 	[1]	Connection: Keep-Alive
 	[1]	
-[Mon Mar 27 2023 06:06:18.542780] RESPONSE[1]: 127.0.0.1:12345, status=200, P=2, MAXR=5 tokens/s, DIAL=100, rate=2.500 KB/s
+[Mon Mar 27 2023 06:16:15.912197] RESPONSE[1]: 127.0.0.1:12345, status=200, P=2, MAXR=5 tokens/s, DIAL=100, rate=2.500 KB/s
 	[1]	HTTP/1.1 200 OK
 	[1]	Server: pa3 (scottsus@usc.edu)
 	[1]	Content-Type: text/html
 	[1]	Content-Length: 186
 	[1]	Content-MD5: 94a055cd5f931d937e8dd9bae15281a6
 	[1]	
-[Mon Mar 27 2023 06:06:18.543659] CLOSE[1]: () 127.0.0.1:12345
-[Mon Mar 27 2023 06:06:19.343162] Socket-writing thread has terminated
-[Mon Mar 27 2023 06:06:32.407914] REQUEST[2]: 127.0.0.1:12345, uri=/persistent.html
-	[2]	GET /persistent.html HTTP/1.1
+[Mon Mar 27 2023 06:16:15.914560] REQUEST[1]: 127.0.0.1:12345, uri=/robots.txt
+	[1]	GET /robots.txt HTTP/1.1
+	[1]	User-Agent: Wget/1.20.3 (linux-gnu)
+	[1]	Accept: */*
+	[1]	Accept-Encoding: identity
+	[1]	Host: 127.0.0.1:12345
+	[1]	Connection: Keep-Alive
+	[1]	
+[Mon Mar 27 2023 06:16:16.712744] RESPONSE[1]: 127.0.0.1:12345, status=404
+	[1]	HTTP/1.1 404 NOT FOUND
+	[1]	Server: pa3 (scottsus@usc.edu)
+	[1]	Content-Type: application/octet-stream
+	[1]	Content-Length: -1
+	[1]	Content-MD5: 
+	[1]	
+[Mon Mar 27 2023 06:16:16.713024] RESPONSE[1]: 127.0.0.1:12345, status=404, P=2, MAXR=5 tokens/s, DIAL=100, rate=2.500 KB/s
+	[1]	HTTP/1.1 404 NOT FOUND
+	[1]	Server: pa3 (scottsus@usc.edu)
+	[1]	Content-Type: application/octet-stream
+	[1]	Content-Length: -1
+	[1]	Content-MD5: 
+	[1]	
+[Mon Mar 27 2023 06:16:16.713295] CLOSE[1]: (unexpectedly) 127.0.0.1:12345
+[Mon Mar 27 2023 06:16:16.713620] REQUEST[2]: 127.0.0.1:12345, uri=/textbooks-2-small.jpg
+	[2]	GET /textbooks-2-small.jpg HTTP/1.1
+	[2]	Referer: http://127.0.0.1:12345/persistent.html
 	[2]	User-Agent: Wget/1.20.3 (linux-gnu)
 	[2]	Accept: */*
 	[2]	Accept-Encoding: identity
 	[2]	Host: 127.0.0.1:12345
 	[2]	Connection: Keep-Alive
 	[2]	
-[Mon Mar 27 2023 06:06:32.408536] RESPONSE[2]: 127.0.0.1:12345, status=200, P=2, MAXR=5 tokens/s, DIAL=100, rate=2.500 KB/s
+[Mon Mar 27 2023 06:16:16.713895] RESPONSE[2]: 127.0.0.1:12345, status=200, P=2, MAXR=5 tokens/s, DIAL=100, rate=2.500 KB/s
 	[2]	HTTP/1.1 200 OK
 	[2]	Server: pa3 (scottsus@usc.edu)
-	[2]	Content-Type: text/html
-	[2]	Content-Length: 186
-	[2]	Content-MD5: 94a055cd5f931d937e8dd9bae15281a6
+	[2]	Content-Type: application/octet-stream
+	[2]	Content-Length: 10525
+	[2]	Content-MD5: 3f21950127b581aa1d9a264e8d06845b
 	[2]	
-[Mon Mar 27 2023 06:06:32.409391] CLOSE[2]: () 127.0.0.1:12345
-[Mon Mar 27 2023 06:06:33.208914] Socket-writing thread has terminated
-[Mon Mar 27 2023 06:07:33.774146] REQUEST[3]: 127.0.0.1:12345, uri=/persistent.html
+[Mon Mar 27 2023 06:16:17.513192] Socket-writing thread has terminated
+[Mon Mar 27 2023 06:16:18.292960] REQUEST[3]: 127.0.0.1:12345, uri=/persistent.html
 	[3]	GET /persistent.html HTTP/1.1
 	[3]	User-Agent: Wget/1.20.3 (linux-gnu)
 	[3]	Accept: */*
@@ -41,14 +62,14 @@
 	[3]	Host: 127.0.0.1:12345
 	[3]	Connection: Keep-Alive
 	[3]	
-[Mon Mar 27 2023 06:07:33.774643] RESPONSE[3]: 127.0.0.1:12345, status=200, P=2, MAXR=5 tokens/s, DIAL=100, rate=2.500 KB/s
+[Mon Mar 27 2023 06:16:18.293176] RESPONSE[3]: 127.0.0.1:12345, status=200, P=2, MAXR=5 tokens/s, DIAL=100, rate=2.500 KB/s
 	[3]	HTTP/1.1 200 OK
 	[3]	Server: pa3 (scottsus@usc.edu)
 	[3]	Content-Type: text/html
 	[3]	Content-Length: 186
 	[3]	Content-MD5: 94a055cd5f931d937e8dd9bae15281a6
 	[3]	
-[Mon Mar 27 2023 06:07:33.776945] REQUEST[3]: 127.0.0.1:12345, uri=/robots.txt
+[Mon Mar 27 2023 06:16:18.294155] REQUEST[3]: 127.0.0.1:12345, uri=/robots.txt
 	[3]	GET /robots.txt HTTP/1.1
 	[3]	User-Agent: Wget/1.20.3 (linux-gnu)
 	[3]	Accept: */*
@@ -56,22 +77,22 @@
 	[3]	Host: 127.0.0.1:12345
 	[3]	Connection: Keep-Alive
 	[3]	
-[Mon Mar 27 2023 06:07:34.575013] RESPONSE[3]: 127.0.0.1:12345, status=404
+[Mon Mar 27 2023 06:16:19.093371] RESPONSE[3]: 127.0.0.1:12345, status=404
 	[3]	HTTP/1.1 404 NOT FOUND
 	[3]	Server: pa3 (scottsus@usc.edu)
 	[3]	Content-Type: application/octet-stream
 	[3]	Content-Length: -1
 	[3]	Content-MD5: 
 	[3]	
-[Mon Mar 27 2023 06:07:34.575218] RESPONSE[3]: 127.0.0.1:12345, status=404, P=2, MAXR=5 tokens/s, DIAL=100, rate=2.500 KB/s
+[Mon Mar 27 2023 06:16:19.093593] RESPONSE[3]: 127.0.0.1:12345, status=404, P=2, MAXR=5 tokens/s, DIAL=100, rate=2.500 KB/s
 	[3]	HTTP/1.1 404 NOT FOUND
 	[3]	Server: pa3 (scottsus@usc.edu)
 	[3]	Content-Type: application/octet-stream
 	[3]	Content-Length: -1
 	[3]	Content-MD5: 
 	[3]	
-[Mon Mar 27 2023 06:07:34.575490] CLOSE[3]: (unexpectedly) 127.0.0.1:12345
-[Mon Mar 27 2023 06:07:34.576000] REQUEST[4]: 127.0.0.1:12345, uri=/textbooks-2-small.jpg
+[Mon Mar 27 2023 06:16:19.093965] CLOSE[3]: (unexpectedly) 127.0.0.1:12345
+[Mon Mar 27 2023 06:16:19.094260] REQUEST[4]: 127.0.0.1:12345, uri=/textbooks-2-small.jpg
 	[4]	GET /textbooks-2-small.jpg HTTP/1.1
 	[4]	Referer: http://127.0.0.1:12345/persistent.html
 	[4]	User-Agent: Wget/1.20.3 (linux-gnu)
@@ -80,69 +101,35 @@
 	[4]	Host: 127.0.0.1:12345
 	[4]	Connection: Keep-Alive
 	[4]	
-[Mon Mar 27 2023 06:07:34.576338] RESPONSE[4]: 127.0.0.1:12345, status=200, P=2, MAXR=5 tokens/s, DIAL=100, rate=2.500 KB/s
+[Mon Mar 27 2023 06:16:19.094466] RESPONSE[4]: 127.0.0.1:12345, status=200, P=2, MAXR=5 tokens/s, DIAL=100, rate=2.500 KB/s
 	[4]	HTTP/1.1 200 OK
 	[4]	Server: pa3 (scottsus@usc.edu)
 	[4]	Content-Type: application/octet-stream
 	[4]	Content-Length: 10525
 	[4]	Content-MD5: 3f21950127b581aa1d9a264e8d06845b
 	[4]	
-[Mon Mar 27 2023 06:07:35.375294] Socket-writing thread has terminated
-[Mon Mar 27 2023 06:07:38.113908] REQUEST[5]: 127.0.0.1:12345, uri=/persistent.html
-	[5]	GET /persistent.html HTTP/1.1
-	[5]	User-Agent: Wget/1.20.3 (linux-gnu)
-	[5]	Accept: */*
-	[5]	Accept-Encoding: identity
-	[5]	Host: 127.0.0.1:12345
-	[5]	Connection: Keep-Alive
-	[5]	
-[Mon Mar 27 2023 06:07:38.114104] RESPONSE[5]: 127.0.0.1:12345, status=200, P=2, MAXR=5 tokens/s, DIAL=100, rate=2.500 KB/s
-	[5]	HTTP/1.1 200 OK
-	[5]	Server: pa3 (scottsus@usc.edu)
-	[5]	Content-Type: text/html
-	[5]	Content-Length: 186
-	[5]	Content-MD5: 94a055cd5f931d937e8dd9bae15281a6
-	[5]	
-[Mon Mar 27 2023 06:07:38.115167] REQUEST[5]: 127.0.0.1:12345, uri=/robots.txt
-	[5]	GET /robots.txt HTTP/1.1
-	[5]	User-Agent: Wget/1.20.3 (linux-gnu)
-	[5]	Accept: */*
-	[5]	Accept-Encoding: identity
-	[5]	Host: 127.0.0.1:12345
-	[5]	Connection: Keep-Alive
-	[5]	
-[Mon Mar 27 2023 06:07:38.914355] RESPONSE[5]: 127.0.0.1:12345, status=404
-	[5]	HTTP/1.1 404 NOT FOUND
-	[5]	Server: pa3 (scottsus@usc.edu)
-	[5]	Content-Type: application/octet-stream
-	[5]	Content-Length: -1
-	[5]	Content-MD5: 
-	[5]	
-[Mon Mar 27 2023 06:07:38.914558] RESPONSE[5]: 127.0.0.1:12345, status=404, P=2, MAXR=5 tokens/s, DIAL=100, rate=2.500 KB/s
-	[5]	HTTP/1.1 404 NOT FOUND
-	[5]	Server: pa3 (scottsus@usc.edu)
-	[5]	Content-Type: application/octet-stream
-	[5]	Content-Length: -1
-	[5]	Content-MD5: 
-	[5]	
-[Mon Mar 27 2023 06:07:38.914826] CLOSE[5]: (unexpectedly) 127.0.0.1:12345
-[Mon Mar 27 2023 06:07:38.915104] REQUEST[6]: 127.0.0.1:12345, uri=/textbooks-2-small.jpg
-	[6]	GET /textbooks-2-small.jpg HTTP/1.1
-	[6]	Referer: http://127.0.0.1:12345/persistent.html
-	[6]	User-Agent: Wget/1.20.3 (linux-gnu)
-	[6]	Accept: */*
-	[6]	Accept-Encoding: identity
-	[6]	Host: 127.0.0.1:12345
-	[6]	Connection: Keep-Alive
-	[6]	
-[Mon Mar 27 2023 06:07:38.915361] RESPONSE[6]: 127.0.0.1:12345, status=200, P=2, MAXR=5 tokens/s, DIAL=100, rate=2.500 KB/s
-	[6]	HTTP/1.1 200 OK
-	[6]	Server: pa3 (scottsus@usc.edu)
-	[6]	Content-Type: application/octet-stream
-	[6]	Content-Length: 10525
-	[6]	Content-MD5: 3f21950127b581aa1d9a264e8d06845b
-	[6]	
-[Mon Mar 27 2023 06:07:38.977388] REQUEST[4]: 127.0.0.1:12345, uri=/textbooks-3-small.jpg
+[Mon Mar 27 2023 06:16:19.893641] Socket-writing thread has terminated
+[Mon Mar 27 2023 06:16:21.114671] REQUEST[2]: 127.0.0.1:12345, uri=/textbooks-3-small.jpg
+	[2]	GET /textbooks-3-small.jpg HTTP/1.1
+	[2]	Referer: http://127.0.0.1:12345/persistent.html
+	[2]	User-Agent: Wget/1.20.3 (linux-gnu)
+	[2]	Accept: */*
+	[2]	Accept-Encoding: identity
+	[2]	Host: 127.0.0.1:12345
+	[2]	Connection: Keep-Alive
+	[2]	
+[Mon Mar 27 2023 06:16:21.514086] RESPONSE[2]: 127.0.0.1:12345, status=200, P=2, MAXR=5 tokens/s, DIAL=100, rate=2.500 KB/s
+	[2]	HTTP/1.1 200 OK
+	[2]	Server: pa3 (scottsus@usc.edu)
+	[2]	Content-Type: application/octet-stream
+	[2]	Content-Length: 14265
+	[2]	Content-MD5: 0fa2a445f252d4355aa760a54c93825e
+	[2]	
+[Mon Mar 27 2023 06:16:22.153000] Socket-reading thread has joined with socket-writing thread
+[Mon Mar 27 2023 06:16:23.010868] CLOSE[2]: (at user's request) 127.0.0.1:12345
+[Mon Mar 27 2023 06:16:23.114292] Socket-writing thread has terminated
+[Mon Mar 27 2023 06:16:23.114540] Socket-reading thread has joined with socket-writing thread
+[Mon Mar 27 2023 06:16:23.495214] REQUEST[4]: 127.0.0.1:12345, uri=/textbooks-3-small.jpg
 	[4]	GET /textbooks-3-small.jpg HTTP/1.1
 	[4]	Referer: http://127.0.0.1:12345/persistent.html
 	[4]	User-Agent: Wget/1.20.3 (linux-gnu)
@@ -151,92 +138,68 @@
 	[4]	Host: 127.0.0.1:12345
 	[4]	Connection: Keep-Alive
 	[4]	
-[Mon Mar 27 2023 06:07:39.376613] RESPONSE[4]: 127.0.0.1:12345, status=200, P=2, MAXR=5 tokens/s, DIAL=100, rate=2.500 KB/s
+[Mon Mar 27 2023 06:16:23.894686] RESPONSE[4]: 127.0.0.1:12345, status=200, P=2, MAXR=5 tokens/s, DIAL=100, rate=2.500 KB/s
 	[4]	HTTP/1.1 200 OK
 	[4]	Server: pa3 (scottsus@usc.edu)
 	[4]	Content-Type: application/octet-stream
 	[4]	Content-Length: 14265
 	[4]	Content-MD5: 0fa2a445f252d4355aa760a54c93825e
 	[4]	
-[Mon Mar 27 2023 06:07:39.714651] Socket-writing thread has terminated
-[Mon Mar 27 2023 06:07:41.095851] Socket-reading thread has joined with socket-writing thread
-[Mon Mar 27 2023 06:07:42.282798] CLOSE[4]: (done) 127.0.0.1:12345
-[Mon Mar 27 2023 06:07:42.282798] CLOSE[4]: (done) 127.0.0.1:12345
-[Mon Mar 27 2023 06:07:42.282799] Socket-reading thread has joined with socket-writing thread
-[Mon Mar 27 2023 06:07:42.576822] Socket-writing thread has terminated
-[Mon Mar 27 2023 06:07:43.283725] REQUEST[7]: 127.0.0.1:12345, uri=/textbooks-3-small.jpg
-	[7]	GET /textbooks-3-small.jpg HTTP/1.1
-	[7]	Referer: http://127.0.0.1:12345/persistent.html
-	[7]	Range: bytes=7168-
-	[7]	User-Agent: Wget/1.20.3 (linux-gnu)
-	[7]	Accept: */*
-	[7]	Accept-Encoding: identity
-	[7]	Host: 127.0.0.1:12345
-	[7]	Connection: Keep-Alive
-	[7]	
-[Mon Mar 27 2023 06:07:43.284068] RESPONSE[7]: 127.0.0.1:12345, status=200, P=2, MAXR=5 tokens/s, DIAL=100, rate=2.500 KB/s
-	[7]	HTTP/1.1 200 OK
-	[7]	Server: pa3 (scottsus@usc.edu)
-	[7]	Content-Type: application/octet-stream
-	[7]	Content-Length: 14265
-	[7]	Content-MD5: 0fa2a445f252d4355aa760a54c93825e
-	[7]	
-[Mon Mar 27 2023 06:07:43.316362] REQUEST[6]: 127.0.0.1:12345, uri=/textbooks-3-small.jpg
-	[6]	GET /textbooks-3-small.jpg HTTP/1.1
-	[6]	Referer: http://127.0.0.1:12345/persistent.html
-	[6]	User-Agent: Wget/1.20.3 (linux-gnu)
-	[6]	Accept: */*
-	[6]	Accept-Encoding: identity
-	[6]	Host: 127.0.0.1:12345
-	[6]	Connection: Keep-Alive
-	[6]	
-[Mon Mar 27 2023 06:07:43.715593] RESPONSE[6]: 127.0.0.1:12345, status=200, P=2, MAXR=5 tokens/s, DIAL=100, rate=2.500 KB/s
-	[6]	HTTP/1.1 200 OK
-	[6]	Server: pa3 (scottsus@usc.edu)
-	[6]	Content-Type: application/octet-stream
-	[6]	Content-Length: 14265
-	[6]	Content-MD5: 0fa2a445f252d4355aa760a54c93825e
-	[6]	
-[Mon Mar 27 2023 06:07:48.884976] REQUEST[7]: 127.0.0.1:12345, uri=/usctommy.gif
-	[7]	GET /usctommy.gif HTTP/1.1
-	[7]	Referer: http://127.0.0.1:12345/persistent.html
-	[7]	User-Agent: Wget/1.20.3 (linux-gnu)
-	[7]	Accept: */*
-	[7]	Accept-Encoding: identity
-	[7]	Host: 127.0.0.1:12345
-	[7]	Connection: Keep-Alive
-	[7]	
-[Mon Mar 27 2023 06:07:49.284383] RESPONSE[7]: 127.0.0.1:12345, status=200, P=2, MAXR=5 tokens/s, DIAL=100, rate=2.500 KB/s
-	[7]	HTTP/1.1 200 OK
-	[7]	Server: pa3 (scottsus@usc.edu)
-	[7]	Content-Type: application/octet-stream
-	[7]	Content-Length: 1689
-	[7]	Content-MD5: 0e7c16723f8e70c751ddd01c51d7c27d
-	[7]	
-[Mon Mar 27 2023 06:07:49.316447] REQUEST[6]: 127.0.0.1:12345, uri=/usctommy.gif
-	[6]	GET /usctommy.gif HTTP/1.1
-	[6]	Referer: http://127.0.0.1:12345/persistent.html
-	[6]	User-Agent: Wget/1.20.3 (linux-gnu)
-	[6]	Accept: */*
-	[6]	Accept-Encoding: identity
-	[6]	Host: 127.0.0.1:12345
-	[6]	Connection: Keep-Alive
-	[6]	
-[Mon Mar 27 2023 06:07:49.715817] RESPONSE[6]: 127.0.0.1:12345, status=200, P=2, MAXR=5 tokens/s, DIAL=100, rate=2.500 KB/s
-	[6]	HTTP/1.1 200 OK
-	[6]	Server: pa3 (scottsus@usc.edu)
-	[6]	Content-Type: application/octet-stream
-	[6]	Content-Length: 1689
-	[6]	Content-MD5: 0e7c16723f8e70c751ddd01c51d7c27d
-	[6]	
-[Mon Mar 27 2023 06:07:50.085243] CLOSE[7]: (done) 127.0.0.1:12345
-[Mon Mar 27 2023 06:07:50.484608] Socket-writing thread has terminated
-[Mon Mar 27 2023 06:07:50.516710] CLOSE[6]: (done) 127.0.0.1:12345
-[Mon Mar 27 2023 06:07:50.916072] Socket-writing thread has terminated
-[Mon Mar 27 2023 06:11:05.149002] Socket-reading thread has joined with socket-writing thread
-[Mon Mar 27 2023 06:11:05.149333] Socket-reading thread has joined with socket-writing thread
-[Mon Mar 27 2023 06:11:05.149422] Socket-reading thread has joined with socket-writing thread
-[Mon Mar 27 2023 06:11:05.149488] Socket-reading thread has joined with socket-writing thread
-[Mon Mar 27 2023 06:11:05.149535] Socket-reading thread has joined with socket-writing thread
-[Mon Mar 27 2023 06:11:05.149556] Reaper has joined with connection thread.
-[Mon Mar 27 2023 06:11:05.149743] Server 127.0.0.1:12345 stopped
+[Mon Mar 27 2023 06:16:24.011881] REQUEST[5]: 127.0.0.1:12345, uri=/textbooks-3-small.jpg
+	[5]	GET /textbooks-3-small.jpg HTTP/1.1
+	[5]	Referer: http://127.0.0.1:12345/persistent.html
+	[5]	Range: bytes=3072-
+	[5]	User-Agent: Wget/1.20.3 (linux-gnu)
+	[5]	Accept: */*
+	[5]	Accept-Encoding: identity
+	[5]	Host: 127.0.0.1:12345
+	[5]	Connection: Keep-Alive
+	[5]	
+[Mon Mar 27 2023 06:16:24.012351] RESPONSE[5]: 127.0.0.1:12345, status=200, P=2, MAXR=5 tokens/s, DIAL=100, rate=2.500 KB/s
+	[5]	HTTP/1.1 200 OK
+	[5]	Server: pa3 (scottsus@usc.edu)
+	[5]	Content-Type: application/octet-stream
+	[5]	Content-Length: 14265
+	[5]	Content-MD5: 0fa2a445f252d4355aa760a54c93825e
+	[5]	
+[Mon Mar 27 2023 06:16:29.495446] REQUEST[4]: 127.0.0.1:12345, uri=/usctommy.gif
+	[4]	GET /usctommy.gif HTTP/1.1
+	[4]	Referer: http://127.0.0.1:12345/persistent.html
+	[4]	User-Agent: Wget/1.20.3 (linux-gnu)
+	[4]	Accept: */*
+	[4]	Accept-Encoding: identity
+	[4]	Host: 127.0.0.1:12345
+	[4]	Connection: Keep-Alive
+	[4]	
+[Mon Mar 27 2023 06:16:29.613158] REQUEST[5]: 127.0.0.1:12345, uri=/usctommy.gif
+	[5]	GET /usctommy.gif HTTP/1.1
+	[5]	Referer: http://127.0.0.1:12345/persistent.html
+	[5]	User-Agent: Wget/1.20.3 (linux-gnu)
+	[5]	Accept: */*
+	[5]	Accept-Encoding: identity
+	[5]	Host: 127.0.0.1:12345
+	[5]	Connection: Keep-Alive
+	[5]	
+[Mon Mar 27 2023 06:16:29.894998] RESPONSE[4]: 127.0.0.1:12345, status=200, P=2, MAXR=5 tokens/s, DIAL=100, rate=2.500 KB/s
+	[4]	HTTP/1.1 200 OK
+	[4]	Server: pa3 (scottsus@usc.edu)
+	[4]	Content-Type: application/octet-stream
+	[4]	Content-Length: 1689
+	[4]	Content-MD5: 0e7c16723f8e70c751ddd01c51d7c27d
+	[4]	
+[Mon Mar 27 2023 06:16:30.012530] RESPONSE[5]: 127.0.0.1:12345, status=200, P=2, MAXR=5 tokens/s, DIAL=100, rate=2.500 KB/s
+	[5]	HTTP/1.1 200 OK
+	[5]	Server: pa3 (scottsus@usc.edu)
+	[5]	Content-Type: application/octet-stream
+	[5]	Content-Length: 1689
+	[5]	Content-MD5: 0e7c16723f8e70c751ddd01c51d7c27d
+	[5]	
+[Mon Mar 27 2023 06:16:30.695980] CLOSE[4]: (done) 127.0.0.1:12345
+[Mon Mar 27 2023 06:16:30.813412] CLOSE[5]: (done) 127.0.0.1:12345
+[Mon Mar 27 2023 06:16:31.095247] Socket-writing thread has terminated
+[Mon Mar 27 2023 06:16:31.212727] Socket-writing thread has terminated
+[Mon Mar 27 2023 06:16:51.079567] Socket-reading thread has joined with socket-writing thread
+[Mon Mar 27 2023 06:16:51.079964] Socket-reading thread has joined with socket-writing thread
+[Mon Mar 27 2023 06:16:51.080063] Socket-reading thread has joined with socket-writing thread
+[Mon Mar 27 2023 06:16:51.080090] Reaper has joined with connection thread.
+[Mon Mar 27 2023 06:16:51.080261] Server 127.0.0.1:12345 stopped
