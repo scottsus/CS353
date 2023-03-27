@@ -1,0 +1,253 @@
+Script started on 2023-03-27 00:25:03-07:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="120" LINES="30"]
+[1m[38;5;118m[7m%[27m[1m[38;5;118m[0m[38;5;118m                                                                                                                        ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab9]1;~/CS353/Lab9[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab9[00m on [38;5;81mmaster[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31mu[0m[39m[1m[31mu[0m[39m[90mname -a[39m[1m[31mu[1m[31mn[0m[39m[0m[32mu[0m[32mn[32ma[32mm[32me[39m[39m [39m-[39ma[?1l>[?2004l
+]2;uname -a]1;unameLinux DESKTOP-KR0Q71I 5.10.16.3-microsoft-standard-WSL2 #1 SMP Fri Apr 2 22:23:49 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux
+[1m[7m%[27m[1m[0m                                                                                                                        ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab9]1;~/CS353/Lab9[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab9[00m on [38;5;81mmaster[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31mc[0m[39m[1m[31mc[0m[39m[90md lab9data[39m[10D[1m[31mc[1m[31ma[0m[39m[39m [39m [39m [39m [39m [39m [39m [39m [39m [9D[90mt /etc/os-release[39m[17D[0m[32mc[0m[32ma[32mt[39m[39m [39m[4m/[39m[4me[39m[4mt[39m[4mc[39m[4m/[39m[4mo[39m[4ms[39m[4m-[39m[4mr[39m[4me[39m[4ml[39m[4me[39m[4ma[39m[4ms[39m[4me[24m[?1l>[?2004l
+]2;cat /etc/os-release]1;catNAME="Ubuntu"
+VERSION="20.04.5 LTS (Focal Fossa)"
+ID=ubuntu
+ID_LIKE=debian
+PRETTY_NAME="Ubuntu 20.04.5 LTS"
+VERSION_ID="20.04"
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+VERSION_CODENAME=focal
+UBUNTU_CODENAME=focal
+[1m[7m%[27m[1m[0m                                                                                                                        ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab9]1;~/CS353/Lab9[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab9[00m on [38;5;81mmaster[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31mc[0m[39m[0m[32mc[32md[39m[90m lab9data[39m[9D[39m [39m[4ml[39m[4ma[39m[4mb[39m[4m9[39m[4md[39m[4ma[39m[4mt[39m[4ma[24m[?1l>[?2004l
+]2;cd lab9data]1;cd[1m[7m%[27m[1m[0m                                                                                                                        ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab9/lab9data]1;..Lab9/lab9data[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab9/lab9data[00m on [38;5;81mmaster[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31mm[0m[39m[1m[31mm[1m[31ma[0m[39m[90mke clean[39m[8D[1m[31mm[1m[31ma[1m[31mk[0m[39m[0m[32mm[0m[32ma[0m[32mk[32me[39m[39m [39m[4mc[24m[24mc[39ml[39me[39ma[39mn[?1l>[?2004l
+]2;make clean]1;makerm -f a.out
+[1m[7m%[27m[1m[0m                                                                                                                        ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab9/lab9data]1;..Lab9/lab9data[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab9/lab9data[00m on [38;5;81mmaster[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31mf[0m[39m[1m[31mf[0m[39m[90mg[39m[1m[31mf[1m[31mo[0m[39m[90mr i in  "$remove"*;do mv "$i" "${i#"$remove"}";done[39m[51D[0m[33mf[0m[33mo[33mr[39m[1m[31mf[1m[31mo[1m[31mr[1m[31ma[0m[39m[90m [90mi[90m [90mi[90mn[90m [90m [39m[26P[9C[90m*[90m;[90md[90mo[90m [90mm[90mv[90m "$i" "${i#"$remove"}";done[39m[50D[1m[31ma[1m[31me[0m[39m[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [49D[1m[31ma[0m[39m[0m[39m [0m[33mf[0m[33mo[0m[33mr[39m[0m[39m [90m i in  "$remove"*;do mv "$i" "${i#"$remove"}";done[39m[50D[1m[31mf[1m[31mo[1m[31mr[1m[31me[0m[39m[90m [90mi[90m [90mi[90mn[90m [90m [39m[26P[9C[90m*[90m;[90md[90mo[90m [90mm[90mv[90m "$i" "${i#"$remove"}";done[39m[50D[1m[31me[1m[31ma[0m[39m[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [49D[1m[31ma[1m[31mc[0m[39m[0m[33mf[0m[33mo[0m[33mr[0m[33me[0m[33ma[0m[33mc[33mh[39m f  [1m[31mf[1m[31mo[1m[31mr[1m[31me[1m[31ma[1m[31mc[0m[39m[39m [1m[31ma[0m[39m[0m[39m [1m[31me[0m[39m[0m[39m [0m[33mf[0m[33mo[0m[33mr[39m[0m[39m [90m i in  "$remove"*;do mv "$i" "${i#"$remove"}";done[39m[50D[1m[31mf[1m[31mo[0m[39m[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [51D[90mr i in  "$remove"*;do mv "$i" "${i#"$remove"}";done[39m[51D[1m[31mf[0m[39m[0m[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [52D[1m[31mf[0m[39m[90mg[39m[0m[39m [39m [1m[31mt[0m[39m[1m[31mt[0m[39m[90mcsh[39m[0m[32mt[32mc[39m[1m[31mt[1m[31mc[1m[31ms[0m[39m[90ms[90mh[39m[0m[32mt[0m[32mc[0m[32ms[32mh[39m[39m [?1l>[?2004l
+]2;tcsh]1;tcsh[4mDESKTOP-KR0Q71I[24m:[1m~/CS353/Lab9/lab9data[0m> foreach f (cv)
+foreach? make $f
+foreach? ./a.u[Kout
+foreach? end
+g++ -g -Wall -std=c++11 -DLOCALHOST=\"127.0.0.1\" cv.cpp -pthread
+Producer 0 added 0
+Producer 2 added 20
+Producer 3 added 30
+Consumer 2 got 0
+Producer 4 added 40
+Consumer 4 got 20
+Consumer 1 got 30
+Producer 1 added 10
+Consumer 0 got 10
+Consumer 3 got 40
+Producer 5 added 50
+Consumer 5 got 50
+Producer 6 added 60
+Consumer 6 got 60
+Producer 7 added 70
+Producer 8 added 80
+Consumer 9 got 80
+Consumer 7 got 70
+Producer 0 added 1
+Producer 9 added 90
+Consumer 8 got 1
+Producer 2 added 21
+Consumer 2 got 90
+Producer 4 added 41
+Producer 3 added 31
+Consumer 4 got 21
+Producer 1 added 11
+Consumer 3 got 31
+Consumer 0 got 41
+Consumer 1 got 11
+Producer 5 added 51
+Consumer 5 got 51
+Producer 6 added 61
+Consumer 6 got 61
+Producer 8 added 81
+Producer 7 added 71
+Consumer 9 got 81
+Consumer 7 got 71
+Producer 0 added 2
+Producer 9 added 91
+Producer 2 added 22
+Consumer 8 got 2
+Consumer 2 got 91
+Producer 3 added 32
+Producer 4 added 42
+Producer 1 added 12
+Consumer 4 got 22
+Consumer 3 got 32
+Consumer 0 got 42
+Consumer 1 got 12
+Producer 5 added 52
+Consumer 5 got 52
+Producer 6 added 62
+Consumer 6 got 62
+Producer 8 added 82
+Consumer 9 got 82
+Producer 0 added 3
+Producer 7 added 72
+Producer 2 added 23
+Producer 9 added 92
+Producer 3 added 33
+Producer 4 added 43
+Consumer 2 got 3
+Producer 1 added 13
+Consumer 7 got 72
+Consumer 4 got 23
+Consumer 3 got 92
+Consumer 1 got 33
+Consumer 8 got 43
+Consumer 0 got 13
+Producer 5 added 53
+Consumer 5 got 53
+Producer 6 added 63
+Consumer 6 got 63
+Producer 8 added 83
+Producer 0 added 4
+Producer 7 added 73
+Consumer 9 got 83
+Producer 2 added 24
+Producer 9 added 93
+Producer 1 added 14
+Consumer 2 got 4
+Producer 3 added 34
+Producer 4 added 44
+Consumer 4 got 73
+Consumer 7 got 24
+Consumer 1 got 93
+Consumer 3 got 14
+Consumer 8 got 34
+Producer 5 added 54
+Consumer 0 got 44
+Consumer 5 got 54
+Producer 6 added 64
+Consumer 6 got 64
+Producer 8 added 84
+Producer 0 added 5
+Producer 7 added 74
+Consumer 9 got 84
+Producer 2 added 25
+Producer 9 added 94
+Consumer 2 got 5
+Producer 1 added 15
+Producer 3 added 35
+Producer 4 added 45
+Consumer 4 got 74
+Consumer 1 got 25
+Consumer 7 got 94
+Consumer 3 got 15
+Producer 5 added 55
+Consumer 0 got 35
+Consumer 5 got 45
+Consumer 8 got 55
+Producer 6 added 65
+Consumer 6 got 65
+Producer 8 added 85
+Producer 0 added 6
+Producer 7 added 75
+Consumer 9 got 85
+Producer 2 added 26
+Producer 9 added 95
+Consumer 2 got 6
+Producer 3 added 36
+Producer 4 added 46
+Producer 1 added 16
+Consumer 4 got 75
+Consumer 1 got 26
+Consumer 3 got 95
+Consumer 0 got 36
+Consumer 5 got 46
+Consumer 8 got 16
+Producer 5 added 56
+Producer 6 added 66
+Consumer 7 got 56
+Producer 0 added 7
+Producer 8 added 86
+Consumer 6 got 66
+Producer 7 added 76
+Consumer 9 got 7
+Producer 2 added 27
+Producer 9 added 96
+Consumer 2 got 86
+Producer 3 added 37
+Producer 1 added 17
+Producer 4 added 47
+Consumer 4 got 76
+Consumer 1 got 27
+Consumer 3 got 96
+Consumer 0 got 37
+Consumer 5 got 17
+Consumer 8 got 47
+Producer 5 added 57
+Producer 6 added 67
+Consumer 7 got 57
+Producer 8 added 87
+Producer 0 added 8
+Producer 7 added 77
+Consumer 6 got 67
+Consumer 9 got 87
+Producer 2 added 28
+Producer 9 added 97
+Producer 3 added 38
+Producer 4 added 48
+Consumer 2 got 8
+Producer 1 added 18
+Consumer 4 got 77
+Consumer 1 got 28
+Consumer 3 got 97
+Consumer 0 got 38
+Consumer 5 got 48
+Consumer 8 got 18
+Producer 5 added 58
+Producer 6 added 68
+Consumer 7 got 58
+Producer 8 added 88
+Producer 0 added 9
+Producer 7 added 78
+Consumer 6 got 68
+Consumer 9 got 88
+Producer 2 added 29
+Producer 9 added 98
+Producer 4 added 49
+Producer 3 added 39
+Consumer 2 got 9
+Producer 1 added 19
+Consumer 4 got 78
+Consumer 1 got 29
+Consumer 3 got 98
+Consumer 5 got 49
+Consumer 0 got 39
+Consumer 8 got 19
+Producer 5 added 59
+Producer 6 added 69
+Consumer 7 got 59
+Producer 8 added 89
+Producer 7 added 79
+Consumer 6 got 69
+Joined producer 0
+Consumer 9 got 89
+Producer 9 added 99
+Consumer 2 got 79
+Consumer 4 got 99
+Joined consumer 0
+Joined producer 1
+Joined consumer 1
+Joined producer 2
+Joined consumer 2
+Joined producer 3
+Joined consumer 3
+Joined producer 4
+Joined consumer 4
+Joined producer 5
+Joined consumer 5
+Joined producer 6
+Joined consumer 6
+Joined producer 7
+Joined consumer 7
+Joined producer 8
+Joined consumer 8
+Joined producer 9
+Joined consumer 9
+[4mDESKTOP-KR0Q71I[24m:[1m~/CS353/Lab9/lab9data[0m> mae[Kke clean
+rm -f a.out
+[4mDESKTOP-KR0Q71I[24m:[1m~/CS353/Lab9/lab9data[0m> cd ..
+[4mDESKTOP-KR0Q71I[24m:[1m~/CS353/Lab9[0m> exit
+exit
+[1m[7m%[27m[1m[0m                                                                                                                        ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab9/lab9data]1;..Lab9/lab9data[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab9/lab9data[00m on [38;5;81mmaster[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31me[0m[39m[1m[31me[0m[39m[90mxit[39m[0m[32me[32mx[39m[1m[31me[1m[31mx[1m[31mi[0m[39m[0m[32me[0m[32mx[0m[32mi[32mt[39m[?1l>[?2004l
+]2;exit]1;exit
+Script done on 2023-03-27 00:25:36-07:00 [COMMAND_EXIT_CODE="0"]
