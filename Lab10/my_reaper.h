@@ -20,7 +20,7 @@ extern condition_variable reaper_cv;
 extern int server_socketfd;
 
 void reap_threads(vector<shared_ptr<Connection>> *conns);
-void reap_thread(shared_ptr<Connection> conn);
-shared_ptr<Connection> wait_to_reap();
+void send_to_reaper(shared_ptr<Connection> conn);
+shared_ptr<Connection> await_to_reap();
 
 #endif

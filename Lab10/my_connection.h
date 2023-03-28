@@ -29,12 +29,14 @@ private:
     int curr_socketfd;
     int orig_socketfd;
 
+    string neighbor_nodeid;
+
     shared_ptr<thread> reader_thread;
     shared_ptr<thread> writer_thread;
 
     shared_ptr<mutex> mut;
     shared_ptr<condition_variable> cv;
-    queue<shared_ptr<Message>> q;
+    queue<shared_ptr<Message>> q{};
 
     int content_len;
     string uri;
@@ -48,15 +50,18 @@ private:
 public:
     Connection();
     Connection(int conn_number, int client_socketfd);
+    Connection(int conn_number, int client_socketfd, string nodeid);
 
     int get_conn_number();
     int get_curr_socketfd();
     int get_orig_socketfd();
     bool is_alive();
 
+    string get_neighbor_nodeid();
+
     shared_ptr<thread> get_reader_thread();
     shared_ptr<thread> get_writer_thread();
-    shared_ptr<Message> get_message_from_queue();
+    shared_ptr<Message> await_msg_from_queue();
 
     int get_content_len();
     string get_ip_port();
@@ -77,6 +82,8 @@ public:
     string get_reason();
 
     void set_curr_socketfd(int socketfd);
+    void set_neighbor_nodeid(string nodeid);
+
     void set_reader_thread(shared_ptr<thread> reader_thread);
     void set_writer_thread(shared_ptr<thread> writer_thread);
     void add_msg_to_queue(shared_ptr<Message> msg);

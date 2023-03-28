@@ -1,0 +1,15 @@
+Script started on 2023-03-27 18:20:07-07:00 [TERM="xterm-256color" TTY="/dev/pts/5" COLUMNS="120" LINES="30"]
+[1m[38;5;118m[7m%[27m[1m[38;5;118m[0m[38;5;118m                                                                                                                        ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab10]1;~/CS353/Lab10[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab10[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[32m.[39m[32m.[39m[90m/lab10a ./lab10data/lab10-12000.ini[39m[35D[4m[32m.[4m[32m/[24m[39m[39m[4m.[39m[4m/[39m[4ml[24m[4ml[39m[4ma[24m[4ma[39m[4mb[24m[24m[32m.[24m[32m/[24m[32ml[24m[32ma[24m[32mb[32m1[32m0[32ma[39m[39m [39m[4m.[39m[4m/[39m[4ml[39m[4ma[39m[4mb[39m[4m1[39m[4m0[39m[4md[39m[4ma[39m[4mt[39m[4ma[39m[4m/[39m[4ml[39m[4ma[39m[4mb[39m[4m1[39m[4m0[39m[4m-[39m[4m1[39m[4m2[39m[4m0[39m[4m0[39m[4m0[39m[4m.[39m[4mi[39m[4mn[39m[4mi[24m[?1l>[?2004l
+]2;./lab10a ./lab10data/lab10-12000.ini]1;./lab10a:12000> neighbors
+Active neighbors of :12000:
+	:12002
+:12000> neighbors
+:12000 has no active neighbors
+:12000> neighbors
+Active neighbors of :12000:
+	:12002
+:12000> quit
+Console thread terminated
+[1m[7m%[27m[1m[0m                                                                                                                        ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab10]1;~/CS353/Lab10[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab10[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31me[0m[39m[1m[31me[0m[39m[90mxit[39m[0m[32me[32mx[39m[1m[31me[1m[31mx[1m[31mi[0m[39m[90mi[90mt[39m[0m[32me[0m[32mx[0m[32mi[32mt[39m[39m [?1l>[?2004l
+]2;exit]1;exit
+Script done on 2023-03-27 18:25:46-07:00 [COMMAND_EXIT_CODE="0"]

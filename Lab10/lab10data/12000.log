@@ -1,0 +1,41 @@
+[Mon Mar 27 2023 18:20:52.248512] START: port=12000, rootdir=lab10data
+[Mon Mar 27 2023 18:21:03.486645] CONNECT[1]: 127.0.0.1:12000
+[Mon Mar 27 2023 18:21:03.487317] r SAYHELLO :12000 1 - 0
+	[1]	353NET/1.0 SAYHELLO
+	[1]	TTL: 9
+	[1]	Flood: 0
+	[1]	From: :12000
+	[1]	Content-Length: 0
+ 	[1]	
+[Mon Mar 27 2023 18:21:03.487852] i SAYHELLO :12000 1 - 0
+	[2]	353NET/1.0 SAYHELLO
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	From: :12002
+	[2]	Content-Length: 0
+ 	[2]	
+[Mon Mar 27 2023 18:21:04.254396] i SAYHELLO :12002 1 - 0
+[Mon Mar 27 2023 18:21:04.256274] r SAYHELLO :12002 1 - 0
+[Mon Mar 27 2023 18:21:44.855710] Socket-reading thread has joined with socket-writing thread
+[Mon Mar 27 2023 18:21:44.855842] Socket-reading thread has joined with socket-writing thread
+[Mon Mar 27 2023 18:22:18.555238] CONNECT[3]: 127.0.0.1:12000
+[Mon Mar 27 2023 18:22:18.555582] r SAYHELLO :12000 1 - 0
+	[3]	353NET/1.0 SAYHELLO
+	[3]	TTL: 9
+	[3]	Flood: 0
+	[3]	From: :12000
+	[3]	Content-Length: 0
+ 	[3]	
+[Mon Mar 27 2023 18:22:18.555845] i SAYHELLO :12000 1 - 0
+	[4]	353NET/1.0 SAYHELLO
+	[4]	TTL: 9
+	[4]	Flood: 0
+	[4]	From: :12002
+	[4]	Content-Length: 0
+ 	[4]	
+[Mon Mar 27 2023 18:22:20.263524] i SAYHELLO :12002 1 - 0
+[Mon Mar 27 2023 18:22:20.263972] r SAYHELLO :12002 1 - 0
+[Mon Mar 27 2023 18:23:08.115686] Socket-reading thread has joined with socket-writing thread
+[Mon Mar 27 2023 18:23:08.116007] Socket-reading thread has joined with socket-writing thread
+[Mon Mar 27 2023 18:23:13.461087] Reaper has joined with connection thread.
+[Mon Mar 27 2023 18:23:16.267928] STOP: port=12000

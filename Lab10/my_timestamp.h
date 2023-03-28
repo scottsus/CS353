@@ -24,6 +24,10 @@
 #ifndef _MY_TIMESTAMP_H_
 #define _MY_TIMESTAMP_H_
 
+#include <string>
+
+using namespace std;
+
 /**
  * Format the timestamp argument in the DoW MON DA YEAR HH:MM:SS.MICROS format and return it in a string.
  *

@@ -1,0 +1,38 @@
+[Mon Mar 27 2023 18:21:14.885856] START: port=12012, rootdir=lab10data
+	[1]	353NET/1.0 SAYHELLO
+	[1]	TTL: 9
+	[1]	Flood: 0
+	[1]	From: :12002
+	[1]	Content-Length: 0
+ 	[1]	
+[Mon Mar 27 2023 18:21:14.888913] i SAYHELLO :12002 1 - 0
+	[2]	353NET/1.0 SAYHELLO
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	From: :12004
+	[2]	Content-Length: 0
+ 	[2]	
+[Mon Mar 27 2023 18:21:14.889684] i SAYHELLO :12004 1 - 0
+[Mon Mar 27 2023 18:21:15.490768] CONNECT[3]: 127.0.0.1:12012
+[Mon Mar 27 2023 18:21:15.491152] r SAYHELLO :12012 1 - 0
+	[3]	353NET/1.0 SAYHELLO
+	[3]	TTL: 9
+	[3]	Flood: 0
+	[3]	From: :12012
+	[3]	Content-Length: 0
+ 	[3]	
+[Mon Mar 27 2023 18:21:15.491578] i SAYHELLO :12012 1 - 0
+[Mon Mar 27 2023 18:21:16.497563] CONNECT[4]: 127.0.0.1:12012
+[Mon Mar 27 2023 18:21:16.498746] r SAYHELLO :12012 1 - 0
+[Mon Mar 27 2023 18:21:16.498981] Socket-writing thread has terminated
+[Mon Mar 27 2023 18:21:16.499282] Socket-reading thread has joined with socket-writing thread
+[Mon Mar 27 2023 18:21:44.855789] Socket-reading thread has joined with socket-writing thread
+[Mon Mar 27 2023 18:22:18.555889] CONNECT[5]: 127.0.0.1:12012
+[Mon Mar 27 2023 18:22:18.557067] r SAYHELLO :12012 1 - 0
+	[5]	353NET/1.0 SAYHELLO
+	[5]	TTL: 9
+	[5]	Flood: 0
+	[5]	From: :12012
+	[5]	Content-Length: 0
+ 	[5]	
+[Mon Mar 27 2023 18:22:18.557393] i SAYHELLO :12012 1 - 0

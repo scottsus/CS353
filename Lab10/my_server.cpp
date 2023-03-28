@@ -6,6 +6,7 @@
 #include <fstream>
 #include <mutex>
 #include <map>
+#include <algorithm>
 
 #include <unistd.h>
 #include <sys/socket.h>
@@ -18,9 +19,18 @@
 
 using namespace std;
 
-void run_server(string port, string logfile_name)
+void run_server(string config_file)
 {
-    logfile.open(logfile_name);
+    config = get_config(config_file);
+    map<string, string> startup_opts = config["startup"];
+
+    rootdir = "lab10data";
+    string host = startup_opts["port"];
+    string port = startup_opts["port"];
+    string nodeid = ":" + port;
+
+    logfile.open(startup_opts["logfile"]);
+    log("START: port=" + port + ", rootdir=" + rootdir);
 
     server_socketfd = create_listening_socket(port);
     if (server_socketfd == -1)
@@ -28,16 +38,20 @@ void run_server(string port, string logfile_name)
         cerr << "Unable to create server socket" << endl;
         return;
     }
-    string server_ip_port = get_ip_and_port_for_server(server_socketfd, 1);
-    log("Server " + server_ip_port + " started");
+    string server_ip_and_port = get_ip_and_port_for_server(server_socketfd, 1);
 
-    rootdir = "lab4data";
-    int conn_number = 1;
-    thread console_thread(handle_console, &conns);
+    thread console_thread(handle_console, nodeid, &conns);
     thread reaper_thread(reap_threads, &conns);
+    thread neighbors_thread(find_neighbors, config["topology"][nodeid], &conns);
 
     while (true)
     {
+        if (conn_number == MAX_CONNECTIONS)
+        {
+            cout << "999,999 connections served. Proceed with auto-shutdown..." << endl;
+            break;
+        }
+
         mut.lock();
         if (server_socketfd == -1)
         {
@@ -49,240 +63,153 @@ void run_server(string port, string logfile_name)
         int client_socketfd = my_accept(server_socketfd);
         if (client_socketfd == -1)
             break;
+        log("CONNECT[" + to_string(conn_number) + "]: " + get_ip_and_port_for_client(client_socketfd, 1));
 
         mut.lock();
         shared_ptr<Connection> client_conn = make_shared<Connection>(Connection(conn_number++, client_socketfd));
-        client_conn->set_reader_thread(make_shared<thread>(thread(receive_request, client_conn)));
-        client_conn->set_writer_thread(make_shared<thread>(thread(send_response, client_conn)));
+        client_conn->set_reader_thread(make_shared<thread>(thread(await_request, client_conn, &conns)));
+        client_conn->set_writer_thread(make_shared<thread>(thread(send_response, nodeid, client_conn)));
         conns.push_back(client_conn);
         mut.unlock();
     }
 
     console_thread.join();
     reaper_thread.join();
+    neighbors_thread.join();
 
-    log("Server " + server_ip_port + " stopped");
+    log("STOP: port=" + port);
 }
 
-void handle_console(vector<shared_ptr<Connection>> *conns)
-{
-    string cmd;
-    while (true)
-    {
-        cout << "> ";
-        cin >> cmd;
-        if (cin.fail() || cin.eof() || cmd == "quit")
-        {
-            if (cin.fail() || cin.eof())
-                cout << endl;
-
-            mut.lock();
-            reaper_q.push(NULL);
-            reaper_cv.notify_one();
-            mut.unlock();
-
-            cout << "Console thread terminated" << endl;
-            break;
-        }
-        else if (cmd == "status")
-        {
-            mut.lock();
-            if (has_active_conns(*conns))
-            {
-                cout << "The following connections are active:" << endl;
-                for (shared_ptr<Connection> conn : *conns)
-                    if (conn->is_alive())
-                    {
-                        cout << "\t[" << conn->get_conn_number() << "]\tClient at " << conn->get_ip_port() << endl;
-                        cout << "\t\tPath: " << conn->get_uri() << endl;
-                        cout << "\t\tContent-Length: " << conn->get_content_len() << endl;
-                        cout << "\t\tStart-Time: " << conn->get_start_time() << endl;
-                        cout << "\t\tShaper-Params: " << conn->get_shaper_params() << endl;
-                        cout << "\t\tSent: " << conn->get_kb_sent() << " bytes " << conn->get_kb_percent_sent() << ", ";
-                        cout << "time elapsed: " << conn->get_time_elapsed() << " sec" << endl;
-                    }
-            }
-            else
-            {
-                cout << "No active connections" << endl;
-            }
-            mut.unlock();
-        }
-        else if (cmd == "dial")
-        {
-            string line;
-            getline(cin, line);
-
-            string target_conn_number_str, percent_str;
-            stringstream ss(line);
-            ss >> target_conn_number_str >> percent_str;
-
-            if (!is_digit(target_conn_number_str) || !is_digit(percent_str))
-            {
-                cout << "Invalid # or percent. The command syntax is 'dial # percent'. Please try again" << endl;
-                continue;
-            }
-
-            int target_conn_number = stoi(target_conn_number_str);
-            shared_ptr<Connection> conn = find_conn(target_conn_number, conns);
-
-            if (!conn)
-            {
-                cout << "No such connection: " << target_conn_number << endl;
-                continue;
-            }
-
-            int percent = stoi(percent_str);
-            if (!(1 <= percent && percent <= 100))
-            {
-                cout << "Dial value is out of range (it must be >=1 and <=100)" << endl;
-                continue;
-            }
-
-            conn->set_dial(percent);
-            cout << "Dial for connection " << target_conn_number << " at " << percent << "%. ";
-            cout << "Token rate at " << conn->get_speed_str() << " tokens/s." << endl;
-
-            log("Shaper-Params[" + to_string(conn->get_conn_number()) + "]: " + conn->get_shaper_params());
-        }
-        else if (cmd == "close")
-        {
-            string target_conn_str;
-            cin >> target_conn_str;
-            int target_conn = stoi(target_conn_str);
-
-            shared_ptr<Connection> conn = find_conn(target_conn, conns);
-
-            if (!conn)
-            {
-                cout << "No such connection: " << target_conn << endl;
-                continue;
-            }
-
-            shutdown(conn->get_orig_socketfd(), SHUT_RDWR);
-            conn->set_reason("at user's request");
-            conn->set_curr_socketfd(-2);
-            reap_thread(conn);
-            cout << "Closing connection " << to_string(conn->get_conn_number()) << " ..." << endl;
-        }
-        else
-        {
-            cout << "Command not recognized. Valid commands are:" << endl;
-            cout << "\tclose #" << endl;
-            cout << "\tdial # percent" << endl;
-            cout << "\tquit" << endl;
-            cout << "\tstatus" << endl;
-        }
-    }
-
-    mut.lock();
-    shutdown(server_socketfd, SHUT_RDWR);
-    close(server_socketfd);
-    server_socketfd = -1;
-
-    reaper_q.push(NULL);
-    reaper_cv.notify_one();
-
-    for (shared_ptr<Connection> c : *conns)
-    {
-        if (c->is_alive())
-        {
-            shutdown(c->get_orig_socketfd(), SHUT_RDWR);
-            c->set_curr_socketfd(-2);
-        }
-    }
-    mut.unlock();
-    return;
-}
-
-void receive_request(shared_ptr<Connection> client_conn)
+void await_request(shared_ptr<Connection> client_conn, vector<shared_ptr<Connection>> *conns)
 {
     mut.lock();
     mut.unlock();
 
     int client_socketfd = client_conn->get_curr_socketfd();
-    int conn_number = client_conn->get_conn_number();
     string client_ip_and_port = client_conn->get_ip_port();
 
+    bool is_http = true;
     while (true)
     {
-        tuple<int, int, string> file_info = process_request(client_socketfd, client_conn);
-        int status_code = get<0>(file_info);
+        client_conn->set_start_time();
 
-        // 3rd string is either a filename if it exists
-        // or an error message if if does not exist
-        string err = get<2>(file_info);
-        if (status_code != 200)
+        string line;
+        int bytes_received = read_a_line(client_socketfd, line);
+        if (bytes_received <= 2)
+            continue;
+
+        stringstream ss(line);
+        string method, uri, version;
+        ss >> method >> uri >> version;
+
+        if (method == "353NET/1.0")
         {
-            if (err == "") // No more requests
-            {
-                client_conn->add_msg_to_queue(NULL);
-                break;
-            }
-            else // Actual error
-            {
-                Message msg(status_code, "", "");
-                client_conn->add_msg_to_queue(make_shared<Message>(msg));
-                client_conn->set_reason("unexpectedly");
-                continue;
-            }
+            is_http = false;
+            break;
         }
 
-        string file_path = get<2>(file_info);
-        string md5_hash = calc_md5(file_path);
-
-        Message msg(status_code, file_path, md5_hash);
-        client_conn->add_msg_to_queue(make_shared<Message>(msg));
+        processHTTPRequest(client_socketfd, client_conn, method, uri, version);
     }
 
-    shutdown(client_socketfd, SHUT_RDWR);
-    close(client_socketfd);
-    client_conn->set_curr_socketfd(-2);
-    log("CLOSE[" + to_string(conn_number) + "]: (" + client_conn->get_reason() + ") " + client_ip_and_port);
-}
+    if (!is_http)
+        processP2PRequest(client_socketfd, client_conn, conns);
 
-void send_response(shared_ptr<Connection> client_conn)
-{
     mut.lock();
+    if (client_conn->get_curr_socketfd() >= 0)
+        shutdown(client_conn->get_orig_socketfd(), SHUT_RDWR);
+    client_conn->set_curr_socketfd(-1);
     mut.unlock();
 
-    int conn_number = client_conn->get_conn_number();
-    string client_ip_port = client_conn->get_ip_port();
-
-    while (true)
-    {
-        shared_ptr<Message> msg = client_conn->get_message_from_queue();
-        if (msg == NULL)
-            break;
-        int status_code = msg->get_status_code();
-
-        if (status_code != 200)
-        {
-            log("RESPONSE[" + to_string(conn_number) + "]: " + client_ip_port + ", status=" + to_string(status_code));
-            write_res_headers(status_code, client_conn, "");
-        }
-
-        log("RESPONSE[" + to_string(conn_number) + "]: " + client_ip_port + ", status=" + to_string(status_code) + ", " + client_conn->get_shaper_params());
-        write_res_headers(status_code, client_conn, msg->get_md5_hash());
-        write_res_body(client_conn, msg->get_file_path());
-    }
-
-    log("Socket-writing thread has terminated");
+    client_conn->add_msg_to_queue(NULL);
+    client_conn->get_writer_thread()->join();
+    send_to_reaper(client_conn);
 }
 
-tuple<int, int, string> process_request(int client_socketfd, shared_ptr<Connection> client_conn)
+void processP2PRequest(int client_socketfd, shared_ptr<Connection> client_conn, vector<shared_ptr<Connection>> *conns)
 {
-    client_conn->set_start_time();
-
     string line;
-    int bytes_received = read_a_line(client_socketfd, line);
-    if (bytes_received <= 2)
-        return make_tuple(0, 0, "");
+    for (int i = 0; i < 3; i++)
+        read_a_line(client_socketfd, line);
 
-    stringstream ss(line);
-    string method, uri, version;
-    ss >> method >> uri >> version;
+    stringstream ss1(line);
+    string from, message_sender_nodeid;
+    ss1 >> from >> message_sender_nodeid;
 
+    read_a_line(client_socketfd, line);
+    stringstream ss2(line);
+    string content_len_key, content_len_val;
+    ss2 >> content_len_key >> content_len_val;
+
+    int content_len = stoi(content_len_val);
+    log_header("r", message_sender_nodeid, 1, 0, content_len);
+
+    string receiver_nodeid = client_conn->get_neighbor_nodeid();
+
+    bool is_duplicate_conn = false;
+    if (receiver_nodeid == "")
+    {
+        mut.lock();
+        for (shared_ptr<Connection> neighbor : *conns)
+        {
+            if (neighbor->get_conn_number() == client_conn->get_conn_number())
+                continue;
+
+            if (neighbor->get_neighbor_nodeid() == message_sender_nodeid)
+                is_duplicate_conn = true;
+        }
+        mut.unlock();
+
+        if (!is_duplicate_conn)
+        {
+            mut.lock();
+            client_conn->set_neighbor_nodeid(message_sender_nodeid);
+            string ip_port = get_ip_and_port_for_client(client_socketfd, 1);
+
+            stringstream ss(ip_port);
+            string ip, port;
+            getline(ss, ip, ':');
+            getline(ss, port);
+            string nodeid = ":" + port;
+            Message return_hello(nodeid, content_len);
+
+            client_conn->add_msg_to_queue(make_shared<Message>(return_hello));
+            mut.unlock();
+        }
+    }
+    else
+    {
+        mut.lock();
+        for (shared_ptr<Connection> neighbor : *conns)
+        {
+            if (neighbor->get_conn_number() == client_conn->get_conn_number())
+                continue;
+
+            if (neighbor->get_neighbor_nodeid() == message_sender_nodeid)
+                is_duplicate_conn = true;
+        }
+        mut.unlock();
+    }
+
+    if (!is_duplicate_conn)
+    {
+        while (true)
+        {
+            string line;
+            int bytes_received = read_a_line(client_socketfd, line);
+            mut.lock();
+            if (server_socketfd == -1 || bytes_received <= 0)
+            {
+                mut.unlock();
+                break;
+            }
+            mut.unlock();
+            // Process message
+        }
+    }
+}
+
+void processHTTPRequest(int client_socketfd, shared_ptr<Connection> client_conn, string method, string uri, string version)
+{
     string err = "";
     if (method != "GET")
     {
@@ -323,7 +250,10 @@ tuple<int, int, string> process_request(int client_socketfd, shared_ptr<Connecti
         err = "Wrong HTTP version: " + version;
     }
 
+    string line;
     log_header(line, conn_number);
+
+    int bytes_received = 0;
     while (bytes_received > 2)
     {
         bytes_received = read_a_line(client_socketfd, line);
@@ -331,8 +261,78 @@ tuple<int, int, string> process_request(int client_socketfd, shared_ptr<Connecti
     }
 
     if (err != "")
-        return make_tuple(404, 0, err);
-    return make_tuple(200, file_size, file_path);
+    {
+        Message error_msg(404, "", "");
+        client_conn->add_msg_to_queue(make_shared<Message>(error_msg));
+        client_conn->set_reason("unexpectedly");
+    }
+
+    Message res(200, file_path, calc_md5(file_path));
+    client_conn->add_msg_to_queue(make_shared<Message>(res));
+    return;
+}
+
+void send_response(string sender_nodeid, shared_ptr<Connection> client_conn)
+{
+    mut.lock();
+    mut.unlock();
+
+    int conn_number = client_conn->get_conn_number();
+    string client_ip_port = client_conn->get_ip_port();
+
+    while (true)
+    {
+        shared_ptr<Message> msg = client_conn->await_msg_from_queue();
+        if (msg == NULL)
+            break;
+
+        if (!msg->is_mode_http())
+        {
+            int content_len = msg->get_content_len();
+            write_hello(client_conn, config["params"]["max_ttl"], "0", sender_nodeid, content_len);
+            log_header("i", sender_nodeid, 1, 0, content_len);
+            return;
+        }
+
+        int status_code = msg->get_status_code();
+        if (status_code != 200)
+        {
+            log("RESPONSE[" + to_string(conn_number) + "]: " + client_ip_port + ", status=" + to_string(status_code));
+            write_res_headers(status_code, client_conn, "");
+        }
+
+        log("RESPONSE[" + to_string(conn_number) + "]: " + client_ip_port + ", status=" + to_string(status_code) + ", " + client_conn->get_shaper_params());
+        write_res_headers(status_code, client_conn, msg->get_md5_hash());
+        write_res_body(client_conn, msg->get_file_path());
+    }
+
+    log("Socket-writing thread has terminated");
+}
+
+void write_hello(shared_ptr<Connection> neighbor_conn, string ttl, string flood, string sender_nodeid, int content_len)
+{
+    string h1 = "353NET/1.0 SAYHELLO\r\n";
+    string h2 = "TTL: " + ttl + "\r\n";
+    string h3 = "Flood: " + flood + "\r\n";
+    string h4 = "From: " + sender_nodeid + "\r\n";
+    string h5 = "Content-Length: " + to_string(content_len) + "\r\n ";
+    string h6 = "\r\n";
+
+    int neighbor_socketfd = neighbor_conn->get_orig_socketfd();
+    better_write_header(neighbor_socketfd, h1.c_str(), h1.length());
+    better_write_header(neighbor_socketfd, h2.c_str(), h2.length());
+    better_write_header(neighbor_socketfd, h3.c_str(), h3.length());
+    better_write_header(neighbor_socketfd, h4.c_str(), h4.length());
+    better_write_header(neighbor_socketfd, h5.c_str(), h5.length());
+    better_write_header(neighbor_socketfd, h6.c_str(), h6.length());
+
+    int conn_number = neighbor_conn->get_conn_number();
+    log_header(h1, conn_number);
+    log_header(h2, conn_number);
+    log_header(h3, conn_number);
+    log_header(h4, conn_number);
+    log_header(h5, conn_number);
+    log_header(h6, conn_number);
 }
 
 void write_res_headers(int status_code, shared_ptr<Connection> client_conn, string md5_hash)

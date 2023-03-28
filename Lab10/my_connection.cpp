@@ -19,6 +19,24 @@ Connection::Connection(int conn_number, int client_socketfd)
     this->conn_number = conn_number;
     this->curr_socketfd = client_socketfd;
     this->orig_socketfd = client_socketfd;
+    this->neighbor_nodeid = "";
+
+    this->content_len = 0;
+    this->kb_sent = 0;
+    this->reason = "";
+
+    this->mut = make_shared<mutex>();
+    this->cv = make_shared<condition_variable>();
+    this->q = queue<shared_ptr<Message>>();
+}
+
+Connection::Connection(int conn_number, int client_socketfd, string nodeid)
+{
+    this->conn_number = conn_number;
+    this->curr_socketfd = client_socketfd;
+    this->orig_socketfd = client_socketfd;
+    this->neighbor_nodeid = nodeid;
+
     this->content_len = 0;
     this->kb_sent = 0;
     this->reason = "";
@@ -43,6 +61,11 @@ int Connection::get_orig_socketfd()
     return orig_socketfd;
 }
 
+string Connection::get_neighbor_nodeid()
+{
+    return neighbor_nodeid;
+}
+
 bool Connection::is_alive()
 {
     return curr_socketfd > -1;
@@ -58,7 +81,7 @@ shared_ptr<thread> Connection::get_writer_thread()
     return writer_thread;
 }
 
-shared_ptr<Message> Connection::get_message_from_queue()
+shared_ptr<Message> Connection::await_msg_from_queue()
 {
     unique_lock<mutex> lock(*mut);
     while (q.empty())
@@ -166,6 +189,11 @@ string Connection::get_reason()
 void Connection::set_curr_socketfd(int socketfd)
 {
     this->curr_socketfd = socketfd;
+}
+
+void Connection::set_neighbor_nodeid(string nodeid)
+{
+    this->neighbor_nodeid = nodeid;
 }
 
 void Connection::set_reader_thread(shared_ptr<thread> reader_thread)

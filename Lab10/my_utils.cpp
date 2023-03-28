@@ -3,6 +3,7 @@
  */
 
 #include <iostream>
+#include <algorithm>
 
 #include <string.h>
 #include <unistd.h>
@@ -95,18 +96,22 @@ map<string, map<string, string>> get_config(string config_file)
 
 vector<int> get_throttlers(string file_type)
 {
-    if (mode == 0)
-        return vector<int>{2, 5, 100};
-
     string section = "*";
     if (config.count(file_type))
         section = file_type;
 
-    int P = stoi(config[section]["P"]);
-    int MAXR = stoi(config[section]["MAXR"]);
-    int DIAL = stoi(config[section]["DIAL"]);
+    try
+    {
+        int P = stoi(config[section]["P"]);
+        int MAXR = stoi(config[section]["MAXR"]);
+        int DIAL = stoi(config[section]["DIAL"]);
 
-    return vector<int>{P, MAXR, DIAL};
+        return vector<int>{P, MAXR, DIAL};
+    }
+    catch (exception &e)
+    {
+        return vector<int>{2, 5, 100};
+    }
 }
 
 shared_ptr<Connection> find_conn(int conn_number, vector<shared_ptr<Connection>> *conns)
@@ -120,6 +125,11 @@ shared_ptr<Connection> find_conn(int conn_number, vector<shared_ptr<Connection>>
     return conn;
 }
 
+void remove_from_vector(string target, vector<string> &vec)
+{
+    vec.erase(remove(vec.begin(), vec.end(), target), vec.end());
+}
+
 bool contains_complex_chars(string uri)
 {
     for (uint i = 0; i < uri.length(); i++)
@@ -129,19 +139,6 @@ bool contains_complex_chars(string uri)
             return true;
     }
     return false;
-}
-
-bool is_digit(string str)
-{
-    try
-    {
-        stoi(str);
-    }
-    catch (exception &e)
-    {
-        return false;
-    }
-    return true;
 }
 
 int get_file_size(string file_path)
@@ -197,19 +194,21 @@ string hexDump(unsigned char *buf, unsigned long len)
     return s;
 }
 
-// Can only be called when lock is held
-bool has_active_conns(vector<shared_ptr<Connection>> conns)
-{
-    for (shared_ptr<Connection> conn : conns)
-        if (conn->is_alive())
-            return true;
-
-    return false;
-}
-
 void log(string message)
 {
     string log = "[" + get_timestamp_now() + "] " + message + "\n";
+    if (logfile.is_open())
+    {
+        logfile << log;
+        logfile.flush();
+    }
+    else
+        cout << log;
+}
+
+void log_header(string type, string nodeid, int TTL, int flood, int content_len)
+{
+    string log = "[" + get_timestamp_now() + "] " + type + " SAYHELLO " + nodeid + " " + to_string(TTL) + " - " + to_string(content_len) + "\n";
     if (logfile.is_open())
     {
         logfile << log;

@@ -24,6 +24,10 @@
 #ifndef _MY_READWRITE_H_
 #define _MY_READWRITE_H_
 
+#include <string>
+
+using namespace std;
+
 /**
  * Read a line from the socket and return a C++ string.
  *         Can call this function repeatedly to read one line at a time.
@@ -40,7 +44,7 @@
  * @param socket_fd - client socket created by create_client_socket().
  * @param line - returned C++ string.
  */
-int read_a_line(int socket_fd, string& line);
+int read_a_line(int socket_fd, string &line);
 
 /**
  * Use this code to write to a socket (not a good idea to call write() directly).

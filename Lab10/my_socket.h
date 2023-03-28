@@ -24,6 +24,10 @@
 #ifndef _MY_SOCKET_H_
 #define _MY_SOCKET_H_
 
+#include <string>
+
+using namespace std;
+
 /**
  * Use this code to create a listening socket to be used by a server.
  * For this class, a server only serve on LOCALHOST (which is a compiler defined string and must be specified when you compile a module that #include this module).
