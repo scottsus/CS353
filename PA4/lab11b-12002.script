@@ -1,0 +1,33 @@
+Script started on 2023-04-09 14:31:54-07:00 [TERM="xterm-256color" TTY="/dev/pts/5" COLUMNS="120" LINES="30"]
+[1m[38;5;118m[7m%[27m[1m[38;5;118m[0m[38;5;118m                                                                                                                        ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab11]1;~/CS353/Lab11[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab11[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[32mscript[39m [4mlab11b-12002.script[24m[26D[39m [39m [39m [39m [39m [39m  [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [26D[32m.[39m[32m.[39m[90m/lab11a lab11data/lab11-12002.ini[39m[33D[4m[32m.[4m[32m/[24m[39m[24m[32m.[24m[32m/[32ml[32ma[32mb[32m1[32m1[32ma[39m[39m [39m[4ml[39m[4ma[39m[4mb[39m[4m1[39m[4m1[39m[4md[39m[4ma[39m[4mt[39m[4ma[39m[4m/[39m[4ml[39m[4ma[39m[4mb[39m[4m1[39m[4m1[39m[4m-[39m[4m1[39m[4m2[39m[4m0[39m[4m0[39m[4m2[39m[4m.[39m[4mi[39m[4mn[39m[4mi[24m[?1l>[?2004l
+]2;./lab11a lab11data/lab11-12002.ini]1;./lab11a:12002> neighbors
+Active neighbors of :12002:
+	:12000
+	:12004
+	:12012
+:12002> netgraph
+:12000: :12002
+:12002: :12000,:12004,:12012
+:12004: :12002,:12012
+:12012: :12002,:12004
+:12002> quit
+Console thread terminated
+[1m[7m%[27m[1m[0m                                                                                                                        ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab11]1;~/CS353/Lab11[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab11[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[32m.[39m[32m.[39m[90m/lab11a lab11data/lab11-12002.ini[39m[33D[4m[32m.[4m[32m/[24m[39m[24m[32m.[24m[32m/[32ml[32ma[32mb[32m1[32m1[32ma[39m[39m [39m[4ml[39m[4ma[39m[4mb[39m[4m1[39m[4m1[39m[4md[39m[4ma[39m[4mt[39m[4ma[39m[4m/[39m[4ml[39m[4ma[39m[4mb[39m[4m1[39m[4m1[39m[4m-[39m[4m1[39m[4m2[39m[4m0[39m[4m0[39m[4m2[39m[4m.[39m[4mi[39m[4mn[39m[4mi[24m[?1l>[?2004l
+]2;./lab11a lab11data/lab11-12002.ini]1;./lab11a:12002> terminate called after throwing an instance of 'std::invalid_argument'
+  what():  stoi
+[1]    11687 abort      ./lab11a lab11data/lab11-12002.ini
+[1m[7m%[27m[1m[0m                                                                                                                        ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab11]1;~/CS353/Lab11[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab11[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31mn[0m[39m[1m[31mn[0m[39m[90metstat -anp | grep :12345[39m[25D[0m[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [26D[32m./lab11a[39m [4mlab11data/lab11-12002.ini[24m[?1l>[?2004l
+]2;./lab11a lab11data/lab11-12002.ini]1;./lab11a:12002> netgraph
+:12000: :12002
+:12002: :12000,:12004,:12012
+:12004: :12012,:12002
+:12012: :12004,:12002
+:12002> netgraph
+:12002: :12004,:12012
+:12004: :12012,:12002
+:12012: :12004,:12002
+:12002> quit
+Console thread terminated
+[1m[7m%[27m[1m[0m                                                                                                                        ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab11]1;~/CS353/Lab11[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab11[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31me[0m[39m[1m[31me[0m[39m[90mxit[39m[0m[32me[32mx[39m[1m[31me[1m[31mx[1m[31mi[0m[39m[90mi[90mt[39m[0m[32me[0m[32mx[0m[32mi[32mt[39m[39m [?1l>[?2004l
+]2;exit]1;exit
+Script done on 2023-04-09 14:34:34-07:00 [COMMAND_EXIT_CODE="0"]
