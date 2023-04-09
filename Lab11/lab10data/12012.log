@@ -1,0 +1,21 @@
+[Sat Apr  8 2023 17:22:22.549624] START: port=12012, rootdir=lab10data
+	[1]	353NET/1.0 SAYHELLO
+	[1]	TTL: 9
+	[1]	Flood: 0
+	[1]	From: :12012
+	[1]	Content-Length: 0
+ 	[1]	
+[Sat Apr  8 2023 17:22:22.552532] i SAYHELLO :12012 1 - 0
+[Sat Apr  8 2023 17:22:22.553389] r SAYHELLO :12002 1 - 0
+	[2]	353NET/1.0 SAYHELLO
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	From: :12012
+	[2]	Content-Length: 0
+ 	[2]	
+[Sat Apr  8 2023 17:22:22.553599] i SAYHELLO :12012 1 - 0
+[Sat Apr  8 2023 17:22:22.554205] r SAYHELLO :12004 1 - 0
+[Sat Apr  8 2023 17:22:30.883995] Socket-reading thread has joined with socket-writing thread
+[Sat Apr  8 2023 17:22:37.026205] Socket-reading thread has joined with socket-writing thread
+[Sat Apr  8 2023 17:22:37.026324] Reaper has joined with connection thread.
+[Sat Apr  8 2023 17:22:38.555428] STOP: port=12012
