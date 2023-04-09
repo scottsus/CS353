@@ -5,18 +5,18 @@
 #     number that was assigned to you at the beginning of the semester.  If you don't
 #     know your base port number, please contact the instructor.
 #
-# This file should be in the "lab10data" subdirectory of the directory where you have your Lab 10 executables.  To run it do:
+# This file should be in the "lab11data" subdirectory of the directory where you have your Lab 11 executables.  To run it do:
 #
-#         chmod 755 ./lab10data/change-ports.csh
-#         ./lab10data/change-ports.csh BASEPORT
+#         chmod 755 ./lab11data/change-ports.csh
+#         ./lab11data/change-ports.csh BASEPORT
 #
 # Please note that this command can only be run against the ORIGINAL configuration files!
 #     If you made a mistake the first time you ran it, you must wipe out the content of the
-#     entire "lab10data" subdirectory by running the following command before running this command again:
+#     entire "lab11data" subdirectory by running the following command before running this command again:
 #
-#         tar xvf lab10data.tar.gz
+#         tar xvf lab11data.tar.gz
 
-set lab=lab10
+set lab=lab11
 set dir=${lab}data
 
 set argc=0
@@ -82,11 +82,11 @@ mv ${dir}/${lab}b-12002.csh ${dir}/${lab}b-${port}.csh
 
 @ port = $port + 2
 mv ${dir}/${lab}-12004.ini ${dir}/${lab}-${port}.ini
+mv ${dir}/${lab}a-12004.csh ${dir}/${lab}a-${port}.csh
 mv ${dir}/${lab}b-12004.csh ${dir}/${lab}b-${port}.csh
 
 @ port = $port + 2
 mv ${dir}/${lab}-12012.ini ${dir}/${lab}-${port}.ini
 mv ${dir}/${lab}b-12012.csh ${dir}/${lab}b-${port}.csh
-mv ${dir}/${lab}c-12012.csh ${dir}/${lab}c-${port}.csh
 
 echo "Done.  (Please be reminded that this program can only be run against the original configuration files.)"

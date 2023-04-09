@@ -31,15 +31,23 @@ extern mutex mut;
 extern queue<shared_ptr<Connection>> reaper_q;
 extern condition_variable reaper_cv;
 
+extern map<string, string> graph;
+extern map<string, shared_ptr<Message>> message_cache;
+
+extern int max_ttl;
+
 void run_server(string config_file);
+void await_request(string nodeid, shared_ptr<Connection> client_conn, vector<shared_ptr<Connection>> *conns);
+void send_response(string nodeid, shared_ptr<Connection> client_conn, vector<shared_ptr<Connection>> *conns);
 
-void await_request(shared_ptr<Connection> client_conn, vector<shared_ptr<Connection>> *conns);
-void processP2PRequest(int client_socketfd, shared_ptr<Connection> client_conn, vector<shared_ptr<Connection>> *conns);
+void processP2PRequest(string nodeid, int client_socketfd, shared_ptr<Connection> client_conn, vector<shared_ptr<Connection>> *conns, string method);
+void send_LSUPDATE_to_writer(string nodeid, vector<shared_ptr<Connection>> *conns, int reason);
+void write_hello(shared_ptr<Connection> neighbor_conn, int ttl, string flood, string sender_nodeid, int content_len);
+void write_LSUPDATE(shared_ptr<Connection> conn, shared_ptr<Message> message);
+void update_graph(vector<shared_ptr<Connection>> *conns);
+
 void processHTTPRequest(int client_socketfd, shared_ptr<Connection> client_conn, string method, string uri, string version);
-
-void send_response(string sender_nodeid, shared_ptr<Connection> client_conn);
 void write_res_headers(int status_code, shared_ptr<Connection> client_conn, string md5_hash);
 void write_res_body(shared_ptr<Connection> client_conn, string file_path);
-void write_hello(shared_ptr<Connection> neighbor_conn, string ttl, string flood, string sender_nodeid, int content_len);
 
 #endif

@@ -111,6 +111,29 @@ void handle_console(string nodeid, vector<shared_ptr<Connection>> *conns)
             }
             mut.unlock();
         }
+        else if (cmd == "netgraph")
+        {
+            mut.lock();
+            string neighbors = get_neighbors(conns);
+            if (neighbors.empty() && graph.empty())
+            {
+                cout << nodeid << " has no active neighbors" << endl;
+                mut.unlock();
+                continue;
+            }
+
+            string neighbors_cache = graph[nodeid];
+            if (!neighbors.empty() && neighbors_cache != neighbors)
+                graph[nodeid] = neighbors;
+
+            for (map<string, string>::iterator itr = graph.begin(); itr != graph.end(); itr++)
+            {
+                string direct_neighbors = itr->first;
+                string indirect_neighbors = itr->second;
+                cout << direct_neighbors << ": " << indirect_neighbors << endl;
+            }
+            mut.unlock();
+        }
         else if (cmd == "close")
         {
             string target_conn_str;
@@ -137,8 +160,10 @@ void handle_console(string nodeid, vector<shared_ptr<Connection>> *conns)
             cout << "Command not recognized. Valid commands are:" << endl;
             cout << "\tclose #" << endl;
             cout << "\tdial # percent" << endl;
-            cout << "\tquit" << endl;
+            cout << "\tneighbors" << endl;
+            cout << "\tnetgraph" << endl;
             cout << "\tstatus" << endl;
+            cout << "\tquit" << endl;
         }
     }
 
@@ -150,7 +175,6 @@ void handle_console(string nodeid, vector<shared_ptr<Connection>> *conns)
 
     return;
 }
-
 // Can only be called when lock is held
 bool has_active_conns(vector<shared_ptr<Connection>> conns)
 {

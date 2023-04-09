@@ -29,6 +29,8 @@ void run_server(string config_file)
     string port = startup_opts["port"];
     string nodeid = ":" + port;
 
+    max_ttl = stoi(config["params"]["max_ttl"]);
+
     logfile.open(startup_opts["logfile"]);
     log("START: port=" + port + ", rootdir=" + rootdir);
 
@@ -67,8 +69,8 @@ void run_server(string config_file)
 
         mut.lock();
         shared_ptr<Connection> client_conn = make_shared<Connection>(Connection(conn_number++, client_socketfd));
-        client_conn->set_reader_thread(make_shared<thread>(thread(await_request, client_conn, &conns)));
-        client_conn->set_writer_thread(make_shared<thread>(thread(send_response, nodeid, client_conn)));
+        client_conn->set_reader_thread(make_shared<thread>(thread(await_request, nodeid, client_conn, &conns)));
+        client_conn->set_writer_thread(make_shared<thread>(thread(send_response, nodeid, client_conn, &conns)));
         conns.push_back(client_conn);
         mut.unlock();
     }
@@ -80,21 +82,22 @@ void run_server(string config_file)
     log("STOP: port=" + port);
 }
 
-void await_request(shared_ptr<Connection> client_conn, vector<shared_ptr<Connection>> *conns)
+void await_request(string nodeid, shared_ptr<Connection> client_conn, vector<shared_ptr<Connection>> *conns)
 {
     mut.lock();
     mut.unlock();
 
-    int neighbor_socketfd = client_conn->get_curr_socketfd();
+    int client_socketfd = client_conn->get_curr_socketfd();
     string client_ip_and_port = client_conn->get_ip_port();
 
     bool is_http = true;
+    string message_type = "";
     while (true)
     {
         client_conn->set_start_time();
 
         string line;
-        int bytes_received = read_a_line(neighbor_socketfd, line);
+        int bytes_received = read_a_line(client_socketfd, line);
         if (bytes_received == -1)
             break;
         if (bytes_received <= 2)
@@ -107,14 +110,15 @@ void await_request(shared_ptr<Connection> client_conn, vector<shared_ptr<Connect
         if (method == "353NET/1.0")
         {
             is_http = false;
+            message_type = uri;
             break;
         }
 
-        processHTTPRequest(neighbor_socketfd, client_conn, method, uri, version);
+        processHTTPRequest(client_socketfd, client_conn, method, uri, version);
     }
 
     if (!is_http)
-        processP2PRequest(neighbor_socketfd, client_conn, conns);
+        processP2PRequest(nodeid, client_socketfd, client_conn, conns, message_type);
 
     client_conn->lock();
     if (client_conn->is_alive())
@@ -124,29 +128,33 @@ void await_request(shared_ptr<Connection> client_conn, vector<shared_ptr<Connect
         client_conn->set_curr_socketfd(-2);
     }
     client_conn->unlock();
-
-    client_conn->add_msg_to_queue(NULL);
-    client_conn->get_writer_thread()->join();
     send_to_reaper(client_conn);
 }
 
-void processP2PRequest(int neighbor_socketfd, shared_ptr<Connection> conn, vector<shared_ptr<Connection>> *conns)
+void processP2PRequest(string nodeid, int neighbor_socketfd, shared_ptr<Connection> conn, vector<shared_ptr<Connection>> *conns, string message_type)
 {
-    string line;
-    for (int i = 0; i < 3; i++)
+    string message_sender_nodeid;
+    int content_len;
+    if (message_type == "SAYHELLO")
+    {
+        string line;
+        for (int i = 0; i < 3; i++)
+            read_a_line(neighbor_socketfd, line);
+
+        stringstream ss1(line);
+        string from;
+        ss1 >> from >> message_sender_nodeid;
+
         read_a_line(neighbor_socketfd, line);
+        stringstream ss2(line);
+        string content_len_key, content_len_val;
+        ss2 >> content_len_key >> content_len_val;
 
-    stringstream ss1(line);
-    string from, message_sender_nodeid;
-    ss1 >> from >> message_sender_nodeid;
+        content_len = stoi(content_len_val);
+        log_header("r", message_sender_nodeid, 1, 0, content_len);
 
-    read_a_line(neighbor_socketfd, line);
-    stringstream ss2(line);
-    string content_len_key, content_len_val;
-    ss2 >> content_len_key >> content_len_val;
-
-    int content_len = stoi(content_len_val);
-    log_header("r", message_sender_nodeid, 1, 0, content_len);
+        read_a_line(neighbor_socketfd, line);
+    }
 
     bool is_duplicate_conn = false;
     if (conn->get_neighbor_nodeid() == "")
@@ -166,16 +174,8 @@ void processP2PRequest(int neighbor_socketfd, shared_ptr<Connection> conn, vecto
         {
             mut.lock();
             conn->set_neighbor_nodeid(message_sender_nodeid);
-            string ip_port = get_ip_and_port_for_client(neighbor_socketfd, 1);
-
-            stringstream ss(ip_port);
-            string ip, port;
-            getline(ss, ip, ':');
-            getline(ss, port);
-            string nodeid = ":" + port;
             Message return_hello(nodeid, content_len);
-
-            conn->add_msg_to_queue(make_shared<Message>(return_hello));
+            conn->add_message_to_queue(make_shared<Message>(return_hello));
             mut.unlock();
         }
     }
@@ -195,21 +195,88 @@ void processP2PRequest(int neighbor_socketfd, shared_ptr<Connection> conn, vecto
 
     if (!is_duplicate_conn)
     {
+        send_LSUPDATE_to_writer(nodeid, conns, 1);
         while (true)
         {
-            string line;
-            int bytes_received = read_a_line(conn->get_orig_socketfd(), line);
-
             mut.lock();
-            if (server_socketfd == -1 || bytes_received <= 0)
+            if (server_socketfd == -1)
             {
                 mut.unlock();
                 break;
             }
             mut.unlock();
-            // Process message
+
+            shared_ptr<Message> message = await_message(neighbor_socketfd, conn->get_neighbor_nodeid());
+            if (message->thread_should_terminate())
+            {
+                mut.unlock();
+                break;
+            }
+
+            if (!message->is_ok())
+            {
+                mut.unlock();
+                continue;
+            }
+
+            log_LSUPDATE("r", message);
+
+            if (message->get_flood_reason() == 2)
+                update_graph(message->get_sender_nodeid(), conns);
+
+            string message_id = message->get_message_id();
+            string origin_nodeid = message->get_origin_nodeid();
+
+            if (message_cache[message_id] != NULL)
+                continue;
+            message_cache[message_id] = message;
+
+            if (message->get_ttl() <= 0)
+                continue;
+
+            message = message->decr_ttl_update_sender(nodeid);
+
+            mut.lock();
+            for (shared_ptr<Connection> neighbor : *conns)
+            {
+                if (conn->get_conn_number() == neighbor->get_conn_number())
+                    continue;
+
+                neighbor->add_message_to_queue(message);
+            }
+            mut.unlock();
+
+            if (graph[origin_nodeid] == "")
+                send_LSUPDATE_to_writer(nodeid, conns, 3);
+
+            mut.lock();
+            if (message->get_flood_reason() == 2)
+                graph.erase(origin_nodeid);
+            else
+                graph[origin_nodeid] = message->get_message_body();
+            mut.unlock();
         }
     }
+
+    send_LSUPDATE_to_writer(nodeid, conns, 2);
+    update_graph(conn->get_neighbor_nodeid(), conns);
+    conn->add_message_to_queue(NULL);
+    conn->get_writer_thread()->join();
+}
+
+void send_LSUPDATE_to_writer(string nodeid, vector<shared_ptr<Connection>> *conns, int reason)
+{
+    mut.lock();
+    for (shared_ptr<Connection> conn : *conns)
+    {
+        string message_id, origin_start_time;
+        get_message_id(nodeid, "msg", message_id, origin_start_time);
+
+        string neighbors = get_neighbors(conns);
+        Message message = Message(max_ttl, reason, message_id, nodeid, nodeid, origin_start_time, neighbors, neighbors.length());
+        conn->add_message_to_queue(make_shared<Message>(message));
+    }
+    mut.unlock();
 }
 
 void processHTTPRequest(int client_socketfd, shared_ptr<Connection> client_conn, string method, string uri, string version)
@@ -266,17 +333,17 @@ void processHTTPRequest(int client_socketfd, shared_ptr<Connection> client_conn,
 
     if (err != "")
     {
-        Message error_msg(404, "", "");
-        client_conn->add_msg_to_queue(make_shared<Message>(error_msg));
+        Message error_message(404, "", "");
+        client_conn->add_message_to_queue(make_shared<Message>(error_message));
         client_conn->set_reason("unexpectedly");
     }
 
     Message res(200, file_path, calc_md5(file_path));
-    client_conn->add_msg_to_queue(make_shared<Message>(res));
+    client_conn->add_message_to_queue(make_shared<Message>(res));
     return;
 }
 
-void send_response(string sender_nodeid, shared_ptr<Connection> client_conn)
+void send_response(string nodeid, shared_ptr<Connection> client_conn, vector<shared_ptr<Connection>> *conns)
 {
     mut.lock();
     mut.unlock();
@@ -286,37 +353,46 @@ void send_response(string sender_nodeid, shared_ptr<Connection> client_conn)
 
     while (true)
     {
-        shared_ptr<Message> msg = client_conn->await_msg_from_queue();
-        if (msg == NULL)
+        shared_ptr<Message> message = client_conn->await_message_from_queue();
+        if (message == NULL)
             break;
 
-        if (!msg->is_mode_http())
+        if (!message->is_mode_http())
         {
-            int content_len = msg->get_content_len();
-            write_hello(client_conn, config["params"]["max_ttl"], "0", sender_nodeid, content_len);
-            log_header("i", sender_nodeid, 1, 0, content_len);
-            return;
+            if (message->is_hello())
+            {
+                int content_len = message->get_content_len();
+                log_header("i", nodeid, 1, 0, content_len);
+                write_hello(client_conn, max_ttl, "0", nodeid, content_len);
+            }
+            else
+            {
+                log_LSUPDATE("i", message);
+                write_LSUPDATE(client_conn, message);
+            }
         }
-
-        int status_code = msg->get_status_code();
-        if (status_code != 200)
+        else
         {
-            log("RESPONSE[" + to_string(conn_number) + "]: " + client_ip_port + ", status=" + to_string(status_code));
-            write_res_headers(status_code, client_conn, "");
-        }
+            int status_code = message->get_status_code();
+            if (status_code != 200)
+            {
+                log("RESPONSE[" + to_string(conn_number) + "]: " + client_ip_port + ", status=" + to_string(status_code));
+                write_res_headers(status_code, client_conn, "");
+            }
 
-        log("RESPONSE[" + to_string(conn_number) + "]: " + client_ip_port + ", status=" + to_string(status_code) + ", " + client_conn->get_shaper_params());
-        write_res_headers(status_code, client_conn, msg->get_md5_hash());
-        write_res_body(client_conn, msg->get_file_path());
+            log("RESPONSE[" + to_string(conn_number) + "]: " + client_ip_port + ", status=" + to_string(status_code) + ", " + client_conn->get_shaper_params());
+            write_res_headers(status_code, client_conn, message->get_md5_hash());
+            write_res_body(client_conn, message->get_file_path());
+        }
     }
 
     log("Socket-writing thread has terminated");
 }
 
-void write_hello(shared_ptr<Connection> neighbor_conn, string ttl, string flood, string sender_nodeid, int content_len)
+void write_hello(shared_ptr<Connection> neighbor_conn, int ttl, string flood, string sender_nodeid, int content_len)
 {
     string h1 = "353NET/1.0 SAYHELLO\r\n";
-    string h2 = "TTL: " + ttl + "\r\n";
+    string h2 = "TTL: " + to_string(ttl) + "\r\n";
     string h3 = "Flood: " + flood + "\r\n";
     string h4 = "From: " + sender_nodeid + "\r\n";
     string h5 = "Content-Length: " + to_string(content_len) + "\r\n ";
@@ -337,6 +413,41 @@ void write_hello(shared_ptr<Connection> neighbor_conn, string ttl, string flood,
     log_header(h4, conn_number);
     log_header(h5, conn_number);
     log_header(h6, conn_number);
+}
+
+void write_LSUPDATE(shared_ptr<Connection> conn, shared_ptr<Message> message)
+{
+    string h1 = "353NET/1.0 LSUPDATE\r\n";
+    string h2 = "TTL: " + to_string(max_ttl) + "\r\n";
+    string h3 = "Flood: 1;reason=" + to_string(message->get_flood_reason()) + "\r\n";
+    string h4 = "MessageID: " + message->get_message_id() + "\r\n";
+    string h5 = "From: " + message->get_origin_nodeid() + "\r\n";
+    string h6 = "OriginStartTime: " + message->get_origin_start_time() + "\r\n";
+    string h7 = "Content-Length: " + to_string(message->get_net_content_len()) + "\r\n";
+    string h8 = "\r\n";
+    string h9 = message->get_message_body();
+
+    int neighbor_socketfd = conn->get_orig_socketfd();
+    better_write_header(neighbor_socketfd, h1.c_str(), h1.length());
+    better_write_header(neighbor_socketfd, h2.c_str(), h2.length());
+    better_write_header(neighbor_socketfd, h3.c_str(), h3.length());
+    better_write_header(neighbor_socketfd, h4.c_str(), h4.length());
+    better_write_header(neighbor_socketfd, h5.c_str(), h5.length());
+    better_write_header(neighbor_socketfd, h6.c_str(), h6.length());
+    better_write_header(neighbor_socketfd, h7.c_str(), h7.length());
+    better_write_header(neighbor_socketfd, h8.c_str(), h8.length());
+    better_write(neighbor_socketfd, h9.c_str(), h9.length());
+
+    int conn_number = conn->get_conn_number();
+    log_header(h1, conn_number);
+    log_header(h2, conn_number);
+    log_header(h3, conn_number);
+    log_header(h4, conn_number);
+    log_header(h5, conn_number);
+    log_header(h6, conn_number);
+    log_header(h7, conn_number);
+    log_header(h8, conn_number);
+    log_header(h9 + "\r\n", conn_number);
 }
 
 void write_res_headers(int status_code, shared_ptr<Connection> client_conn, string md5_hash)

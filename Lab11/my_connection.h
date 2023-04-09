@@ -61,7 +61,7 @@ public:
 
     shared_ptr<thread> get_reader_thread();
     shared_ptr<thread> get_writer_thread();
-    shared_ptr<Message> await_msg_from_queue();
+    shared_ptr<Message> await_message_from_queue();
 
     int get_content_len();
     string get_ip_port();
@@ -86,7 +86,7 @@ public:
 
     void set_reader_thread(shared_ptr<thread> reader_thread);
     void set_writer_thread(shared_ptr<thread> writer_thread);
-    void add_msg_to_queue(shared_ptr<Message> msg);
+    void add_message_to_queue(shared_ptr<Message> message);
 
     void lock();
     void unlock();

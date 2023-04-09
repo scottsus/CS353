@@ -44,13 +44,13 @@ void find_neighbors(string nodeid, string neighbors_str, vector<shared_ptr<Conne
 
             mut.lock();
             shared_ptr<Connection> conn = make_shared<Connection>(Connection(conn_number++, neighbor_socketfd, neighbor_nodeid));
-            conn->set_reader_thread(make_shared<thread>(thread(await_request, conn, conns)));
-            conn->set_writer_thread(make_shared<thread>(thread(send_response, nodeid, conn)));
+            conn->set_reader_thread(make_shared<thread>(thread(await_request, nodeid, conn, conns)));
+            conn->set_writer_thread(make_shared<thread>(thread(send_response, nodeid, conn, conns)));
             conn->set_neighbor_nodeid(neighbor_nodeid);
             conns->push_back(conn);
 
             Message hello(nodeid, 0);
-            conn->add_msg_to_queue(make_shared<Message>(hello));
+            conn->add_message_to_queue(make_shared<Message>(hello));
             mut.unlock();
         }
 

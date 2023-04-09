@@ -81,15 +81,15 @@ shared_ptr<thread> Connection::get_writer_thread()
     return writer_thread;
 }
 
-shared_ptr<Message> Connection::await_msg_from_queue()
+shared_ptr<Message> Connection::await_message_from_queue()
 {
     unique_lock<mutex> lock(*mut);
     while (q.empty())
         cv->wait(lock);
 
-    shared_ptr<Message> msg = q.front();
+    shared_ptr<Message> message = q.front();
     q.pop();
-    return msg;
+    return message;
 }
 
 int Connection::get_content_len()
@@ -206,10 +206,10 @@ void Connection::set_writer_thread(shared_ptr<thread> writer_thread)
     this->writer_thread = writer_thread;
 }
 
-void Connection::add_msg_to_queue(shared_ptr<Message> msg)
+void Connection::add_message_to_queue(shared_ptr<Message> message)
 {
     mut->lock();
-    q.push(msg);
+    q.push(message);
     cv->notify_one();
     mut->unlock();
 }

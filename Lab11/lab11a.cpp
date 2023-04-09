@@ -26,6 +26,11 @@ mutex mut;
 condition_variable reaper_cv;
 queue<shared_ptr<Connection>> reaper_q;
 
+map<string, string> graph;
+map<string, shared_ptr<Message>> message_cache;
+
+int max_ttl = 0;
+
 int main(int argc, char *argv[])
 {
     tuple<int, vector<string>> mode_tuple = choose_mode(argc, argv);

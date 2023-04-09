@@ -18,8 +18,8 @@ void reap_threads(vector<shared_ptr<Connection>> *conns)
         if (conn == NULL)
             break;
 
-        int conn_number = conn->get_conn_number();
         mut.lock();
+        int conn_number = conn->get_conn_number();
         for (vector<shared_ptr<Connection>>::iterator itr = conns->begin(); itr != conns->end();)
         {
             shared_ptr<Connection> conn = (*itr);
