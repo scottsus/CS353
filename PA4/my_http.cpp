@@ -13,7 +13,7 @@
 #include "my_readwrite.h"
 #include "my_utils.h"
 
-void await_http_request(shared_ptr<Connection> client_conn, vector<shared_ptr<Connection>> *conns)
+void await_http_request(shared_ptr<Connection> client_conn)
 {
     mut.lock();
     mut.unlock();
@@ -68,7 +68,8 @@ void await_http_request(shared_ptr<Connection> client_conn, vector<shared_ptr<Co
             client_conn->set_content_len(0);
             err = "File size is zero for " + file_path;
         }
-        client_conn->set_content_len(file_size);
+        else
+            client_conn->set_content_len(file_size);
 
         string versionx = version.substr(0, version.length() - 1);
         if (versionx != "HTTP/1.")
@@ -76,10 +77,9 @@ void await_http_request(shared_ptr<Connection> client_conn, vector<shared_ptr<Co
             err = "Wrong HTTP version: " + version;
         }
 
-        string line;
         log_header(line, conn_number);
 
-        int bytes_received = 0;
+        bytes_received = 3;
         while (bytes_received > 2)
         {
             bytes_received = read_a_line(client_socketfd, line);
@@ -92,10 +92,14 @@ void await_http_request(shared_ptr<Connection> client_conn, vector<shared_ptr<Co
             client_conn->add_message_to_queue(make_shared<Message>(error_message));
             client_conn->set_reason("unexpectedly");
         }
-
-        Message res(200, file_path, calc_md5(file_path));
-        client_conn->add_message_to_queue(make_shared<Message>(res));
+        else
+        {
+            Message res(200, file_path, calc_md5(file_path));
+            client_conn->add_message_to_queue(make_shared<Message>(res));
+        }
     }
+
+    cout << "Closing connection" << endl;
 
     client_conn->lock();
     if (client_conn->is_alive())
@@ -108,7 +112,7 @@ void await_http_request(shared_ptr<Connection> client_conn, vector<shared_ptr<Co
     send_to_reaper(client_conn);
 }
 
-void send_http_response(shared_ptr<Connection> client_conn, vector<shared_ptr<Connection>> *conns)
+void send_http_response(shared_ptr<Connection> client_conn)
 {
     mut.lock();
     mut.unlock();
@@ -128,10 +132,12 @@ void send_http_response(shared_ptr<Connection> client_conn, vector<shared_ptr<Co
             log("RESPONSE[" + to_string(conn_number) + "]: " + client_ip_port + ", status=" + to_string(status_code));
             write_res_headers(status_code, client_conn, "");
         }
-
-        log("RESPONSE[" + to_string(conn_number) + "]: " + client_ip_port + ", status=" + to_string(status_code) + ", " + client_conn->get_shaper_params());
-        write_res_headers(status_code, client_conn, message->get_md5_hash());
-        write_res_body(client_conn, message->get_file_path());
+        else
+        {
+            log("RESPONSE[" + to_string(conn_number) + "]: " + client_ip_port + ", status=" + to_string(status_code) + ", " + client_conn->get_shaper_params());
+            write_res_headers(status_code, client_conn, message->get_md5_hash());
+            write_res_body(client_conn, message->get_file_path());
+        }
     }
 
     log("Socket-writing thread has terminated");

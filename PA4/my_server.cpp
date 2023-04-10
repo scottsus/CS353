@@ -26,7 +26,7 @@ void run_p2p_server(string config_file)
     config = get_config(config_file);
     map<string, string> startup_opts = config["startup"];
 
-    rootdir = "lab10data";
+    rootdir = "lab11data";
     string host = startup_opts["port"];
     string port = startup_opts["port"];
     string nodeid = ":" + port;
@@ -34,6 +34,9 @@ void run_p2p_server(string config_file)
     max_ttl = stoi(config["params"]["max_ttl"]);
 
     logfile.open(startup_opts["logfile"]);
+    SAYHELLO = stoi(config["logging"]["SAYHELLO"]);
+    LSUPDATE = stoi(config["logging"]["LSUPDATE"]);
+
     log("START: port=" + port + ", rootdir=" + rootdir);
 
     server_socketfd = create_listening_socket(port);
@@ -42,9 +45,8 @@ void run_p2p_server(string config_file)
         cerr << "Unable to create server socket" << endl;
         return;
     }
-    string server_ip_and_port = get_ip_and_port_for_server(server_socketfd, 1);
 
-    thread console_thread(handle_console, nodeid, &conns);
+    thread console_thread(handle_p2p_console, nodeid, &conns);
     thread reaper_thread(reap_threads, &conns);
     thread neighbors_thread(find_neighbors, nodeid, config["topology"][nodeid], &conns);
 
@@ -71,8 +73,8 @@ void run_p2p_server(string config_file)
 
         mut.lock();
         shared_ptr<Connection> neighbor_conn = make_shared<Connection>(Connection(conn_number++, neighbor_socketfd));
-        neighbor_conn->set_reader_thread(make_shared<thread>(thread(await_p2p_request, nodeid, neighbor_conn, &conns)));
-        neighbor_conn->set_writer_thread(make_shared<thread>(thread(send_p2p_response, nodeid, neighbor_conn, &conns)));
+        neighbor_conn->set_reader_thread(make_shared<thread>(thread(await_p2p_request, nodeid, neighbor_socketfd, neighbor_conn, &conns)));
+        neighbor_conn->set_writer_thread(make_shared<thread>(thread(send_p2p_response, nodeid, neighbor_conn)));
         conns.push_back(neighbor_conn);
         mut.unlock();
     }
@@ -89,10 +91,17 @@ void run_http_server(string config_file)
     config = get_config(config_file);
     map<string, string> startup_opts = config["startup"];
 
-    rootdir = "lab10data";
-    string host = startup_opts["port"];
+    ofstream pidfile(startup_opts["pidfile"]);
+    if (!pidfile.is_open())
+    {
+        cerr << "Unable to open pidfile" << startup_opts["pidfile"] << endl;
+        return;
+    }
+    pidfile << (int)getpid() << endl;
+    pidfile.close();
+
+    rootdir = startup_opts["rootdir"];
     string port = startup_opts["port"];
-    string nodeid = ":" + port;
 
     logfile.open(startup_opts["logfile"]);
     log("START: port=" + port + ", rootdir=" + rootdir);
@@ -103,9 +112,8 @@ void run_http_server(string config_file)
         cerr << "Unable to create server socket" << endl;
         return;
     }
-    string server_ip_and_port = get_ip_and_port_for_server(server_socketfd, 1);
 
-    thread console_thread(handle_console, nodeid, &conns);
+    thread console_thread(handle_http_console, &conns);
     thread reaper_thread(reap_threads, &conns);
 
     while (true)
@@ -131,8 +139,8 @@ void run_http_server(string config_file)
 
         mut.lock();
         shared_ptr<Connection> client_conn = make_shared<Connection>(Connection(conn_number++, client_socketfd));
-        client_conn->set_reader_thread(make_shared<thread>(thread(await_http_request, client_conn, &conns)));
-        client_conn->set_writer_thread(make_shared<thread>(thread(send_http_response, client_conn, &conns)));
+        client_conn->set_reader_thread(make_shared<thread>(thread(await_http_request, client_conn)));
+        client_conn->set_writer_thread(make_shared<thread>(thread(send_http_response, client_conn)));
         conns.push_back(client_conn);
         mut.unlock();
     }

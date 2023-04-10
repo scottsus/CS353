@@ -9,49 +9,24 @@
 #include "my_p2p.h"
 #include "my_reaper.h"
 
-void await_p2p_request(string nodeid, int neighbor_socketfd, shared_ptr<Connection> conn, vector<shared_ptr<Connection>> *conns, string message_type)
+void await_p2p_request(string nodeid, int neighbor_socketfd, shared_ptr<Connection> conn, vector<shared_ptr<Connection>> *conns)
 {
     mut.lock();
     mut.unlock();
 
-    string message_type = "";
+    string message_sender_nodeid;
     while (true)
     {
         conn->set_start_time();
 
-        string line;
-        int bytes_received = read_a_line(neighbor_socketfd, line);
-        if (bytes_received == -1)
+        string sender_nodeid = await_hello(neighbor_socketfd, conn);
+        if (sender_nodeid == "-1")
             break;
-        if (bytes_received <= 2)
+        if (sender_nodeid == "0")
             continue;
 
-        stringstream ss(line);
-        string protocol;
-        ss >> protocol >> message_type;
-    }
-
-    string message_sender_nodeid;
-    int content_len;
-    if (message_type == "SAYHELLO")
-    {
-        string line;
-        for (int i = 0; i < 3; i++)
-            read_a_line(neighbor_socketfd, line);
-
-        stringstream ss1(line);
-        string from;
-        ss1 >> from >> message_sender_nodeid;
-
-        read_a_line(neighbor_socketfd, line);
-        stringstream ss2(line);
-        string content_len_key, content_len_val;
-        ss2 >> content_len_key >> content_len_val;
-
-        content_len = stoi(content_len_val);
-        log_header("r", message_sender_nodeid, 1, 0, content_len);
-
-        read_a_line(neighbor_socketfd, line);
+        message_sender_nodeid = sender_nodeid;
+        break;
     }
 
     bool is_duplicate_conn = false;
@@ -73,7 +48,7 @@ void await_p2p_request(string nodeid, int neighbor_socketfd, shared_ptr<Connecti
             mut.lock();
             conn->set_neighbor_nodeid(message_sender_nodeid);
 
-            Message return_hello(nodeid, content_len);
+            Message return_hello(nodeid);
             conn->add_message_to_queue(make_shared<Message>(return_hello));
             mut.unlock();
         }

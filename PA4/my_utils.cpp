@@ -212,6 +212,55 @@ string get_neighbors(vector<shared_ptr<Connection>> *conns)
     return neighbors;
 }
 
+string await_hello(int neighbor_socketfd, shared_ptr<Connection> conn)
+{
+    string line;
+    int bytes_received = read_a_line(neighbor_socketfd, line);
+    if (bytes_received == -1)
+        return "-1";
+    if (bytes_received <= 2)
+        return "0";
+
+    stringstream ss(line);
+    string protocol, message_type;
+    ss >> protocol >> message_type;
+    if (protocol != "353NET/1.0" || message_type != "SAYHELLO")
+        return "0";
+    // cout << "Protocol: " << protocol << ", Message Type: " << message_type << endl;
+
+    string ttl_line;
+    bytes_received = read_a_line(neighbor_socketfd, ttl_line);
+    if (bytes_received <= 2)
+        return "0";
+    int ttl = stoi(extract_header_value(ttl_line));
+    // cout << "TTL: " << ttl << endl;
+
+    string flood_line;
+    bytes_received = read_a_line(neighbor_socketfd, flood_line);
+    if (bytes_received <= 2)
+        return "0";
+    int flood_reason = stoi(extract_header_value(flood_line));
+    // cout << "Flood Reason: " << flood_reason << endl;
+
+    string from_line;
+    bytes_received = read_a_line(neighbor_socketfd, from_line);
+    if (bytes_received <= 2)
+        return "0";
+    string from_nodeid = extract_header_value(from_line);
+    // cout << "From: " << from_nodeid << endl;
+
+    string content_len_line;
+    bytes_received = read_a_line(neighbor_socketfd, content_len_line);
+    if (bytes_received <= 2)
+        return "0";
+    int content_len = stoi(extract_header_value(content_len_line));
+    // cout << "Content Length: " << content_len << endl;
+
+    log_header("r", from_nodeid, ttl, flood_reason, content_len);
+    read_a_line(neighbor_socketfd, line);
+    return from_nodeid;
+}
+
 shared_ptr<Message> await_message(int neighbor_socketfd, string sender_nodeid)
 {
     string protocol;
@@ -378,8 +427,8 @@ void log(string message)
 
 void log_header(string type, string nodeid, int TTL, int flood, int content_len)
 {
-    string log = "[" + get_timestamp_now() + "] " + type + " SAYHELLO " + nodeid + " " + to_string(TTL) + " - " + to_string(content_len) + "\n";
-    if (logfile.is_open())
+    string log = "[" + get_timestamp_now() + "] " + type + " SAYHELLO " + nodeid + " 1 - " + to_string(content_len) + "\n";
+    if (SAYHELLO == 1 && logfile.is_open())
     {
         logfile << log;
         logfile.flush();
@@ -410,12 +459,12 @@ void log_LSUPDATE(string type, shared_ptr<Message> message)
     log += to_string(message->get_ttl()) + " ";
     log += to_string(1) + " ";
     log += to_string(message->get_net_content_len()) + " ";
-    log += "{" + message->get_message_id().substr(0, 10) + "} ";
+    log += "{" + message->get_message_id().substr(0, 8) + "} ";
     log += message->get_origin_start_time() + " ";
     log += message->get_origin_nodeid() + " ";
     log += "(" + message->get_message_body() + ")\n";
 
-    if (logfile.is_open())
+    if (LSUPDATE == 1 && logfile.is_open())
     {
         logfile << log;
         logfile.flush();

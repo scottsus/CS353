@@ -44,7 +44,7 @@ Message::Message(int status_code, string file_path, string md5_hash)
     this->origin_nodeid = "";
 }
 
-Message::Message(string origin_nodeid, int content_len)
+Message::Message(string origin_nodeid)
 {
     this->ok = true;
     this->is_http = false;
@@ -56,7 +56,7 @@ Message::Message(string origin_nodeid, int content_len)
 
     this->hello = true;
     this->origin_nodeid = origin_nodeid;
-    this->content_len = content_len;
+    this->content_len = 0;
 }
 
 Message::Message(int ttl, int flood_reason, string message_id, string sender_nodeid, string origin_nodeid, string origin_start_time, string message_body, int net_content_len)

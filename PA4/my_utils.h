@@ -17,7 +17,12 @@
 
 extern int mode;
 extern map<string, map<string, string>> config;
+
 extern ofstream logfile;
+extern int SAYHELLO;
+extern int LSUPDATE;
+extern int UCASTAPP;
+
 extern mutex mut;
 extern map<string, string> graph;
 
@@ -31,6 +36,7 @@ void remove_from_vector(string target, vector<string> &vec);
 void update_graph(string removed_nodeid, vector<shared_ptr<Connection>> *conns);
 
 void get_message_id(string nodeid, const char *obj_category, string &hexstring_of_unique_obj_id, string &origin_start_time);
+string await_hello(int neighbor_socketfd, shared_ptr<Connection> conn);
 shared_ptr<Message> await_message(int neighbor_socketfd, string nodeid);
 string get_neighbors(vector<shared_ptr<Connection>> *conns);
 

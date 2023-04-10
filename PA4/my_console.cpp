@@ -10,12 +10,100 @@
 #include "my_reaper.h"
 #include "my_utils.h"
 
-void handle_console(string nodeid, vector<shared_ptr<Connection>> *conns)
+void handle_p2p_console(string nodeid, vector<shared_ptr<Connection>> *conns)
 {
     string cmd;
     while (true)
     {
         cout << nodeid + "> ";
+        cin >> cmd;
+        if (cin.fail() || cin.eof() || cmd == "quit")
+        {
+            if (cin.fail() || cin.eof())
+                cout << endl;
+
+            send_to_reaper(NULL);
+            cout << "Console thread terminated" << endl;
+            break;
+        }
+        else if (cmd == "neighbors")
+        {
+            if (conns->empty())
+            {
+                cout << nodeid << " has no active neighbors" << endl;
+                continue;
+            }
+
+            cout << "Active neighbors of " + nodeid + ":" << endl;
+            cout << "\t";
+            mut.lock();
+            for (uint i = 0; i < conns->size(); i++)
+            {
+                shared_ptr<Connection> conn = conns->at(i);
+                if (!conn->is_alive())
+                    continue;
+
+                string neighbor_nodeid = conn->get_neighbor_nodeid();
+                if (neighbor_nodeid == nodeid)
+                    continue;
+
+                if (neighbor_nodeid != "")
+                {
+                    cout << neighbor_nodeid;
+                    if (i != conns->size() - 1)
+                        cout << ",";
+                }
+            }
+            mut.unlock();
+            cout << endl;
+        }
+        else if (cmd == "netgraph")
+        {
+            mut.lock();
+            string neighbors = get_neighbors(conns);
+            if (neighbors.empty() && graph.empty())
+            {
+                cout << nodeid << " has no active neighbors" << endl;
+                mut.unlock();
+                continue;
+            }
+
+            string neighbors_cache = graph[nodeid];
+            if (!neighbors.empty() && neighbors_cache != neighbors)
+                graph[nodeid] = neighbors;
+
+            for (map<string, string>::iterator itr = graph.begin(); itr != graph.end(); itr++)
+            {
+                string direct_neighbors = itr->first;
+                string indirect_neighbors = itr->second;
+                cout << direct_neighbors << ": " << indirect_neighbors << endl;
+            }
+            mut.unlock();
+        }
+        else
+        {
+            cout << "Command not recognized. Valid commands are:" << endl;
+            cout << "\tneighbors" << endl;
+            cout << "\tnetgraph" << endl;
+            cout << "\tquit" << endl;
+        }
+    }
+
+    mut.lock();
+    shutdown(server_socketfd, SHUT_RDWR);
+    close(server_socketfd);
+    server_socketfd = -1;
+    mut.unlock();
+
+    return;
+}
+
+void handle_http_console(vector<shared_ptr<Connection>> *conns)
+{
+    string cmd;
+    while (true)
+    {
+        cout << "> ";
         cin >> cmd;
         if (cin.fail() || cin.eof() || cmd == "quit")
         {
@@ -87,53 +175,6 @@ void handle_console(string nodeid, vector<shared_ptr<Connection>> *conns)
 
             log("Shaper-Params[" + to_string(conn->get_conn_number()) + "]: " + conn->get_shaper_params());
         }
-        else if (cmd == "neighbors")
-        {
-            if (conns->empty())
-            {
-                cout << nodeid << " has no active neighbors" << endl;
-                continue;
-            }
-
-            cout << "Active neighbors of " + nodeid + ":" << endl;
-            mut.lock();
-            for (shared_ptr<Connection> conn : *conns)
-            {
-                if (!conn->is_alive())
-                    continue;
-
-                string neighbor_nodeid = conn->get_neighbor_nodeid();
-                if (neighbor_nodeid == nodeid)
-                    continue;
-
-                if (neighbor_nodeid != "")
-                    cout << "\t" + neighbor_nodeid << endl;
-            }
-            mut.unlock();
-        }
-        else if (cmd == "netgraph")
-        {
-            mut.lock();
-            string neighbors = get_neighbors(conns);
-            if (neighbors.empty() && graph.empty())
-            {
-                cout << nodeid << " has no active neighbors" << endl;
-                mut.unlock();
-                continue;
-            }
-
-            string neighbors_cache = graph[nodeid];
-            if (!neighbors.empty() && neighbors_cache != neighbors)
-                graph[nodeid] = neighbors;
-
-            for (map<string, string>::iterator itr = graph.begin(); itr != graph.end(); itr++)
-            {
-                string direct_neighbors = itr->first;
-                string indirect_neighbors = itr->second;
-                cout << direct_neighbors << ": " << indirect_neighbors << endl;
-            }
-            mut.unlock();
-        }
         else if (cmd == "close")
         {
             string target_conn_str;
@@ -160,8 +201,6 @@ void handle_console(string nodeid, vector<shared_ptr<Connection>> *conns)
             cout << "Command not recognized. Valid commands are:" << endl;
             cout << "\tclose #" << endl;
             cout << "\tdial # percent" << endl;
-            cout << "\tneighbors" << endl;
-            cout << "\tnetgraph" << endl;
             cout << "\tstatus" << endl;
             cout << "\tquit" << endl;
         }
@@ -175,6 +214,7 @@ void handle_console(string nodeid, vector<shared_ptr<Connection>> *conns)
 
     return;
 }
+
 // Can only be called when lock is held
 bool has_active_conns(vector<shared_ptr<Connection>> conns)
 {

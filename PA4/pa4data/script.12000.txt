@@ -1,0 +1,21 @@
+Script started on Tue 17 Mar 2020 08:42:57 PM PDT
+:12000> 
+[Tue Mar 17 2020 20:42:58.191944] r SAYHELLO :12002 1 - 0
+[Tue Mar 17 2020 20:42:58.192011] i SAYHELLO :12002 1 - 0
+neighbors
+Active neighbors of :12000:
+	:12002
+netgraph
+:12000: :12002
+:12002: :12000
+[Tue Mar 17 2020 20:43:54.969406] r SAYHELLO :12002 1 - 0
+[Tue Mar 17 2020 20:43:54.969664] i SAYHELLO :12002 1 - 0
+neighbors
+Active neighbors of :12000:
+	:12002
+netgraph
+:12000: :12002
+:12002: :12000
+:12000> quit
+
+Script done on Tue 17 Mar 2020 08:47:57 PM PDT

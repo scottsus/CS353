@@ -12,6 +12,7 @@
 using namespace std;
 
 extern int server_socketfd;
+extern int conn_number;
 extern map<string, map<string, string>> config;
 extern mutex mut;
 

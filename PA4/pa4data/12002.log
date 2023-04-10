@@ -1,0 +1,40 @@
+[Sun Apr  9 2023 18:45:53.815982] START: port=12002, rootdir=lab11data
+[Sun Apr  9 2023 18:45:53.817664] i SAYHELLO :12002 1 - 0
+	[1]	353NET/1.0 SAYHELLO
+	[1]	TTL: 9
+	[1]	Flood: 0
+	[1]	From: :12002
+	[1]	Content-Length: 0
+ 	[1]	
+[Sun Apr  9 2023 18:45:53.819223] r SAYHELLO :12000 1 - 0
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 9
+	[1]	Flood: 1;reason=1
+	[1]	MessageID: :12002_2_1681091153.819379
+	[1]	From: :12002
+	[1]	OriginStartTime: 1681091153.819376
+	[1]	Content-Length: 6
+	[1]	
+	[1]	:12000
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 9
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12002_3_1681091153.820097
+	[1]	From: :12002
+	[1]	OriginStartTime: 1681091153.819376
+	[1]	Content-Length: 6
+	[1]	
+	[1]	:12000
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 9
+	[1]	Flood: 1;reason=2
+	[1]	MessageID: :12002_4_1681091173.286327
+	[1]	From: :12002
+	[1]	OriginStartTime: 1681091153.819376
+	[1]	Content-Length: 6
+	[1]	
+	[1]	:12000
+[Sun Apr  9 2023 18:46:13.286914] Socket-writing thread has terminated
+[Sun Apr  9 2023 18:46:13.287412] Socket-reading thread has joined with socket-writing thread
+[Sun Apr  9 2023 18:46:14.302164] Reaper has joined with connection thread.
+[Sun Apr  9 2023 18:46:17.823354] STOP: port=12002

@@ -7,7 +7,7 @@
 #include <iostream>
 
 #include "my_neighbors.h"
-#include "my_server.h"
+#include "my_p2p.h"
 
 void find_neighbors(string nodeid, string neighbors_str, vector<shared_ptr<Connection>> *conns)
 {
@@ -44,12 +44,12 @@ void find_neighbors(string nodeid, string neighbors_str, vector<shared_ptr<Conne
 
             mut.lock();
             shared_ptr<Connection> conn = make_shared<Connection>(Connection(conn_number++, neighbor_socketfd, neighbor_nodeid));
-            conn->set_reader_thread(make_shared<thread>(thread(await_request, nodeid, conn, conns)));
-            conn->set_writer_thread(make_shared<thread>(thread(send_response, nodeid, conn, conns)));
+            conn->set_reader_thread(make_shared<thread>(thread(await_p2p_request, nodeid, neighbor_socketfd, conn, conns)));
+            conn->set_writer_thread(make_shared<thread>(thread(send_p2p_response, nodeid, conn)));
             conn->set_neighbor_nodeid(neighbor_nodeid);
             conns->push_back(conn);
 
-            Message hello(nodeid, 0);
+            Message hello(nodeid);
             conn->add_message_to_queue(make_shared<Message>(hello));
             mut.unlock();
         }

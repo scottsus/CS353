@@ -37,7 +37,7 @@ public:
     Message();
     Message(bool should_terminate);
     Message(int status_code, string file_path, string md5_hash);
-    Message(string origin_nodeid, int content_len);
+    Message(string origin_nodeid);
     Message(int ttl, int flood_reason, string message_id, string sender_nodeid, string origin_nodeid, string origin_start_time, string message_body, int net_content_len);
     Message(string neighbor_nodeid, shared_ptr<Message> old_message);
 
