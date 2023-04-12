@@ -35,6 +35,7 @@ void handle_p2p_console(string nodeid, vector<shared_ptr<Connection>> *conns)
             }
 
             cout << "Active neighbors of " + nodeid + ":" << endl;
+            cout << conns->size() << endl;
             cout << "\t";
             mut.lock();
             for (uint i = 0; i < conns->size(); i++)
@@ -50,6 +51,7 @@ void handle_p2p_console(string nodeid, vector<shared_ptr<Connection>> *conns)
                 if (neighbor_nodeid != "")
                 {
                     cout << neighbor_nodeid;
+                    cout << "[" << conn->get_orig_socketfd() << "]";
                     if (i != conns->size() - 1)
                         cout << ",";
                 }
@@ -81,63 +83,48 @@ void handle_p2p_console(string nodeid, vector<shared_ptr<Connection>> *conns)
         else if (cmd == "forwarding")
         {
             mut.lock();
-            // 0. Make sure graph is updated with real-time connections status
-            graph[nodeid] = get_neighbors(conns);
-
-            // 1. Build the adjacency list and populate with empty pointers
-            map<string, map<string, shared_ptr<Node>>> adj_list{};
-            adj_list[nodeid] = map<string, shared_ptr<Node>>{};
-            for (map<string, string>::iterator itr = graph.begin(); itr != graph.end(); itr++)
-            {
-                string netgraph_key = itr->first;
-                string netgraph_val = itr->second;
-
-                adj_list[netgraph_key] = map<string, shared_ptr<Node>>{};
-
-                stringstream ss(netgraph_val);
-                string neighbor_nodeid;
-                while (getline(ss, neighbor_nodeid, ','))
-                {
-                    if (neighbor_nodeid == "")
-                        continue;
-
-                    Node node(neighbor_nodeid, 0, NULL);
-                    adj_list[netgraph_key].insert({neighbor_nodeid, make_shared<Node>(node)});
-                }
-
-                if (is_neighbor(netgraph_key, conns))
-                {
-                    Node direct_neighbor(netgraph_key, 0, NULL);
-                    adj_list[nodeid].insert({netgraph_key, make_shared<Node>(direct_neighbor)});
-                }
-            }
-
-            // 2. Run BFS to populate adjacency list and set `pred` pointers
-            map<string, shared_ptr<Node>> nodes{};
-            shared_ptr<Node> start_node = make_shared<Node>(Node(nodeid, 0, NULL));
-            BFS(start_node, adj_list, &nodes);
-
-            // 3. Print forwarding table
-            if (nodes.empty())
+            map<string, shared_ptr<Node>> forwarding_table = get_forwarding_table(nodeid, conns);
+            if (forwarding_table.empty())
             {
                 cout << nodeid << " has empty forwarding table" << endl;
                 mut.unlock();
                 continue;
             }
 
-            for (map<string, shared_ptr<Node>>::iterator itr = nodes.begin(); itr != nodes.end(); itr++)
+            for (map<string, shared_ptr<Node>>::iterator itr = forwarding_table.begin(); itr != forwarding_table.end(); itr++)
             {
-                shared_ptr<Node> node = itr->second;
-                if (node->get_nodeid() == nodeid)
-                    continue;
-
-                cout << node->get_nodeid() << ": ";
-                while (node->get_pred() != NULL && node->get_pred()->get_nodeid() != nodeid)
-                    node = node->get_pred();
-
-                cout << node->get_nodeid() << endl;
+                string target_nodeid = itr->first;
+                shared_ptr<Node> next_hop = itr->second;
+                cout << target_nodeid << ": " << next_hop->get_nodeid() << endl;
             }
+
             mut.unlock();
+        }
+        else if (cmd == "udtsend")
+        {
+            string target_nodeid, message_body;
+            cin >> target_nodeid;
+            getline(cin, message_body);
+            message_body = message_body.substr(1);
+
+            if (target_nodeid == nodeid)
+            {
+                cout << "Cannot use udtsend command to send message to yourself." << endl;
+                continue;
+            }
+
+            map<string, shared_ptr<Node>> forwarding_table = get_forwarding_table(nodeid, conns);
+
+            shared_ptr<Node> next_hop = forwarding_table[target_nodeid];
+            if (next_hop == NULL)
+            {
+                cout << target_nodeid << " is not reachable" << endl;
+                continue;
+            }
+
+            shared_ptr<Connection> next_hop_conn = find_conn(next_hop->get_nodeid(), conns);
+            shared_ptr<Message> ucastapp_message = make_shared<Message>(max_ttl, nodeid, target_nodeid, 0, message_body.length(), message_body);
+            next_hop_conn->add_message_to_queue(ucastapp_message);
         }
         else
         {
@@ -275,7 +262,7 @@ void handle_http_console(vector<shared_ptr<Connection>> *conns)
     return;
 }
 
-// Can only be called when lock is held
+// Need LOCK
 bool has_active_conns(vector<shared_ptr<Connection>> conns)
 {
     for (shared_ptr<Connection> conn : conns)

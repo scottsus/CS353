@@ -22,4 +22,5 @@ void send_p2p_response(string nodeid, shared_ptr<Connection> neighbor_conn);
 void send_lsupdate_to_writer(string nodeid, vector<shared_ptr<Connection>> *conns, int reason);
 void write_hello(shared_ptr<Connection> neighbor_conn, int ttl, string flood, string nodeid, int content_len);
 void write_LSUPDATE(shared_ptr<Connection> neighbor_conn, shared_ptr<Message> message);
+void write_UCASTAPP(shared_ptr<Connection> conn, shared_ptr<Message> message, int next_layer);
 #endif

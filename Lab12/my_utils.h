@@ -32,14 +32,17 @@ map<string, map<string, string>> get_config(string config_file);
 vector<int> get_throttlers(string file_type);
 
 void BFS(shared_ptr<Node> start_node, map<string, map<string, shared_ptr<Node>>> adj_list, map<string, shared_ptr<Node>> *nodes);
+map<string, shared_ptr<Node>> get_forwarding_table(string nodeid, vector<shared_ptr<Connection>> *conns);
+
 shared_ptr<Connection> find_conn(int conn_number, vector<shared_ptr<Connection>> *conns);
+shared_ptr<Connection> find_conn(string target_nodeid, vector<shared_ptr<Connection>> *conns);
+
 bool neighbor_is_up(vector<shared_ptr<Connection>> *conns, string nodeid);
 void remove_from_vector(string target, vector<string> &vec);
 void update_graph(string removed_nodeid, vector<shared_ptr<Connection>> *conns);
 
-void get_message_id(string nodeid, const char *obj_category, string &hexstring_of_unique_obj_id, string &origin_start_time);
-string await_hello(int neighbor_socketfd, shared_ptr<Connection> conn);
-shared_ptr<Message> await_message(int neighbor_socketfd, string nodeid);
+void get_message_id_and_start_time(string nodeid, const char *obj_category, string &hexstring_of_unique_obj_id, string &origin_start_time);
+shared_ptr<Message> await_message_from(int neighbor_socketfd, shared_ptr<Connection> conn);
 
 bool is_neighbor(string neighbor_nodeid, vector<shared_ptr<Connection>> *conns);
 string get_neighbors(vector<shared_ptr<Connection>> *conns);
@@ -55,6 +58,7 @@ void log(string message);
 void log_header(string header, int conn_number);
 void log_header(string type, string nodeid, int TTL, int flood, int content_len);
 void log_LSUPDATE(string type, shared_ptr<Message> message);
+void log_UCASTAPP(string type, shared_ptr<Message> message);
 void usage();
 
 #endif

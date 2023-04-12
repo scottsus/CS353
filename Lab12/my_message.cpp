@@ -4,37 +4,41 @@
  */
 
 #include "my_message.h"
+#include "my_utils.h"
 
 Message::Message()
 {
     this->ok = false;
     this->should_terminate = false;
+    this->content_len = 0;
 
     this->status_code = 501;
     this->file_path = "";
     this->md5_hash = "";
 
     this->origin_nodeid = "";
-    this->content_len = 0;
+    this->target_nodeid = "";
 }
 
 Message::Message(bool should_terminate)
 {
     this->ok = false;
     this->should_terminate = should_terminate;
+    this->content_len = 0;
 
     this->status_code = 501;
     this->file_path = "";
     this->md5_hash = "";
 
     this->origin_nodeid = "";
-    this->content_len = 0;
+    this->target_nodeid = "";
 }
 
 Message::Message(int status_code, string file_path, string md5_hash)
 {
     this->ok = true;
     this->should_terminate = false;
+    this->content_len = 0;
 
     this->status_code = status_code;
     this->file_path = file_path;
@@ -42,6 +46,7 @@ Message::Message(int status_code, string file_path, string md5_hash)
 
     this->is_http = true;
     this->origin_nodeid = "";
+    this->target_nodeid = "";
 }
 
 Message::Message(string origin_nodeid)
@@ -49,6 +54,7 @@ Message::Message(string origin_nodeid)
     this->ok = true;
     this->is_http = false;
     this->should_terminate = false;
+    this->content_len = 0;
 
     this->status_code = 0;
     this->file_path = "";
@@ -56,14 +62,40 @@ Message::Message(string origin_nodeid)
 
     this->hello = true;
     this->origin_nodeid = origin_nodeid;
-    this->content_len = 0;
+    this->target_nodeid = "";
 }
 
-Message::Message(int ttl, int flood_reason, string message_id, string sender_nodeid, string origin_nodeid, string origin_start_time, string message_body, int net_content_len)
+Message::Message(int ttl, int flood_reason, string sender_nodeid, string origin_nodeid, string message_body, int content_len)
 {
     this->ok = true;
     this->is_http = false;
     this->should_terminate = false;
+    this->content_len = content_len;
+
+    this->status_code = 0;
+    this->file_path = "";
+    this->md5_hash = "";
+
+    this->hello = false;
+    this->ttl = ttl;
+    this->flood_reason = flood_reason;
+    this->target_nodeid = "";
+    this->sender_nodeid = sender_nodeid;
+    this->origin_nodeid = origin_nodeid;
+    this->message_body = message_body;
+
+    string message_id, origin_start_time;
+    get_message_id_and_start_time(origin_nodeid, "msg", message_id, origin_start_time);
+    this->message_id = message_id;
+    this->origin_start_time = origin_start_time;
+}
+
+Message::Message(int ttl, int flood_reason, string message_id, string sender_nodeid, string origin_nodeid, string origin_start_time, string message_body, int content_len)
+{
+    this->ok = true;
+    this->is_http = false;
+    this->should_terminate = false;
+    this->content_len = content_len;
 
     this->status_code = 0;
     this->file_path = "";
@@ -73,11 +105,11 @@ Message::Message(int ttl, int flood_reason, string message_id, string sender_nod
     this->ttl = ttl;
     this->flood_reason = flood_reason;
     this->message_id = message_id;
+    this->target_nodeid = "";
     this->sender_nodeid = sender_nodeid;
     this->origin_nodeid = origin_nodeid;
     this->origin_start_time = origin_start_time;
     this->message_body = message_body;
-    this->net_content_len = net_content_len;
 }
 
 Message::Message(string neighbor_nodeid, shared_ptr<Message> old_message)
@@ -85,10 +117,12 @@ Message::Message(string neighbor_nodeid, shared_ptr<Message> old_message)
     this->ok = true;
     this->is_http = false;
     this->should_terminate = false;
+    this->content_len = 0;
 
     this->status_code = 0;
     this->file_path = "";
     this->md5_hash = "";
+    this->target_nodeid = "";
 
     this->hello = false;
     this->ttl = old_message->get_ttl();
@@ -97,7 +131,29 @@ Message::Message(string neighbor_nodeid, shared_ptr<Message> old_message)
     this->origin_nodeid = neighbor_nodeid;
     this->origin_start_time = old_message->get_origin_start_time();
     this->message_body = old_message->get_message_body();
-    this->net_content_len = old_message->get_net_content_len();
+}
+
+Message::Message(int ttl, string src_nodeid, string dest_nodeid, int next_layer, int content_len, string message_body)
+{
+    this->ok = true;
+    this->is_http = false;
+    this->should_terminate = false;
+    this->content_len = content_len;
+
+    this->status_code = 0;
+    this->file_path = "";
+    this->md5_hash = "";
+
+    this->hello = false;
+    this->ttl = ttl;
+    this->origin_nodeid = src_nodeid;
+    this->target_nodeid = dest_nodeid;
+    this->next_layer = next_layer;
+    this->message_body = message_body;
+
+    string message_id, origin_start_time;
+    get_message_id_and_start_time(src_nodeid, "msg", message_id, origin_start_time);
+    this->message_id = message_id;
 }
 
 bool Message::is_ok()
@@ -145,6 +201,11 @@ int Message::get_ttl()
     return ttl;
 }
 
+int Message::get_next_layer()
+{
+    return next_layer;
+}
+
 int Message::get_flood_reason()
 {
     return flood_reason;
@@ -152,6 +213,11 @@ int Message::get_flood_reason()
 string Message::get_message_id()
 {
     return message_id;
+}
+
+string Message::get_target_nodeid()
+{
+    return target_nodeid;
 }
 
 string Message::get_sender_nodeid()
@@ -174,14 +240,9 @@ string Message::get_message_body()
     return message_body;
 }
 
-int Message::get_net_content_len()
-{
-    return net_content_len;
-}
-
 shared_ptr<Message> Message::decr_ttl_update_sender(string sender_nodeid)
 {
-    return make_shared<Message>(ttl - 1, flood_reason, message_id, sender_nodeid, origin_nodeid, origin_start_time, message_body, net_content_len);
+    return make_shared<Message>(ttl - 1, flood_reason, message_id, sender_nodeid, origin_nodeid, origin_start_time, message_body, content_len);
 }
 
 string Message::to_string()
@@ -201,7 +262,7 @@ string Message::to_string()
         result += "MESSAGE_ID: " + message_id + "\r";
         result += "ORIGIN_NODEID: " + origin_nodeid + "\r";
         result += "ORIGIN_START_TIME: " + origin_start_time + "\r";
-        result += "CONTENT_LEN: " + std::to_string(net_content_len) + "\r";
+        result += "CONTENT_LEN: " + std::to_string(content_len) + "\r";
         result += "MESSAGE_BODY: " + message_body + "\r";
     }
 

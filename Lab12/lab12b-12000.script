@@ -1,0 +1,47 @@
+Script started on 2023-04-12 16:46:09-07:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="139" LINES="31"]
+[1m[38;5;118m[7m%[27m[1m[38;5;118m[0m[38;5;118m                                                                                                                                           ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab12]1;~/CS353/Lab12[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab12[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31mu[0m[39m[1m[31mu[0m[39m[90mname -a[39m[1m[31mu[1m[31mn[0m[39m[90mn[90ma[90mm[90me[90m [90m-[90ma[39m[1m[31mu[1m[31mn[1m[31ma[0m[39m[39m [39m [39m [39m [39m [39m [90mme -a[39m[0m[32mu[0m[32mn[0m[32ma[32mm[32me[39m[39m [39m-[39ma[?1l>[?2004l
+]2;uname -a]1;unameLinux DESKTOP-KR0Q71I 5.10.16.3-microsoft-standard-WSL2 #1 SMP Fri Apr 2 22:23:49 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux
+[1m[7m%[27m[1m[0m                                                                                                                                           ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab12]1;~/CS353/Lab12[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab12[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31mc[0m[39m[1m[31mc[1m[31ma[0m[39m[90mt /etc/os-release[39m[17D[0m[32mc[0m[32ma[32mt[39m[39m [39m[4m/[39m[4me[39m[4mt[39m[4mc[39m[4m/[39m[4mo[39m[4ms[39m[4m-[39m[4mr[39m[4me[39m[4ml[39m[4me[39m[4ma[39m[4ms[39m[4me[24m[?1l>[?2004l
+]2;cat /etc/os-release]1;catNAME="Ubuntu"
+VERSION="20.04.5 LTS (Focal Fossa)"
+ID=ubuntu
+ID_LIKE=debian
+PRETTY_NAME="Ubuntu 20.04.5 LTS"
+VERSION_ID="20.04"
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+VERSION_CODENAME=focal
+UBUNTU_CODENAME=focal
+[1m[7m%[27m[1m[0m                                                                                                                                           ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab12]1;~/CS353/Lab12[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab12[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31mm[0m[39m[0m[39mma[1m[31mm[1m[31ma[1m[31mk[0m[39m[0m[32mm[0m[32ma[0m[32mk[32me[39m[90m lab12b && ./lab12b lab12data/lab12-12002.ini[39m[45D[39m [39mc[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [43D[90mlean[39m[39ml[39me[39ma[39mn[?1l>[?2004l
+]2;make clean]1;makerm -f *.out lab12a lab12b x y
+[1m[7m%[27m[1m[0m                                                                                                                                           ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab12]1;~/CS353/Lab12[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab12[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31mm[0m[39m[1m[31mm[1m[31ma[0m[39m[0m[39mm[0m[39mak[32mm[32ma[32mk[32me[39m[90m clean[39m[39m [39m[4ml[24m[39m [39m [39m [39m [90mab12b && ./lab12b lab12data/lab12-12002.ini[39m[43D[4ml[39m[4ma[24m[4ma[39m[4mb[24m[4mb[39m[4m1[24m[4m1[39m[4m2[24m[4m2[39m[4mb[24m[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [38D[?1l>[?2004l[24ml[24ma[24mb[24m1[24m2[24mb
+]2;make lab12b]1;makeg++ -g -Wall -std=c++11 -DLOCALHOST=\"127.0.0.1\" -o lab12b lab12b.cpp my_server.cpp my_timestamp.cpp my_http.cpp my_neighbors.cpp my_message.cpp my_socket.cpp my_connection.cpp my_readwrite.cpp my_reaper.cpp my_client.cpp my_node.cpp my_console.cpp my_utils.cpp my_p2p.cpp -lcrypto -pthread
+[1m[7m%[27m[1m[0m                                                                                                                                           ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab12]1;~/CS353/Lab12[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab12[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[32m.[39m[32m.[39m[90m/lab12b lab12data/lab12-12012.ini[39m[33D[4m[32m.[4m[32m/[24m[39m[24m[32m.[24m[32m/[32ml[32ma[32mb[32m1[32m2[32mb[39m[39m [39m[4ml[39m[4ma[39m[4mb[39m[4m1[39m[4m2[39m[4md[39m[4ma[39m[4mt[39m[4ma[39m[4m/[39m[4ml[39m[4ma[39m[4mb[39m[4m1[39m[4m2[39m[4m-[39m[4m1[39m[4m2[39m[4m0[39m[4m1[39m[4m2[39m[4m.[39m[4mi[39m[4mn[39m[4mi[24m[20D[24ml[24ma[24mb[24m1[24m2[24md[24ma[24mt[24ma[24m/[24ml[24ma[24mb[24m1[24m2[24m-[24m1[24m2[24m0[24m2[24m.[24mi[24mn[24mi[24m [1C.ini 0.ini[20D[4ml[4ma[4mb[4m1[4m2[4md[4ma[4mt[4ma[4m/[4ml[4ma[4mb[4m1[4m2[4m-[4m1[4m2[4m0[4m0[4m0[4m.[4mi[4mn[4mi[24m[?1l>[?2004l
+]2;./lab12b lab12data/lab12-12000.ini]1;./lab12b:12000> netgraph
+:12000: :12002
+:12002: :12000,:12004,:12012
+:12004: :12002,:12012
+:12012: :12002,:12004
+:12000> forwarding
+:12002: :12002
+:12004: :12002
+:12012: :12002
+:12000> udtsend :12004 hello
+:12000> 
+[Wed Apr 12 2023 16:47:54.142656] i UCASTAPP  9 0 5 {:12000_6} :12000 :12004 0 (hello)
+^[3   udtsend :12000 how are you?
+Cannot use udtsend command to send message to yourself.
+:12000> forwarding
+:12002: :12002
+:12004: :12002
+:12012: :12002
+:12000> 
+[Wed Apr 12 2023 16:54:09.574351] r UCASTAPP  9 0 3 {:12012_1} :12012 :12000 0 (bye)
+No receiver for UDT message 'bye' from :12012.
+quit
+Console thread terminated
+[1m[7m%[27m[1m[0m                                                                                                                                           ]2;ssusanto@DESKTOP-KR0Q71I:~/CS353/Lab12]1;~/CS353/Lab12[0m[27m[24m[J[38;5;135mssusanto[00m in [38;5;118m~/CS353/Lab12[00m on [38;5;81mmaster[38;5;166m ●[38;5;161m ●[00m[38;5;166m λ[00m [K[?1h=[?2004h[1m[31me[0m[39m[1m[31me[0m[39m[90mxit[39m[0m[32me[32mx[39m[1m[31me[1m[31mx[1m[31mi[0m[39m[90mi[90mt[39m[0m[32me[0m[32mx[0m[32mi[32mt[39m[39m [?1l>[?2004l
+]2;exit]1;exit
+Script done on 2023-04-12 16:54:53-07:00 [COMMAND_EXIT_CODE="0"]

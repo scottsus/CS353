@@ -16,6 +16,7 @@
 using namespace std;
 
 extern int server_socketfd;
+extern int max_ttl;
 extern mutex mut;
 extern queue<shared_ptr<Connection>> reaper_q;
 extern condition_variable reaper_cv;
