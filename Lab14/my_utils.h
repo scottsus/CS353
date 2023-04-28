@@ -43,7 +43,7 @@ void remove_from_vector(string target, vector<string> &vec);
 void update_graph(string removed_nodeid, vector<shared_ptr<Connection>> *conns);
 
 void get_message_id_and_start_time(string nodeid, const char *obj_category, string &hexstring_of_unique_obj_id, string &origin_start_time);
-shared_ptr<Message> await_message_from(int neighbor_socketfd, shared_ptr<Connection> conn);
+shared_ptr<P2PMessage> await_message(int peer_socketfd, shared_ptr<Connection> conn);
 
 bool is_neighbor(string neighbor_nodeid, vector<shared_ptr<Connection>> *conns);
 string get_neighbors(vector<shared_ptr<Connection>> *conns);
@@ -57,9 +57,9 @@ string hexDump(unsigned char *buf, unsigned long len);
 
 void log(string message);
 void log_header(string header, int conn_number);
-void log_header(string type, string nodeid, int TTL, int flood, int content_len);
-void log_LSUPDATE(string type, shared_ptr<Message> message);
-void log_UCASTAPP(string type, shared_ptr<Message> message);
+void log_hello(string type, shared_ptr<HelloMessage> hello);
+void log_LSUPDATE(string type, shared_ptr<LSUPDATEMessage> lsupdate);
+void log_UCASTAPP(string type, shared_ptr<UCASTAPPMessage> ucastapp);
 void usage();
 
 #endif

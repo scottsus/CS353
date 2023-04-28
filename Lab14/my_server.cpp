@@ -81,7 +81,6 @@ void run_p2p_server(string config_file)
         conns.push_back(neighbor_conn);
         mut.unlock();
     }
-
     console_thread.join();
     reaper_thread.join();
     neighbors_thread.join();

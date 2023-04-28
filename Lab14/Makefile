@@ -1,6 +1,6 @@
 MYDEFS = -g -Wall -std=c++11 -DLOCALHOST=\"127.0.0.1\"
-LAB1 = lab13a
-LAB2 = lab13b
+LAB1 = lab14a
+LAB2 = lab14b
 SOURCES = $(wildcard my_*.cpp)
 HEADERS = $(wildcard my*.h)
 

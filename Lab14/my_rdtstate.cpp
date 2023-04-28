@@ -47,3 +47,13 @@ string RDTState::get_message_received()
 {
     return message_received;
 }
+
+void RDTState::update_seq_num(int new_seq_num)
+{
+    seq_num = new_seq_num;
+}
+
+void RDTState::append_message_received(string new_message)
+{
+    message_received += new_message;
+}

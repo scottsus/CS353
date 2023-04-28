@@ -319,222 +319,204 @@ string get_neighbors(vector<shared_ptr<Connection>> *conns)
     return neighbors;
 }
 
-shared_ptr<Message> await_message_from(int neighbor_socketfd, shared_ptr<Connection> conn)
+shared_ptr<HelloMessage> construct_hello(int peer_socketfd, shared_ptr<Connection> conn)
+{
+    string err = "";
+
+    try
+    {
+        string ttl_line;
+        int bytes_received = read_a_line(peer_socketfd, ttl_line);
+        if (bytes_received <= 2)
+            err = "TTL";
+        // int ttl = stoi(extract_header_value(ttl_line));
+
+        string flood_line;
+        bytes_received = read_a_line(peer_socketfd, flood_line);
+        if (bytes_received <= 2)
+            err = "FLOOD";
+        // int flood_reason = stoi(extract_header_value(flood_line));
+
+        string from_line;
+        bytes_received = read_a_line(peer_socketfd, from_line);
+        if (bytes_received <= 2)
+            err = "FROM";
+        string from_nodeid = extract_header_value(from_line);
+
+        string content_len_line;
+        bytes_received = read_a_line(peer_socketfd, content_len_line);
+        if (bytes_received <= 2)
+            err = "CONTENT_LEN";
+        // int content_len = stoi(extract_header_value(content_len_line));
+
+        string newline;
+        bytes_received = read_a_line(peer_socketfd, newline);
+
+        shared_ptr<HelloMessage> hello = make_shared<HelloMessage>(HelloMessage(from_nodeid));
+        log_hello("r", hello);
+
+        return hello;
+    }
+    catch (exception &e)
+    {
+        cout << "[HELLO]: " << err << endl;
+        return make_shared<HelloMessage>();
+    }
+}
+
+shared_ptr<LSUPDATEMessage> construct_lsupdate(int peer_socketfd, shared_ptr<Connection> conn)
+{
+    string err = "";
+
+    try
+    {
+        string ttl_line;
+        int bytes_received = read_a_line(peer_socketfd, ttl_line);
+        if (bytes_received <= 0)
+            err = "[LSUPDATE]: TTL";
+        int ttl = stoi(extract_header_value(ttl_line));
+
+        string flood_str;
+        bytes_received = read_a_line(peer_socketfd, flood_str);
+        if (bytes_received <= 0)
+            err = "[LSUPDATE]: FLOOD";
+        int flood = stoi(get<1>(str_split(flood_str, '=')));
+
+        string messageid_line;
+        bytes_received = read_a_line(peer_socketfd, messageid_line);
+        if (bytes_received <= 0)
+            err = "[LSUPDATE]: MESSAGEID";
+        string messageid = extract_header_value(messageid_line);
+
+        string origin_nodeid_line;
+        bytes_received = read_a_line(peer_socketfd, origin_nodeid_line);
+        if (bytes_received <= 0)
+            err = "[LSUPDATE]: ORIGIN_NODEID";
+        string origin_nodeid = extract_header_value(origin_nodeid_line);
+
+        string origin_start_time_line;
+        bytes_received = read_a_line(peer_socketfd, origin_start_time_line);
+        if (bytes_received <= 0)
+            err = "[LSUPDATE]: ORIGIN_START_TIME";
+        string origin_start_time = extract_header_value(origin_start_time_line);
+
+        string content_len_line;
+        bytes_received = read_a_line(peer_socketfd, content_len_line);
+        if (bytes_received <= 0)
+            err = "[LSUPDATE]: CONTENT_LEN";
+        int content_len = stoi(extract_header_value(content_len_line));
+
+        string newline;
+        bytes_received = read_a_line(peer_socketfd, newline);
+
+        char neighbors[content_len + 1];
+        bytes_received = read(peer_socketfd, neighbors, content_len);
+        if (bytes_received <= 0)
+            err = "[LSUPDATE]: NEIGHBORS";
+        neighbors[content_len] = '\0';
+
+        shared_ptr<LSUPDATEMessage> lsupdate = make_shared<LSUPDATEMessage>(LSUPDATEMessage(ttl, flood, messageid, origin_nodeid, origin_start_time, neighbors));
+        log_LSUPDATE("r", lsupdate);
+
+        return lsupdate;
+    }
+    catch (exception &e)
+    {
+        cout << "[LSUPDATE]: " << err << endl;
+        return make_shared<LSUPDATEMessage>();
+    }
+}
+
+shared_ptr<UCASTAPPMessage> construct_ucastapp(int peer_socketfd, shared_ptr<Connection> conn)
+{
+    string err = "";
+
+    try
+    {
+        string ttl_line;
+        int bytes_received = read_a_line(peer_socketfd, ttl_line);
+        if (bytes_received <= 0)
+            err = "[UCASTAPP]: TTL";
+        int ttl = stoi(extract_header_value(ttl_line));
+
+        string flood_str;
+        bytes_received = read_a_line(peer_socketfd, flood_str);
+        if (bytes_received <= 0)
+            err = "[UCASTAPP]: FLOOD";
+        // int flood = stoi(extract_header_value(flood_str));
+
+        string message_id_line;
+        bytes_received = read_a_line(peer_socketfd, message_id_line);
+        if (bytes_received <= 0)
+            err = "[UCASTAPP]: MESSAGE_ID";
+        string message_id = extract_header_value(message_id_line);
+
+        string from_line;
+        bytes_received = read_a_line(peer_socketfd, from_line);
+        if (bytes_received <= 0)
+            err = "[UCASTAPP]: FROM";
+        string src_nodeid = extract_header_value(from_line);
+
+        string to_line;
+        bytes_received = read_a_line(peer_socketfd, to_line);
+        if (bytes_received <= 0)
+            err = "[UCASTAPP]: TO";
+        string dest_nodeid = extract_header_value(to_line);
+
+        string next_layer_line;
+        bytes_received = read_a_line(peer_socketfd, next_layer_line);
+        if (bytes_received <= 0)
+            err = "[UCASTAPP]: NEXT_LAYER";
+        int next_layer = stoi(extract_header_value(next_layer_line));
+
+        string content_len_line;
+        bytes_received = read_a_line(peer_socketfd, content_len_line);
+        if (bytes_received <= 0)
+            err = "[UCASTAPP]: CONTENT_LEN";
+        int content_len = stoi(extract_header_value(content_len_line));
+
+        string newline;
+        bytes_received = read_a_line(peer_socketfd, newline);
+
+        char message_body[content_len + 1];
+        bytes_received = read(peer_socketfd, message_body, content_len);
+        if (bytes_received <= 0)
+            err = "[UCASTAPP]: MESSAGE_BODY";
+        message_body[content_len] = '\0';
+
+        shared_ptr<UCASTAPPMessage> ucastapp = make_shared<UCASTAPPMessage>(UCASTAPPMessage(ttl, message_id, src_nodeid, dest_nodeid, next_layer, message_body));
+        log_UCASTAPP("r", ucastapp);
+
+        return ucastapp;
+    }
+    catch (exception &e)
+    {
+        cout << "[UCASTAPP]: " << err << endl;
+        return make_shared<UCASTAPPMessage>();
+    }
+}
+
+shared_ptr<P2PMessage> await_message(int peer_socketfd, shared_ptr<Connection> conn)
 {
     string protocol;
-    int bytes_received = read_a_line(neighbor_socketfd, protocol);
+    int bytes_received = read_a_line(peer_socketfd, protocol);
     if (bytes_received == -1)
-        return make_shared<Message>(Message(true));
-    if (bytes_received <= 2)
         return NULL;
+    if (bytes_received <= 2)
+        return make_shared<P2PMessage>(P2PMessage());
 
     stringstream ss(protocol);
     string version, message_type;
     ss >> version >> message_type;
 
-    if (message_type == "RDTDATA")
-    {
-        string seq_num_line;
-        bytes_received = read_a_line(neighbor_socketfd, seq_num_line);
-        if (bytes_received <= 2)
-            return make_shared<Message>(false);
-        int seq_num = stoi(extract_header_value(seq_num_line));
-        // cout << "Sequence number: " << seq_num << endl;
+    if (message_type == "SAYHELLO")
+        return construct_hello(peer_socketfd, conn);
 
-        string app_num_line;
-        bytes_received = read_a_line(neighbor_socketfd, app_num_line);
-        if (bytes_received <= 2)
-            return make_shared<Message>(false);
-        int app_num = stoi(extract_header_value(app_num_line));
-        // cout << "Application number: " << app_num << endl;
-
-        string content_len_line;
-        bytes_received = read_a_line(neighbor_socketfd, content_len_line);
-        if (bytes_received <= 2)
-            return make_shared<Message>(false);
-        int content_len = stoi(extract_header_value(content_len_line));
-        // cout << "Content length: " << content_len << endl;
-
-        string newline;
-        bytes_received = read_a_line(neighbor_socketfd, newline);
-        if (bytes_received != 2)
-            return make_shared<Message>(false);
-
-        char message_body[content_len + 1];
-        bytes_received = read(neighbor_socketfd, message_body, content_len);
-        if (bytes_received <= 0)
-            return make_shared<Message>();
-        message_body[content_len] = '\0';
-        // cout << "Message body: " << message_body << endl;
-
-        shared_ptr<RDTMessage> rdt_message = make_shared<RDTMessage>(RDTMessage(seq_num, app_num, message_body));
-        rdt_message->set_message_type("RDT");
-        return rdt_message;
-    }
-    else if (message_type == "SAYHELLO")
-    {
-        string ttl_line;
-        bytes_received = read_a_line(neighbor_socketfd, ttl_line);
-        if (bytes_received <= 2)
-            return make_shared<Message>(false);
-        int ttl = stoi(extract_header_value(ttl_line));
-        // cout << "TTL: " << ttl << endl;
-
-        string flood_line;
-        bytes_received = read_a_line(neighbor_socketfd, flood_line);
-        if (bytes_received <= 2)
-            return make_shared<Message>(false);
-        int flood_reason = stoi(extract_header_value(flood_line));
-        // cout << "Flood Reason: " << flood_reason << endl;
-
-        string from_line;
-        bytes_received = read_a_line(neighbor_socketfd, from_line);
-        if (bytes_received <= 2)
-            return make_shared<Message>(false);
-        string from_nodeid = extract_header_value(from_line);
-        // cout << "From: " << from_nodeid << endl;
-
-        string content_len_line;
-        bytes_received = read_a_line(neighbor_socketfd, content_len_line);
-        if (bytes_received <= 2)
-            return make_shared<Message>(false);
-        int content_len = stoi(extract_header_value(content_len_line));
-        // cout << "Content Length: " << content_len << endl;
-
-        string newline;
-        bytes_received = read_a_line(neighbor_socketfd, newline);
-        // cout << "Newline: " << newline << endl;
-
-        log_header("r", from_nodeid, ttl, flood_reason, content_len);
-
-        shared_ptr<Message> hello_message = make_shared<Message>(Message(from_nodeid));
-        return hello_message;
-    }
     else if (message_type == "LSUPDATE")
-    {
-        string ttl_line;
-        bytes_received = read_a_line(neighbor_socketfd, ttl_line);
-        if (bytes_received <= 0)
-            return make_shared<Message>();
-        int ttl = stoi(extract_header_value(ttl_line));
-        // cout << "TTL: " << ttl << endl;
+        return construct_lsupdate(peer_socketfd, conn);
 
-        string flood_str;
-        bytes_received = read_a_line(neighbor_socketfd, flood_str);
-        if (bytes_received <= 0)
-            return make_shared<Message>();
-        int flood = stoi(get<1>(str_split(flood_str, '=')));
-        // cout << "Flood: " << flood << endl;
-
-        string message_id_line;
-        bytes_received = read_a_line(neighbor_socketfd, message_id_line);
-        if (bytes_received <= 0)
-            return make_shared<Message>();
-        string message_id = extract_header_value(message_id_line);
-        // cout << "Message ID: " << message_id << endl;
-
-        string origin_nodeid_line;
-        bytes_received = read_a_line(neighbor_socketfd, origin_nodeid_line);
-        if (bytes_received <= 0)
-            return make_shared<Message>();
-        string origin_nodeid = extract_header_value(origin_nodeid_line);
-        // cout << "Origin Node ID: " << origin_nodeid << endl;
-
-        string origin_start_time_line;
-        bytes_received = read_a_line(neighbor_socketfd, origin_start_time_line);
-        if (bytes_received <= 0)
-            return make_shared<Message>();
-        string origin_start_time = extract_header_value(origin_start_time_line);
-        // cout << "Origin Start Time: " << origin_start_time << endl;
-
-        string content_len_line;
-        bytes_received = read_a_line(neighbor_socketfd, content_len_line);
-        if (bytes_received <= 0)
-            return make_shared<Message>();
-        int content_len = stoi(extract_header_value(content_len_line));
-        // cout << "Content Length: " << content_len << endl;
-
-        string newline;
-        bytes_received = read_a_line(neighbor_socketfd, newline);
-        if (bytes_received != 2)
-            return make_shared<Message>();
-        // cout << "Newline: " << newline;
-
-        char neighbors[content_len + 1];
-        bytes_received = read(neighbor_socketfd, neighbors, content_len);
-        if (bytes_received <= 0)
-            return make_shared<Message>();
-        neighbors[content_len] = '\0';
-        // cout << "Neighbors: " << neighbors << endl;
-
-        shared_ptr<Message> lsupdate_message = make_shared<Message>(Message(ttl, flood, message_id, conn->get_neighbor_nodeid(), "", origin_nodeid, origin_start_time, neighbors, content_len));
-        return lsupdate_message;
-    }
     else if (message_type == "UCASTAPP")
-    {
-        string ttl_line;
-        bytes_received = read_a_line(neighbor_socketfd, ttl_line);
-        if (bytes_received <= 0)
-            return make_shared<Message>();
-        int ttl = stoi(extract_header_value(ttl_line));
-        // cout << "TTL: " << ttl << endl;
-
-        string flood_str;
-        bytes_received = read_a_line(neighbor_socketfd, flood_str);
-        if (bytes_received <= 0)
-            return make_shared<Message>();
-        int flood = stoi(extract_header_value(flood_str));
-        if (flood != 0)
-            cout << "Flood not 0" << endl;
-        // cout << "Flood: " << flood << endl;
-
-        string message_id_line;
-        bytes_received = read_a_line(neighbor_socketfd, message_id_line);
-        if (bytes_received <= 0)
-            return make_shared<Message>();
-        string message_id = extract_header_value(message_id_line);
-        // cout << "Message ID: " << message_id << endl;
-
-        string from_line;
-        bytes_received = read_a_line(neighbor_socketfd, from_line);
-        if (bytes_received <= 0)
-            return make_shared<Message>();
-        string src_nodeid = extract_header_value(from_line);
-
-        string to_line;
-        bytes_received = read_a_line(neighbor_socketfd, to_line);
-        if (bytes_received <= 0)
-            return make_shared<Message>();
-        string dest_nodeid = extract_header_value(to_line);
-
-        string next_layer_line;
-        bytes_received = read_a_line(neighbor_socketfd, next_layer_line);
-        if (bytes_received <= 0)
-            return make_shared<Message>();
-        int next_layer = stoi(extract_header_value(next_layer_line));
-
-        string content_len_line;
-        bytes_received = read_a_line(neighbor_socketfd, content_len_line);
-        if (bytes_received <= 0)
-            return make_shared<Message>();
-        int content_len = stoi(extract_header_value(content_len_line));
-
-        string newline;
-        bytes_received = read_a_line(neighbor_socketfd, newline);
-        if (bytes_received != 2)
-            return make_shared<Message>();
-        // cout << "Newline: " << newline;
-
-        char message_body[content_len + 1];
-        bytes_received = read(neighbor_socketfd, message_body, content_len);
-        if (bytes_received <= 0)
-            return make_shared<Message>();
-        message_body[content_len] = '\0';
-        // cout << "Message Body: " << message_body << endl;
-
-        shared_ptr<Message> ucastapp_message = make_shared<Message>(Message(ttl, src_nodeid, dest_nodeid, next_layer, content_len, message_body));
-        return ucastapp_message;
-    }
+        return construct_ucastapp(peer_socketfd, conn);
 
     return NULL;
 }
@@ -636,18 +618,6 @@ void log(string message)
         cout << log;
 }
 
-void log_header(string type, string nodeid, int TTL, int flood, int content_len)
-{
-    string log = "[" + get_timestamp_now() + "] " + type + " SAYHELLO " + nodeid + " 1 - " + to_string(content_len) + "\n";
-    if (SAYHELLO == 1 && logfile.is_open())
-    {
-        logfile << log;
-        logfile.flush();
-    }
-    else
-        cout << log;
-}
-
 void log_header(string header, int conn_number)
 {
     string log = "\t[" + to_string(conn_number) + "]\t" + header;
@@ -661,7 +631,26 @@ void log_header(string header, int conn_number)
         cout << log;
 }
 
-void log_LSUPDATE(string type, shared_ptr<Message> message)
+void log_hello(string type, shared_ptr<HelloMessage> hello)
+{
+    string log = "";
+    log += "[" + get_timestamp_now() + "] ";
+    log += type + " ";
+    log += "SAYHELLO ";
+    log += hello->get_origin_nodeid() + " ";
+    log += "1 - ";
+    log += to_string(hello->get_content_len()) + "\n";
+
+    if (SAYHELLO == 1 && logfile.is_open())
+    {
+        logfile << log;
+        logfile.flush();
+    }
+    else
+        cout << log;
+}
+
+void log_LSUPDATE(string type, shared_ptr<LSUPDATEMessage> lsupdate)
 {
     bool logging_to_logfile = (LSUPDATE == 1 && logfile.is_open());
 
@@ -672,14 +661,14 @@ void log_LSUPDATE(string type, shared_ptr<Message> message)
     log += "[" + get_timestamp_now() + "] ";
     log += type + " ";
     log += "LSUPDATE ";
-    log += message->get_sender_nodeid() + " ";
-    log += to_string(message->get_ttl()) + " ";
+    log += lsupdate->get_sender_nodeid() + " ";
+    log += to_string(lsupdate->get_ttl()) + " ";
     log += to_string(1) + " ";
-    log += to_string(message->get_content_len()) + " ";
-    log += "{" + message->get_message_id().substr(0, 8) + "} ";
-    log += message->get_origin_start_time() + " ";
-    log += message->get_origin_nodeid() + " ";
-    log += "(" + message->get_message_body() + ")\n";
+    log += to_string(lsupdate->get_content_len()) + " ";
+    log += "{" + lsupdate->get_messageid().substr(0, 8) + "} ";
+    log += lsupdate->get_origin_starttime() + " ";
+    log += lsupdate->get_origin_nodeid() + " ";
+    log += "(" + lsupdate->get_message_body() + ")\n";
 
     if (logging_to_logfile)
     {
@@ -690,7 +679,7 @@ void log_LSUPDATE(string type, shared_ptr<Message> message)
         cout << log;
 }
 
-void log_UCASTAPP(string type, shared_ptr<Message> message)
+void log_UCASTAPP(string type, shared_ptr<UCASTAPPMessage> ucastapp)
 {
     bool logging_to_logfile = (UCASTAPP == 1 && logfile.is_open());
 
@@ -698,15 +687,37 @@ void log_UCASTAPP(string type, shared_ptr<Message> message)
     log += "[" + get_timestamp_now() + "] ";
     log += type + " ";
     log += "UCASTAPP ";
-    log += message->get_sender_nodeid() + " ";
-    log += to_string(message->get_ttl());
+    log += ucastapp->get_sender_nodeid() + " ";
+    log += to_string(ucastapp->get_ttl());
     log += " - ";
-    log += to_string(message->get_content_len()) + " ";
-    log += "{" + message->get_message_id().substr(0, 8) + "} ";
-    log += message->get_origin_nodeid() + " ";
-    log += message->get_target_nodeid() + " ";
-    log += to_string(message->get_next_layer()) + " ";
-    log += message->get_message_body() + "\n";
+    log += to_string(ucastapp->get_content_len()) + " ";
+    log += "{" + ucastapp->get_messageid().substr(0, 8) + "} ";
+    log += ucastapp->get_origin_nodeid() + " ";
+    log += ucastapp->get_target_nodeid() + " ";
+    log += to_string(ucastapp->get_next_layer()) + " ";
+
+    shared_ptr<RDTMessage> rdt = ucastapp->get_rdt_message();
+
+    if (rdt->get_type() == "RDTDATA")
+    {
+        log += to_string(rdt->get_seq_num()) + " ";
+
+        int app_num = rdt->get_app_num();
+        if (app_num == 0)
+            log += "- ";
+        else
+            log += to_string(app_num) + " ";
+
+        log += to_string(rdt->get_rdt_content_len()) + " ";
+
+        int rdt_content_len = rdt->get_rdt_content_len();
+        if (rdt_content_len == 1 && rdt->get_rdt_message_body()[rdt_content_len - 1] == '\n')
+            log += "\\n\n";
+        else
+            log += rdt->get_rdt_message_body() + "\n";
+    }
+    else if (rdt->get_type() == "RDTACK")
+        log += ucastapp->get_message_body();
 
     if (logging_to_logfile)
     {

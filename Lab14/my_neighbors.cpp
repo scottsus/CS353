@@ -49,8 +49,7 @@ void find_neighbors(string nodeid, string neighbors_str, vector<shared_ptr<Conne
             conn->set_neighbor_nodeid(neighbor_nodeid);
             conns->push_back(conn);
 
-            Message hello(nodeid);
-            conn->add_message_to_queue(make_shared<Message>(hello));
+            conn->add_message_to_queue(make_shared<HelloMessage>(HelloMessage(nodeid)));
             mut.unlock();
         }
 

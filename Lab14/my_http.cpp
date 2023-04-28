@@ -88,14 +88,14 @@ void await_http_request(shared_ptr<Connection> client_conn)
 
         if (err != "")
         {
-            Message error_message(404, "", "");
-            client_conn->add_message_to_queue(make_shared<Message>(error_message));
+            shared_ptr<HTTPMessage> error_message = make_shared<HTTPMessage>(HTTPMessage(404, "", 0, ""));
+            client_conn->add_message_to_queue(error_message);
             client_conn->set_reason("unexpectedly");
         }
         else
         {
-            Message res(200, file_path, calc_md5(file_path));
-            client_conn->add_message_to_queue(make_shared<Message>(res));
+            shared_ptr<HTTPMessage> response = make_shared<HTTPMessage>(HTTPMessage(200, file_path, client_conn->get_content_len(), calc_md5(file_path)));
+            client_conn->add_message_to_queue(response);
         }
     }
 
@@ -122,7 +122,8 @@ void send_http_response(shared_ptr<Connection> client_conn)
 
     while (true)
     {
-        shared_ptr<Message> message = client_conn->await_message_from_queue();
+        shared_ptr<Message> generic_message = client_conn->await_message_from_queue();
+        shared_ptr<HTTPMessage> message = static_pointer_cast<HTTPMessage>(generic_message);
         if (message == NULL)
             break;
 

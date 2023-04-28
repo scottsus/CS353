@@ -12,6 +12,13 @@ using namespace std;
 
 class RDTState
 {
+private:
+    string peer_nodeid;
+    int seq_num;
+    int app_num;
+    string sndpkt;
+    string message_received;
+
 public:
     RDTState();
     RDTState(string peer_nodeid, int seq_num, int app_num, string sndpkt, string message_received);
@@ -22,12 +29,8 @@ public:
     string get_sndpkt();
     string get_message_received();
 
-private:
-    string peer_nodeid;
-    int seq_num;
-    int app_num;
-    string sndpkt;
-    string message_received;
+    void update_seq_num(int new_seq_num);
+    void append_message_received(string new_message);
 };
 
 #endif

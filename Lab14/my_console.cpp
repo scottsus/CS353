@@ -8,46 +8,89 @@
 
 #include "my_console.h"
 #include "my_event.h"
+#include "my_message.h"
 #include "my_reaper.h"
 #include "my_timer.h"
 #include "my_utils.h"
 
-int read_rdt_ack_and_get_seq_num(int peer_socketfd)
-{
-    string protocol;
-    int bytes_received = read_a_line(peer_socketfd, protocol);
-    if (bytes_received <= 2)
-        return 0;
-    stringstream ss(protocol);
-    string version, type;
-    ss >> version >> type;
+// int read_rdt_ack_and_get_seq_num(int peer_socketfd)
+// {
+//     cout << "READING" << endl;
 
-    if (type != "ACK")
-        return 0;
+//     string ttl_line;
+//     int bytes_received = read_a_line(peer_socketfd, ttl_line);
+//     if (bytes_received <= 0)
+//         return 0;
+//     int ttl = stoi(extract_header_value(ttl_line));
+//     cout << "TTL: " << ttl << endl;
 
-    string seq_num_line;
-    bytes_received = read_a_line(peer_socketfd, seq_num_line);
-    if (bytes_received <= 2)
-        return 0;
-    int seq_num = stoi(extract_header_value(seq_num_line));
+//     string flood_str;
+//     bytes_received = read_a_line(peer_socketfd, flood_str);
+//     if (bytes_received <= 0)
+//         return 0;
+//     int flood = stoi(extract_header_value(flood_str));
+//     cout << "Flood: " << flood << endl;
 
-    string app_num_line;
-    bytes_received = read_a_line(peer_socketfd, app_num_line);
-    if (bytes_received <= 2)
-        return 0;
+//     string message_id_line;
+//     bytes_received = read_a_line(peer_socketfd, message_id_line);
+//     if (bytes_received <= 0)
+//         return 0;
+//     string message_id = extract_header_value(message_id_line);
+//     cout << "Message ID: " << message_id << endl;
 
-    string content_len_line;
-    bytes_received = read_a_line(peer_socketfd, content_len_line);
-    if (bytes_received <= 2)
-        return 0;
+//     string from_line;
+//     bytes_received = read_a_line(peer_socketfd, from_line);
+//     if (bytes_received <= 0)
+//         return 0;
+//     string src_nodeid = extract_header_value(from_line);
+//     cout << "Source Node ID: " << src_nodeid << endl;
 
-    string empty_line;
-    bytes_received = read_a_line(peer_socketfd, empty_line);
-    if (bytes_received != 2)
-        return 0;
+//     string to_line;
+//     bytes_received = read_a_line(peer_socketfd, to_line);
+//     if (bytes_received <= 0)
+//         return 0;
+//     string dest_nodeid = extract_header_value(to_line);
+//     cout << "Destination Node ID: " << dest_nodeid << endl;
 
-    return seq_num;
-}
+//     string next_layer_line;
+//     bytes_received = read_a_line(peer_socketfd, next_layer_line);
+//     if (bytes_received <= 0)
+//         return 0;
+//     int next_layer = stoi(extract_header_value(next_layer_line));
+//     cout << "Next Layer: " << next_layer << endl;
+
+//     string content_len_line;
+//     bytes_received = read_a_line(peer_socketfd, content_len_line);
+//     if (bytes_received <= 0)
+//         return 0;
+//     int content_len = stoi(extract_header_value(content_len_line));
+//     cout << "Content Length: " << content_len << endl;
+
+//     string newline;
+//     bytes_received = read_a_line(peer_socketfd, newline);
+//     if (bytes_received != 2)
+//         return 0;
+//     cout << "Newline: " << newline;
+
+//     char message_body[content_len + 1];
+//     bytes_received = read(peer_socketfd, message_body, content_len);
+//     if (bytes_received <= 0)
+//         return 0;
+//     message_body[content_len] = '\0';
+//     cout << "CONSOLE Message Body: " << message_body << endl;
+
+//     stringstream ss(message_body);
+//     string version, message_type, seq_num_str, app_num_str;
+//     ss >> version >> message_type >> seq_num_str >> app_num_str;
+
+//     if (message_type != "RDTACK")
+//         return 0;
+
+//     int seq_num = stoi(seq_num_str);
+//     int app_num = stoi(app_num_str);
+
+//     return seq_num;
+// }
 
 void handle_p2p_console(string nodeid, vector<shared_ptr<Connection>> *conns)
 {
@@ -89,7 +132,6 @@ void handle_p2p_console(string nodeid, vector<shared_ptr<Connection>> *conns)
                 if (neighbor_nodeid != "")
                 {
                     cout << neighbor_nodeid;
-                    cout << "[" << conn->get_orig_socketfd() << "]";
                     if (i != conns->size() - 1)
                         cout << ",";
                 }
@@ -142,59 +184,82 @@ void handle_p2p_console(string nodeid, vector<shared_ptr<Connection>> *conns)
         {
             string target_nodeid, message;
             cin >> target_nodeid >> message;
-            cout << "RDTSEND: " << target_nodeid << ": " << message << endl;
+
+            if (target_nodeid == nodeid)
+            {
+                cout << "Cannot use rdtsend command to send message to yourself." << endl;
+                continue;
+            }
 
             mut.lock();
             map<string, shared_ptr<Node>> forwarding_table = get_forwarding_table(nodeid, conns);
             shared_ptr<Node> next_hop = forwarding_table[target_nodeid];
             mut.unlock();
 
+            if (next_hop == NULL)
+            {
+                cout << target_nodeid << " is not reachable" << endl;
+                continue;
+            }
+
+            shared_ptr<Connection> next_hop_conn = find_conn(next_hop->get_nodeid(), conns);
+            if (next_hop_conn == NULL)
+                continue;
+
+            if (message[message.length() - 1] != '\n')
+                message += '\n';
+
             int seq_num = 0, N = message.length();
             for (int i = 0; i < N; i++)
             {
-                shared_ptr<Connection> next_hop_conn = find_conn(next_hop->get_nodeid(), conns);
-                shared_ptr<Message> rdt_message = make_shared<RDTMessage>(seq_num, 98, 1, message[i]);
-                rdt_message->set_message_type("RDT");
-                next_hop_conn->add_message_to_queue(rdt_message);
-                cout << "Added to queue: " << message[i] << endl;
+                shared_ptr<UCASTAPPMessage> ucastapp_data_message = make_shared<UCASTAPPMessage>(UCASTAPPMessage(max_ttl, "", nodeid, target_nodeid, 2, seq_num, 0, string{message[i]}));
+                next_hop_conn->add_message_to_queue(ucastapp_data_message);
 
                 Timer timer(msg_lifetime);
                 bool done_waiting = false;
                 while (!done_waiting)
                 {
-                    cout << "Waiting for RDTACK" << endl;
                     shared_ptr<Event> event = timer.await_timeout();
                     if (event->get_event_type() == "RDTACK")
                     {
-                        cout << "Received RDTACK" << endl;
-                        int peer_socketfd = next_hop_conn->get_orig_socketfd();
-                        int response_seq_num = read_rdt_ack_and_get_seq_num(peer_socketfd);
-                        cout << "response_seq_num: " << response_seq_num << endl;
-                        if (response_seq_num == seq_num)
+                        shared_ptr<RDTMessage> rdt_message = event->get_rdt_message();
+                        if (rdt_message->get_seq_num() == seq_num)
                         {
-                            cout << "Received correct RDTACK" << endl;
                             timer.stop();
                             done_waiting = true;
                         }
                     }
+
                     else if (event->get_event_type() == "TIMEOUT")
                     {
-                        // print timeout message
                         timer.get_timer_thread()->join();
-                        next_hop_conn->add_message_to_queue(rdt_message);
+
+                        mut.lock();
+                        map<string, shared_ptr<Node>> forwarding_table = get_forwarding_table(nodeid, conns);
+                        shared_ptr<Node> next_hop = forwarding_table[target_nodeid];
+                        mut.unlock();
+
+                        if (next_hop != NULL)
+                        {
+                            next_hop_conn = find_conn(next_hop->get_nodeid(), conns);
+                            next_hop_conn->add_message_to_queue(ucastapp_data_message);
+                        }
+
                         timer = *(new Timer(msg_lifetime));
+                        cout << "RDT sender timeout for Seq-Number: " << seq_num << " and RDT-App-Number: 0" << endl;
                     }
                 }
 
                 timer.get_timer_thread()->join();
                 tuple<double, string> timediff_tuple = timer.stop();
                 double timediff = get<0>(timediff_tuple);
-                cout << "timediff: " << timediff << endl;
                 if (timediff < 1)
                     usleep(1 - timediff);
-                seq_num++;
+
+                seq_num = !seq_num;
             }
-            // print finished message
+
+            cout << "rdtsend: '" << message.substr(0, message.length() - 1) << "' to " << target_nodeid << " have been sent and acknowledged" << endl;
         }
         else if (cmd == "traceroute")
         {
@@ -224,7 +289,7 @@ void handle_p2p_console(string nodeid, vector<shared_ptr<Connection>> *conns)
                 if (next_hop != NULL)
                 {
                     shared_ptr<Connection> next_hop_conn = find_conn(next_hop->get_nodeid(), conns);
-                    shared_ptr<Message> ucastapp_ping = make_shared<Message>(i, nodeid, target_nodeid, 1, message_body.length(), message_body);
+                    shared_ptr<UCASTAPPMessage> ucastapp_ping = make_shared<UCASTAPPMessage>(i, "", nodeid, target_nodeid, 1, message_body);
                     next_hop_conn->add_message_to_queue(ucastapp_ping);
                 }
 
