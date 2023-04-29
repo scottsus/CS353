@@ -1,0 +1,1966 @@
+[Sat Apr 29 2023 04:31:27.926477] START: port=12008, rootdir=lab11data
+[Sat Apr 29 2023 04:31:27.928669] i SAYHELLO :12008 1 - 0
+	[1]	353NET/1.0 SAYHELLO
+	[1]	TTL: 0
+	[1]	Flood: 0
+	[1]	From: :12008
+	[1]	Content-Length: 0
+ 	[1]	
+[Sat Apr 29 2023 04:31:27.930219] r SAYHELLO :12006 1 - 0
+[Sat Apr 29 2023 04:31:27.930461] i LSUPDATE :12008 7 1 6 {:12008_5} TODO: start time :12008 (:12006)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=1
+	[1]	MessageID: :12008_5_1682767887.930314
+	[1]	From: :12008
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 6
+	[1]	
+	[1]	:12006
+[Sat Apr 29 2023 04:31:27.931035] r LSUPDATE :12006 7 1 13 {:12006_2} TODO: start time :12006 (:12004,:12008)
+[Sat Apr 29 2023 04:31:27.931095] r LSUPDATE :12008 6 1 13 {:12006_2} TODO: start time :12006 (:12004,:12008)
+[Sat Apr 29 2023 04:31:27.931386] i LSUPDATE :12008 7 1 6 {:12008_8} TODO: start time :12008 (:12006)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12008_8_1682767887.931144
+	[1]	From: :12008
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 6
+	[1]	
+	[1]	:12006
+[Sat Apr 29 2023 04:31:27.932230] r LSUPDATE :12006 7 1 13 {:12006_2} TODO: start time :12006 (:12004,:12008)
+[Sat Apr 29 2023 04:31:27.932292] r LSUPDATE :12008 6 1 13 {:12006_2} TODO: start time :12006 (:12004,:12008)
+[Sat Apr 29 2023 04:31:27.934142] r LSUPDATE :12004 7 1 13 {:12004_3} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:31:27.934197] r LSUPDATE :12008 6 1 13 {:12004_3} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:31:27.934435] i LSUPDATE :12008 7 1 6 {:12008_1} TODO: start time :12008 (:12006)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12008_12_1682767887.934247
+	[1]	From: :12008
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 6
+	[1]	
+	[1]	:12006
+[Sat Apr 29 2023 04:31:27.935875] r LSUPDATE :12002 7 1 13 {:12002_4} TODO: start time :12002 (:12000,:12004)
+[Sat Apr 29 2023 04:31:27.935926] r LSUPDATE :12008 6 1 13 {:12002_4} TODO: start time :12002 (:12000,:12004)
+[Sat Apr 29 2023 04:31:27.936088] i LSUPDATE :12008 7 1 6 {:12008_1} TODO: start time :12008 (:12006)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12008_15_1682767887.935961
+	[1]	From: :12008
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 6
+	[1]	
+	[1]	:12006
+[Sat Apr 29 2023 04:31:27.937090] r LSUPDATE :12000 7 1 6 {:12000_2} TODO: start time :12000 (:12002)
+[Sat Apr 29 2023 04:31:27.937143] r LSUPDATE :12008 6 1 6 {:12000_2} TODO: start time :12000 (:12002)
+[Sat Apr 29 2023 04:31:27.937352] i LSUPDATE :12008 7 1 6 {:12008_1} TODO: start time :12008 (:12006)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12008_18_1682767887.937207
+	[1]	From: :12008
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 6
+	[1]	
+	[1]	:12006
+[Sat Apr 29 2023 04:31:31.237849] CONNECT[2]: 127.0.0.1:12008
+[Sat Apr 29 2023 04:31:31.238738] r SAYHELLO :12010 1 - 0
+[Sat Apr 29 2023 04:31:31.238865] i SAYHELLO :12008 1 - 0
+	[2]	353NET/1.0 SAYHELLO
+	[2]	TTL: 0
+	[2]	Flood: 0
+	[2]	From: :12008
+	[2]	Content-Length: 0
+ 	[2]	
+[Sat Apr 29 2023 04:31:31.239009] i LSUPDATE :12008 7 1 13 {:12008_2} TODO: start time :12008 (:12006,:12010)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=1
+	[2]	MessageID: :12008_24_1682767891.238832
+	[2]	From: :12008
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 13
+	[2]	
+	[2]	:12006,:12010
+[Sat Apr 29 2023 04:31:31.239325] i LSUPDATE :12008 7 1 13 {:12008_2} TODO: start time :12008 (:12006,:12010)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=1
+	[1]	MessageID: :12008_22_1682767891.238818
+	[1]	From: :12008
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12006,:12010
+[Sat Apr 29 2023 04:31:31.240400] r LSUPDATE :12010 7 1 13 {:12010_8} TODO: start time :12010 (:12002,:12008)
+[Sat Apr 29 2023 04:31:31.240444] r LSUPDATE :12008 6 1 13 {:12010_8} TODO: start time :12010 (:12002,:12008)
+[Sat Apr 29 2023 04:31:31.240689] r LSUPDATE :12010 7 1 13 {:12010_1} TODO: start time :12010 (:12002,:12008)
+[Sat Apr 29 2023 04:31:31.240710] r LSUPDATE :12008 6 1 13 {:12010_1} TODO: start time :12010 (:12002,:12008)
+[Sat Apr 29 2023 04:31:31.240768] d LSUPDATE :12008 6 1 13 {:12010_8} TODO: start time :12010 (:12002,:12008)
+[Sat Apr 29 2023 04:31:31.240873] r LSUPDATE :12010 7 1 13 {:12010_1} TODO: start time :12010 (:12002,:12008)
+[Sat Apr 29 2023 04:31:31.240891] r LSUPDATE :12008 6 1 13 {:12010_1} TODO: start time :12010 (:12002,:12008)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=1
+	[1]	MessageID: :12010_8_1682767891.239303
+	[1]	From: :12010
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12002,:12008
+[Sat Apr 29 2023 04:31:31.241083] i LSUPDATE :12008 7 1 13 {:12008_2} TODO: start time :12008 (:12006,:12010)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12008_27_1682767891.240502
+	[1]	From: :12008
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12006,:12010
+[Sat Apr 29 2023 04:31:31.241252] d LSUPDATE :12008 6 1 13 {:12010_1} TODO: start time :12010 (:12002,:12008)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=1
+	[1]	MessageID: :12010_13_1682767891.239398
+	[1]	From: :12010
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12002,:12008
+[Sat Apr 29 2023 04:31:31.241363] d LSUPDATE :12008 6 1 13 {:12010_1} TODO: start time :12010 (:12002,:12008)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+[Sat Apr 29 2023 04:31:31.241391] r LSUPDATE :12002 7 1 20 {:12002_5} TODO: start time :12002 (:12000,:12004,:12010)
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12010_18_1682767891.239659
+:12002 7 1 20 {:12002_5} TODO: start time :12002 (:12000,:12004,:12010)
+	[1]	MessageID: :12010_18_1682767891.239659
+	[1]	From: :12010
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+ntent-Length: 13
+[Sat Apr 29 2023 04:31:31.241440] r LSUPDATE :12008 6 1 20 {:12002_5} TODO: start time :12002 (:12000,:12004,:12010)
+	[1]	
+	[1]	:12002,:12008
+[Sat Apr 29 2023 04:31:31.241482] d LSUPDATE :12008 6 1 20 {:12002_5} TODO: start time :12002 (:12000,:12004,:12010)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=1
+	[1]	MessageID: :12002_55_1682767891.238581
+	[1]	From: :12002
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 20
+	[1]	
+	[1]	:12000,:12004,:12010
+[Sat Apr 29 2023 04:31:31.241744] r LSUPDATE :12010 7 1 13 {:12010_2} TODO: start time :12010 (:12002,:12008)
+[Sat Apr 29 2023 04:31:31.241790] r LSUPDATE :12008 6 1 13 {:12010_2} TODO: start time :12010 (:12002,:12008)
+[Sat Apr 29 2023 04:31:31.242696] d LSUPDATE :12008 6 1 13 {:12010_2} TODO: start time :12010 (:12002,:12008)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12010_23_1682767891.240376
+	[1]	From: :12010
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12002,:12008
+[Sat Apr 29 2023 04:31:31.243151] r LSUPDATE :12002 7 1 20 {:12002_6} TODO: start time :12002 (:12000,:12004,:12010)
+[Sat Apr 29 2023 04:31:31.243208] r LSUPDATE :12008 6 1 20 {:12002_6} TODO: start time :12002 (:12000,:12004,:12010)
+[Sat Apr 29 2023 04:31:31.243325] d LSUPDATE :12008 6 1 20 {:12002_6} TODO: start time :12002 (:12000,:12004,:12010)
+[Sat Apr 29 2023 04:31:31.243373] r LSUPDATE :12002 7 1 20 {:12002_5} TODO: start time :12002 (:12000,:12004,:12010)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	Flood: 1;reason=3
+[Sat Apr 29 2023 04:31:31.243418] r LSUPDATE :12008 6 1 20 {:12002_5} TODO: start time :12002 (:12000,:12004,:12010)
+	[1]	MessageID: :12002_62_1682767891.240445
+	[1]	From: :12002
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 20
+	[1]	
+	[1]	:12000,:12004,:12010
+[Sat Apr 29 2023 04:31:31.243540] r LSUPDATE :12008 7 1 13 {:12008_2} TODO: start time :12008 (:12006,:12010)
+[Sat Apr 29 2023 04:31:31.243577] r LSUPDATE :12008 6 1 13 {:12008_2} TODO: start time :12008 (:12006,:12010)
+[Sat Apr 29 2023 04:31:31.243706] r LSUPDATE :12006 7 1 13 {:12006_4} TODO: start time :12006 (:12004,:12008)
+[Sat Apr 29 2023 04:31:31.243753] r LSUPDATE :12008 6 1 13 {:12006_4} TODO: start time :12006 (:12004,:12008)
+[Sat Apr 29 2023 04:31:31.243834] r LSUPDATE :12004 7 1 13 {:12004_4} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:31:31.243864] r LSUPDATE :12008 6 1 13 {:12004_4} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:31:31.244037] r LSUPDATE :12010 7 1 13 {:12010_6} TODO: start time :12010 (:12002,:12008)
+[Sat Apr 29 2023 04:31:31.244071] r LSUPDATE :12008 6 1 13 {:12010_6} TODO: start time :12010 (:12002,:12008)
+[Sat Apr 29 2023 04:31:31.244140] r LSUPDATE :12010 7 1 13 {:12010_3} TODO: start time :12010 (:12002,:12008)
+[Sat Apr 29 2023 04:31:31.244174] r LSUPDATE :12008 6 1 13 {:12010_3} TODO: start time :12010 (:12002,:12008)
+[Sat Apr 29 2023 04:31:31.244401] d LSUPDATE :12008 6 1 13 {:12004_4} TODO: start time :12004 (:12002,:12006)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12004_46_1682767891.240737
+	[1]	From: :12004
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12002,:12006
+[Sat Apr 29 2023 04:31:31.244494] d LSUPDATE :12008 6 1 13 {:12010_3} TODO: start time :12010 (:12002,:12008)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12010_30_1682767891.242441
+	[1]	From: :12010
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12002,:12008
+[Sat Apr 29 2023 04:31:31.244750] i LSUPDATE :12008 7 1 13 {:12008_2} TODO: start time :12008 (:12006,:12010)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=3
+	[2]	MessageID: :12008_29_1682767891.240509
+	[2]	From: :12008
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 13
+	[2]	
+	[2]	:12006,:12010
+[Sat Apr 29 2023 04:31:31.244872] d LSUPDATE :12008 6 1 20 {:12002_5} TODO: start time :12002 (:12000,:12004,:12010)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=1
+	[2]	MessageID: :12002_53_1682767891.238493
+	[2]	From: :12002
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 20
+	[2]	
+	[2]	:12000,:12004,:12010
+[Sat Apr 29 2023 04:31:31.244949] d LSUPDATE :12008 6 1 13 {:12006_4} TODO: start time :12006 (:12004,:12008)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=3
+	[2]	MessageID: :12006_41_1682767891.242050
+	[2]	From: :12006
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 13
+	[2]	
+	[2]	:12004,:12008
+[Sat Apr 29 2023 04:31:31.245018] d LSUPDATE :12008 6 1 13 {:12010_6} TODO: start time :12010 (:12002,:12008)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=1
+	[2]	MessageID: :12010_6_1682767891.239210
+	[2]	From: :12010
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 13
+	[2]	
+	[2]	:12002,:12008
+[Sat Apr 29 2023 04:31:31.245235] r LSUPDATE :12004 7 1 13 {:12004_4} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:31:31.245278] r LSUPDATE :12008 6 1 13 {:12004_4} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:31:31.245568] r LSUPDATE :12002 7 1 20 {:12002_6} TODO: start time :12002 (:12000,:12004,:12010)
+[Sat Apr 29 2023 04:31:31.245607] r LSUPDATE :12008 6 1 20 {:12002_6} TODO: start time :12002 (:12000,:12004,:12010)
+[Sat Apr 29 2023 04:31:31.245735] d LSUPDATE :12008 6 1 13 {:12004_4} TODO: start time :12004 (:12002,:12006)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=3
+	[2]	MessageID: :12004_48_1682767891.240746
+	[2]	From: :12004
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 13
+	[2]	
+	[2]	:12002,:12006
+[Sat Apr 29 2023 04:31:31.245823] d LSUPDATE :12008 6 1 20 {:12002_6} TODO: start time :12002 (:12000,:12004,:12010)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=3
+	[2]	MessageID: :12002_60_1682767891.240344
+	[2]	From: :12002
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 20
+	[2]	
+	[2]	:12000,:12004,:12010
+[Sat Apr 29 2023 04:31:31.246907] r LSUPDATE :12010 7 1 13 {:12010_3} TODO: start time :12010 (:12002,:12008)
+[Sat Apr 29 2023 04:31:31.246930] r LSUPDATE :12008 6 1 13 {:12010_3} TODO: start time :12010 (:12002,:12008)
+[Sat Apr 29 2023 04:31:31.247043] d LSUPDATE :12008 6 1 13 {:12010_3} TODO: start time :12010 (:12002,:12008)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12010_37_1682767891.245963
+	[1]	From: :12010
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12002,:12008
+[Sat Apr 29 2023 04:31:31.247303] r LSUPDATE :12010 7 1 13 {:12010_1} TODO: start time :12010 (:12002,:12008)
+[Sat Apr 29 2023 04:31:31.247323] r LSUPDATE :12008 6 1 13 {:12010_1} TODO: start time :12010 (:12002,:12008)
+[Sat Apr 29 2023 04:31:31.247451] r LSUPDATE :12008 7 1 13 {:12008_2} TODO: start time :12008 (:12006,:12010)
+[Sat Apr 29 2023 04:31:31.247467] r LSUPDATE :12008 6 1 13 {:12008_2} TODO: start time :12008 (:12006,:12010)
+[Sat Apr 29 2023 04:31:31.247591] r LSUPDATE :12010 7 1 13 {:12010_1} TODO: start time :12010 (:12002,:12008)
+[Sat Apr 29 2023 04:31:31.247607] r LSUPDATE :12008 6 1 13 {:12010_1} TODO: start time :12010 (:12002,:12008)
+[Sat Apr 29 2023 04:31:31.247731] r LSUPDATE :12010 7 1 13 {:12010_2} TODO: start time :12010 (:12002,:12008)
+[Sat Apr 29 2023 04:31:31.247746] r LSUPDATE :12008 6 1 13 {:12010_2} TODO: start time :12010 (:12002,:12008)
+[Sat Apr 29 2023 04:31:31.247876] r LSUPDATE :12010 7 1 13 {:12010_2} TODO: start time :12010 (:12002,:12008)
+[Sat Apr 29 2023 04:31:31.247896] r LSUPDATE :12008 6 1 13 {:12010_2} TODO: start time :12010 (:12002,:12008)
+[Sat Apr 29 2023 04:31:31.248012] r LSUPDATE :12008 7 1 13 {:12008_2} TODO: start time :12008 (:12006,:12010)
+[Sat Apr 29 2023 04:31:31.248027] r LSUPDATE :12008 6 1 13 {:12008_2} TODO: start time :12008 (:12006,:12010)
+[Sat Apr 29 2023 04:31:31.248122] r LSUPDATE :12000 7 1 6 {:12000_4} TODO: start time :12000 (:12002)
+[Sat Apr 29 2023 04:31:31.248131] r LSUPDATE :12008 6 1 6 {:12000_4} TODO: start time :12000 (:12002)
+[Sat Apr 29 2023 04:31:31.249289] r LSUPDATE :12010 7 1 13 {:12010_3} TODO: start time :12010 (:12002,:12008)
+[Sat Apr 29 2023 04:31:31.249310] r LSUPDATE :12008 6 1 13 {:12010_3} TODO: start time :12010 (:12002,:12008)
+[Sat Apr 29 2023 04:31:31.249385] r LSUPDATE :12006 7 1 13 {:12006_3} TODO: start time :12006 (:12004,:12008)
+[Sat Apr 29 2023 04:31:31.249404] r LSUPDATE :12008 6 1 13 {:12006_3} TODO: start time :12006 (:12004,:12008)
+[Sat Apr 29 2023 04:31:31.249429] d LSUPDATE :12008 6 1 13 {:12006_3} TODO: start time :12006 (:12004,:12008)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12006_39_1682767891.242038
+	[1]	From: :12006
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12004,:12008
+[Sat Apr 29 2023 04:31:31.249733] d LSUPDATE :12008 6 1 13 {:12010_1} TODO: start time :12010 (:12002,:12008)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=1
+	[2]	MessageID: :12010_11_1682767891.239387
+	[2]	From: :12010
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 13
+	[2]	
+	[2]	:12002,:12008
+[Sat Apr 29 2023 04:31:31.249983] d LSUPDATE :12008 6 1 13 {:12010_1} TODO: start time :12010 (:12002,:12008)
+[Sat Apr 29 2023 04:31:31.249997] r LSUPDATE :12000 7 1 6 {:12000_4} TODO: start time :12000 (:12002)
+[Sat Apr 29 2023 04:31:31.249997] r LSUPDATE :12000 7 1 6 {:12000_4} TODO: start time :12000 (:12002)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=3
+[Sat Apr 29 2023 04:31:31.250018] r LSUPDATE :12008 6 1 6 {:12000_4} TODO: start time :12000 (:12002)
+[Sat Apr 29 2023 04:31:31.250018] r LSUPDATE :12008 6 1 6 {:12000_4} TODO: start time :12000 (:12002)
+	[2]	MessageID: :12010_16_1682767891.239653
+	[2]	From: :12010
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 13
+	[2]	
+	[2]	:12002,:12008
+[Sat Apr 29 2023 04:31:31.250047] d LSUPDATE :12008 6 1 13 {:12010_2} TODO: start time :12010 (:12002,:12008)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=3
+	[2]	MessageID: :12010_21_1682767891.240355
+	[2]	From: :12010
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 13
+	[2]	
+	[2]	:12002,:12008
+[Sat Apr 29 2023 04:31:31.250103] d LSUPDATE :12008 6 1 13 {:12010_2} TODO: start time :12010 (:12002,:12008)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=3
+	[2]	MessageID: :12010_28_1682767891.242431
+	[2]	From: :12010
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 13
+	[2]	
+	[2]	:12002,:12008
+[Sat Apr 29 2023 04:31:31.250200] r LSUPDATE :12010 7 1 13 {:12010_4} TODO: start time :12010 (:12002,:12008)
+[Sat Apr 29 2023 04:31:31.250202] d LSUPDATE :12008 6 1 6 {:12000_4} TODO: start time :12000 (:12002)
+[Sat Apr 29 2023 04:31:31.250202] d LSUPDATE :12008 6 1 6 {:12000_4} TODO: start time :12000 (:12002)
+[Sat Apr 29 2023 04:31:31.250224] r LSUPDATE :12008 6 1 13 {:12010_4} TODO: start time :12010 (:12002,:12008)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=3
+	[2]	MessageID: :12000_40_1682767891.244984
+	[2]	From: :12000
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 6
+	[2]	
+	[2]	:12002
+[Sat Apr 29 2023 04:31:31.250275] d LSUPDATE :12008 6 1 13 {:12010_3} TODO: start time :12010 (:12002,:12008)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+.0 LSUPDATE
+[Sat Apr 29 2023 04:31:31.250289] d LSUPDATE :12008 6 1 13 {:12010_4} TODO: start time :12010 (:12002,:12008)
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=3
+	[2]	MessageID: :12010_35_1682767891.245953
+	[2]	From: :12010
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 13
+	[2]	
+	[2]	:12002,:12008
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12010_47_1682767891.249034
+	[1]	From: :12010
+010_47_1682767891.249034
+[Sat Apr 29 2023 04:31:31.250405] r LSUPDATE :12008 7 1 13 {:12008_2} TODO: start time :12008 (:12006,:12010)
+	[1]	From: :12010
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	
+[Sat Apr 29 2023 04:31:31.250425] r LSUPDATE :12008 6 1 13 {:12008_2} TODO: start time :12008 (:12006,:12010)
+	[1]	:12002,:12008
+[Sat Apr 29 2023 04:31:31.250501] r LSUPDATE :12010 7 1 13 {:12010_4} TODO: start time :12010 (:12002,:12008)
+[Sat Apr 29 2023 04:31:31.250520] r LSUPDATE :12008 6 1 13 {:12010_4} TODO: start time :12010 (:12002,:12008)
+[Sat Apr 29 2023 04:31:31.250652] d LSUPDATE :12008 6 1 13 {:12010_4} TODO: start time :12010 (:12002,:12008)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=3
+	[2]	MessageID: :12010_45_1682767891.248970
+	[2]	From: :12010
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 13
+	[2]	
+	[2]	:12002,:12008
+[Sat Apr 29 2023 04:33:09.133518] r LSUPDATE :12006 7 1 13 {:12006_8} TODO: start time :12006 (:12004,:12008)
+[Sat Apr 29 2023 04:33:09.133651] r LSUPDATE :12008 6 1 13 {:12006_8} TODO: start time :12006 (:12004,:12008)
+[Sat Apr 29 2023 04:33:09.133892] d LSUPDATE :12008 6 1 13 {:12006_8} TODO: start time :12006 (:12004,:12008)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=2
+	[2]	MessageID: :12006_84_1682767989.132814
+	[2]	From: :12006
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 13
+	[2]	
+	[2]	:12004,:12008
+[Sat Apr 29 2023 04:33:09.135172] r LSUPDATE :12002 7 1 20 {:12002_1} TODO: start time :12002 (:12000,:12004,:12010)
+[Sat Apr 29 2023 04:33:09.135280] r LSUPDATE :12008 6 1 20 {:12002_1} TODO: start time :12002 (:12000,:12004,:12010)
+[Sat Apr 29 2023 04:33:09.135472] d LSUPDATE :12008 6 1 20 {:12002_1} TODO: start time :12002 (:12000,:12004,:12010)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=2
+	[1]	MessageID: :12002_102_1682767989.132296
+	[1]	From: :12002
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 20
+	[1]	
+	[1]	:12000,:12004,:12010
+[Sat Apr 29 2023 04:33:09.190444] r LSUPDATE :12000 7 1 6 {:12000_7} TODO: start time :12000 (:12002)
+[Sat Apr 29 2023 04:33:09.190503] r LSUPDATE :12008 6 1 6 {:12000_7} TODO: start time :12000 (:12002)
+[Sat Apr 29 2023 04:33:09.190734] d LSUPDATE :12008 6 1 6 {:12000_7} TODO: start time :12000 (:12002)
+[Sat Apr 29 2023 04:33:09.190837] r LSUPDATE :12002 7 1 13 {:12002_1} TODO: start time :12002 (:12000,:12010)
+[Sat Apr 29 2023 04:33:09.190879] r LSUPDATE :12008 6 1 13 {:12002_1} TODO: start time :12002 (:12000,:12010)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12000_72_1682767989.133961
+	[1]	From: :12000
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 6
+	[1]	
+	[1]	:12002
+[Sat Apr 29 2023 04:33:09.191008] d LSUPDATE :12008 6 1 13 {:12002_1} TODO: start time :12002 (:12000,:12010)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12002_108_1682767989.135312
+	[1]	From: :12002
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12000,:12010
+[Sat Apr 29 2023 04:33:09.191087] i LSUPDATE :12008 7 1 13 {:12008_6} TODO: start time :12008 (:12006,:12010)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12008_62_1682767989.190942
+	[1]	From: :12008
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12006,:12010
+[Sat Apr 29 2023 04:33:09.191251] r LSUPDATE :12010 7 1 13 {:12010_6} TODO: start time :12010 (:12002,:12008)
+[Sat Apr 29 2023 04:33:09.191291] r LSUPDATE :12008 6 1 13 {:12010_6} TODO: start time :12010 (:12002,:12008)
+[Sat Apr 29 2023 04:33:09.191292] i LSUPDATE :12008 7 1 13 {:12008_6} TODO: start time :12008 (:12006,:12010)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=3
+	[2]	MessageID: :12008_64_1682767989.190951
+	[2]	From: :12008
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 13
+	[2]	
+	[2]	:12006,:12010
+[Sat Apr 29 2023 04:33:09.191590] d LSUPDATE :12008 6 1 13 {:12010_6} TODO: start time :12010 (:12002,:12008)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12010_69_1682767989.190118
+	[1]	From: :12010
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12002,:12008
+[Sat Apr 29 2023 04:33:09.192827] r LSUPDATE :12006 7 1 6 {:12006_8} TODO: start time :12006 (:12008)
+[Sat Apr 29 2023 04:33:09.192881] r LSUPDATE :12008 6 1 6 {:12006_8} TODO: start time :12006 (:12008)
+[Sat Apr 29 2023 04:33:09.193038] r LSUPDATE :12000 7 1 6 {:12000_7} TODO: start time :12000 (:12002)
+[Sat Apr 29 2023 04:33:09.193078] r LSUPDATE :12008 6 1 6 {:12000_7} TODO: start time :12000 (:12002)
+[Sat Apr 29 2023 04:33:09.193073] d LSUPDATE :12008 6 1 6 {:12006_8} TODO: start time :12006 (:12008)
+[Sat Apr 29 2023 04:33:09.193181] i LSUPDATE :12008 7 1 13 {:12008_6} TODO: start time :12008 (:12006,:12010)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=3
+	[2]	MessageID: :12006_89_1682767989.191951
+	[2]	From: :12006
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 6
+	[2]	
+	[2]	:12008
+[Sat Apr 29 2023 04:33:09.193323] i LSUPDATE :12008 7 1 13 {:12008_7} TODO: start time :12008 (:12006,:12010)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	353NET/1.0 LSUPDATE
+	[2]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[2]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12008_6	[1]	MessageID: :12008_69_1682767989.193035
+	[1]	From: :12008
+008_71_1682767989.193111
+	[1]	From: :12008
+	[1]	OriginStartTim	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+O: start time
+	[1]	Content-Length: 13
+	[1]	
+ntent-Length: 13
+	[1]	
+	[1]	:1	[1]	:12006,:12010
+	[2]	:12006,:12010
+[Sat Apr 29 2023 04:33:09.193473] d LSUPDATE :12008 6 1 6 {:12000_7} TODO: start time :12000 (:12002)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12000_76_1682767989.190013
+	[1]	From: :12000
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 6
+	[1]	
+	[1]	:12002
+[Sat Apr 29 2023 04:33:09.193530] r LSUPDATE :12002 7 1 13 {:12002_1} TODO: start time :12002 (:12000,:12010)
+[Sat Apr 29 2023 04:33:09.193607] r LSUPDATE :12008 6 1 13 {:12002_1} TODO: start time :12002 (:12000,:12010)
+[Sat Apr 29 2023 04:33:09.193786] r LSUPDATE :12006 7 1 6 {:12006_9} TODO: start time :12006 (:12008)
+[Sat Apr 29 2023 04:33:09.193832] r LSUPDATE :12008 6 1 6 {:12006_9} TODO: start time :12006 (:12008)
+[Sat Apr 29 2023 04:33:09.193884] d LSUPDATE :12008 6 1 13 {:12002_1} TODO: start time :12002 (:12000,:12010)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12002_114_1682767989.191146
+	[1]	From: :12002
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12000,:12010
+[Sat Apr 29 2023 04:33:09.194001] r LSUPDATE :12002 7 1 13 {:12002_1} TODO: start time :12002 (:12000,:12010)
+[Sat Apr 29 2023 04:33:09.194049] r LSUPDATE :12008 6 1 13 {:12002_1} TODO: start time :12002 (:12000,:12010)
+[Sat Apr 29 2023 04:33:09.194228] d LSUPDATE :12008 6 1 6 {:12006_9} TODO: start time :12006 (:12008)
+[Sat Apr 29 2023 04:33:09.194336] d LSUPDATE :12008 6 1 13 {:12002_1} TODO: start time :12002 (:12000,:12010)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12002_118_1682767989.191213
+	[1]	From: :12002
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12000,:12010
+[Sat Apr 29 2023 04:33:09.194563] r LSUPDATE :12010 7 1 13 {:12010_7} TODO: start time :12010 (:12002,:12008)
+[Sat Apr 29 2023 04:33:09.194613] r LSUPDATE :12008 6 1 13 {:12010_7} TODO: start time :12010 (:12002,:12008)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=3
+	[2]	MessageID: :12006_92_1682767989.192423
+	[2]	From: :12006
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 6
+	[2]	
+	[2]	:12008
+[Sat Apr 29 2023 04:33:09.194774] d LSUPDATE :12008 6 1 13 {:12010_7} TODO: start time :12010 (:12002,:12008)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12010_78_1682767989.193806
+	[1]	From: :12010
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12002,:12008
+[Sat Apr 29 2023 04:33:09.196381] r LSUPDATE :12002 7 1 13 {:12002_1} TODO: start time :12002 (:12000,:12010)
+[Sat Apr 29 2023 04:33:09.196432] r LSUPDATE :12008 6 1 13 {:12002_1} TODO: start time :12002 (:12000,:12010)
+[Sat Apr 29 2023 04:33:09.196592] d LSUPDATE :12008 6 1 13 {:12002_1} TODO: start time :12002 (:12000,:12010)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12002_124_1682767989.194859
+	[1]	From: :12002
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12000,:12010
+[Sat Apr 29 2023 04:33:09.197734] r LSUPDATE :12000 7 1 6 {:12000_8} TODO: start time :12000 (:12002)
+[Sat Apr 29 2023 04:33:09.197783] r LSUPDATE :12008 6 1 6 {:12000_8} TODO: start time :12000 (:12002)
+[Sat Apr 29 2023 04:33:09.197936] d LSUPDATE :12008 6 1 6 {:12000_8} TODO: start time :12000 (:12002)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12000_83_1682767989.195450
+	[1]	From: :12000
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 6
+	[1]	
+	[1]	:12002
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 1
+	[2]	Flood: 0
+	[2]	MessageID: :12006_103_1682767991.571955
+	[2]	From: :12006
+	[2]	To: :12000
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 44
+	[2]	
+	[2]	353UDT/1.0 PING :12006_101_1682767991.571759
+	[1]	353NET/1.0 UCASTAPP
+	[1]	TTL: 6
+	[1]	Flood: 0
+	[1]	MessageID: :12010_85_1682767991.574710
+	[1]	From: :12010
+	[1]	To: :12006
+	[1]	Next-Layer: 1
+	[1]	Content-Length: 47
+	[1]	
+	[1]	353UDT/1.0 TTLZERO :12006_101_1682767991.571759
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 2
+	[2]	Flood: 0
+	[2]	MessageID: :12006_107_1682767994.673365
+	[2]	From: :12006
+	[2]	To: :12000
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 44
+	[2]	
+	[2]	353UDT/1.0 PING :12006_105_1682767994.673046
+	[1]	353NET/1.0 UCASTAPP
+	[1]	TTL: 5
+	[1]	Flood: 0
+	[1]	MessageID: :12002_131_1682767994.771392
+	[1]	From: :12002
+	[1]	To: :12006
+	[1]	Next-Layer: 1
+	[1]	Content-Length: 47
+	[1]	
+	[1]	353UDT/1.0 TTLZERO :12006_105_1682767994.673046
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 3
+	[2]	Flood: 0
+	[2]	MessageID: :12006_111_1682767997.874399
+	[2]	From: :12006
+	[2]	To: :12000
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 44
+	[2]	
+	[2]	353UDT/1.0 PING :12006_109_1682767997.874157
+	[1]	353NET/1.0 UCASTAPP
+	[1]	TTL: 4
+	[1]	Flood: 0
+	[1]	MessageID: :12000_90_1682767997.880556
+	[1]	From: :12000
+	[1]	To: :12006
+	[1]	Next-Layer: 1
+	[1]	Content-Length: 44
+	[1]	
+	[1]	353UDT/1.0 PONG :12006_109_1682767997.874157
+[Sat Apr 29 2023 04:34:05.855558] r LSUPDATE :12006 7 1 13 {:12006_1} TODO: start time :12006 (:12008,:12004)
+[Sat Apr 29 2023 04:34:05.855558] r LSUPDATE :12006 7 1 13 {:12006_1} TODO: start time :12006 (:12008,:12004)
+[Sat Apr 29 2023 04:34:05.855562] r LSUPDATE :12002 7 1 20 {:12002_1} TODO: start time :12002 (:12000,:12010,:12004)
+[Sat Apr 29 2023 04:34:05.855642] r LSUPDATE :12008 6 1 13 {:12006_1} TODO: start time :12006 (:12008,:12004)
+[Sat Apr 29 2023 04:34:05.855655] r LSUPDATE :12008 6 1 20 {:12002_1} TODO: start time :12002 (:12000,:12010,:12004)
+[Sat Apr 29 2023 04:34:05.855856] d LSUPDATE :12008 6 1 13 {:12006_1} TODO: start time :12006 (:12008,:12004)
+[Sat Apr 29 2023 04:34:05.856010] d LSUPDATE :12008 6 1 20 {:12002_1} TODO: start time :12002 (:12000,:12010,:12004)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=1
+	[1]	MessageID: :12002_139_1682768045.853978
+	[1]	From: :12002
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 20
+	[1]	
+	[1]	:12000,:12010,:12004
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=1
+	[2]	MessageID: :12006_116_1682768045.854971
+	[2]	From: :12006
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 13
+	[2]	
+	[2]	:12008,:12004
+[Sat Apr 29 2023 04:34:05.857399] r LSUPDATE :12004 7 1 13 {:12004_8} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:34:05.857455] r LSUPDATE :12008 6 1 13 {:12004_8} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:34:05.857759] r LSUPDATE :12006 7 1 13 {:12006_1} TODO: start time :12006 (:12008,:12004)
+[Sat Apr 29 2023 04:34:05.857802] r LSUPDATE :12008 6 1 13 {:12006_1} TODO: start time :12006 (:12008,:12004)
+[Sat Apr 29 2023 04:34:05.858125] r LSUPDATE :12002 7 1 20 {:12002_1} TODO: start time :12002 (:12000,:12010,:12004)
+[Sat Apr 29 2023 04:34:05.858170] r LSUPDATE :12008 6 1 20 {:12002_1} TODO: start time :12002 (:12000,:12010,:12004)
+[Sat Apr 29 2023 04:34:05.858219] d LSUPDATE :12008 6 1 13 {:12004_8} TODO: start time :12004 (:12002,:12006)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=1
+	[2]	MessageID: :12004_8_1682768045.854800
+	[2]	From: :12004
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 13
+	[2]	
+	[2]	:12002,:12006
+[Sat Apr 29 2023 04:34:05.858481] d LSUPDATE :12008 6 1 13 {:12006_1} TODO: start time :12006 (:12008,:12004)
+[Sat Apr 29 2023 04:34:05.858481] r LSUPDATE :12004 7 1 13 {:12004_1} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:34:05.858481] r LSUPDATE :12004 7 1 13 {:12004_1} TODO: start time :12004 (:12002,:12006)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=3
+	[2]	MessageID: :12006_121_1682768045.856167
+[Sat Apr 29 2023 04:34:05.858847] r LSUPDATE :12008 6 1 13 {:12004_1} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:34:05.858847] r LSUPDATE :12008 6 1 13 {:12004_1} TODO: start time :12004 (:12002,:12006)
+	[2]	From: :12006
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 13
+	[2]	
+	[2]	:12008,:12004
+[Sat Apr 29 2023 04:34:05.858927] d LSUPDATE :12008 6 1 20 {:12002_1} TODO: start time :12002 (:12000,:12010,:12004)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=1
+	[2]	MessageID: :12002_141_1682768045.854077
+	[2]	From: :12002
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 20
+	[2]	
+	[2]	:12000,:12010,:12004
+[Sat Apr 29 2023 04:34:05.859083] d LSUPDATE :12008 6 1 13 {:12004_1} TODO: start time :12004 (:12002,:12006)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=3
+	[2]	MessageID: :12004_13_1682768045.855297
+	[2]	From: :12004
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 13
+	[2]	
+	[2]	:12002,:12006
+[Sat Apr 29 2023 04:34:05.859286] r LSUPDATE :12004 7 1 13 {:12004_1} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:34:05.859341] r LSUPDATE :12008 6 1 13 {:12004_1} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:34:05.859375] r LSUPDATE :12004 7 1 13 {:12004_6} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:34:05.859424] r LSUPDATE :12008 6 1 13 {:12004_6} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:34:05.859534] d LSUPDATE :12008 6 1 13 {:12004_1} TODO: start time :12004 (:12002,:12006)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	353NET/1.0 LSUPDATE
+[Sat Apr 29 2023 04:34:05.859611] d LSUPDATE :12008 6 1 13 {:12004_6} TODO: start time :12004 (:12002,:12006)
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=1
+	[2]	MessageID: :12004_18_1682768045.855824
+	[2]	From: :12004
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 13
+	[2]	
+	[2]	:12002,:12006
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=1
+	[1]	MessageID: :12004_6_1682768045.854700
+	[1]	From: :12004
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12002,:12006
+[Sat Apr 29 2023 04:34:05.859751] r LSUPDATE :12002 7 1 20 {:12002_1} TODO: start time :12002 (:12000,:12010,:12004)
+[Sat Apr 29 2023 04:34:05.859771] r LSUPDATE :12008 6 1 20 {:12002_1} TODO: start time :12002 (:12000,:12010,:12004)
+[Sat Apr 29 2023 04:34:05.859902] r LSUPDATE :12004 7 1 13 {:12004_1} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:34:05.859919] r LSUPDATE :12008 6 1 13 {:12004_1} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:34:05.859943] d LSUPDATE :12008 6 1 20 {:12002_1} TODO: start time :12002 (:12000,:12010,:12004)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12002_146_1682768045.857065
+	[1]	From: :12002
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 20
+	[1]	
+	[1]	:12000,:12010,:12004
+[Sat Apr 29 2023 04:34:05.860009] d LSUPDATE :12008 6 1 13 {:12004_1} TODO: start time :12004 (:12002,:12006)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12004_11_1682768045.855225
+	[1]	From: :12004
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12002,:12006
+[Sat Apr 29 2023 04:34:05.860163] r LSUPDATE :12004 7 1 13 {:12004_2} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:34:05.860180] r LSUPDATE :12008 6 1 13 {:12004_2} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:34:05.860337] r LSUPDATE :12002 7 1 20 {:12002_1} TODO: start time :12002 (:12000,:12010,:12004)
+[Sat Apr 29 2023 04:34:05.860355] r LSUPDATE :12008 6 1 20 {:12002_1} TODO: start time :12002 (:12000,:12010,:12004)
+[Sat Apr 29 2023 04:34:05.860382] d LSUPDATE :12008 6 1 13 {:12004_2} TODO: start time :12004 (:12002,:12006)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=3
+	[2]	MessageID: :12004_23_1682768045.856317
+	[2]	From: :12004
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 13
+	[2]	
+	[2]	:12002,:12006
+[Sat Apr 29 2023 04:34:05.860437] d LSUPDATE :12008 6 1 20 {:12002_1} TODO: start time :12002 (:12000,:12010,:12004)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=3
+	[2]	MessageID: :12002_148_1682768045.857132
+	[2]	From: :12002
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 20
+	[2]	
+	[2]	:12000,:12010,:12004
+[Sat Apr 29 2023 04:34:05.909552] r LSUPDATE :12004 7 1 13 {:12004_1} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:34:05.909747] r LSUPDATE :12008 6 1 13 {:12004_1} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:34:05.909978] d LSUPDATE :12008 6 1 13 {:12004_1} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:34:05.910181] r LSUPDATE :12006 7 1 13 {:12006_1} TODO: start time :12006 (:12008,:12004)
+[Sat Apr 29 2023 04:34:05.910181] r LSUPDATE :12006 7 1 13 {:12006_1} TODO: start time :12006 (:12008,:12004)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+[Sat Apr 29 2023 04:34:05.910232] r LSUPDATE :12008 6 1 13 {:12006_1} TODO: start time :12006 (:12008,:12004)
+	[1]	Flood: 1;reason=1
+	[1]	MessageID: :12004_16_1682768045.855812
+	[1]	From: :12004
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12002,:12006
+[Sat Apr 29 2023 04:34:05.910316] d LSUPDATE :12008 6 1 13 {:12006_1} TODO: start time :12006 (:12008,:12004)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=1
+	[1]	MessageID: :12006_118_1682768045.855405
+	[1]	From: :12006
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12008,:12004
+[Sat Apr 29 2023 04:34:05.910517] r LSUPDATE :12004 7 1 13 {:12004_2} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:34:05.910557] r LSUPDATE :12008 6 1 13 {:12004_2} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:34:05.910928] r LSUPDATE :12006 7 1 13 {:12006_1} TODO: start time :12006 (:12008,:12004)
+[Sat Apr 29 2023 04:34:05.910972] r LSUPDATE :12008 6 1 13 {:12006_1} TODO: start time :12006 (:12008,:12004)
+[Sat Apr 29 2023 04:34:05.911162] d LSUPDATE :12008 6 1 13 {:12004_2} TODO: start time :12004 (:12002,:12006)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12004_21_1682768045.856306
+	[1]	From: :12004
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12002,:12006
+[Sat Apr 29 2023 04:34:05.911307] d LSUPDATE :12008 6 1 13 {:12006_1} TODO: start time :12006 (:12008,:12004)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12006_123_1682768045.856177
+	[1]	From: :12006
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12008,:12004
+[Sat Apr 29 2023 04:34:25.091011] r LSUPDATE :12002 7 1 20 {:12002_1} TODO: start time :12002 (:12000,:12010,:12004)
+[Sat Apr 29 2023 04:34:25.091071] r LSUPDATE :12008 6 1 20 {:12002_1} TODO: start time :12002 (:12000,:12010,:12004)
+[Sat Apr 29 2023 04:34:25.091413] d LSUPDATE :12008 6 1 20 {:12002_1} TODO: start time :12002 (:12000,:12010,:12004)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=2
+	[1]	MessageID: :12002_167_1682768065.089448
+	[1]	From: :12002
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 20
+	[1]	
+	[1]	:12000,:12010,:12004
+[Sat Apr 29 2023 04:34:25.091952] r LSUPDATE :12004 7 1 6 {:12004_4} TODO: start time :12004 (:12006)
+[Sat Apr 29 2023 04:34:25.092028] r LSUPDATE :12008 6 1 6 {:12004_4} TODO: start time :12004 (:12006)
+[Sat Apr 29 2023 04:34:25.092225] d LSUPDATE :12008 6 1 6 {:12004_4} TODO: start time :12004 (:12006)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=2
+[Sat Apr 29 2023 04:34:25.092399] r LSUPDATE :12006 7 1 13 {:12006_1} TODO: start time :12006 (:12008,:12004)
+[Sat Apr 29 2023 04:34:25.092399] r LSUPDATE :12006 7 1 13 {:12006_1} TODO: start time :12006 (:12008,:12004)
+	[2]	MessageID: :12004_42_1682768065.089377
+	[2]	From: :12004
+	[2]	OriginStartTime: TODO: start time
+	[2]	OriginStartTime: TODO: start time
+[Sat Apr 29 2023 04:34:25.092441] r LSUPDATE :12008 6 1 13 {:12006_1} TODO: start time :12006 (:12008,:12004)
+	[2]	Content-Length: 6
+	[2]	
+	[2]	:12006
+[Sat Apr 29 2023 04:34:25.092492] d LSUPDATE :12008 6 1 13 {:12006_1} TODO: start time :12006 (:12008,:12004)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=2
+ 2023 04:34:25.092645] i LSUPDATE :12008 7 1 13 {:12008_1} TODO: start time :12008 (:12006,:12010)
+	[2]	Flood: 1;reason=2
+	[2]	MessageID: :12006_145_1682768065.090844
+	[2]	From: :12006
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 13
+	[2]	
+	[2]	:12008,:12004
+[Sat Apr 29 2023 04:34:25.092763] i LSUPDATE :12008 7 1 13 {:12008_1} TODO: start time :12008 (:12006,:12010)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12008_104_1682768065.092497
+	[1]	From: :12008
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12006,:12010
+[Sat Apr 29 2023 04:34:25.093012] r LSUPDATE :12000 7 1 6 {:12000_1} TODO: start time :12000 (:12002)
+[Sat Apr 29 2023 04:34:25.093062] r LSUPDATE :12008 6 1 6 {:12000_1} TODO: start time :12000 (:12002)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=3
+	[2]	MessageID: :12008_106_1682768065.092575
+	[2]	From: :12008
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 13
+	[2]	
+	[2]	:12006,:12010
+[Sat Apr 29 2023 04:34:25.093363] d LSUPDATE :12008 6 1 6 {:12000_1} TODO: start time :12000 (:12002)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12000_107_1682768065.090377
+	[1]	From: :12000
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 6
+	[1]	
+	[1]	:12002
+[Sat Apr 29 2023 04:34:25.094159] r LSUPDATE :12006 7 1 6 {:12006_1} TODO: start time :12006 (:12008)
+[Sat Apr 29 2023 04:34:25.094226] r LSUPDATE :12008 6 1 6 {:12006_1} TODO: start time :12006 (:12008)
+[Sat Apr 29 2023 04:34:25.094354] d LSUPDATE :12008 6 1 6 {:12006_1} TODO: start time :12006 (:12008)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=3
+	[2]	MessageID: :12006_151_1682768065.093282
+	[2]	From: :12006
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 6
+	[2]	
+	[2]	
+[Sat Apr 29 2023 04:34:25.094451] i LSUPDATE :12008 7 1 13 {:12008_1} TODO: start time :12008 (:12006,:12010)
+	[2]	:12008
+[Sat Apr 29 2023 04:34:25.094515] i LSUPDATE :12008 7 1 13 {:12008_1} TODO: start time :12008 (:12006,:12010)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=3
+	[2]	MessageID: :12008_112_1682768065.094391
+	[2]	From: :12008
+008_112_1682768065.094391
+	[1]	353NET/1.0 LSUPDATE
+	[2]	From: :12008
+	[1]	TTL: 7
+	[2]	OriginStartTime: TODO: start time
+	[1]	Flood: 1;reason=3
+	[2]	Content-Length: 13
+	[1]	MessageID: :12008_110_1682768065.094333
+	[1]	Fr	[1]	From: :12008
+	[1]	OriginStartTime	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12006,:12010
+[Sat Apr 29 2023 04:34:25.141657] r LSUPDATE :12010 7 1 13 {:12010_1} TODO: start time :12010 (:12002,:12008)
+[Sat Apr 29 2023 04:34:25.141723] r LSUPDATE :12008 6 1 13 {:12010_1} TODO: start time :12010 (:12002,:12008)
+[Sat Apr 29 2023 04:34:25.142135] r LSUPDATE :12002 7 1 13 {:12002_1} TODO: start time :12002 (:12000,:12010)
+[Sat Apr 29 2023 04:34:25.142178] r LSUPDATE :12008 6 1 13 {:12002_1} TODO: start time :12002 (:12000,:12010)
+[Sat Apr 29 2023 04:34:25.142282] d LSUPDATE :12008 6 1 13 {:12010_1} TODO: start time :12010 (:12002,:12008)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12010_115_1682768065.139935
+	[1]	From: :12010
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12002,:12008
+[Sat Apr 29 2023 04:34:25.142484] d LSUPDATE :12008 6 1 13 {:12002_1} TODO: start time :12002 (:12000,:12010)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12002_175_1682768065.094458
+	[1]	From: :12002
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12000,:12010
+[Sat Apr 29 2023 04:34:25.142605] i LSUPDATE :12008 7 1 13 {:12008_1} TODO: start time :12008 (:12006,:12010)
+[Sat Apr 29 2023 04:34:25.142611] r LSUPDATE :12010 7 1 13 {:12010_1} TODO: start time :12010 (:12002,:12008)
+[Sat Apr 29 2023 04:34:25.142611] r LSUPDATE :12010 7 1 13 {:12010_1} TODO: start time :12010 (:12002,:12008)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12008_116_1682768065.142234
+	[1]	MessageID: :12008_116_1682768065.142234
+[Sat Apr 29 2023 04:34:25.142660] r LSUPDATE :12008 6 1 13 {:12010_1} TODO: start time :12010 (:12002,:12008)
+	[1]	From: :12008
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12006,:12010
+[Sat Apr 29 2023 04:34:25.142726] i LSUPDATE :12008 7 1 13 {:12008_1} TODO: start time :12008 (:12006,:12010)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=3
+	[2]	MessageID: :12008_118_1682768065.142245
+	[2]	From: :12008
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 13
+	[2]	
+	[2]	:12006,:12010
+[Sat Apr 29 2023 04:34:25.142729] d LSUPDATE :12008 6 1 13 {:12010_1} TODO: start time :12010 (:12002,:12008)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12010_121_1682768065.140699
+	[1]	From: :12010
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12002,:12008
+[Sat Apr 29 2023 04:34:25.143407] r LSUPDATE :12002 7 1 13 {:12002_1} TODO: start time :12002 (:12000,:12010)
+[Sat Apr 29 2023 04:34:25.143458] r LSUPDATE :12008 6 1 13 {:12002_1} TODO: start time :12002 (:12000,:12010)
+[Sat Apr 29 2023 04:34:25.143860] r LSUPDATE :12000 7 1 6 {:12000_1} TODO: start time :12000 (:12002)
+[Sat Apr 29 2023 04:34:25.143910] r LSUPDATE :12008 6 1 6 {:12000_1} TODO: start time :12000 (:12002)
+[Sat Apr 29 2023 04:34:25.144105] d LSUPDATE :12008 6 1 13 {:12002_1} TODO: start time :12002 (:12000,:12010)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12002_182_1682768065.141679
+	[1]	From: :12002
+	[1]	OriginStartTime: TODO: start time
+[Sat Apr 29 2023 04:34:25.144222] r LSUPDATE :12002 7 1 13 {:12002_1} TODO: start time :12002 (:12000,:12010)
+[Sat Apr 29 2023 04:34:25.144222] r LSUPDATE :12002 7 1 13 {:12002_1} TODO: start time :12002 (:12000,:12010)
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12000,:12010
+[Sat Apr 29 2023 04:34:25.144261] r LSUPDATE :12008 6 1 13 {:12002_1} TODO: start time :12002 (:12000,:12010)
+[Sat Apr 29 2023 04:34:25.144275] d LSUPDATE :12008 6 1 6 {:12000_1} TODO: start time :12000 (:12002)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12000_111_1682768065.139973
+	[1]	From: :12000
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 6
+	[1]	
+	[1]	:12002
+[Sat Apr 29 2023 04:34:25.144354] d LSUPDATE :12008 6 1 13 {:12002_1} TODO: start time :12002 (:12000,:12010)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12002_187_1682768065.141918
+	[1]	From: :12002
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12000,:12010
+[Sat Apr 29 2023 04:34:25.144590] r LSUPDATE :12006 7 1 6 {:12006_1} TODO: start time :12006 (:12008)
+[Sat Apr 29 2023 04:34:25.144608] r LSUPDATE :12002 7 1 13 {:12002_1} TODO: start time :12002 (:12000,:12010)
+[Sat Apr 29 2023 04:34:25.144665] r LSUPDATE :12008 6 1 13 {:12002_1} TODO: start time :12002 (:12000,:12010)
+[Sat Apr 29 2023 04:34:25.144611] r LSUPDATE :12008 6 1 6 {:12006_1} TODO: start time :12006 (:12008)
+[Sat Apr 29 2023 04:34:25.144818] d LSUPDATE :12008 6 1 6 {:12006_1} TODO: start time :12006 (:12008)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=3
+	[2]	MessageID: :12006_157_1682768065.143320
+	[2]	From: :12006
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 6
+	[2]	
+	[2]	:12008
+[Sat Apr 29 2023 04:34:25.145111] d LSUPDATE :12008 6 1 13 {:12002_1} TODO: start time :12002 (:12000,:12010)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12002_192_1682768065.142150
+	[1]	From: :12002
+	[1]	OriginStartTime: TODO: start time
+4:25.145243] r LSUPDATE :12000 7 1 6 {:12000_1} TODO: start time :12000 (:12002)
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	
+[Sat Apr 29 2023 04:34:25.145289] r LSUPDATE :12008 6 1 6 {:12000_1} TODO: start time :12000 (:12002)
+	[1]	:12000,:12010
+[Sat Apr 29 2023 04:34:25.145357] d LSUPDATE :12008 6 1 6 {:12000_1} TODO: start time :12000 (:12002)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12000_116_1682768065.142419
+	[1]	From: :12000
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 6
+	[1]	
+	[1]	:12002
+[Sat Apr 29 2023 04:34:25.145599] r LSUPDATE :12000 7 1 6 {:12000_1} TODO: start time :12000 (:12002)
+[Sat Apr 29 2023 04:34:25.145634] r LSUPDATE :12008 6 1 6 {:12000_1} TODO: start time :12000 (:12002)
+[Sat Apr 29 2023 04:34:25.145800] d LSUPDATE :12008 6 1 6 {:12000_1} TODO: start time :12000 (:12002)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12000_119_1682768065.142812
+	[1]	From: :12000
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 6
+	[1]	
+	[1]	:12002
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 1
+	[2]	Flood: 0
+	[2]	MessageID: :12006_168_1682768066.841734
+	[2]	From: :12006
+	[2]	To: :12000
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 44
+	[2]	
+	[2]	353UDT/1.0 PING :12006_166_1682768066.841521
+	[1]	353NET/1.0 UCASTAPP
+	[1]	TTL: 6
+	[1]	Flood: 0
+	[1]	MessageID: :12010_132_1682768066.891084
+	[1]	From: :12010
+	[1]	To: :12006
+	[1]	Next-Layer: 1
+	[1]	Content-Length: 47
+	[1]	
+	[1]	353UDT/1.0 TTLZERO :12006_166_1682768066.841521
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 2
+	[2]	Flood: 0
+	[2]	MessageID: :12006_172_1682768069.943163
+	[2]	From: :12006
+	[2]	To: :12000
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 44
+	[2]	
+	[2]	353UDT/1.0 PING :12006_170_1682768069.942939
+	[1]	353NET/1.0 UCASTAPP
+	[1]	TTL: 5
+	[1]	Flood: 0
+	[1]	MessageID: :12002_201_1682768069.947241
+	[1]	From: :12002
+	[1]	To: :12006
+	[1]	Next-Layer: 1
+	[1]	Content-Length: 47
+	[1]	
+	[1]	353UDT/1.0 TTLZERO :12006_170_1682768069.942939
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 3
+	[2]	Flood: 0
+	[2]	MessageID: :12006_176_1682768073.044209
+	[2]	From: :12006
+	[2]	To: :12000
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 44
+	[2]	
+	[2]	353UDT/1.0 PING :12006_174_1682768073.044018
+	[1]	353NET/1.0 UCASTAPP
+	[1]	TTL: 4
+	[1]	Flood: 0
+	[1]	MessageID: :12000_129_1682768073.092484
+	[1]	From: :12000
+	[1]	To: :12006
+	[1]	Next-Layer: 1
+	[1]	Content-Length: 44
+	[1]	
+	[1]	353UDT/1.0 PONG :12006_174_1682768073.044018
+[Sat Apr 29 2023 04:34:48.381962] r LSUPDATE :12002 7 1 20 {:12002_2} TODO: start time :12002 (:12000,:12010,:12004)
+[Sat Apr 29 2023 04:34:48.382044] r LSUPDATE :12008 6 1 20 {:12002_2} TODO: start time :12002 (:12000,:12010,:12004)
+[Sat Apr 29 2023 04:34:48.382118] r LSUPDATE :12006 7 1 13 {:12006_1} TODO: start time :12006 (:12008,:12004)
+[Sat Apr 29 2023 04:34:48.382173] r LSUPDATE :12008 6 1 13 {:12006_1} TODO: start time :12006 (:12008,:12004)
+[Sat Apr 29 2023 04:34:48.382245] d LSUPDATE :12008 6 1 13 {:12006_1} TODO: start time :12006 (:12008,:12004)
+[Sat Apr 29 2023 04:34:48.382245] d LSUPDATE :12008 6 1 13 {:12006_1} TODO: start time :12006 (:12008,:12004)
+[Sat Apr 29 2023 04:34:48.382225] d LSUPDATE :12008 6 1 20 {:12002_2} TODO: start time :12002 (:12000,:12010,:12004)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	353NET/1.0 LSUPDATE
+	[1]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[1]	TTL: 7
+	[2]	Flood: 1;reason=1
+	[1]	Flood: 1;reason=1
+	[2]	MessageID: :12006_181_1682768088.381318
+	[1]	MessageID: :12002_209_1682768088.380578
+	[2]	From: :12006
+	[1]	From: :12002
+	[2]	OriginStartTime: TODO: start time
+	[1]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 13
+	[1]	Content-Length: 20
+	[2]	
+	[1]	
+	[2]	:12008,:12004
+	[1]	:12000,:12010,:12004
+[Sat Apr 29 2023 04:34:48.385691] r LSUPDATE :12004 7 1 13 {:12004_6} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:34:48.385709] r LSUPDATE :12008 6 1 13 {:12004_6} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:34:48.385760] d LSUPDATE :12008 6 1 13 {:12004_6} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:34:48.385804] i LSUPDATE :12008 7 1 13 {:12008_1} TODO: start time :12008 (:12006,:12010)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=1
+	[1]	MessageID: :12004_6_1682768088.381231
+	[1]	From: :12004
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12002,:12006
+[Sat Apr 29 2023 04:34:48.386113] i LSUPDATE :12008 7 1 13 {:12008_1} TODO: start time :12008 (:12006,:12010)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12008_137_1682768088.385753
+	[1]	From: :12008
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12006,:12010
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=3
+	[2]	MessageID: :12008_139_1682768088.385757
+	[2]	From: :12008
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 13
+	[2]	
+	[2]	:12006,:12010
+[Sat Apr 29 2023 04:34:48.386230] r LSUPDATE :12010 7 1 13 {:12010_1} TODO: start time :12010 (:12002,:12008)
+[Sat Apr 29 2023 04:34:48.386252] r LSUPDATE :12008 6 1 13 {:12010_1} TODO: start time :12010 (:12002,:12008)
+[Sat Apr 29 2023 04:34:48.386354] r LSUPDATE :12004 7 1 13 {:12004_8} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:34:48.386380] r LSUPDATE :12008 6 1 13 {:12004_8} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:34:48.386422] d LSUPDATE :12008 6 1 13 {:12010_1} TODO: start time :12010 (:12002,:12008)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12010_143_1682768088.385667
+	[1]	From: :12010
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12002,:12008
+[Sat Apr 29 2023 04:34:48.386635] r LSUPDATE :12006 7 1 13 {:12006_1} TODO: start time :12006 (:12008,:12004)
+[Sat Apr 29 2023 04:34:48.386686] r LSUPDATE :12008 6 1 13 {:12006_1} TODO: start time :12006 (:12008,:12004)
+[Sat Apr 29 2023 04:34:48.386509] d LSUPDATE :12008 6 1 13 {:12004_8} TODO: start time :12004 (:12002,:12006)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=1
+	[2]	MessageID: :12004_8_1682768088.381339
+	[2]	From: :12004
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 13
+	[2]	
+	[2]	:12002,:12006
+[Sat Apr 29 2023 04:34:48.386824] r LSUPDATE :12004 7 1 13 {:12004_1} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:34:48.386836] d LSUPDATE :12008 6 1 13 {:12006_1} TODO: start time :12006 (:12008,:12004)
+[Sat Apr 29 2023 04:34:48.386836] d LSUPDATE :12008 6 1 13 {:12006_1} TODO: start time :12006 (:12008,:12004)
+[Sat Apr 29 2023 04:34:48.386843] r LSUPDATE :12008 6 1 13 {:12004_1} TODO: start time :12004 (:12002,:12006)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=3
+	[2]	MessageID: :12006_186_1682768088.382617
+	[2]	From: :12006
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 13
+	[2]	
+	[2]	:12008,:12004
+[Sat Apr 29 2023 04:34:48.386893] d LSUPDATE :12008 6 1 13 {:12004_1} TODO: start time :12004 (:12002,:12006)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=1
+	[2]	MessageID: :12004_13_1682768088.381807
+	[2]	From: :12004
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 13
+	[2]	Content-Length: 13
+[Sat Apr 29 2023 04:34:48.386968] r LSUPDATE :12002 7 1 20 {:12002_2} TODO: start time :12002 (:12000,:12010,:12004)
+	[2]	
+	[2]	:12002,:12006
+[Sat Apr 29 2023 04:34:48.387105] r LSUPDATE :12008 6 1 20 {:12002_2} TODO: start time :12002 (:12000,:12010,:12004)
+[Sat Apr 29 2023 04:34:48.387139] d LSUPDATE :12008 6 1 20 {:12002_2} TODO: start time :12002 (:12000,:12010,:12004)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=1
+	[2]	MessageID: :12002_211_1682768088.380649
+	[2]	From: :12002
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 20
+	[2]	
+	[2]	:12000,:12010,:12004
+[Sat Apr 29 2023 04:34:48.387235] r LSUPDATE :12004 7 1 13 {:12004_1} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:34:48.387252] r LSUPDATE :12008 6 1 13 {:12004_1} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:34:48.387288] d LSUPDATE :12008 6 1 13 {:12004_1} TODO: start time :12004 (:12002,:12006)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=3
+	[2]	MessageID: :12004_18_1682768088.382156
+	[2]	From: :12004
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 13
+	[2]	
+	[2]	:12002,:12006
+[Sat Apr 29 2023 04:34:48.387377] r LSUPDATE :12004 7 1 13 {:12004_2} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:34:48.387397] r LSUPDATE :12008 6 1 13 {:12004_2} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:34:48.387473] r LSUPDATE :12002 7 1 20 {:12002_2} TODO: start time :12002 (:12000,:12010,:12004)
+[Sat Apr 29 2023 04:34:48.387481] r LSUPDATE :12008 6 1 20 {:12002_2} TODO: start time :12002 (:12000,:12010,:12004)
+[Sat Apr 29 2023 04:34:48.387549] r LSUPDATE :12000 7 1 6 {:12000_1} TODO: start time :12000 (:12002)
+[Sat Apr 29 2023 04:34:48.387557] r LSUPDATE :12008 6 1 6 {:12000_1} TODO: start time :12000 (:12002)
+[Sat Apr 29 2023 04:34:48.387624] r LSUPDATE :12004 7 1 13 {:12004_3} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:34:48.387632] r LSUPDATE :12008 6 1 13 {:12004_3} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:34:48.387648] d LSUPDATE :12008 6 1 13 {:12004_2} TODO: start time :12004 (:12002,:12006)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=3
+	[2]	MessageID: :12004_23_1682768088.382361
+	[2]	From: :12004
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 13
+	[2]	
+	[2]	:12002,:12006
+[Sat Apr 29 2023 04:34:48.387709] d LSUPDATE :12008 6 1 20 {:12002_2} TODO: start time :12002 (:12000,:12010,:12004)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=3
+	[2]	MessageID: :12002_218_1682768088.382695
+	[2]	From: :12002
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 20
+	[2]	
+	[2]	:12000,:12010,:12004
+[Sat Apr 29 2023 04:34:48.387771] d LSUPDATE :12008 6 1 6 {:12000_1} TODO: start time :12000 (:12002)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=3
+	[2]	MessageID: :12000_133_1682768088.382811
+	[2]	From: :12000
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 6
+	[2]	
+	[2]	:12002
+[Sat Apr 29 2023 04:34:48.387817] d LSUPDATE :12008 6 1 13 {:12004_3} TODO: start time :12004 (:12002,:12006)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=3
+	[2]	MessageID: :12004_32_1682768088.384928
+	[2]	From: :12004
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 13
+	[2]	
+	[2]	:12002,:12006
+[Sat Apr 29 2023 04:34:48.387957] r LSUPDATE :12002 7 1 20 {:12002_2} TODO: start time :12002 (:12000,:12010,:12004)
+[Sat Apr 29 2023 04:34:48.387977] r LSUPDATE :12008 6 1 20 {:12002_2} TODO: start time :12002 (:12000,:12010,:12004)
+[Sat Apr 29 2023 04:34:48.388078] d LSUPDATE :12008 6 1 20 {:12002_2} TODO: start time :12002 (:12000,:12010,:12004)
+[Sat Apr 29 2023 04:34:48.388171] r LSUPDATE :12004 7 1 13 {:12004_1} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:34:48.388232] r LSUPDATE :12008 6 1 13 {:12004_1} TODO: start time :12004 (:12002,:12006)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12002_216_1682768088.382683
+	[1]	From: :12002
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 20
+	[1]	
+	[1]	:12000,:12010,:12004
+[Sat Apr 29 2023 04:34:48.388377] d LSUPDATE :12008 6 1 13 {:12004_1} TODO: start time :12004 (:12002,:12006)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=1
+	[1]	MessageID: :12004_11_1682768088.381782
+	[1]	From: :12004
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12002,:12006
+[Sat Apr 29 2023 04:34:48.388576] r LSUPDATE :12004 7 1 13 {:12004_1} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:34:48.388618] r LSUPDATE :12008 6 1 13 {:12004_1} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:34:48.388961] r LSUPDATE :12000 7 1 6 {:12000_1} TODO: start time :12000 (:12002)
+[Sat Apr 29 2023 04:34:48.389004] r LSUPDATE :12008 6 1 6 {:12000_1} TODO: start time :12000 (:12002)
+[Sat Apr 29 2023 04:34:48.389289] r LSUPDATE :12006 7 1 13 {:12006_1} TODO: start time :12006 (:12008,:12004)
+[Sat Apr 29 2023 04:34:48.389326] r LSUPDATE :12008 6 1 13 {:12006_1} TODO: start time :12006 (:12008,:12004)
+[Sat Apr 29 2023 04:34:48.389696] r LSUPDATE :12004 7 1 13 {:12004_2} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:34:48.389747] r LSUPDATE :12008 6 1 13 {:12004_2} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:34:48.389860] r LSUPDATE :12010 7 1 13 {:12010_1} TODO: start time :12010 (:12002,:12008)
+[Sat Apr 29 2023 04:34:48.389920] r LSUPDATE :12008 6 1 13 {:12010_1} TODO: start time :12010 (:12002,:12008)
+[Sat Apr 29 2023 04:34:48.389920] r LSUPDATE :12008 6 1 13 {:12010_1} TODO: start time :12010 (:12002,:12008)
+[Sat Apr 29 2023 04:34:48.389962] d LSUPDATE :12008 6 1 13 {:12004_1} TODO: start time :12004 (:12002,:12006)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+[Sat Apr 29 2023 04:34:48.390034] d LSUPDATE :12008 6 1 13 {:12010_1} TODO: start time :12010 (:12002,:12008)
+[Sat Apr 29 2023 04:34:48.390034] d LSUPDATE :12008 6 1 13 {:12010_1} TODO: start time :12010 (:12002,:12008)
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12004_16_1682768088.382135
+	[1]	From: :12004
+004_16_1682768088.382135
+[Sat Apr 29 2023 04:34:48.390065] r LSUPDATE :12006 7 1 13 {:12006_1} TODO: start time :12006 (:12008,:12004)
+	[1]	From: :12004
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+[Sat Apr 29 2023 04:34:48.390101] r LSUPDATE :12008 6 1 13 {:12006_1} TODO: start time :12006 (:12008,:12004)
+[Sat Apr 29 2023 04:34:48.390101] r LSUPDATE :12008 6 1 13 {:12006_1} TODO: start time :12006 (:12008,:12004)
+	[1]	
+	[1]	:12002,:12006
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=3
+	[2]	Flood: 1;reason=3
+[Sat Apr 29 2023 04:34:48.390141] d LSUPDATE :12008 6 1 13 {:12006_1} TODO: start time :12006 (:12008,:12004)
+	[2]	MessageID: :12010_141_1682768088.385456
+	[2]	From: :12010
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 13
+	[2]	Content-Length: 13
+	[1]	353NET/1.0 LSUPDATE
+	[2]	
+	[1]	TTL: 7
+	[2]	:12002,:12008
+	[1]	Flood: 1;reason=1
+	[1]	MessageID: :12006_183_1682768088.381416
+	[1]	From: :12006
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12008,:12004
+[Sat Apr 29 2023 04:34:48.390273] d LSUPDATE :12008 6 1 13 {:12004_2} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:34:48.390368] r LSUPDATE :12004 7 1 13 {:12004_3} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:34:48.390404] r LSUPDATE :12008 6 1 13 {:12004_3} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:34:48.390477] r LSUPDATE :12004 7 1 13 {:12004_3} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:34:48.390531] r LSUPDATE :12008 6 1 13 {:12004_3} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:34:48.390677] r LSUPDATE :12004 7 1 13 {:12004_3} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:34:48.390712] r LSUPDATE :12008 6 1 13 {:12004_3} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:34:48.390834] r LSUPDATE :12008 7 1 13 {:12008_1} TODO: start time :12008 (:12006,:12010)
+[Sat Apr 29 2023 04:34:48.390886] r LSUPDATE :12008 6 1 13 {:12008_1} TODO: start time :12008 (:12006,:12010)
+[Sat Apr 29 2023 04:34:48.390980] r LSUPDATE :12004 7 1 13 {:12004_4} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:34:48.391017] r LSUPDATE :12008 6 1 13 {:12004_4} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:34:48.391151] r LSUPDATE :12004 7 1 13 {:12004_4} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:34:48.391193] r LSUPDATE :12008 6 1 13 {:12004_4} TODO: start time :12004 (:12002,:12006)
+[Sat Apr 29 2023 04:34:48.391227] d LSUPDATE :12008 6 1 13 {:12004_3} TODO: start time :12004 (:12002,:12006)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=3
+	[2]	MessageID: :12004_37_1682768088.386606
+	[2]	From: :12004
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 13
+	[2]	
+	[2]	:12002,:12006
+[Sat Apr 29 2023 04:34:48.391304] d LSUPDATE :12008 6 1 13 {:12004_4} TODO: start time :12004 (:12002,:12006)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=3
+	[2]	MessageID: :12004_43_1682768088.386989
+	[2]	From: :12004
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 13
+	[2]	
+	[2]	:12002,:12006
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12004_21_1682768088.382351
+	[1]	From: :12004
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12002,:12006
+[Sat Apr 29 2023 04:34:48.391451] d LSUPDATE :12008 6 1 13 {:12006_1} TODO: start time :12006 (:12008,:12004)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12006_188_1682768088.382628
+	[1]	From: :12006
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12008,:12004
+[Sat Apr 29 2023 04:34:48.391517] d LSUPDATE :12008 6 1 13 {:12004_3} TODO: start time :12004 (:12002,:12006)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12004_30_1682768088.384920
+	[1]	From: :12004
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12002,:12006
+[Sat Apr 29 2023 04:34:48.391587] d LSUPDATE :12008 6 1 13 {:12004_3} TODO: start time :12004 (:12002,:12006)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12004_35_1682768088.386600
+	[1]	From: :12004
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12002,:12006
+[Sat Apr 29 2023 04:34:48.391651] d LSUPDATE :12008 6 1 13 {:12004_4} TODO: start time :12004 (:12002,:12006)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12004_41_1682768088.386981
+	[1]	From: :12004
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12002,:12006
+[Sat Apr 29 2023 04:34:48.439311] r LSUPDATE :12008 7 1 13 {:12008_1} TODO: start time :12008 (:12006,:12010)
+[Sat Apr 29 2023 04:34:48.439500] r LSUPDATE :12008 6 1 13 {:12008_1} TODO: start time :12008 (:12006,:12010)
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 7
+	[2]	Flood: 0
+	[2]	MessageID: :12008_167_1682768161.296196
+	[2]	From: :12008
+	[2]	To: :12002
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 44
+	[2]	
+	[2]	353UDT/1.0 PONG :12002_259_1682768161.293226
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 7
+	[2]	Flood: 0
+	[2]	MessageID: :12008_170_1682768163.912276
+	[2]	From: :12008
+	[2]	To: :12000
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 44
+	[2]	
+	[2]	353UDT/1.0 PONG :12000_167_1682768163.907749
+[Sat Apr 29 2023 04:36:28.049506] r LSUPDATE :12004 7 1 6 {:12004_7} TODO: start time :12004 (:12006)
+[Sat Apr 29 2023 04:36:28.049806] r LSUPDATE :12008 6 1 6 {:12004_7} TODO: start time :12004 (:12006)
+[Sat Apr 29 2023 04:36:28.050084] d LSUPDATE :12008 6 1 6 {:12004_7} TODO: start time :12004 (:12006)
+[Sat Apr 29 2023 04:36:28.050285] r LSUPDATE :12006 7 1 13 {:12006_2} TODO: start time :12006 (:12008,:12004)
+[Sat Apr 29 2023 04:36:28.050337] r LSUPDATE :12008 6 1 13 {:12006_2} TODO: start time :12006 (:12008,:12004)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=2
+	[2]	Flood: 1;reason=2
+[Sat Apr 29 2023 04:36:28.050597] i LSUPDATE :12008 7 1 13 {:12008_1} TODO: start time :12008 (:12006,:12010)
+	[2]	MessageID: :12004_79_1682768188.004866
+	[2]	From: :12004
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 6
+	[2]	
+	[2]	:12006
+[Sat Apr 29 2023 04:36:28.050835] d LSUPDATE :12008 6 1 13 {:12006_2} TODO: start time :12006 (:12008,:12004)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=2
+	[2]	MessageID: :12006_245_1682768188.006193
+	[2]	From: :12006
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 13
+	[2]	
+ntent-Length: 13
+	[1]	353NET/1.0 LSUPDATE
+	[2]	
+	[1]	TTL: 7
+	[2]	:12008,:12004
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12008_174_1682768188.050409
+	[1]	From: :12008
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	Content-Length: 13
+[Sat Apr 29 2023 04:36:28.051024] i LSUPDATE :12008 7 1 13 {:12008_1} TODO: start time :12008 (:12006,:12010)
+	[1]	
+	[1]	:12006,:12010
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=3
+	[2]	MessageID: :12008_176_1682768188.050504
+	[2]	From: :12008
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 13
+	[2]	
+	[2]	:12006,:12010
+[Sat Apr 29 2023 04:36:28.052634] r LSUPDATE :12006 7 1 6 {:12006_2} TODO: start time :12006 (:12008)
+[Sat Apr 29 2023 04:36:28.052679] r LSUPDATE :12008 6 1 6 {:12006_2} TODO: start time :12006 (:12008)
+[Sat Apr 29 2023 04:36:28.052762] d LSUPDATE :12008 6 1 6 {:12006_2} TODO: start time :12006 (:12008)
+[Sat Apr 29 2023 04:36:28.052792] i LSUPDATE :12008 7 1 13 {:12008_1} TODO: start time :12008 (:12006,:12010)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12008_179_1682768188.052742
+	[1]	From: :12008
+	[1]	From: :12008
+	[2]	353NET/1.0 LSUPDATE
+	[1]	OriginStartTime: TODO: start time
+	[2]	TTL: 7
+	[1]	Content-Length: 13
+	[2]	Flood: 1;reason=3
+	[1]	
+	[2]	MessageID: :12006_250_1682768188.051585
+	[1]	:12006,:12010
+	[2]	From: :12006
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 6
+	[2]	
+	[2]	:12008
+[Sat Apr 29 2023 04:36:28.053062] i LSUPDATE :12008 7 1 13 {:12008_1} TODO: start time :12008 (:12006,:12010)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=3
+	[2]	MessageID: :12008_181_1682768188.052757
+	[2]	From: :12008
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 13
+	[2]	
+	[2]	:12006,:12010
+[Sat Apr 29 2023 04:36:28.053693] r LSUPDATE :12002 7 1 20 {:12002_2} TODO: start time :12002 (:12000,:12010,:12004)
+[Sat Apr 29 2023 04:36:28.053754] r LSUPDATE :12008 6 1 20 {:12002_2} TODO: start time :12002 (:12000,:12010,:12004)
+[Sat Apr 29 2023 04:36:28.054099] d LSUPDATE :12008 6 1 20 {:12002_2} TODO: start time :12002 (:12000,:12010,:12004)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+[Sat Apr 29 2023 04:36:28.054213] r LSUPDATE :12000 7 1 6 {:12000_1} TODO: start time :12000 (:12002)
+	[1]	Flood: 1;reason=2
+	[1]	MessageID: :12002_273_1682768188.004923
+12000 7 1 6 {:12000_1} TODO: start time :12000 (:12002)
+	[1]	MessageID: :12002_273_1682768188.004923
+	[1]	From: :12002
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 20
+	[1]	
+	[1]	:12000,:12010,:12004
+36:28.054266] r LSUPDATE :12008 6 1 6 {:12000_1} TODO: start time :12000 (:12002)
+	[1]	:12000,:12010,:12004
+[Sat Apr 29 2023 04:36:28.054314] d LSUPDATE :12008 6 1 6 {:12000_1} TODO: start time :12000 (:12002)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12000_176_1682768188.006081
+	[1]	From: :12000
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 6
+	[1]	
+	[1]	:12002
+[Sat Apr 29 2023 04:36:28.054867] r LSUPDATE :12010 7 1 13 {:12010_1} TODO: start time :12010 (:12002,:12008)
+[Sat Apr 29 2023 04:36:28.054942] r LSUPDATE :12008 6 1 13 {:12010_1} TODO: start time :12010 (:12002,:12008)
+[Sat Apr 29 2023 04:36:28.055004] d LSUPDATE :12008 6 1 13 {:12010_1} TODO: start time :12010 (:12002,:12008)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12010_188_1682768188.053895
+	[1]	From: :12010
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12002,:12008
+[Sat Apr 29 2023 04:36:28.055420] r LSUPDATE :12002 7 1 13 {:12002_2} TODO: start time :12002 (:12000,:12010)
+[Sat Apr 29 2023 04:36:28.055459] r LSUPDATE :12008 6 1 13 {:12002_2} TODO: start time :12002 (:12000,:12010)
+[Sat Apr 29 2023 04:36:28.055520] d LSUPDATE :12008 6 1 13 {:12002_2} TODO: start time :12002 (:12000,:12010)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12002_281_1682768188.052279
+	[1]	From: :12002
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12000,:12010
+[Sat Apr 29 2023 04:36:28.055694] i LSUPDATE :12008 7 1 13 {:12008_1} TODO: start time :12008 (:12006,:12010)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12008_187_1682768188.055514
+	[1]	From: :12008
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12006,:12010
+[Sat Apr 29 2023 04:36:28.055798] i LSUPDATE :12008 7 1 13 {:12008_1} TODO: start time :12008 (:12006,:12010)
+[Sat Apr 29 2023 04:36:28.055880] r LSUPDATE :12010 7 1 13 {:12010_1} TODO: start time :12010 (:12002,:12008)
+[Sat Apr 29 2023 04:36:28.055925] r LSUPDATE :12008 6 1 13 {:12010_1} TODO: start time :12010 (:12002,:12008)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=3
+	[2]	MessageID: :12008_189_1682768188.055524
+	[2]	From: :12008
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 13
+[Sat Apr 29 2023 04:36:28.055980] d LSUPDATE :12008 6 1 13 {:12010_1} TODO: start time :12010 (:12002,:12008)
+[Sat Apr 29 2023 04:36:28.055980] d LSUPDATE :12008 6 1 13 {:12010_1} TODO: start time :12010 (:12002,:12008)
+	[2]	
+	[2]	:12006,:12010
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12010_194_1682768188.054943
+	[1]	From: :12010
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12002,:12008
+[Sat Apr 29 2023 04:36:28.056821] r LSUPDATE :12002 7 1 13 {:12002_2} TODO: start time :12002 (:12000,:12010)
+[Sat Apr 29 2023 04:36:28.056870] r LSUPDATE :12008 6 1 13 {:12002_2} TODO: start time :12002 (:12000,:12010)
+[Sat Apr 29 2023 04:36:28.057052] d LSUPDATE :12008 6 1 13 {:12002_2} TODO: start time :12002 (:12000,:12010)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12002_288_1682768188.054948
+	[1]	From: :12002
+	[1]	OriginStartTime: TODO: start time
+6:28.057054] r LSUPDATE :12006 7 1 6 {:12006_2} TODO: start time :12006 (:12008)
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+[Sat Apr 29 2023 04:36:28.057266] r LSUPDATE :12008 6 1 6 {:12006_2} TODO: start time :12006 (:12008)
+[Sat Apr 29 2023 04:36:28.057266] r LSUPDATE :12008 6 1 6 {:12006_2} TODO: start time :12006 (:12008)
+	[1]	:12000,:12010
+[Sat Apr 29 2023 04:36:28.057395] d LSUPDATE :12008 6 1 6 {:12006_2} TODO: start time :12006 (:12008)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=3
+	[2]	MessageID: :12006_257_1682768188.056192
+	[2]	From: :12006
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 6
+	[2]	
+	[2]	:12008
+[Sat Apr 29 2023 04:36:28.057560] i LSUPDATE :12008 7 1 13 {:12008_1} TODO: start time :12008 (:12006,:12010)
+[Sat Apr 29 2023 04:36:28.057597] r LSUPDATE :12006 7 1 6 {:12006_2} TODO: start time :12006 (:12008)
+[Sat Apr 29 2023 04:36:28.057635] r LSUPDATE :12008 6 1 6 {:12006_2} TODO: start time :12006 (:12008)
+[Sat Apr 29 2023 04:36:28.057645] i LSUPDATE :12008 7 1 13 {:12008_1} TODO: start time :12008 (:12006,:12010)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=3
+	[2]	MessageID: :12008_196_1682768188.057429
+	[2]	From: :12008
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 13
+	[2]	
+ntent-Length: 13
+	[1]	353NET/1.0 LSUPDATE
+	[2]	
+	[1]	TTL: 7
+	[2]	:12006,:12010
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12008_194_1682768188.057365
+	[1]	From: :12008
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12006,:12010
+	[1]	:12006,:12010
+[Sat Apr 29 2023 04:36:28.057845] d LSUPDATE :12008 6 1 6 {:12006_2} TODO: start time :12006 (:12008)
+[Sat Apr 29 2023 04:36:28.057869] r LSUPDATE :12002 7 1 13 {:12002_2} TODO: start time :12002 (:12000,:12010)
+	[2]	353NET/1.0 LSUPDATE
+	[2]	TTL: 7
+	[2]	TTL: 7
+[Sat Apr 29 2023 04:36:28.057909] r LSUPDATE :12008 6 1 13 {:12002_2} TODO: start time :12002 (:12000,:12010)
+	[2]	Flood: 1;reason=3
+	[2]	MessageID: :12006_260_1682768188.056765
+	[2]	From: :12006
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 6
+	[2]	
+	[2]	:12008
+[Sat Apr 29 2023 04:36:28.058048] d LSUPDATE :12008 6 1 13 {:12002_2} TODO: start time :12002 (:12000,:12010)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12002_293_1682768188.055564
+	[1]	From: :12002
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12000,:12010
+[Sat Apr 29 2023 04:36:28.150251] r LSUPDATE :12000 7 1 6 {:12000_1} TODO: start time :12000 (:12002)
+[Sat Apr 29 2023 04:36:28.150303] r LSUPDATE :12008 6 1 6 {:12000_1} TODO: start time :12000 (:12002)
+[Sat Apr 29 2023 04:36:28.150632] d LSUPDATE :12008 6 1 6 {:12000_1} TODO: start time :12000 (:12002)
+[Sat Apr 29 2023 04:36:28.150713] r LSUPDATE :12002 7 1 13 {:12002_3} TODO: start time :12002 (:12000,:12010)
+[Sat Apr 29 2023 04:36:28.150768] r LSUPDATE :12008 6 1 13 {:12002_3} TODO: start time :12002 (:12000,:12010)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12000_180_1682768188.099966
+	[1]	From: :12000
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 6
+	[1]	
+	[1]	:12002
+[Sat Apr 29 2023 04:36:28.150878] d LSUPDATE :12008 6 1 13 {:12002_3} TODO: start time :12002 (:12000,:12010)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12002_304_1682768188.101280
+	[1]	From: :12002
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12000,:12010
+[Sat Apr 29 2023 04:36:28.151091] r LSUPDATE :12000 7 1 6 {:12000_1} TODO: start time :12000 (:12002)
+[Sat Apr 29 2023 04:36:28.151139] r LSUPDATE :12008 6 1 6 {:12000_1} TODO: start time :12000 (:12002)
+[Sat Apr 29 2023 04:36:28.151289] d LSUPDATE :12008 6 1 6 {:12000_1} TODO: start time :12000 (:12002)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12000_185_1682768188.101701
+	[1]	From: :12000
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 6
+	[1]	
+	[1]	:12002
+[Sat Apr 29 2023 04:36:28.151486] r LSUPDATE :12000 7 1 6 {:12000_1} TODO: start time :12000 (:12002)
+[Sat Apr 29 2023 04:36:28.151536] r LSUPDATE :12008 6 1 6 {:12000_1} TODO: start time :12000 (:12002)
+[Sat Apr 29 2023 04:36:28.151685] d LSUPDATE :12008 6 1 6 {:12000_1} TODO: start time :12000 (:12002)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=3
+	[1]	MessageID: :12000_188_1682768188.102375
+	[1]	From: :12000
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 6
+	[1]	
+	[1]	:12002
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 1
+	[2]	Flood: 0
+	[2]	MessageID: :12006_271_1682768190.138400
+	[2]	From: :12006
+	[2]	To: :12000
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 44
+	[2]	
+	[2]	353UDT/1.0 PING :12006_269_1682768190.138216
+	[1]	353NET/1.0 UCASTAPP
+	[1]	TTL: 6
+	[1]	Flood: 0
+	[1]	MessageID: :12010_207_1682768190.141177
+	[1]	From: :12010
+	[1]	To: :12006
+	[1]	Next-Layer: 1
+	[1]	Content-Length: 47
+	[1]	
+	[1]	353UDT/1.0 TTLZERO :12006_269_1682768190.138216
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 2
+	[2]	Flood: 0
+	[2]	MessageID: :12006_275_1682768193.239610
+	[2]	From: :12006
+	[2]	To: :12000
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 44
+	[2]	
+	[2]	353UDT/1.0 PING :12006_273_1682768193.239418
+	[1]	353NET/1.0 UCASTAPP
+	[1]	TTL: 5
+	[1]	Flood: 0
+	[1]	MessageID: :12002_312_1682768193.291448
+	[1]	From: :12002
+	[1]	To: :12006
+	[1]	Next-Layer: 1
+	[1]	Content-Length: 47
+	[1]	
+	[1]	353UDT/1.0 TTLZERO :12006_273_1682768193.239418
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 3
+	[2]	Flood: 0
+	[2]	MessageID: :12006_279_1682768196.340696
+	[2]	From: :12006
+	[2]	To: :12000
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 44
+	[2]	
+	[2]	353UDT/1.0 PING :12006_277_1682768196.340475
+	[1]	353NET/1.0 UCASTAPP
+	[1]	TTL: 4
+	[1]	Flood: 0
+	[1]	MessageID: :12000_208_1682768196.344116
+	[1]	From: :12000
+	[1]	To: :12006
+	[1]	Next-Layer: 1
+	[1]	Content-Length: 44
+	[1]	
+	[1]	353UDT/1.0 PONG :12006_277_1682768196.340475
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 7
+	[2]	Flood: 0
+	[2]	MessageID: :12008_211_1682768198.821527
+	[2]	From: :12008
+	[2]	To: :12000
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 47
+	[2]	
+	[2]	353UDT/1.0 TTLZERO :12000_209_1682768198.816973
+	[1]	353NET/1.0 UCASTAPP
+	[1]	TTL: 1
+	[1]	Flood: 0
+	[1]	MessageID: :12000_215_1682768201.917914
+	[1]	From: :12000
+	[1]	To: :12006
+	[1]	Next-Layer: 1
+	[1]	Content-Length: 44
+	[1]	
+	[1]	353UDT/1.0 PING :12000_213_1682768201.917753
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 6
+	[2]	Flood: 0
+	[2]	MessageID: :12006_283_1682768201.970925
+	[2]	From: :12006
+	[2]	To: :12000
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 44
+	[2]	
+	[2]	353UDT/1.0 PONG :12000_213_1682768201.917753
+[Sat Apr 29 2023 04:36:55.799056] r LSUPDATE :12002 7 1 13 {:12002_3} TODO: start time :12002 (:12000,:12010)
+[Sat Apr 29 2023 04:36:55.799172] r LSUPDATE :12008 6 1 13 {:12002_3} TODO: start time :12002 (:12000,:12010)
+[Sat Apr 29 2023 04:36:55.799415] d LSUPDATE :12008 6 1 13 {:12002_3} TODO: start time :12002 (:12000,:12010)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=2
+	[1]	MessageID: :12002_324_1682768215.797346
+	[1]	From: :12002
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12000,:12010
+[Sat Apr 29 2023 04:36:57.240164] r LSUPDATE :12010 7 1 13 {:12010_2} TODO: start time :12010 (:12002,:12008)
+[Sat Apr 29 2023 04:36:57.240213] r LSUPDATE :12008 6 1 13 {:12010_2} TODO: start time :12010 (:12002,:12008)
+[Sat Apr 29 2023 04:36:57.240340] d LSUPDATE :12008 6 1 13 {:12010_2} TODO: start time :12010 (:12002,:12008)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=2
+	[1]	MessageID: :12010_223_1682768217.239561
+	[1]	From: :12010
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12002,:12008
+[Sat Apr 29 2023 04:37:00.492220] i LSUPDATE :12008 7 1 13 {:12008_2} TODO: start time :12008 (:12006,:12010)
+[Sat Apr 29 2023 04:37:00.492220] i LSUPDATE :12008 7 1 13 {:12008_2} TODO: start time :12008 (:12006,:12010)
+[Sat Apr 29 2023 04:37:00.492298] i LSUPDATE :12008 7 1 13 {:12008_2} TODO: start time :12008 (:12006,:12010)
+	[1]	353NET/1.0 LSUPDATE
+	[1]	TTL: 7
+	[1]	Flood: 1;reason=2
+	[1]	MessageID: :12008_217_1682768220.492102
+	[1]	From: :12008
+	[1]	OriginStartTime: TODO: start time
+	[1]	Content-Length: 13
+	[1]	
+	[1]	:12006,:12010
+	[2]	353NET/1.0 LSUPDATE
+	[2]	353NET/1.0 LSUPDATE
+[Sat Apr 29 2023 04:37:00.492614] Socket-writing thread has terminated
+	[2]	TTL: 7
+	[2]	Flood: 1;reason=2
+	[2]	MessageID: :12008_219_1682768220.492183
+	[2]	From: :12008
+	[2]	OriginStartTime: TODO: start time
+	[2]	Content-Length: 13
+	[2]	
+	[2]	:12006,:12010
+[Sat Apr 29 2023 04:37:00.493085] Socket-reading thread has joined with socket-writing thread
+[Sat Apr 29 2023 04:37:01.766715] Socket-writing thread has terminated
+[Sat Apr 29 2023 04:37:01.767131] Socket-reading thread has joined with socket-writing thread
+[Sat Apr 29 2023 04:37:01.767193] Reaper has joined with connection thread.
+[Sat Apr 29 2023 04:37:03.963789] STOP: port=12008
