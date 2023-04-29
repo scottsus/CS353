@@ -8,6 +8,8 @@
 #include <unistd.h>
 
 #include "my_p2p.h"
+#include "my_echoclient.h"
+#include "my_echoserver.h"
 #include "my_timer.h"
 #include "my_rdtstate.h"
 #include "my_reaper.h"
@@ -122,13 +124,13 @@ void await_p2p_request(string nodeid, int neighbor_socketfd, shared_ptr<Connecti
                 {
                     string src_nodeid = message->get_origin_nodeid();
                     int initial_seq_num = rdt_message->get_seq_num();
-                    int initial_app_num = rdt_message->get_app_num();
+                    int app_num = rdt_message->get_app_num();
 
-                    shared_ptr<RDTState> session = sessions[src_nodeid];
+                    shared_ptr<RDTState> session = sessions[src_nodeid][to_string(app_num)];
                     if (session == NULL)
                     {
-                        session = make_shared<RDTState>(RDTState(src_nodeid, initial_seq_num, initial_app_num, "", ""));
-                        sessions[src_nodeid] = session;
+                        session = make_shared<RDTState>(RDTState(src_nodeid, initial_seq_num, app_num, "", ""));
+                        sessions[src_nodeid][to_string(app_num)] = session;
                     }
 
                     mut.lock();
@@ -140,7 +142,7 @@ void await_p2p_request(string nodeid, int neighbor_socketfd, shared_ptr<Connecti
                         continue;
 
                     shared_ptr<Connection> next_hop_conn = find_conn(next_hop->get_nodeid(), conns);
-                    shared_ptr<UCASTAPPMessage> ucastapp_ack_message = make_shared<UCASTAPPMessage>(UCASTAPPMessage(max_ttl, "", nodeid, src_nodeid, 1, initial_seq_num, initial_app_num, ""));
+                    shared_ptr<UCASTAPPMessage> ucastapp_ack_message = make_shared<UCASTAPPMessage>(UCASTAPPMessage(max_ttl, "", nodeid, src_nodeid, 1, initial_seq_num, app_num, ""));
 
                     bool is_done_receiving = false;
                     while (true)
@@ -150,9 +152,9 @@ void await_p2p_request(string nodeid, int neighbor_socketfd, shared_ptr<Connecti
                             // Let the sender thread handle the ACKs
                             send_to_timer_q(make_shared<Event>(Event("RDTACK", rdt_message)));
                         }
-
                         else
                         {
+
                             if (rdt_message->get_seq_num() == session->get_seq_num())
                             {
                                 string data = rdt_message->get_rdt_message_body();
@@ -181,12 +183,31 @@ void await_p2p_request(string nodeid, int neighbor_socketfd, shared_ptr<Connecti
                             break;
 
                         rdt_message = make_shared<RDTMessage>(RDTMessage(message->get_message_body()));
+
+                        session = sessions[src_nodeid][to_string(rdt_message->get_app_num())];
+                        if (session == NULL)
+                        {
+                            session = make_shared<RDTState>(RDTState(src_nodeid, initial_seq_num, app_num, "", ""));
+                            sessions[src_nodeid][to_string(rdt_message->get_app_num())] = session;
+                        }
                     }
 
                     if (is_done_receiving)
                     {
-                        sessions.erase(src_nodeid);
-                        cout << "RDT message '" << session->get_message_received() << "' received from " << src_nodeid << endl;
+                        string message_received = session->get_message_received();
+
+                        if (rdt_message->get_app_num() == 98)
+
+                            send_to_echoserver(make_shared<EchoJob>(EchoJob(next_hop_conn, src_nodeid, 99, message_received)));
+
+                        else if (rdt_message->get_app_num() == 99)
+                            send_to_echoclient(message_received);
+
+                        map<string, shared_ptr<RDTState>> session = sessions[src_nodeid];
+                        sessions[src_nodeid].erase(to_string(rdt_message->get_app_num()));
+
+                        if (session.empty())
+                            sessions.erase(src_nodeid);
                     }
                 }
                 else if (rdt_message->get_type() == "RDTACK")
@@ -431,44 +452,6 @@ void write_LSUPDATE(shared_ptr<Connection> conn, shared_ptr<LSUPDATEMessage> mes
     log_header(h8, conn_number);
     log_header(h9 + "\r\n", conn_number);
 }
-
-// void write_UCASTAPP(shared_ptr<Connection> conn, shared_ptr<UCASTAPPMessage> message, int next_layer)
-// {
-//     string h1 = "353NET/1.0 UCASTAPP\r\n";
-//     string h2 = "TTL: " + to_string(message->get_ttl()) + "\r\n";
-//     string h3 = "Flood: 0\r\n";
-//     string h4 = "MessageID: " + message->get_messageid() + "\r\n";
-//     string h5 = "From: " + message->get_origin_nodeid() + "\r\n";
-//     string h6 = "To: " + message->get_target_nodeid() + "\r\n";
-//     string h7 = "Next-Layer: " + to_string(next_layer) + "\r\n";
-//     string h8 = "Content-Length: " + to_string(message->get_content_len()) + "\r\n";
-//     string h9 = "\r\n";
-//     string h10 = message->get_message_body();
-
-//     int next_socketfd = conn->get_orig_socketfd();
-//     better_write_header(next_socketfd, h1.c_str(), h1.length());
-//     better_write_header(next_socketfd, h2.c_str(), h2.length());
-//     better_write_header(next_socketfd, h3.c_str(), h3.length());
-//     better_write_header(next_socketfd, h4.c_str(), h4.length());
-//     better_write_header(next_socketfd, h5.c_str(), h5.length());
-//     better_write_header(next_socketfd, h6.c_str(), h6.length());
-//     better_write_header(next_socketfd, h7.c_str(), h7.length());
-//     better_write_header(next_socketfd, h8.c_str(), h8.length());
-//     better_write_header(next_socketfd, h9.c_str(), h9.length());
-//     better_write(next_socketfd, h10.c_str(), h10.length());
-
-//     int conn_number = conn->get_conn_number();
-//     log_header(h1, conn_number);
-//     log_header(h2, conn_number);
-//     log_header(h3, conn_number);
-//     log_header(h4, conn_number);
-//     log_header(h5, conn_number);
-//     log_header(h6, conn_number);
-//     log_header(h7, conn_number);
-//     log_header(h8, conn_number);
-//     log_header(h9, conn_number);
-//     log_header(h10 + "\r\n", conn_number);
-// }
 
 void write_UCASTAPP(shared_ptr<Connection> conn, shared_ptr<UCASTAPPMessage> ucastapp_message)
 {

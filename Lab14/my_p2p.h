@@ -21,7 +21,7 @@ extern condition_variable timer_cv;
 extern queue<shared_ptr<Event>> timer_q;
 extern map<string, shared_ptr<Message>> message_cache;
 extern string session_id;
-extern map<string, shared_ptr<RDTState>> sessions;
+extern map<string, map<string, shared_ptr<RDTState>>> sessions;
 extern bool cancelled;
 
 void await_p2p_request(string nodeid, int neighbor_socketfd, shared_ptr<Connection> conn, vector<shared_ptr<Connection>> *conns);

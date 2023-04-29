@@ -1,1056 +1,1513 @@
-[Fri Apr 28 2023 09:59:18.378038] START: port=12000, rootdir=lab11data
-[Fri Apr 28 2023 09:59:26.295027] CONNECT[1]: 127.0.0.1:12000
-[Fri Apr 28 2023 09:59:26.296120] r SAYHELLO :12002 1 - 0
-[Fri Apr 28 2023 09:59:26.296454] i SAYHELLO :12000 1 - 0
+[Sat Apr 29 2023 03:30:04.478126] START: port=12000, rootdir=lab11data
+[Sat Apr 29 2023 03:30:07.436339] CONNECT[1]: 127.0.0.1:12000
+[Sat Apr 29 2023 03:30:07.437322] r SAYHELLO :12002 1 - 0
+[Sat Apr 29 2023 03:30:07.437479] i SAYHELLO :12000 1 - 0
 	[1]	353NET/1.0 SAYHELLO
 	[1]	TTL: 0
 	[1]	Flood: 0
 	[1]	From: :12000
 	[1]	Content-Length: 0
  	[1]	
-[Fri Apr 28 2023 09:59:26.296778] i LSUPDATE :12000 9 1 6 {:12000_5} TODO: start time :12000 (:12002)
+[Sat Apr 29 2023 03:30:07.437853] i LSUPDATE :12000 9 1 6 {:12000_5} TODO: start time :12000 (:12002)
 	[1]	353NET/1.0 LSUPDATE
 	[1]	TTL: 9
 	[1]	Flood: 1;reason=1
-	[1]	MessageID: :12000_5_1682701166.296280
+	[1]	MessageID: :12000_5_1682764207.437472
 	[1]	From: :12000
 	[1]	OriginStartTime: TODO: start time
 	[1]	Content-Length: 6
 	[1]	
 	[1]	:12002
-[Fri Apr 28 2023 09:59:26.297975] r LSUPDATE :12002 9 1 6 {:12002_5} TODO: start time :12002 (:12000)
-[Fri Apr 28 2023 09:59:26.298022] r LSUPDATE :12000 8 1 6 {:12002_5} TODO: start time :12002 (:12000)
-[Fri Apr 28 2023 09:59:26.298245] i LSUPDATE :12000 9 1 6 {:12000_8} TODO: start time :12000 (:12002)
-[Fri Apr 28 2023 09:59:26.298307] r LSUPDATE :12002 9 1 6 {:12002_8} TODO: start time :12002 (:12000)
-[Fri Apr 28 2023 09:59:26.298342] r LSUPDATE :12000 8 1 6 {:12002_8} TODO: start time :12002 (:12000)
+[Sat Apr 29 2023 03:30:07.438826] r LSUPDATE :12002 9 1 6 {:12002_5} TODO: start time :12002 (:12000)
+[Sat Apr 29 2023 03:30:07.438884] r LSUPDATE :12000 8 1 6 {:12002_5} TODO: start time :12002 (:12000)
+[Sat Apr 29 2023 03:30:07.439052] i LSUPDATE :12000 9 1 6 {:12000_8} TODO: start time :12000 (:12002)
 	[1]	353NET/1.0 LSUPDATE
 	[1]	TTL: 9
 	[1]	Flood: 1;reason=3
-	[1]	MessageID: :12000_8_1682701166.298065
+	[1]	MessageID: :12000_8_1682764207.438942
 	[1]	From: :12000
 	[1]	OriginStartTime: TODO: start time
 	[1]	Content-Length: 6
 	[1]	
 	[1]	:12002
-[Fri Apr 28 2023 09:59:34.586350] r LSUPDATE :12002 9 1 13 {:12002_1} TODO: start time :12002 (:12000,:12004)
-[Fri Apr 28 2023 09:59:34.586410] r LSUPDATE :12000 8 1 13 {:12002_1} TODO: start time :12002 (:12000,:12004)
-[Fri Apr 28 2023 09:59:34.587671] r LSUPDATE :12004 9 1 6 {:12004_5} TODO: start time :12004 (:12002)
-[Fri Apr 28 2023 09:59:34.587745] r LSUPDATE :12000 8 1 6 {:12004_5} TODO: start time :12004 (:12002)
-[Fri Apr 28 2023 09:59:34.587949] i LSUPDATE :12000 9 1 6 {:12000_1} TODO: start time :12000 (:12002)
+[Sat Apr 29 2023 03:30:07.440020] r LSUPDATE :12002 9 1 6 {:12002_8} TODO: start time :12002 (:12000)
+[Sat Apr 29 2023 03:30:07.440063] r LSUPDATE :12000 8 1 6 {:12002_8} TODO: start time :12002 (:12000)
+[Sat Apr 29 2023 03:30:10.484685] r LSUPDATE :12002 9 1 13 {:12002_1} TODO: start time :12002 (:12000,:12004)
+[Sat Apr 29 2023 03:30:10.484742] r LSUPDATE :12000 8 1 13 {:12002_1} TODO: start time :12002 (:12000,:12004)
+[Sat Apr 29 2023 03:30:10.485462] r LSUPDATE :12004 9 1 6 {:12004_5} TODO: start time :12004 (:12002)
+[Sat Apr 29 2023 03:30:10.485507] r LSUPDATE :12000 8 1 6 {:12004_5} TODO: start time :12004 (:12002)
+[Sat Apr 29 2023 03:30:10.485655] i LSUPDATE :12000 9 1 6 {:12000_1} TODO: start time :12000 (:12002)
 	[1]	353NET/1.0 LSUPDATE
 	[1]	TTL: 9
 	[1]	Flood: 1;reason=3
-	[1]	MessageID: :12000_13_1682701174.587775
+	[1]	MessageID: :12000_13_1682764210.485537
 	[1]	From: :12000
 	[1]	OriginStartTime: TODO: start time
 	[1]	Content-Length: 6
 	[1]	
 	[1]	:12002
-[Fri Apr 28 2023 09:59:34.588396] r LSUPDATE :12002 9 1 13 {:12002_1} TODO: start time :12002 (:12000,:12004)
-[Fri Apr 28 2023 09:59:34.588454] r LSUPDATE :12000 8 1 13 {:12002_1} TODO: start time :12002 (:12000,:12004)
-[Fri Apr 28 2023 09:59:34.588755] r LSUPDATE :12004 9 1 6 {:12004_8} TODO: start time :12004 (:12002)
-[Fri Apr 28 2023 09:59:34.588790] r LSUPDATE :12000 8 1 6 {:12004_8} TODO: start time :12004 (:12002)
-[Fri Apr 28 2023 09:59:34.591415] r LSUPDATE :12004 9 1 6 {:12004_1} TODO: start time :12004 (:12002)
-[Fri Apr 28 2023 09:59:34.591486] r LSUPDATE :12000 8 1 6 {:12004_1} TODO: start time :12004 (:12002)
+[Sat Apr 29 2023 03:30:10.486145] r LSUPDATE :12002 9 1 13 {:12002_1} TODO: start time :12002 (:12000,:12004)
+[Sat Apr 29 2023 03:30:10.486200] r LSUPDATE :12000 8 1 13 {:12002_1} TODO: start time :12002 (:12000,:12004)
+[Sat Apr 29 2023 03:30:10.486439] r LSUPDATE :12004 9 1 6 {:12004_8} TODO: start time :12004 (:12002)
+[Sat Apr 29 2023 03:30:10.486462] r LSUPDATE :12000 8 1 6 {:12004_8} TODO: start time :12004 (:12002)
+[Sat Apr 29 2023 03:30:10.488352] r LSUPDATE :12004 9 1 6 {:12004_1} TODO: start time :12004 (:12002)
+[Sat Apr 29 2023 03:30:10.488473] r LSUPDATE :12000 8 1 6 {:12004_1} TODO: start time :12004 (:12002)
 	[1]	353NET/1.0 UCASTAPP
 	[1]	TTL: 9
 	[1]	Flood: 0
-	[1]	MessageID: :12000_18_1682701205.677991
+	[1]	MessageID: :12000_18_1682764217.349313
 	[1]	From: :12000
-	[1]	To: :12002
+	[1]	To: :12004
 	[1]	Next-Layer: 2
-	[1]	Content-Length: 80
+	[1]	Content-Length: 81
 	[1]	
 	[1]	353UDT/1.0 RDTDATA
 Seq-Number: 0
-RDT-App-Number: 0
+RDT-App-Number: 98
 RDT-Content-Length: 1
 
 h
 	[1]	353NET/1.0 UCASTAPP
 	[1]	TTL: 9
 	[1]	Flood: 0
-	[1]	MessageID: :12000_21_1682701205.779524
+	[1]	MessageID: :12000_21_1682764218.349842
 	[1]	From: :12000
-	[1]	To: :12002
+	[1]	To: :12004
 	[1]	Next-Layer: 2
-	[1]	Content-Length: 80
+	[1]	Content-Length: 81
 	[1]	
 	[1]	353UDT/1.0 RDTDATA
 Seq-Number: 1
-RDT-App-Number: 0
+RDT-App-Number: 98
 RDT-Content-Length: 1
 
 e
 	[1]	353NET/1.0 UCASTAPP
 	[1]	TTL: 9
 	[1]	Flood: 0
-	[1]	MessageID: :12000_24_1682701205.880850
-	[1]	From: :12000
-	[1]	To: :12002
-	[1]	Next-Layer: 2
-	[1]	Content-Length: 80
-	[1]	
-	[1]	353UDT/1.0 RDTDATA
-Seq-Number: 0
-RDT-App-Number: 0
-RDT-Content-Length: 1
-
-l
-	[1]	353NET/1.0 UCASTAPP
-	[1]	TTL: 9
-	[1]	Flood: 0
-	[1]	MessageID: :12000_27_1682701205.981808
-	[1]	From: :12000
-	[1]	To: :12002
-	[1]	Next-Layer: 2
-	[1]	Content-Length: 80
-	[1]	
-	[1]	353UDT/1.0 RDTDATA
-Seq-Number: 1
-RDT-App-Number: 0
-RDT-Content-Length: 1
-
-l
-	[1]	353NET/1.0 UCASTAPP
-	[1]	TTL: 9
-	[1]	Flood: 0
-	[1]	MessageID: :12000_30_1682701206.082924
-	[1]	From: :12000
-	[1]	To: :12002
-	[1]	Next-Layer: 2
-	[1]	Content-Length: 80
-	[1]	
-	[1]	353UDT/1.0 RDTDATA
-Seq-Number: 0
-RDT-App-Number: 0
-RDT-Content-Length: 1
-
-o
-	[1]	353NET/1.0 UCASTAPP
-	[1]	TTL: 9
-	[1]	Flood: 0
-	[1]	MessageID: :12000_33_1682701206.184022
-	[1]	From: :12000
-	[1]	To: :12002
-	[1]	Next-Layer: 2
-	[1]	Content-Length: 80
-	[1]	
-	[1]	353UDT/1.0 RDTDATA
-Seq-Number: 1
-RDT-App-Number: 0
-RDT-Content-Length: 1
-
-
-
-	[1]	353NET/1.0 UCASTAPP
-	[1]	TTL: 9
-	[1]	Flood: 0
-	[1]	MessageID: :12000_36_1682701220.109236
+	[1]	MessageID: :12000_24_1682764219.350454
 	[1]	From: :12000
 	[1]	To: :12004
 	[1]	Next-Layer: 2
-	[1]	Content-Length: 80
+	[1]	Content-Length: 81
 	[1]	
 	[1]	353UDT/1.0 RDTDATA
 Seq-Number: 0
-RDT-App-Number: 0
+RDT-App-Number: 98
 RDT-Content-Length: 1
 
-h
+y
 	[1]	353NET/1.0 UCASTAPP
 	[1]	TTL: 9
 	[1]	Flood: 0
-	[1]	MessageID: :12000_39_1682701220.210480
+	[1]	MessageID: :12000_27_1682764220.351092
 	[1]	From: :12000
 	[1]	To: :12004
 	[1]	Next-Layer: 2
-	[1]	Content-Length: 80
+	[1]	Content-Length: 81
 	[1]	
 	[1]	353UDT/1.0 RDTDATA
 Seq-Number: 1
-RDT-App-Number: 0
+RDT-App-Number: 98
 RDT-Content-Length: 1
 
-o
+
+
 	[1]	353NET/1.0 UCASTAPP
 	[1]	TTL: 9
 	[1]	Flood: 0
-	[1]	MessageID: :12000_42_1682701220.311682
+	[1]	MessageID: :12000_33_1682764220.452875
+	[1]	From: :12000
+	[1]	To: :12004
+	[1]	Next-Layer: 1
+	[1]	Content-Length: 24
+	[1]	
+	[1]	353UDT/1.0 RDTACK 0 99
+
+	[1]	353NET/1.0 UCASTAPP
+	[1]	TTL: 9
+	[1]	Flood: 0
+	[1]	MessageID: :12000_36_1682764221.499608
+	[1]	From: :12000
+	[1]	To: :12004
+	[1]	Next-Layer: 1
+	[1]	Content-Length: 24
+	[1]	
+	[1]	353UDT/1.0 RDTACK 1 99
+
+	[1]	353NET/1.0 UCASTAPP
+	[1]	TTL: 9
+	[1]	Flood: 0
+	[1]	MessageID: :12000_39_1682764222.454770
+	[1]	From: :12000
+	[1]	To: :12004
+	[1]	Next-Layer: 1
+	[1]	Content-Length: 24
+	[1]	
+	[1]	353UDT/1.0 RDTACK 0 99
+
+	[1]	353NET/1.0 UCASTAPP
+	[1]	TTL: 9
+	[1]	Flood: 0
+	[1]	MessageID: :12000_42_1682764223.454737
+	[1]	From: :12000
+	[1]	To: :12004
+	[1]	Next-Layer: 1
+	[1]	Content-Length: 24
+	[1]	
+	[1]	353UDT/1.0 RDTACK 1 99
+
+	[1]	353NET/1.0 UCASTAPP
+	[1]	TTL: 9
+	[1]	Flood: 0
+	[1]	MessageID: :12000_44_1682764224.182062
 	[1]	From: :12000
 	[1]	To: :12004
 	[1]	Next-Layer: 2
-	[1]	Content-Length: 80
+	[1]	Content-Length: 81
 	[1]	
 	[1]	353UDT/1.0 RDTDATA
 Seq-Number: 0
-RDT-App-Number: 0
+RDT-App-Number: 98
+RDT-Content-Length: 1
+
+
+
+	[1]	353NET/1.0 UCASTAPP
+	[1]	TTL: 9
+	[1]	Flood: 0
+	[1]	MessageID: :12000_50_1682764224.230287
+	[1]	From: :12000
+	[1]	To: :12004
+	[1]	Next-Layer: 1
+	[1]	Content-Length: 24
+	[1]	
+	[1]	353UDT/1.0 RDTACK 0 99
+
+	[1]	353NET/1.0 UCASTAPP
+	[1]	TTL: 9
+	[1]	Flood: 0
+	[1]	MessageID: :12000_52_1682764235.661496
+	[1]	From: :12000
+	[1]	To: :12004
+	[1]	Next-Layer: 2
+	[1]	Content-Length: 81
+	[1]	
+	[1]	353UDT/1.0 RDTDATA
+Seq-Number: 0
+RDT-App-Number: 98
 RDT-Content-Length: 1
 
 w
 	[1]	353NET/1.0 UCASTAPP
 	[1]	TTL: 9
 	[1]	Flood: 0
-	[1]	MessageID: :12000_45_1682701220.412905
+	[1]	MessageID: :12000_55_1682764236.661847
 	[1]	From: :12000
 	[1]	To: :12004
 	[1]	Next-Layer: 2
-	[1]	Content-Length: 80
+	[1]	Content-Length: 81
 	[1]	
 	[1]	353UDT/1.0 RDTDATA
 Seq-Number: 1
-RDT-App-Number: 0
-RDT-Content-Length: 1
-
-d
-	[1]	353NET/1.0 UCASTAPP
-	[1]	TTL: 9
-	[1]	Flood: 0
-	[1]	MessageID: :12000_48_1682701220.514061
-	[1]	From: :12000
-	[1]	To: :12004
-	[1]	Next-Layer: 2
-	[1]	Content-Length: 80
-	[1]	
-	[1]	353UDT/1.0 RDTDATA
-Seq-Number: 0
-RDT-App-Number: 0
-RDT-Content-Length: 1
-
-y
-	[1]	353NET/1.0 UCASTAPP
-	[1]	TTL: 9
-	[1]	Flood: 0
-	[1]	MessageID: :12000_51_1682701220.615253
-	[1]	From: :12000
-	[1]	To: :12004
-	[1]	Next-Layer: 2
-	[1]	Content-Length: 80
-	[1]	
-	[1]	353UDT/1.0 RDTDATA
-Seq-Number: 1
-RDT-App-Number: 0
-RDT-Content-Length: 1
-
-
-
-	[1]	353NET/1.0 UCASTAPP
-	[1]	TTL: 9
-	[1]	Flood: 0
-	[1]	MessageID: :12000_57_1682701244.082923
-	[1]	From: :12000
-	[1]	To: :12004
-	[1]	Next-Layer: 1
-	[1]	Content-Length: 23
-	[1]	
-	[1]	353UDT/1.0 RDTACK 0 0
-
-	[1]	353NET/1.0 UCASTAPP
-	[1]	TTL: 9
-	[1]	Flood: 0
-	[1]	MessageID: :12000_60_1682701244.225858
-	[1]	From: :12000
-	[1]	To: :12004
-	[1]	Next-Layer: 1
-	[1]	Content-Length: 23
-	[1]	
-	[1]	353UDT/1.0 RDTACK 1 0
-
-	[1]	353NET/1.0 UCASTAPP
-	[1]	TTL: 9
-	[1]	Flood: 0
-	[1]	MessageID: :12000_63_1682701244.285686
-	[1]	From: :12000
-	[1]	To: :12004
-	[1]	Next-Layer: 1
-	[1]	Content-Length: 23
-	[1]	
-	[1]	353UDT/1.0 RDTACK 0 0
-
-	[1]	353NET/1.0 UCASTAPP
-	[1]	TTL: 9
-	[1]	Flood: 0
-	[1]	MessageID: :12000_66_1682701244.385646
-	[1]	From: :12000
-	[1]	To: :12004
-	[1]	Next-Layer: 1
-	[1]	Content-Length: 23
-	[1]	
-	[1]	353UDT/1.0 RDTACK 1 0
-
-	[1]	353NET/1.0 UCASTAPP
-	[1]	TTL: 9
-	[1]	Flood: 0
-	[1]	MessageID: :12000_69_1682701244.586425
-	[1]	From: :12000
-	[1]	To: :12004
-	[1]	Next-Layer: 1
-	[1]	Content-Length: 23
-	[1]	
-	[1]	353UDT/1.0 RDTACK 0 0
-
-	[1]	353NET/1.0 UCASTAPP
-	[1]	TTL: 9
-	[1]	Flood: 0
-	[1]	MessageID: :12000_71_1682701244.635661
-	[1]	From: :12000
-	[1]	To: :12004
-	[1]	Next-Layer: 2
-	[1]	Content-Length: 80
-	[1]	
-	[1]	353UDT/1.0 RDTDATA
-Seq-Number: 0
-RDT-App-Number: 0
-RDT-Content-Length: 1
-
-g
-	[1]	353NET/1.0 UCASTAPP
-	[1]	TTL: 9
-	[1]	Flood: 0
-	[1]	MessageID: :12000_75_1682701244.688399
-	[1]	From: :12000
-	[1]	To: :12004
-	[1]	Next-Layer: 1
-	[1]	Content-Length: 23
-	[1]	
-	[1]	353UDT/1.0 RDTACK 1 0
-
-	[1]	353NET/1.0 UCASTAPP
-	[1]	TTL: 9
-	[1]	Flood: 0
-	[1]	MessageID: :12000_77_1682701244.736838
-	[1]	From: :12000
-	[1]	To: :12004
-	[1]	Next-Layer: 2
-	[1]	Content-Length: 80
-	[1]	
-	[1]	353UDT/1.0 RDTDATA
-Seq-Number: 1
-RDT-App-Number: 0
+RDT-App-Number: 98
 RDT-Content-Length: 1
 
 o
-	[1]	353NET/1.0 UCASTAPP
-	[1]	TTL: 9
-	[1]	Flood: 0
-	[1]	MessageID: :12000_81_1682701244.789654
-	[1]	From: :12000
-	[1]	To: :12004
-	[1]	Next-Layer: 1
-	[1]	Content-Length: 23
-	[1]	
-	[1]	353UDT/1.0 RDTACK 0 0
-
-	[1]	353NET/1.0 UCASTAPP
-	[1]	TTL: 9
-	[1]	Flood: 0
-	[1]	MessageID: :12000_83_1682701244.837867
-	[1]	From: :12000
-	[1]	To: :12004
-	[1]	Next-Layer: 2
-	[1]	Content-Length: 80
-	[1]	
-	[1]	353UDT/1.0 RDTDATA
-Seq-Number: 0
-RDT-App-Number: 0
-RDT-Content-Length: 1
-
-o
-	[1]	353NET/1.0 UCASTAPP
-	[1]	TTL: 9
-	[1]	Flood: 0
-	[1]	MessageID: :12000_87_1682701244.936477
-	[1]	From: :12000
-	[1]	To: :12004
-	[1]	Next-Layer: 1
-	[1]	Content-Length: 23
-	[1]	
-	[1]	353UDT/1.0 RDTACK 1 0
-
-	[1]	353NET/1.0 UCASTAPP
-	[1]	TTL: 9
-	[1]	Flood: 0
-	[1]	MessageID: :12000_89_1682701244.938710
-	[1]	From: :12000
-	[1]	To: :12004
-	[1]	Next-Layer: 2
-	[1]	Content-Length: 80
-	[1]	
-	[1]	353UDT/1.0 RDTDATA
-Seq-Number: 1
-RDT-App-Number: 0
-RDT-Content-Length: 1
-
-d
-	[1]	353NET/1.0 UCASTAPP
-	[1]	TTL: 9
-	[1]	Flood: 0
-	[1]	MessageID: :12000_92_1682701245.039785
-	[1]	From: :12000
-	[1]	To: :12004
-	[1]	Next-Layer: 2
-	[1]	Content-Length: 80
-	[1]	
-	[1]	353UDT/1.0 RDTDATA
-Seq-Number: 0
-RDT-App-Number: 0
-RDT-Content-Length: 1
-
--
-	[1]	353NET/1.0 UCASTAPP
-	[1]	TTL: 9
-	[1]	Flood: 0
-	[1]	MessageID: :12000_95_1682701245.141068
-	[1]	From: :12000
-	[1]	To: :12004
-	[1]	Next-Layer: 2
-	[1]	Content-Length: 80
-	[1]	
-	[1]	353UDT/1.0 RDTDATA
-Seq-Number: 1
-RDT-App-Number: 0
-RDT-Content-Length: 1
-
-d
-	[1]	353NET/1.0 UCASTAPP
-	[1]	TTL: 9
-	[1]	Flood: 0
-	[1]	MessageID: :12000_98_1682701245.242180
-	[1]	From: :12000
-	[1]	To: :12004
-	[1]	Next-Layer: 2
-	[1]	Content-Length: 80
-	[1]	
-	[1]	353UDT/1.0 RDTDATA
-Seq-Number: 0
-RDT-App-Number: 0
-RDT-Content-Length: 1
-
-a
-	[1]	353NET/1.0 UCASTAPP
-	[1]	TTL: 9
-	[1]	Flood: 0
-	[1]	MessageID: :12000_101_1682701245.343349
-	[1]	From: :12000
-	[1]	To: :12004
-	[1]	Next-Layer: 2
-	[1]	Content-Length: 80
-	[1]	
-	[1]	353UDT/1.0 RDTDATA
-Seq-Number: 1
-RDT-App-Number: 0
-RDT-Content-Length: 1
-
-y
-	[1]	353NET/1.0 UCASTAPP
-	[1]	TTL: 9
-	[1]	Flood: 0
-	[1]	MessageID: :12000_104_1682701245.444647
-	[1]	From: :12000
-	[1]	To: :12004
-	[1]	Next-Layer: 2
-	[1]	Content-Length: 80
-	[1]	
-	[1]	353UDT/1.0 RDTDATA
-Seq-Number: 0
-RDT-App-Number: 0
-RDT-Content-Length: 1
-
-
-
-	[1]	353NET/1.0 UCASTAPP
-	[1]	TTL: 9
-	[1]	Flood: 0
-	[1]	MessageID: :12000_107_1682701266.415413
-	[1]	From: :12000
-	[1]	To: :12004
-	[1]	Next-Layer: 2
-	[1]	Content-Length: 80
-	[1]	
-	[1]	353UDT/1.0 RDTDATA
-Seq-Number: 0
-RDT-App-Number: 0
-RDT-Content-Length: 1
-
-h
-	[1]	353NET/1.0 UCASTAPP
-	[1]	TTL: 9
-	[1]	Flood: 0
-	[1]	MessageID: :12000_110_1682701266.516352
-	[1]	From: :12000
-	[1]	To: :12004
-	[1]	Next-Layer: 2
-	[1]	Content-Length: 80
-	[1]	
-	[1]	353UDT/1.0 RDTDATA
-Seq-Number: 1
-RDT-App-Number: 0
-RDT-Content-Length: 1
-
-o
-	[1]	353NET/1.0 UCASTAPP
-	[1]	TTL: 9
-	[1]	Flood: 0
-	[1]	MessageID: :12000_113_1682701266.617721
-	[1]	From: :12000
-	[1]	To: :12004
-	[1]	Next-Layer: 2
-	[1]	Content-Length: 80
-	[1]	
-	[1]	353UDT/1.0 RDTDATA
-Seq-Number: 0
-RDT-App-Number: 0
-RDT-Content-Length: 1
-
-l
-	[1]	353NET/1.0 UCASTAPP
-	[1]	TTL: 9
-	[1]	Flood: 0
-	[1]	MessageID: :12000_116_1682701266.718881
-	[1]	From: :12000
-	[1]	To: :12004
-	[1]	Next-Layer: 2
-	[1]	Content-Length: 80
-	[1]	
-	[1]	353UDT/1.0 RDTDATA
-Seq-Number: 1
-RDT-App-Number: 0
-RDT-Content-Length: 1
-
-d
-	[1]	353NET/1.0 UCASTAPP
-	[1]	TTL: 9
-	[1]	Flood: 0
-	[1]	MessageID: :12000_119_1682701266.820079
-	[1]	From: :12000
-	[1]	To: :12004
-	[1]	Next-Layer: 2
-	[1]	Content-Length: 80
-	[1]	
-	[1]	353UDT/1.0 RDTDATA
-Seq-Number: 0
-RDT-App-Number: 0
-RDT-Content-Length: 1
-
--
-	[1]	353NET/1.0 UCASTAPP
-	[1]	TTL: 9
-	[1]	Flood: 0
-	[1]	MessageID: :12000_122_1682701266.921065
-	[1]	From: :12000
-	[1]	To: :12004
-	[1]	Next-Layer: 2
-	[1]	Content-Length: 80
-	[1]	
-	[1]	353UDT/1.0 RDTDATA
-Seq-Number: 1
-RDT-App-Number: 0
-RDT-Content-Length: 1
-
-o
-	[1]	353NET/1.0 UCASTAPP
-	[1]	TTL: 9
-	[1]	Flood: 0
-	[1]	MessageID: :12000_125_1682701267.022218
-	[1]	From: :12000
-	[1]	To: :12004
-	[1]	Next-Layer: 2
-	[1]	Content-Length: 80
-	[1]	
-	[1]	353UDT/1.0 RDTDATA
-Seq-Number: 0
-RDT-App-Number: 0
-RDT-Content-Length: 1
-
-n
-[Fri Apr 28 2023 10:01:07.084237] i LSUPDATE :12000 9 1 6 {:12000_1} TODO: start time :12000 (:12002)
+[Sat Apr 29 2023 03:30:37.355120] i LSUPDATE :12000 9 1 6 {:12000_5} TODO: start time :12000 (:12002)
 	[1]	353NET/1.0 LSUPDATE
 	[1]	TTL: 9
 	[1]	Flood: 1;reason=2
-	[1]	MessageID: :12000_128_1682701267.083877
+	[1]	MessageID: :12000_58_1682764237.354947
 	[1]	From: :12000
 	[1]	OriginStartTime: TODO: start time
 	[1]	Content-Length: 6
 	[1]	
 	[1]	:12002
-[Fri Apr 28 2023 10:01:07.084612] Socket-writing thread has terminated
-[Fri Apr 28 2023 10:01:07.085182] Socket-reading thread has joined with socket-writing thread
-[Fri Apr 28 2023 10:01:26.345475] CONNECT[2]: 127.0.0.1:12000
-[Fri Apr 28 2023 10:01:26.346073] r SAYHELLO :12002 1 - 0
-[Fri Apr 28 2023 10:01:26.346391] i SAYHELLO :12000 1 - 0
+[Sat Apr 29 2023 03:30:37.355531] Socket-writing thread has terminated
+[Sat Apr 29 2023 03:30:37.355875] Socket-reading thread has joined with socket-writing thread
+[Sat Apr 29 2023 03:30:50.775235] CONNECT[2]: 127.0.0.1:12000
+[Sat Apr 29 2023 03:30:50.775896] r SAYHELLO :12002 1 - 0
+[Sat Apr 29 2023 03:30:50.776064] i SAYHELLO :12000 1 - 0
 	[2]	353NET/1.0 SAYHELLO
 	[2]	TTL: 0
 	[2]	Flood: 0
 	[2]	From: :12000
 	[2]	Content-Length: 0
  	[2]	
-[Fri Apr 28 2023 10:01:26.346712] i LSUPDATE :12000 9 1 6 {:12000_1} TODO: start time :12000 (:12002)
+[Sat Apr 29 2023 03:30:50.776270] i LSUPDATE :12000 9 1 6 {:12000_6} TODO: start time :12000 (:12002)
 	[2]	353NET/1.0 LSUPDATE
 	[2]	TTL: 9
 	[2]	Flood: 1;reason=1
-	[2]	MessageID: :12000_134_1682701286.346244
+	[2]	MessageID: :12000_64_1682764250.776030
 	[2]	From: :12000
 	[2]	OriginStartTime: TODO: start time
 	[2]	Content-Length: 6
 	[2]	
 	[2]	:12002
-[Fri Apr 28 2023 10:01:26.347592] r LSUPDATE :12002 9 1 13 {:12002_6} TODO: start time :12002 (:12000,:12004)
-[Fri Apr 28 2023 10:01:26.347661] r LSUPDATE :12000 8 1 13 {:12002_6} TODO: start time :12002 (:12000,:12004)
-[Fri Apr 28 2023 10:01:26.347813] i LSUPDATE :12000 9 1 6 {:12000_1} TODO: start time :12000 (:12002)
+[Sat Apr 29 2023 03:30:50.777262] r LSUPDATE :12002 9 1 13 {:12002_6} TODO: start time :12002 (:12000,:12004)
+[Sat Apr 29 2023 03:30:50.777316] r LSUPDATE :12000 8 1 13 {:12002_6} TODO: start time :12002 (:12000,:12004)
+[Sat Apr 29 2023 03:30:50.777545] i LSUPDATE :12000 9 1 6 {:12000_6} TODO: start time :12000 (:12002)
 	[2]	353NET/1.0 LSUPDATE
 	[2]	TTL: 9
 	[2]	Flood: 1;reason=3
-	[2]	MessageID: :12000_137_1682701286.347694
+	[2]	MessageID: :12000_67_1682764250.777366
 	[2]	From: :12000
 	[2]	OriginStartTime: TODO: start time
 	[2]	Content-Length: 6
 	[2]	
 	[2]	:12002
-[Fri Apr 28 2023 10:01:26.348269] r LSUPDATE :12002 9 1 13 {:12002_1} TODO: start time :12002 (:12000,:12004)
-[Fri Apr 28 2023 10:01:26.348314] r LSUPDATE :12000 8 1 13 {:12002_1} TODO: start time :12002 (:12000,:12004)
-[Fri Apr 28 2023 10:01:26.348610] r LSUPDATE :12002 9 1 13 {:12002_1} TODO: start time :12002 (:12000,:12004)
-[Fri Apr 28 2023 10:01:26.348650] r LSUPDATE :12000 8 1 13 {:12002_1} TODO: start time :12002 (:12000,:12004)
-[Fri Apr 28 2023 10:01:26.349414] r LSUPDATE :12004 9 1 6 {:12004_1} TODO: start time :12004 (:12002)
-[Fri Apr 28 2023 10:01:26.349462] r LSUPDATE :12000 8 1 6 {:12004_1} TODO: start time :12004 (:12002)
-[Fri Apr 28 2023 10:01:26.349647] i LSUPDATE :12000 9 1 6 {:12000_1} TODO: start time :12000 (:12002)
+[Sat Apr 29 2023 03:30:50.778332] r LSUPDATE :12002 9 1 13 {:12002_1} TODO: start time :12002 (:12000,:12004)
+[Sat Apr 29 2023 03:30:50.778376] r LSUPDATE :12000 8 1 13 {:12002_1} TODO: start time :12002 (:12000,:12004)
+[Sat Apr 29 2023 03:30:50.778671] r LSUPDATE :12002 9 1 13 {:12002_1} TODO: start time :12002 (:12000,:12004)
+[Sat Apr 29 2023 03:30:50.778780] r LSUPDATE :12000 8 1 13 {:12002_1} TODO: start time :12002 (:12000,:12004)
+[Sat Apr 29 2023 03:30:50.779195] r LSUPDATE :12004 9 1 6 {:12004_6} TODO: start time :12004 (:12002)
+[Sat Apr 29 2023 03:30:50.779248] r LSUPDATE :12000 8 1 6 {:12004_6} TODO: start time :12004 (:12002)
+[Sat Apr 29 2023 03:30:50.779396] i LSUPDATE :12000 9 1 6 {:12000_7} TODO: start time :12000 (:12002)
 	[2]	353NET/1.0 LSUPDATE
 	[2]	TTL: 9
 	[2]	Flood: 1;reason=3
-	[2]	MessageID: :12000_142_1682701286.349509
+	[2]	MessageID: :12000_72_1682764250.779294
 	[2]	From: :12000
 	[2]	OriginStartTime: TODO: start time
 	[2]	Content-Length: 6
 	[2]	
 	[2]	:12002
-[Fri Apr 28 2023 10:01:26.350055] r LSUPDATE :12002 9 1 13 {:12002_2} TODO: start time :12002 (:12000,:12004)
-[Fri Apr 28 2023 10:01:26.350100] r LSUPDATE :12000 8 1 13 {:12002_2} TODO: start time :12002 (:12000,:12004)
-[Fri Apr 28 2023 10:01:26.350425] r LSUPDATE :12004 9 1 6 {:12004_1} TODO: start time :12004 (:12002)
-[Fri Apr 28 2023 10:01:26.350479] r LSUPDATE :12000 8 1 6 {:12004_1} TODO: start time :12004 (:12002)
-[Fri Apr 28 2023 10:01:26.350670] r LSUPDATE :12004 9 1 6 {:12004_1} TODO: start time :12004 (:12002)
-[Fri Apr 28 2023 10:01:26.350688] r LSUPDATE :12000 8 1 6 {:12004_1} TODO: start time :12004 (:12002)
+[Sat Apr 29 2023 03:30:50.780186] r LSUPDATE :12002 9 1 13 {:12002_2} TODO: start time :12002 (:12000,:12004)
+[Sat Apr 29 2023 03:30:50.780234] r LSUPDATE :12000 8 1 13 {:12002_2} TODO: start time :12002 (:12000,:12004)
+[Sat Apr 29 2023 03:30:50.780475] r LSUPDATE :12004 9 1 6 {:12004_6} TODO: start time :12004 (:12002)
+[Sat Apr 29 2023 03:30:50.780512] r LSUPDATE :12000 8 1 6 {:12004_6} TODO: start time :12004 (:12002)
+[Sat Apr 29 2023 03:30:50.780676] r LSUPDATE :12004 9 1 6 {:12004_6} TODO: start time :12004 (:12002)
+[Sat Apr 29 2023 03:30:50.780693] r LSUPDATE :12000 8 1 6 {:12004_6} TODO: start time :12004 (:12002)
 	[2]	353NET/1.0 UCASTAPP
 	[2]	TTL: 9
 	[2]	Flood: 0
-	[2]	MessageID: :12000_130_1682701267.123436
+	[2]	MessageID: :12000_60_1682764237.662358
 	[2]	From: :12000
 	[2]	To: :12004
 	[2]	Next-Layer: 2
-	[2]	Content-Length: 80
-	[2]	
-	[2]	353UDT/1.0 RDTDATA
-Seq-Number: 1
-RDT-App-Number: 0
-RDT-Content-Length: 1
-
-
-
-	[2]	353NET/1.0 UCASTAPP
-	[2]	TTL: 9
-	[2]	Flood: 0
-	[2]	MessageID: :12000_148_1682701313.904586
-	[2]	From: :12000
-	[2]	To: :12004
-	[2]	Next-Layer: 2
-	[2]	Content-Length: 80
+	[2]	Content-Length: 81
 	[2]	
 	[2]	353UDT/1.0 RDTDATA
 Seq-Number: 0
-RDT-App-Number: 0
-RDT-Content-Length: 1
-
-l
-	[2]	353NET/1.0 UCASTAPP
-	[2]	TTL: 9
-	[2]	Flood: 0
-	[2]	MessageID: :12000_151_1682701314.006482
-	[2]	From: :12000
-	[2]	To: :12004
-	[2]	Next-Layer: 2
-	[2]	Content-Length: 80
-	[2]	
-	[2]	353UDT/1.0 RDTDATA
-Seq-Number: 1
-RDT-App-Number: 0
-RDT-Content-Length: 1
-
-e
-	[2]	353NET/1.0 UCASTAPP
-	[2]	TTL: 9
-	[2]	Flood: 0
-	[2]	MessageID: :12000_154_1682701314.107701
-	[2]	From: :12000
-	[2]	To: :12004
-	[2]	Next-Layer: 2
-	[2]	Content-Length: 80
-	[2]	
-	[2]	353UDT/1.0 RDTDATA
-Seq-Number: 0
-RDT-App-Number: 0
-RDT-Content-Length: 1
-
-f
-	[2]	353NET/1.0 UCASTAPP
-	[2]	TTL: 9
-	[2]	Flood: 0
-	[2]	MessageID: :12000_157_1682701314.308642
-	[2]	From: :12000
-	[2]	To: :12004
-	[2]	Next-Layer: 2
-	[2]	Content-Length: 80
-	[2]	
-	[2]	353UDT/1.0 RDTDATA
-Seq-Number: 1
-RDT-App-Number: 0
-RDT-Content-Length: 1
-
-t
-	[2]	353NET/1.0 UCASTAPP
-	[2]	TTL: 9
-	[2]	Flood: 0
-	[2]	MessageID: :12000_160_1682701314.409505
-	[2]	From: :12000
-	[2]	To: :12004
-	[2]	Next-Layer: 2
-	[2]	Content-Length: 80
-	[2]	
-	[2]	353UDT/1.0 RDTDATA
-Seq-Number: 0
-RDT-App-Number: 0
-RDT-Content-Length: 1
-
--
-	[2]	353NET/1.0 UCASTAPP
-	[2]	TTL: 9
-	[2]	Flood: 0
-	[2]	MessageID: :12000_163_1682701314.510716
-	[2]	From: :12000
-	[2]	To: :12004
-	[2]	Next-Layer: 2
-	[2]	Content-Length: 80
-	[2]	
-	[2]	353UDT/1.0 RDTDATA
-Seq-Number: 1
-RDT-App-Number: 0
+RDT-App-Number: 98
 RDT-Content-Length: 1
 
 r
 	[2]	353NET/1.0 UCASTAPP
 	[2]	TTL: 9
 	[2]	Flood: 0
-	[2]	MessageID: :12000_166_1682701314.611815
+	[2]	MessageID: :12000_78_1682764256.727056
 	[2]	From: :12000
 	[2]	To: :12004
 	[2]	Next-Layer: 2
-	[2]	Content-Length: 80
-	[2]	
-	[2]	353UDT/1.0 RDTDATA
-Seq-Number: 0
-RDT-App-Number: 0
-RDT-Content-Length: 1
-
-i
-	[2]	353NET/1.0 UCASTAPP
-	[2]	TTL: 9
-	[2]	Flood: 0
-	[2]	MessageID: :12000_169_1682701314.713125
-	[2]	From: :12000
-	[2]	To: :12004
-	[2]	Next-Layer: 2
-	[2]	Content-Length: 80
+	[2]	Content-Length: 81
 	[2]	
 	[2]	353UDT/1.0 RDTDATA
 Seq-Number: 1
-RDT-App-Number: 0
+RDT-App-Number: 98
 RDT-Content-Length: 1
 
-g
+l
 	[2]	353NET/1.0 UCASTAPP
 	[2]	TTL: 9
 	[2]	Flood: 0
-	[2]	MessageID: :12000_172_1682701314.814364
+	[2]	MessageID: :12000_81_1682764257.727559
 	[2]	From: :12000
 	[2]	To: :12004
 	[2]	Next-Layer: 2
-	[2]	Content-Length: 80
+	[2]	Content-Length: 81
 	[2]	
 	[2]	353UDT/1.0 RDTDATA
 Seq-Number: 0
-RDT-App-Number: 0
+RDT-App-Number: 98
+RDT-Content-Length: 1
+
+d
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_84_1682764258.727943
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 2
+	[2]	Content-Length: 81
+	[2]	
+	[2]	353UDT/1.0 RDTDATA
+Seq-Number: 1
+RDT-App-Number: 98
+RDT-Content-Length: 1
+
+
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_90_1682764258.780704
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 24
+	[2]	
+	[2]	353UDT/1.0 RDTACK 0 99
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_93_1682764259.782490
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 24
+	[2]	
+	[2]	353UDT/1.0 RDTACK 1 99
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_96_1682764260.783417
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 24
+	[2]	
+	[2]	353UDT/1.0 RDTACK 0 99
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_99_1682764261.879671
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 24
+	[2]	
+	[2]	353UDT/1.0 RDTACK 1 99
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_102_1682764262.784020
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 24
+	[2]	
+	[2]	353UDT/1.0 RDTACK 0 99
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_105_1682764263.783959
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 24
+	[2]	
+	[2]	353UDT/1.0 RDTACK 1 99
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_107_1682764266.042903
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 2
+	[2]	Content-Length: 81
+	[2]	
+	[2]	353UDT/1.0 RDTDATA
+Seq-Number: 0
+RDT-App-Number: 98
+RDT-Content-Length: 1
+
+
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_113_1682764266.090562
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 24
+	[2]	
+	[2]	353UDT/1.0 RDTACK 0 99
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_115_1682764279.087233
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 2
+	[2]	Content-Length: 81
+	[2]	
+	[2]	353UDT/1.0 RDTDATA
+Seq-Number: 0
+RDT-App-Number: 98
 RDT-Content-Length: 1
 
 h
 	[2]	353NET/1.0 UCASTAPP
 	[2]	TTL: 9
 	[2]	Flood: 0
-	[2]	MessageID: :12000_175_1682701314.915551
+	[2]	MessageID: :12000_118_1682764280.087634
 	[2]	From: :12000
 	[2]	To: :12004
 	[2]	Next-Layer: 2
-	[2]	Content-Length: 80
+	[2]	Content-Length: 81
 	[2]	
 	[2]	353UDT/1.0 RDTDATA
 Seq-Number: 1
-RDT-App-Number: 0
-RDT-Content-Length: 1
-
-t
-	[2]	353NET/1.0 UCASTAPP
-	[2]	TTL: 9
-	[2]	Flood: 0
-	[2]	MessageID: :12000_178_1682701315.016668
-	[2]	From: :12000
-	[2]	To: :12004
-	[2]	Next-Layer: 2
-	[2]	Content-Length: 80
-	[2]	
-	[2]	353UDT/1.0 RDTDATA
-Seq-Number: 0
-RDT-App-Number: 0
-RDT-Content-Length: 1
-
-
-
-	[2]	353NET/1.0 UCASTAPP
-	[2]	TTL: 9
-	[2]	Flood: 0
-	[2]	MessageID: :12000_184_1682701315.071727
-	[2]	From: :12000
-	[2]	To: :12004
-	[2]	Next-Layer: 1
-	[2]	Content-Length: 23
-	[2]	
-	[2]	353UDT/1.0 RDTACK 0 0
-
-	[2]	353NET/1.0 UCASTAPP
-	[2]	TTL: 9
-	[2]	Flood: 0
-	[2]	MessageID: :12000_187_1682701315.172990
-	[2]	From: :12000
-	[2]	To: :12004
-	[2]	Next-Layer: 1
-	[2]	Content-Length: 23
-	[2]	
-	[2]	353UDT/1.0 RDTACK 1 0
-
-	[2]	353NET/1.0 UCASTAPP
-	[2]	TTL: 9
-	[2]	Flood: 0
-	[2]	MessageID: :12000_190_1682701315.274297
-	[2]	From: :12000
-	[2]	To: :12004
-	[2]	Next-Layer: 1
-	[2]	Content-Length: 23
-	[2]	
-	[2]	353UDT/1.0 RDTACK 0 0
-
-	[2]	353NET/1.0 UCASTAPP
-	[2]	TTL: 9
-	[2]	Flood: 0
-	[2]	MessageID: :12000_193_1682701315.415889
-	[2]	From: :12000
-	[2]	To: :12004
-	[2]	Next-Layer: 1
-	[2]	Content-Length: 23
-	[2]	
-	[2]	353UDT/1.0 RDTACK 1 0
-
-	[2]	353NET/1.0 UCASTAPP
-	[2]	TTL: 9
-	[2]	Flood: 0
-	[2]	MessageID: :12000_196_1682701315.476282
-	[2]	From: :12000
-	[2]	To: :12004
-	[2]	Next-Layer: 1
-	[2]	Content-Length: 23
-	[2]	
-	[2]	353UDT/1.0 RDTACK 0 0
-
-	[2]	353NET/1.0 UCASTAPP
-	[2]	TTL: 9
-	[2]	Flood: 0
-	[2]	MessageID: :12000_199_1682701315.576841
-	[2]	From: :12000
-	[2]	To: :12004
-	[2]	Next-Layer: 1
-	[2]	Content-Length: 23
-	[2]	
-	[2]	353UDT/1.0 RDTACK 1 0
-
-	[2]	353NET/1.0 UCASTAPP
-	[2]	TTL: 9
-	[2]	Flood: 0
-	[2]	MessageID: :12000_202_1682701315.776231
-	[2]	From: :12000
-	[2]	To: :12004
-	[2]	Next-Layer: 1
-	[2]	Content-Length: 23
-	[2]	
-	[2]	353UDT/1.0 RDTACK 0 0
-
-[Fri Apr 28 2023 10:01:55.812626] i LSUPDATE :12000 9 1 6 {:12000_2} TODO: start time :12000 (:12002)
-	[2]	353NET/1.0 LSUPDATE
-	[2]	TTL: 9
-	[2]	Flood: 1;reason=2
-	[2]	MessageID: :12000_204_1682701315.812426
-	[2]	From: :12000
-	[2]	OriginStartTime: TODO: start time
-	[2]	Content-Length: 6
-	[2]	
-	[2]	:12002
-[Fri Apr 28 2023 10:01:55.813174] Socket-writing thread has terminated
-[Fri Apr 28 2023 10:01:55.813701] Socket-reading thread has joined with socket-writing thread
-[Fri Apr 28 2023 10:02:16.725660] CONNECT[3]: 127.0.0.1:12000
-[Fri Apr 28 2023 10:02:16.726215] r SAYHELLO :12002 1 - 0
-[Fri Apr 28 2023 10:02:16.726400] i SAYHELLO :12000 1 - 0
-	[3]	353NET/1.0 SAYHELLO
-	[3]	TTL: 0
-	[3]	Flood: 0
-	[3]	From: :12000
-	[3]	Content-Length: 0
- 	[3]	
-[Fri Apr 28 2023 10:02:16.726877] i LSUPDATE :12000 9 1 6 {:12000_2} TODO: start time :12000 (:12002)
-	[3]	353NET/1.0 LSUPDATE
-	[3]	TTL: 9
-	[3]	Flood: 1;reason=1
-	[3]	MessageID: :12000_208_1682701336.726366
-	[3]	From: :12000
-	[3]	OriginStartTime: TODO: start time
-	[3]	Content-Length: 6
-	[3]	
-	[3]	:12002
-[Fri Apr 28 2023 10:02:16.728447] r LSUPDATE :12002 9 1 13 {:12002_6} TODO: start time :12002 (:12000,:12004)
-[Fri Apr 28 2023 10:02:16.728498] r LSUPDATE :12000 8 1 13 {:12002_6} TODO: start time :12002 (:12000,:12004)
-[Fri Apr 28 2023 10:02:16.728562] i LSUPDATE :12000 9 1 6 {:12000_2} TODO: start time :12000 (:12002)
-	[3]	353NET/1.0 LSUPDATE
-	[3]	TTL: 9
-	[3]	Flood: 1;reason=3
-	[3]	MessageID: :12000_211_1682701336.728531
-	[3]	From: :12000
-	[3]	OriginStartTime: TODO: start time
-	[3]	Content-Length: 6
-	[3]	
-	[3]	:12002
-[Fri Apr 28 2023 10:02:16.729110] r LSUPDATE :12002 9 1 13 {:12002_1} TODO: start time :12002 (:12000,:12004)
-[Fri Apr 28 2023 10:02:16.729163] r LSUPDATE :12000 8 1 13 {:12002_1} TODO: start time :12002 (:12000,:12004)
-[Fri Apr 28 2023 10:02:16.729419] r LSUPDATE :12002 9 1 13 {:12002_1} TODO: start time :12002 (:12000,:12004)
-[Fri Apr 28 2023 10:02:16.729447] r LSUPDATE :12000 8 1 13 {:12002_1} TODO: start time :12002 (:12000,:12004)
-[Fri Apr 28 2023 10:02:16.730266] r LSUPDATE :12004 9 1 6 {:12004_1} TODO: start time :12004 (:12002)
-[Fri Apr 28 2023 10:02:16.730312] r LSUPDATE :12000 8 1 6 {:12004_1} TODO: start time :12004 (:12002)
-[Fri Apr 28 2023 10:02:16.730474] i LSUPDATE :12000 9 1 6 {:12000_2} TODO: start time :12000 (:12002)
-	[3]	353NET/1.0 LSUPDATE
-	[3]	TTL: 9
-	[3]	Flood: 1;reason=3
-	[3]	MessageID: :12000_216_1682701336.730343
-	[3]	From: :12000
-	[3]	OriginStartTime: TODO: start time
-	[3]	Content-Length: 6
-	[3]	
-	[3]	:12002
-[Fri Apr 28 2023 10:02:16.731878] r LSUPDATE :12002 9 1 13 {:12002_2} TODO: start time :12002 (:12000,:12004)
-[Fri Apr 28 2023 10:02:16.731923] r LSUPDATE :12000 8 1 13 {:12002_2} TODO: start time :12002 (:12000,:12004)
-[Fri Apr 28 2023 10:02:16.732563] r LSUPDATE :12004 9 1 6 {:12004_1} TODO: start time :12004 (:12002)
-[Fri Apr 28 2023 10:02:16.732619] r LSUPDATE :12000 8 1 6 {:12004_1} TODO: start time :12004 (:12002)
-[Fri Apr 28 2023 10:02:16.732895] r LSUPDATE :12004 9 1 6 {:12004_2} TODO: start time :12004 (:12002)
-[Fri Apr 28 2023 10:02:16.732955] r LSUPDATE :12000 8 1 6 {:12004_2} TODO: start time :12004 (:12002)
-	[3]	353NET/1.0 UCASTAPP
-	[3]	TTL: 9
-	[3]	Flood: 0
-	[3]	MessageID: :12000_224_1682701339.970833
-	[3]	From: :12000
-	[3]	To: :12004
-	[3]	Next-Layer: 1
-	[3]	Content-Length: 23
-	[3]	
-	[3]	353UDT/1.0 RDTACK 1 0
-
-	[3]	353NET/1.0 UCASTAPP
-	[3]	TTL: 9
-	[3]	Flood: 0
-	[3]	MessageID: :12000_227_1682701340.071724
-	[3]	From: :12000
-	[3]	To: :12004
-	[3]	Next-Layer: 1
-	[3]	Content-Length: 23
-	[3]	
-	[3]	353UDT/1.0 RDTACK 0 0
-
-	[3]	353NET/1.0 UCASTAPP
-	[3]	TTL: 9
-	[3]	Flood: 0
-	[3]	MessageID: :12000_229_1682701358.786267
-	[3]	From: :12000
-	[3]	To: :12002
-	[3]	Next-Layer: 2
-	[3]	Content-Length: 80
-	[3]	
-	[3]	353UDT/1.0 RDTDATA
-Seq-Number: 0
-RDT-App-Number: 0
-RDT-Content-Length: 1
-
-l
-	[3]	353NET/1.0 UCASTAPP
-	[3]	TTL: 9
-	[3]	Flood: 0
-	[3]	MessageID: :12000_232_1682701358.887382
-	[3]	From: :12000
-	[3]	To: :12002
-	[3]	Next-Layer: 2
-	[3]	Content-Length: 80
-	[3]	
-	[3]	353UDT/1.0 RDTDATA
-Seq-Number: 1
-RDT-App-Number: 0
+RDT-App-Number: 98
 RDT-Content-Length: 1
 
 e
-	[3]	353NET/1.0 UCASTAPP
-	[3]	TTL: 9
-	[3]	Flood: 0
-	[3]	MessageID: :12000_235_1682701358.988608
-	[3]	From: :12000
-	[3]	To: :12002
-	[3]	Next-Layer: 2
-	[3]	Content-Length: 80
-	[3]	
-	[3]	353UDT/1.0 RDTDATA
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_121_1682764281.088227
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 2
+	[2]	Content-Length: 81
+	[2]	
+	[2]	353UDT/1.0 RDTDATA
 Seq-Number: 0
-RDT-App-Number: 0
+RDT-App-Number: 98
 RDT-Content-Length: 1
 
-f
-	[3]	353NET/1.0 UCASTAPP
-	[3]	TTL: 9
-	[3]	Flood: 0
-	[3]	MessageID: :12000_238_1682701359.089668
-	[3]	From: :12000
-	[3]	To: :12002
-	[3]	Next-Layer: 2
-	[3]	Content-Length: 80
-	[3]	
-	[3]	353UDT/1.0 RDTDATA
+l
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_127_1682764281.661958
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 24
+	[2]	
+	[2]	353UDT/1.0 RDTACK 0 98
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_129_1682764282.088901
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 2
+	[2]	Content-Length: 81
+	[2]	
+	[2]	353UDT/1.0 RDTDATA
 Seq-Number: 1
-RDT-App-Number: 0
+RDT-App-Number: 98
 RDT-Content-Length: 1
 
-t
-	[3]	353NET/1.0 UCASTAPP
-	[3]	TTL: 9
-	[3]	Flood: 0
-	[3]	MessageID: :12000_241_1682701359.190926
-	[3]	From: :12000
-	[3]	To: :12002
-	[3]	Next-Layer: 2
-	[3]	Content-Length: 80
-	[3]	
-	[3]	353UDT/1.0 RDTDATA
+l
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_133_1682764282.662145
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 24
+	[2]	
+	[2]	353UDT/1.0 RDTACK 1 98
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_135_1682764283.089459
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 2
+	[2]	Content-Length: 81
+	[2]	
+	[2]	353UDT/1.0 RDTDATA
 Seq-Number: 0
-RDT-App-Number: 0
+RDT-App-Number: 98
+RDT-Content-Length: 1
+
+o
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_139_1682764283.663166
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 24
+	[2]	
+	[2]	353UDT/1.0 RDTACK 0 98
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_141_1682764284.090155
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 2
+	[2]	Content-Length: 81
+	[2]	
+	[2]	353UDT/1.0 RDTDATA
+Seq-Number: 1
+RDT-App-Number: 98
 RDT-Content-Length: 1
 
 
 
-[Fri Apr 28 2023 10:02:48.499675] Socket-writing thread has terminated
-[Fri Apr 28 2023 10:02:48.500168] Socket-reading thread has joined with socket-writing thread
-[Fri Apr 28 2023 10:02:48.500226] Reaper has joined with connection thread.
-[Fri Apr 28 2023 10:02:50.402963] STOP: port=12000
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_145_1682764284.095535
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 24
+	[2]	
+	[2]	353UDT/1.0 RDTACK 0 98
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_148_1682764284.663485
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 24
+	[2]	
+	[2]	353UDT/1.0 RDTACK 1 98
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_151_1682764285.140784
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 24
+	[2]	
+	[2]	353UDT/1.0 RDTACK 1 98
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_154_1682764285.709580
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 24
+	[2]	
+	[2]	353UDT/1.0 RDTACK 0 98
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_157_1682764286.096459
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 24
+	[2]	
+	[2]	353UDT/1.0 RDTACK 0 98
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_160_1682764286.663803
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 24
+	[2]	
+	[2]	353UDT/1.0 RDTACK 1 98
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_162_1682764286.664245
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 2
+	[2]	Content-Length: 81
+	[2]	
+	[2]	353UDT/1.0 RDTDATA
+Seq-Number: 0
+RDT-App-Number: 99
+RDT-Content-Length: 1
+
+h
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_168_1682764287.097613
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 24
+	[2]	
+	[2]	353UDT/1.0 RDTACK 1 98
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_170_1682764287.664730
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 2
+	[2]	Content-Length: 81
+	[2]	
+	[2]	353UDT/1.0 RDTDATA
+Seq-Number: 1
+RDT-App-Number: 99
+RDT-Content-Length: 1
+
+o
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_174_1682764288.097926
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 24
+	[2]	
+	[2]	353UDT/1.0 RDTACK 0 98
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_176_1682764288.665467
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 2
+	[2]	Content-Length: 81
+	[2]	
+	[2]	353UDT/1.0 RDTDATA
+Seq-Number: 0
+RDT-App-Number: 99
+RDT-Content-Length: 1
+
+w
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_180_1682764289.098316
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 24
+	[2]	
+	[2]	353UDT/1.0 RDTACK 1 98
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_182_1682764289.666013
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 2
+	[2]	Content-Length: 81
+	[2]	
+	[2]	353UDT/1.0 RDTDATA
+Seq-Number: 1
+RDT-App-Number: 99
+RDT-Content-Length: 1
+
+d
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_185_1682764290.666630
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 2
+	[2]	Content-Length: 81
+	[2]	
+	[2]	353UDT/1.0 RDTDATA
+Seq-Number: 0
+RDT-App-Number: 99
+RDT-Content-Length: 1
+
+y
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_188_1682764291.667282
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 2
+	[2]	Content-Length: 81
+	[2]	
+	[2]	353UDT/1.0 RDTDATA
+Seq-Number: 1
+RDT-App-Number: 99
+RDT-Content-Length: 1
+
+
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_191_1682764293.757628
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 2
+	[2]	Content-Length: 81
+	[2]	
+	[2]	353UDT/1.0 RDTDATA
+Seq-Number: 0
+RDT-App-Number: 98
+RDT-Content-Length: 1
+
+b
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_194_1682764294.758241
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 2
+	[2]	Content-Length: 81
+	[2]	
+	[2]	353UDT/1.0 RDTDATA
+Seq-Number: 1
+RDT-App-Number: 98
+RDT-Content-Length: 1
+
+y
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_200_1682764294.950885
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 24
+	[2]	
+	[2]	353UDT/1.0 RDTACK 0 98
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_202_1682764294.951245
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 2
+	[2]	Content-Length: 81
+	[2]	
+	[2]	353UDT/1.0 RDTDATA
+Seq-Number: 0
+RDT-App-Number: 99
+RDT-Content-Length: 1
+
+
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_205_1682764295.758680
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 2
+	[2]	Content-Length: 81
+	[2]	
+	[2]	353UDT/1.0 RDTDATA
+Seq-Number: 0
+RDT-App-Number: 98
+RDT-Content-Length: 1
+
+e
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_208_1682764296.759249
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 2
+	[2]	Content-Length: 81
+	[2]	
+	[2]	353UDT/1.0 RDTDATA
+Seq-Number: 1
+RDT-App-Number: 98
+RDT-Content-Length: 1
+
+
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_214_1682764296.813537
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 24
+	[2]	
+	[2]	353UDT/1.0 RDTACK 0 99
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_217_1682764297.814150
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 24
+	[2]	
+	[2]	353UDT/1.0 RDTACK 1 99
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_220_1682764298.814102
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 24
+	[2]	
+	[2]	353UDT/1.0 RDTACK 0 99
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_223_1682764299.909686
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 24
+	[2]	
+	[2]	353UDT/1.0 RDTACK 1 99
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_225_1682764304.320760
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 2
+	[2]	Content-Length: 81
+	[2]	
+	[2]	353UDT/1.0 RDTDATA
+Seq-Number: 0
+RDT-App-Number: 98
+RDT-Content-Length: 1
+
+e
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_228_1682764305.321248
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 2
+	[2]	Content-Length: 81
+	[2]	
+	[2]	353UDT/1.0 RDTDATA
+Seq-Number: 1
+RDT-App-Number: 98
+RDT-Content-Length: 1
+
+c
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_231_1682764306.321788
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 2
+	[2]	Content-Length: 81
+	[2]	
+	[2]	353UDT/1.0 RDTDATA
+Seq-Number: 0
+RDT-App-Number: 98
+RDT-Content-Length: 1
+
+h
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_234_1682764307.322266
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 2
+	[2]	Content-Length: 81
+	[2]	
+	[2]	353UDT/1.0 RDTDATA
+Seq-Number: 1
+RDT-App-Number: 98
+RDT-Content-Length: 1
+
+o
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_237_1682764308.322744
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 2
+	[2]	Content-Length: 81
+	[2]	
+	[2]	353UDT/1.0 RDTDATA
+Seq-Number: 0
+RDT-App-Number: 98
+RDT-Content-Length: 1
+
+a
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_240_1682764309.323441
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 2
+	[2]	Content-Length: 81
+	[2]	
+	[2]	353UDT/1.0 RDTDATA
+Seq-Number: 1
+RDT-App-Number: 98
+RDT-Content-Length: 1
+
+p
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_243_1682764310.324016
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 2
+	[2]	Content-Length: 81
+	[2]	
+	[2]	353UDT/1.0 RDTDATA
+Seq-Number: 0
+RDT-App-Number: 98
+RDT-Content-Length: 1
+
+p
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_246_1682764311.324465
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 2
+	[2]	Content-Length: 81
+	[2]	
+	[2]	353UDT/1.0 RDTDATA
+Seq-Number: 1
+RDT-App-Number: 98
+RDT-Content-Length: 1
+
+ 
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_249_1682764312.325029
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 2
+	[2]	Content-Length: 81
+	[2]	
+	[2]	353UDT/1.0 RDTDATA
+Seq-Number: 0
+RDT-App-Number: 98
+RDT-Content-Length: 1
+
+:
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_252_1682764313.325522
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 2
+	[2]	Content-Length: 81
+	[2]	
+	[2]	353UDT/1.0 RDTDATA
+Seq-Number: 1
+RDT-App-Number: 98
+RDT-Content-Length: 1
+
+1
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_255_1682764314.326195
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 2
+	[2]	Content-Length: 81
+	[2]	
+	[2]	353UDT/1.0 RDTDATA
+Seq-Number: 0
+RDT-App-Number: 98
+RDT-Content-Length: 1
+
+2
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_258_1682764315.326734
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 2
+	[2]	Content-Length: 81
+	[2]	
+	[2]	353UDT/1.0 RDTDATA
+Seq-Number: 1
+RDT-App-Number: 98
+RDT-Content-Length: 1
+
+0
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_261_1682764316.327266
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 2
+	[2]	Content-Length: 81
+	[2]	
+	[2]	353UDT/1.0 RDTDATA
+Seq-Number: 0
+RDT-App-Number: 98
+RDT-Content-Length: 1
+
+0
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_264_1682764317.327878
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 2
+	[2]	Content-Length: 81
+	[2]	
+	[2]	353UDT/1.0 RDTDATA
+Seq-Number: 1
+RDT-App-Number: 98
+RDT-Content-Length: 1
+
+2
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_267_1682764318.328388
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 2
+	[2]	Content-Length: 81
+	[2]	
+	[2]	353UDT/1.0 RDTDATA
+Seq-Number: 0
+RDT-App-Number: 98
+RDT-Content-Length: 1
+
+
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_273_1682764318.333212
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 24
+	[2]	
+	[2]	353UDT/1.0 RDTACK 0 99
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_276_1682764319.334645
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 24
+	[2]	
+	[2]	353UDT/1.0 RDTACK 1 99
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_279_1682764320.334918
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 24
+	[2]	
+	[2]	353UDT/1.0 RDTACK 0 99
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_282_1682764321.379752
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 24
+	[2]	
+	[2]	353UDT/1.0 RDTACK 1 99
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_285_1682764322.335944
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 24
+	[2]	
+	[2]	353UDT/1.0 RDTACK 0 99
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_288_1682764323.380710
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 24
+	[2]	
+	[2]	353UDT/1.0 RDTACK 1 99
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_291_1682764324.379741
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 24
+	[2]	
+	[2]	353UDT/1.0 RDTACK 0 99
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_294_1682764325.337745
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 24
+	[2]	
+	[2]	353UDT/1.0 RDTACK 1 99
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_297_1682764326.338489
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 24
+	[2]	
+	[2]	353UDT/1.0 RDTACK 0 99
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_300_1682764327.429830
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 24
+	[2]	
+	[2]	353UDT/1.0 RDTACK 1 99
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_303_1682764328.339633
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 24
+	[2]	
+	[2]	353UDT/1.0 RDTACK 0 99
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_306_1682764329.340682
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 24
+	[2]	
+	[2]	353UDT/1.0 RDTACK 1 99
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_309_1682764330.389776
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 24
+	[2]	
+	[2]	353UDT/1.0 RDTACK 0 99
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_312_1682764331.341162
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 24
+	[2]	
+	[2]	353UDT/1.0 RDTACK 1 99
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_315_1682764332.390820
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 24
+	[2]	
+	[2]	353UDT/1.0 RDTACK 0 99
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_317_1682764335.953164
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 2
+	[2]	Content-Length: 81
+	[2]	
+	[2]	353UDT/1.0 RDTDATA
+Seq-Number: 0
+RDT-App-Number: 98
+RDT-Content-Length: 1
+
+
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_323_1682764335.999899
+	[2]	From: :12000
+	[2]	To: :12004
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 24
+	[2]	
+	[2]	353UDT/1.0 RDTACK 0 99
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_325_1682764360.953192
+	[2]	From: :12000
+	[2]	To: :12002
+	[2]	Next-Layer: 2
+	[2]	Content-Length: 81
+	[2]	
+	[2]	353UDT/1.0 RDTDATA
+Seq-Number: 0
+RDT-App-Number: 98
+RDT-Content-Length: 1
+
+b
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_328_1682764361.953679
+	[2]	From: :12000
+	[2]	To: :12002
+	[2]	Next-Layer: 2
+	[2]	Content-Length: 81
+	[2]	
+	[2]	353UDT/1.0 RDTDATA
+Seq-Number: 1
+RDT-App-Number: 98
+RDT-Content-Length: 1
+
+y
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_331_1682764362.954349
+	[2]	From: :12000
+	[2]	To: :12002
+	[2]	Next-Layer: 2
+	[2]	Content-Length: 81
+	[2]	
+	[2]	353UDT/1.0 RDTDATA
+Seq-Number: 0
+RDT-App-Number: 98
+RDT-Content-Length: 1
+
+e
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_334_1682764363.954886
+	[2]	From: :12000
+	[2]	To: :12002
+	[2]	Next-Layer: 2
+	[2]	Content-Length: 81
+	[2]	
+	[2]	353UDT/1.0 RDTDATA
+Seq-Number: 1
+RDT-App-Number: 98
+RDT-Content-Length: 1
+
+n
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_337_1682764364.955508
+	[2]	From: :12000
+	[2]	To: :12002
+	[2]	Next-Layer: 2
+	[2]	Content-Length: 81
+	[2]	
+	[2]	353UDT/1.0 RDTDATA
+Seq-Number: 0
+RDT-App-Number: 98
+RDT-Content-Length: 1
+
+o
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_340_1682764365.956004
+	[2]	From: :12000
+	[2]	To: :12002
+	[2]	Next-Layer: 2
+	[2]	Content-Length: 81
+	[2]	
+	[2]	353UDT/1.0 RDTDATA
+Seq-Number: 1
+RDT-App-Number: 98
+RDT-Content-Length: 1
+
+w
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_343_1682764366.956534
+	[2]	From: :12000
+	[2]	To: :12002
+	[2]	Next-Layer: 2
+	[2]	Content-Length: 81
+	[2]	
+	[2]	353UDT/1.0 RDTDATA
+Seq-Number: 0
+RDT-App-Number: 98
+RDT-Content-Length: 1
+
+
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_349_1682764366.959760
+	[2]	From: :12000
+	[2]	To: :12002
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 24
+	[2]	
+	[2]	353UDT/1.0 RDTACK 0 99
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_352_1682764367.960039
+	[2]	From: :12000
+	[2]	To: :12002
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 24
+	[2]	
+	[2]	353UDT/1.0 RDTACK 1 99
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_355_1682764369.009912
+	[2]	From: :12000
+	[2]	To: :12002
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 24
+	[2]	
+	[2]	353UDT/1.0 RDTACK 0 99
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_358_1682764369.961356
+	[2]	From: :12000
+	[2]	To: :12002
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 24
+	[2]	
+	[2]	353UDT/1.0 RDTACK 1 99
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_361_1682764370.961979
+	[2]	From: :12000
+	[2]	To: :12002
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 24
+	[2]	
+	[2]	353UDT/1.0 RDTACK 0 99
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_364_1682764372.009708
+	[2]	From: :12000
+	[2]	To: :12002
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 24
+	[2]	
+	[2]	353UDT/1.0 RDTACK 1 99
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_367_1682764372.962951
+	[2]	From: :12000
+	[2]	To: :12002
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 24
+	[2]	
+	[2]	353UDT/1.0 RDTACK 0 99
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_369_1682764374.223829
+	[2]	From: :12000
+	[2]	To: :12002
+	[2]	Next-Layer: 2
+	[2]	Content-Length: 81
+	[2]	
+	[2]	353UDT/1.0 RDTDATA
+Seq-Number: 0
+RDT-App-Number: 98
+RDT-Content-Length: 1
+
+
+
+	[2]	353NET/1.0 UCASTAPP
+	[2]	TTL: 9
+	[2]	Flood: 0
+	[2]	MessageID: :12000_375_1682764374.226933
+	[2]	From: :12000
+	[2]	To: :12002
+	[2]	Next-Layer: 1
+	[2]	Content-Length: 24
+	[2]	
+	[2]	353UDT/1.0 RDTACK 0 99
+
+[Sat Apr 29 2023 03:32:59.174241] Socket-writing thread has terminated
+[Sat Apr 29 2023 03:32:59.174886] Socket-reading thread has joined with socket-writing thread
+[Sat Apr 29 2023 03:32:59.175007] Reaper has joined with connection thread.
+[Sat Apr 29 2023 03:33:00.499093] STOP: port=12000

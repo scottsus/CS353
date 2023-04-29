@@ -69,14 +69,6 @@ void reap_threads(vector<shared_ptr<Connection>> *conns)
     return;
 }
 
-void send_to_reaper(shared_ptr<Connection> conn)
-{
-    mut.lock();
-    reaper_q.push(conn);
-    reaper_cv.notify_one();
-    mut.unlock();
-}
-
 shared_ptr<Connection> await_to_reap()
 {
     unique_lock<mutex> lock(mut);
@@ -86,4 +78,12 @@ shared_ptr<Connection> await_to_reap()
     shared_ptr<Connection> conn = reaper_q.front();
     reaper_q.pop();
     return conn;
+}
+
+void send_to_reaper(shared_ptr<Connection> conn)
+{
+    mut.lock();
+    reaper_q.push(conn);
+    reaper_cv.notify_one();
+    mut.unlock();
 }

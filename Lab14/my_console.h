@@ -28,6 +28,8 @@ extern bool last_console_output_was_right_arrow;
 
 void handle_p2p_console(string nodeid, vector<shared_ptr<Connection>> *conns);
 void handle_http_console(vector<shared_ptr<Connection>> *conns);
+
+void rdt_send(string nodeid, string target_nodeid, string message, int app_num, shared_ptr<Connection> next_hop_conn, vector<shared_ptr<Connection>> *conns);
 bool has_active_conns(vector<shared_ptr<Connection>> conns);
 bool is_digit(string str);
 

@@ -15,8 +15,9 @@
 #include "my_server.h"
 #include "my_http.h"
 #include "my_p2p.h"
-#include "my_reaper.h"
+#include "my_echoserver.h"
 #include "my_message.h"
+#include "my_reaper.h"
 #include "my_utils.h"
 
 using namespace std;
@@ -50,8 +51,9 @@ void run_p2p_server(string config_file)
     }
 
     thread console_thread(handle_p2p_console, nodeid, &conns);
-    thread reaper_thread(reap_threads, &conns);
+    thread echo_thread(run_echo_server, nodeid, &conns);
     thread neighbors_thread(find_neighbors, nodeid, config["topology"][nodeid], &conns);
+    thread reaper_thread(reap_threads, &conns);
 
     while (true)
     {
@@ -82,8 +84,9 @@ void run_p2p_server(string config_file)
         mut.unlock();
     }
     console_thread.join();
-    reaper_thread.join();
+    echo_thread.join();
     neighbors_thread.join();
+    reaper_thread.join();
 
     log("STOP: port=" + port);
 }

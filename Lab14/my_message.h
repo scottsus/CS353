@@ -25,11 +25,6 @@ protected:
 public:
     Message();
     Message(string message_type, int content_len);
-    // Message(int ttl, int flood_reason, string sender_nodeid, string origin_nodeid, string message_body, int content_len);
-    // Message(int ttl, int flood_reason, string message_id, string sender_nodeid, string target_nodeid, string origin_nodeid, string origin_start_time, string message_body, int content_len);
-    // Message(string neighbor_nodeid, shared_ptr<Message> old_message);
-    // Message(int ttl, string src_nodeid, string dest_nodeid, int next_layer, int content_len, string message_body);
-    // Message(int ttl, string src_nodeid, string dest_nodeid, int next_layer);
 
     string get_message_type();
     int get_content_len();

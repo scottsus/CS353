@@ -15,12 +15,12 @@ using namespace std;
 #include "my_connection.h"
 
 extern mutex mut;
-extern queue<shared_ptr<Connection>> reaper_q;
 extern condition_variable reaper_cv;
+extern queue<shared_ptr<Connection>> reaper_q;
 extern int server_socketfd;
 
 void reap_threads(vector<shared_ptr<Connection>> *conns);
-void send_to_reaper(shared_ptr<Connection> conn);
 shared_ptr<Connection> await_to_reap();
+void send_to_reaper(shared_ptr<Connection> conn);
 
 #endif
